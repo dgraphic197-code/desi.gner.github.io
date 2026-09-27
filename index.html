@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DESIGNER 197 | Creative Graphic Design Studio</title>
+
+<meta name="description" content="DESIGNER 197 creates professional branding, logo, social media, packaging, poster and marketing designs for businesses and brands.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:#fff;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:999;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(8,8,8,.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#aaa;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:28px;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#aaa;
+}
+
+/* ================= HERO BANNER ================= */
+
+.hero{
+    min-height:100vh;
+    padding:140px 7% 80px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at 80% 30%, #383838 0%, transparent 25%),
+    radial-gradient(circle at 20% 80%, #222 0%, transparent 25%),
+    linear-gradient(135deg,#080808,#181818);
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    right:-180px;
+    top:150px;
+}
+
+.hero-content{
+    width:60%;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #444;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:12px;
+    letter-spacing:2px;
+    color:#bbb;
+    margin-bottom:25px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-size:clamp(50px,8vw,100px);
+    line-height:.92;
+    letter-spacing:-4px;
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    color:#888;
+}
+
+.hero p{
+    max-width:650px;
+    color:#aaa;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 27px;
+    text-decoration:none;
+    background:#fff;
+    color:#000;
+    font-weight:bold;
+    border-radius:4px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn.dark{
+    background:transparent;
+    border:1px solid #555;
+    color:#fff;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:100px 7%;
+}
+
+.section-label{
+    color:#888;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-size:50px;
+    margin-bottom:18px;
+}
+
+.section-description{
+    max-width:700px;
+    color:#999;
+    line-height:1.8;
+    margin-bottom:50px;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+    background:#101010;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.service{
+    background:#171717;
+    padding:35px;
+    min-height:210px;
+    border:1px solid #292929;
+    transition:.35s;
+}
+
+.service:hover{
+    transform:translateY(-8px);
+    border-color:#777;
+}
+
+.service-number{
+    color:#666;
+    font-size:13px;
+    margin-bottom:30px;
+}
+
+.service h3{
+    font-size:22px;
+    margin-bottom:14px;
+}
+
+.service p{
+    color:#999;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* ================= BANNER / CTA ================= */
+
+.design-banner{
+    padding:0 7% 100px;
+}
+
+.banner-box{
+    min-height:400px;
+    display:flex;
+    align-items:center;
+    padding:60px;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(120deg,#222,#0d0d0d);
+    border:1px solid #333;
+}
+
+.banner-box:before{
+    content:"DESIGN";
+    position:absolute;
+    right:-40px;
+    bottom:-80px;
+    font-size:180px;
+    font-weight:900;
+    color:rgba(255,255,255,.035);
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+    max-width:650px;
+}
+
+.banner-content h2{
+    font-size:55px;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.banner-content p{
+    color:#aaa;
+    margin-bottom:30px;
+}
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio{
+    background:#080808;
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.project{
+    min-height:320px;
+    position:relative;
+    overflow:hidden;
+    background:#1b1b1b;
+    border:1px solid #292929;
+}
+
+.project img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.project:hover img{
+    transform:scale(1.06);
+}
+
+.project-info{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:25px;
+    background:linear-gradient(transparent,rgba(0,0,0,.95));
+}
+
+.project-info h3{
+    font-size:20px;
+}
+
+.project-info p{
+    color:#aaa;
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:#111;
+}
+
+.about-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-text p{
+    color:#aaa;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.skill{
+    padding:22px;
+    background:#181818;
+    border:1px solid #292929;
+}
+
+.skill strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.skill span{
+    color:#888;
+    font-size:13px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    text-align:center;
+    background:
+    radial-gradient(circle,#252525,#090909 65%);
+}
+
+.contact .section-description{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:30px 7%;
+    background:#050505;
+    border-top:1px solid #222;
+    display:flex;
+    justify-content:space-between;
+    color:#777;
+    font-size:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .services-grid,
+    .portfolio-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:70px 5%;
+    }
+
+    .hero{
+        padding:130px 5% 70px;
+    }
+
+    .hero h1{
+        font-size:52px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .section-title{
+        font-size:38px;
+    }
+
+    .services-grid,
+    .portfolio-grid{
+        grid-template-columns:1fr;
+    }
+
+    .banner-box{
+        padding:35px;
+    }
+
+    .banner-content h2{
+        font-size:40px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="logo">
+    DESIGNER <span>197</span>
+</div>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<!-- ================= HERO BANNER ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">
+    Graphic Design Studio
+</div>
+
+<h1>
+    Creative<br>
+    <span>Designs.</span><br>
+    Real Impact.
+</h1>
+
+<p>
+    I create modern and professional visual designs for brands,
+    businesses and creators — from logos and branding to social
+    media creatives, packaging, posters and marketing materials.
+</p>
+
+<div class="buttons">
+
+<a href="#contact" class="btn">
+    Start a Project
+</a>
+
+<a href="#portfolio" class="btn dark">
+    View My Work
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services" id="services">
+
+<div class="section-label">
+    What I Do
+</div>
+
+<h2 class="section-title">
+    Design Services
+</h2>
+
+<p class="section-description">
+    Creative solutions designed to help your brand look professional,
+    consistent and memorable.
+</p>
+
+
+<div class="services-grid">
+
+<div class="service">
+<div class="service-number">01</div>
+<h3>Logo & Branding</h3>
+<p>
+Professional logos, brand identity, typography and visual direction.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">02</div>
+<h3>Social Media Design</h3>
+<p>
+Instagram posts, advertisements, promotional creatives and banners.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">03</div>
+<h3>Poster & Banner</h3>
+<p>
+Creative posters, event graphics, advertisements and promotional banners.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">04</div>
+<h3>Packaging Design</h3>
+<p>
+Product packaging, labels and professional product presentation.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">05</div>
+<h3>Catalogue & PDF</h3>
+<p>
+Business catalogues, brochures, price lists and professional PDFs.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">06</div>
+<h3>Photo Editing</h3>
+<p>
+Product editing, background removal, retouching and image enhancement.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BIG BANNER ================= -->
+
+<section class="design-banner">
+
+<div class="banner-box">
+
+<div class="banner-content">
+
+<div class="section-label">
+    Your Brand Deserves Better
+</div>
+
+<h2>
+    Let's Create Something<br>
+    Great Together.
+</h2>
+
+<p>
+    Have a brand, product or business that needs professional
+    visual design? Let's turn your idea into powerful visuals.
+</p>
+
+<a href="#contact" class="btn">
+    Get a Design Quote
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PORTFOLIO ================= -->
+
+<section class="portfolio" id="portfolio">
+
+<div class="section-label">
+    Selected Work
+</div>
+
+<h2 class="section-title">
+    My Portfolio
+</h2>
+
+<p class="section-description">
+    A selection of branding, packaging, social media and graphic
+    design projects.
+</p>
+
+
+<div class="portfolio-grid">
+
+
+<!-- PROJECT 1 -->
+
+<div class="project">
+
+<img src="https://placehold.co/800x900/181818/ffffff?text=LOGO+%26+BRANDING"
+alt="Logo and Branding Design">
+
+<div class="project-info">
+<h3>Logo & Branding</h3>
+<p>Brand Identity</p>
+</div>
+
+</div>
+
+
+<!-- PROJECT 2 -->
+
+<div class="project">
+
+<img src="https://placehold.co/800x900/202020/ffffff?text=PACKAGING+DESIGN"
+alt="Packaging Design">
+
+<div class="project-info">
+<h3>Packaging Design</h3>
+<p>Product Packaging</p>
+</div>
+
+</div>
+
+
+<!-- PROJECT 3 -->
+
+<div class="project">
+
+<img src="https://placehold.co/800x900/252525/ffffff?text=SOCIAL+MEDIA"
+alt="Social Media Design">
+
+<div class="project-info">
+<h3>Social Media</h3>
+<p>Marketing Creative</p>
+</div>
+
+</div>
+
+
+<!-- PROJECT 4 -->
+
+<div class="project">
+
+<img src="https://placehold.co/800x900/303030/ffffff?text=POSTER+DESIGN"
+alt="Poster Design">
+
+<div class="project-info">
+<h3>Poster Design</h3>
+<p>Advertising</p>
+</div>
+
+</div>
+
+
+<!-- PROJECT 5 -->
+
+<div class="project">
+
+<img src="https://placehold.co/800x900/202020/ffffff?text=PRODUCT+DESIGN"
+alt="Product Design">
+
+<div class="project-info">
+<h3>Product Design</h3>
+<p>Creative Design</p>
+</div>
+
+</div>
+
+
+<!-- PROJECT 6 -->
+
+<div class="project">
+
+<img src="https://placehold.co/800x900/181818/ffffff?text=CATALOGUE+DESIGN"
+alt="Catalogue Design">
+
+<div class="project-info">
+<h3>Catalogue Design</h3>
+<p>Business Materials</p>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+<div class="about-container">
+
+<div>
+
+<div class="section-label">
+    About Me
+</div>
+
+<h2 class="section-title">
+    Designer Behind<br>
+    The Work.
+</h2>
+
+</div>
+
+
+<div class="about-text">
+
+<p>
+I'm Harsh, a graphic designer focused on creating clean,
+modern and professional visual designs for brands and businesses.
+</p>
+
+<p>
+I work with Photoshop and Canva to create branding,
+social media creatives, posters, packaging, catalogues
+and marketing materials.
+</p>
+
+</div>
+
+</div>
+
+
+<br><br>
+
+
+<div class="skills">
+
+<div class="skill">
+<strong>Adobe Photoshop</strong>
+<span>Design & Photo Editing</span>
+</div>
+
+<div class="skill">
+<strong>Canva</strong>
+<span>Social Media & Marketing Design</span>
+</div>
+
+<div class="skill">
+<strong>Branding</strong>
+<span>Logo & Visual Identity</span>
+</div>
+
+<div class="skill">
+<strong>Print Design</strong>
+<span>Posters, Packaging & Catalogues</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+<div class="section-label">
+    Start a Project
+</div>
+
+<h2 class="section-title">
+    Have a Design Project?
+</h2>
+
+<p class="section-description">
+
+Tell me about your project, design requirements and deadline.
+I'll get back to you to discuss the project and pricing.
+
+</p>
+
+
+<div class="contact-buttons">
+
+<!-- CHANGE YOUR WHATSAPP NUMBER -->
+
+<a class="btn"
+href="https://wa.me/91XXXXXXXXXX"
+target="_blank">
+
+WhatsApp Me
+
+</a>
+
+
+<!-- CHANGE YOUR INSTAGRAM -->
+
+<a class="btn dark"
+href="https://instagram.com/YOUR_INSTAGRAM"
+target="_blank">
+
+Instagram
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div>
+© 2026 DESIGNER 197
+</div>
+
+<div>
+Graphic Design • Branding • Creative
+</div>
+
+</footer>
+
+
+</body>
+</html>
