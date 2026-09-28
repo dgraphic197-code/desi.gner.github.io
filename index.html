@@ -3,942 +3,881 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DESIGNER 197 | Creative Graphic Designer</title>
+
+    <meta name="description"
+        content="DESIGNER 197 creates professional branding, logo, social media, packaging, poster and marketing designs for businesses and brands.">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            background:#080812;
+            color:#fff;
+            overflow-x:hidden;
+        }
+
+        /* ================= HEADER ================= */
+
+        header{
+            position:fixed;
+            width:100%;
+            top:0;
+            left:0;
+            z-index:999;
+            padding:18px 7%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            background:rgba(8,8,18,.82);
+            backdrop-filter:blur(18px);
+
+            border-bottom:1px solid rgba(255,255,255,.08);
+        }
+
+        .logo{
+            font-size:24px;
+            font-weight:900;
+            letter-spacing:2px;
+
+            background:linear-gradient(
+                90deg,
+                #00eaff,
+                #8b5cf6,
+                #ff3cac
+            );
+
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .logo span{
+            color:#fff;
+        }
+
+        nav a{
+            color:#fff;
+            text-decoration:none;
+            margin-left:28px;
+            font-size:14px;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#00eaff;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero{
+            min-height:100vh;
+            padding:150px 7% 100px;
+            display:flex;
+            align-items:center;
+            position:relative;
+            overflow:hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 25%,
+                    rgba(0,234,255,.20),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(139,92,246,.28),
+                    transparent 30%
+                ),
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+                radial-gradient(
+                    circle at 70% 85%,
+                    rgba(255,60,172,.20),
+                    transparent 28%
+                ),
 
-<title>DESIGNER 197 | Creative Graphic Designer</title>
+                linear-gradient(
+                    135deg,
+                    #080812,
+                    #11112a,
+                    #080812
+                );
+        }
 
-<meta name="description"
-content="DESIGNER 197 creates professional branding, logo, social media, packaging, poster and marketing designs for businesses and brands.">
 
+        /* colorful glow circles */
 
-<style>
+        .hero:before{
+            content:"";
+            position:absolute;
+            width:450px;
+            height:450px;
+            border-radius:50%;
 
-/* ================= GLOBAL ================= */
+            background:linear-gradient(
+                135deg,
+                #00eaff,
+                #8b5cf6,
+                #ff3cac
+            );
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+            filter:blur(120px);
+            opacity:.18;
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#08080f;
-    color:#fff;
-    overflow-x:hidden;
-}
+            right:-100px;
+            top:100px;
+        }
 
-a{
-    text-decoration:none;
-}
 
+        .hero:after{
+            content:"";
+            position:absolute;
+            width:350px;
+            height:350px;
+            border-radius:50%;
 
-/* ================= HEADER ================= */
+            background:#ff8a00;
+            filter:blur(120px);
+            opacity:.10;
 
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    z-index:999;
+            left:-100px;
+            bottom:50px;
+        }
 
-    padding:18px 7%;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+        .hero-content{
+            width:75%;
+            max-width:900px;
+            position:relative;
+            z-index:3;
+        }
 
-    background:rgba(8,8,15,.82);
-    backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
+        .badge{
+            display:inline-block;
 
-.logo{
-    font-size:24px;
-    font-weight:900;
-    letter-spacing:2px;
-}
+            padding:10px 18px;
 
-.logo span{
-    background:linear-gradient(
-        90deg,
-        #ff3cac,
-        #784ba0,
-        #2b86c5
-    );
+            border-radius:30px;
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+            font-size:12px;
+            letter-spacing:2px;
 
-nav a{
-    color:#fff;
-    margin-left:28px;
-    font-size:14px;
-    transition:.3s;
-}
+            color:#fff;
 
-nav a:hover{
-    color:#ff4ecd;
-}
+            border:1px solid rgba(0,234,255,.5);
 
+            background:rgba(0,234,255,.08);
 
-/* ================= HERO ================= */
+            margin-bottom:25px;
 
-.hero{
-    min-height:100vh;
+            text-transform:uppercase;
 
-    padding:150px 7% 90px;
+            box-shadow:
+                0 0 25px rgba(0,234,255,.12);
+        }
 
-    display:flex;
-    align-items:center;
 
-    position:relative;
-    overflow:hidden;
+        .hero h1{
+            font-size:clamp(55px,9vw,110px);
+            line-height:.90;
+            letter-spacing:-5px;
+            margin-bottom:30px;
+        }
 
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(255,60,172,.20),
-            transparent 28%
-        ),
 
-        radial-gradient(
-            circle at 85% 25%,
-            rgba(0,210,255,.20),
-            transparent 28%
-        ),
+        .hero h1 span{
+            background:
+                linear-gradient(
+                    90deg,
+                    #00eaff,
+                    #8b5cf6,
+                    #ff3cac,
+                    #ff8a00
+                );
 
-        radial-gradient(
-            circle at 70% 90%,
-            rgba(124,58,237,.18),
-            transparent 30%
-        ),
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
 
-        linear-gradient(
-            135deg,
-            #08080f,
-            #111124
-        );
-}
 
+        .hero p{
+            max-width:700px;
+            color:#b9b9c9;
+            font-size:18px;
+            line-height:1.8;
+            margin-bottom:35px;
+        }
 
-/* colorful glow circles */
 
-.hero:before{
-    content:"";
+        .buttons{
+            display:flex;
+            gap:15px;
+            flex-wrap:wrap;
+        }
 
-    position:absolute;
 
-    width:450px;
-    height:450px;
+        .btn{
+            display:inline-block;
+            padding:15px 28px;
 
-    right:-150px;
-    top:-120px;
+            text-decoration:none;
 
-    border-radius:50%;
+            background:
+                linear-gradient(
+                    90deg,
+                    #00eaff,
+                    #8b5cf6,
+                    #ff3cac
+                );
 
-    background:
-        linear-gradient(
-            135deg,
-            #ff3cac,
-            #784ba0,
-            #2b86c5
-        );
+            color:#fff;
 
-    opacity:.12;
+            font-weight:bold;
 
-    filter:blur(20px);
-}
+            border-radius:8px;
 
+            transition:.3s;
 
-.hero:after{
-    content:"";
+            box-shadow:
+                0 10px 30px rgba(139,92,246,.25);
+        }
 
-    position:absolute;
 
-    width:350px;
-    height:350px;
+        .btn:hover{
+            transform:translateY(-4px) scale(1.02);
 
-    left:-150px;
-    bottom:-120px;
+            box-shadow:
+                0 15px 40px rgba(255,60,172,.30);
+        }
 
-    border-radius:50%;
 
-    background:
-        linear-gradient(
-            135deg,
-            #00dbde,
-            #fc00ff
-        );
+        .btn.dark{
+            background:rgba(255,255,255,.03);
 
-    opacity:.10;
+            border:1px solid rgba(255,255,255,.2);
 
-    filter:blur(20px);
-}
+            color:#fff;
 
+            box-shadow:none;
+        }
 
-/* HERO CONTENT */
 
-.hero-content{
-    width:75%;
+        .btn.dark:hover{
+            border-color:#00eaff;
+            color:#00eaff;
+        }
 
-    position:relative;
 
-    z-index:3;
-}
+        /* ================= SECTIONS ================= */
 
+        section{
+            padding:100px 7%;
+        }
 
-.badge{
-    display:inline-block;
 
-    padding:9px 17px;
+        .section-label{
+            color:#00eaff;
 
-    border-radius:30px;
+            text-transform:uppercase;
 
-    font-size:12px;
+            letter-spacing:4px;
 
-    letter-spacing:2px;
+            font-size:12px;
 
-    color:#fff;
+            margin-bottom:12px;
+        }
 
-    margin-bottom:28px;
 
-    border:1px solid rgba(255,255,255,.2);
+        .section-title{
+            font-size:50px;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,60,172,.15),
-            rgba(0,210,255,.15)
-        );
+            margin-bottom:18px;
 
-    box-shadow:
-        0 0 25px rgba(255,60,172,.08);
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #aaa
+                );
 
-    text-transform:uppercase;
-}
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
 
 
-.hero h1{
-    font-size:clamp(50px,8vw,105px);
+        .section-description{
+            max-width:700px;
 
-    line-height:.92;
+            color:#999;
 
-    letter-spacing:-5px;
+            line-height:1.8;
 
-    margin-bottom:30px;
-}
+            margin-bottom:50px;
+        }
 
 
-.hero h1 .gradient-text{
+        /* ================= SERVICES ================= */
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff3cac,
-            #784ba0,
-            #2b86c5,
-            #00dbde
-        );
+        .services{
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d0d1c,
+                    #111127
+                );
+        }
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
 
+        .services-grid{
+            display:grid;
 
-.hero p{
-    max-width:680px;
+            grid-template-columns:
+                repeat(3,1fr);
 
-    color:#b6b6c5;
+            gap:20px;
+        }
 
-    font-size:18px;
 
-    line-height:1.8;
+        .service{
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.06),
+                    rgba(255,255,255,.015)
+                );
 
-    margin-bottom:35px;
-}
+            padding:35px;
 
+            min-height:210px;
 
-/* ================= BUTTONS ================= */
+            border:1px solid rgba(255,255,255,.09);
 
-.buttons{
-    display:flex;
+            border-radius:14px;
 
-    gap:15px;
+            transition:.35s;
 
-    flex-wrap:wrap;
-}
+            position:relative;
 
+            overflow:hidden;
+        }
 
-.btn{
-    display:inline-block;
 
-    padding:15px 28px;
+        .service:before{
+            content:"";
 
-    color:#fff;
+            position:absolute;
 
-    font-weight:bold;
+            width:120px;
+            height:120px;
 
-    border-radius:7px;
+            border-radius:50%;
 
-    transition:.3s;
+            background:#8b5cf6;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff3cac,
-            #784ba0,
-            #2b86c5
-        );
+            filter:blur(70px);
 
-    box-shadow:
-        0 10px 30px rgba(255,60,172,.18);
-}
+            opacity:.15;
 
+            right:-40px;
+            top:-40px;
+        }
 
-.btn:hover{
-    transform:translateY(-4px);
 
-    box-shadow:
-        0 15px 35px rgba(0,210,255,.20);
-}
+        .service:nth-child(2):before{
+            background:#00eaff;
+        }
 
 
-.btn.dark{
-    background:rgba(255,255,255,.04);
+        .service:nth-child(3):before{
+            background:#ff3cac;
+        }
 
-    border:1px solid rgba(255,255,255,.18);
 
-    color:#fff;
+        .service:nth-child(4):before{
+            background:#ff8a00;
+        }
 
-    box-shadow:none;
-}
 
+        .service:nth-child(5):before{
+            background:#00ff9d;
+        }
 
-.btn.dark:hover{
-    border-color:#ff3cac;
-    background:rgba(255,60,172,.08);
-}
 
+        .service:nth-child(6):before{
+            background:#8b5cf6;
+        }
 
-/* ================= SECTIONS ================= */
 
-section{
-    padding:100px 7%;
-}
+        .service:hover{
+            transform:translateY(-8px);
 
+            border-color:#00eaff;
 
-.section-label{
-    color:#aaa;
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.35);
+        }
 
-    text-transform:uppercase;
 
-    letter-spacing:4px;
+        .service-number{
+            color:#00eaff;
 
-    font-size:12px;
+            font-size:13px;
 
-    margin-bottom:12px;
-}
+            margin-bottom:30px;
+        }
 
 
-.section-title{
-    font-size:50px;
+        .service h3{
+            font-size:22px;
 
-    margin-bottom:18px;
+            margin-bottom:14px;
+        }
 
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #b6a7ff
-        );
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+        .service p{
+            color:#999;
 
+            font-size:14px;
 
-.section-description{
-    max-width:700px;
+            line-height:1.7;
+        }
 
-    color:#999aaa;
 
-    line-height:1.8;
+        /* ================= BANNER ================= */
 
-    margin-bottom:50px;
-}
+        .design-banner{
+            padding:100px 7%;
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #080812,
+                    #11112a
+                );
+        }
 
-/* ================= SERVICES ================= */
 
-.services{
-    background:
-        linear-gradient(
-            180deg,
-            #0b0b14,
-            #10101d
-        );
-}
+        .banner-box{
+            min-height:400px;
 
+            display:flex;
 
-.services-grid{
-    display:grid;
+            align-items:center;
 
-    grid-template-columns:
-        repeat(3,1fr);
+            padding:60px;
 
-    gap:20px;
-}
+            position:relative;
 
+            overflow:hidden;
 
-.service{
-    position:relative;
+            border-radius:20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #171725,
-            #101018
-        );
+            border:1px solid rgba(255,255,255,.10);
 
-    padding:35px;
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(0,234,255,.18),
+                    transparent 30%
+                ),
 
-    min-height:220px;
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(255,60,172,.20),
+                    transparent 30%
+                ),
 
-    border:1px solid #29293c;
+                linear-gradient(
+                    120deg,
+                    #15152d,
+                    #0b0b16
+                );
 
-    border-radius:12px;
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.35);
+        }
 
-    overflow:hidden;
 
-    transition:.35s;
-}
+        .banner-box:after{
+            content:"DESIGN";
 
+            position:absolute;
 
-.service:before{
-    content:"";
+            right:-30px;
+            bottom:-70px;
 
-    position:absolute;
+            font-size:180px;
 
-    width:100px;
-    height:100px;
+            font-weight:900;
 
-    right:-40px;
-    top:-40px;
+            color:rgba(255,255,255,.025);
+        }
 
-    border-radius:50%;
 
-    background:
-        linear-gradient(
-            135deg,
-            #ff3cac,
-            #2b86c5
-        );
+        .banner-content{
+            position:relative;
 
-    opacity:.12;
+            z-index:2;
 
-    filter:blur(5px);
-}
+            max-width:650px;
+        }
 
 
-.service:hover{
-    transform:translateY(-8px);
+        .banner-content h2{
+            font-size:55px;
 
-    border-color:#ff3cac;
+            line-height:1;
 
-    box-shadow:
-        0 15px 40px rgba(255,60,172,.08);
-}
+            margin-bottom:20px;
+        }
 
 
-.service-number{
-    color:#ff55bd;
+        .banner-content p{
+            color:#aaa;
 
-    font-size:13px;
+            margin-bottom:30px;
 
-    margin-bottom:30px;
-}
+            line-height:1.7;
+        }
 
 
-.service h3{
-    font-size:22px;
+        /* ================= PORTFOLIO ================= */
 
-    margin-bottom:14px;
-}
+        .portfolio{
+            background:#080812;
+        }
 
 
-.service p{
-    color:#999aaa;
+        .portfolio-grid{
+            display:grid;
 
-    font-size:14px;
+            grid-template-columns:
+                repeat(3,1fr);
 
-    line-height:1.7;
-}
+            gap:18px;
+        }
 
 
-/* ================= BIG BANNER ================= */
+        .project{
+            height:360px;
 
-.design-banner{
-    padding:0 7% 100px;
-}
+            position:relative;
 
+            overflow:hidden;
 
-.banner-box{
-    min-height:400px;
+            background:#11111d;
 
-    display:flex;
+            border:1px solid rgba(255,255,255,.10);
 
-    align-items:center;
+            border-radius:12px;
 
-    padding:60px;
+            transition:.35s;
+        }
 
-    position:relative;
 
-    overflow:hidden;
+        .project:hover{
+            transform:translateY(-7px);
 
-    border-radius:20px;
+            border-color:#8b5cf6;
 
-    border:1px solid rgba(255,255,255,.12);
+            box-shadow:
+                0 20px 50px rgba(139,92,246,.15);
+        }
 
-    background:
 
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(0,219,222,.25),
-            transparent 30%
-        ),
+        .project img{
+            width:100%;
 
-        radial-gradient(
-            circle at 10% 90%,
-            rgba(255,60,172,.25),
-            transparent 35%
-        ),
+            height:100%;
 
-        linear-gradient(
-            135deg,
-            #18152b,
-            #0c0c16
-        );
-}
+            object-fit:contain;
 
+            display:block;
 
-.banner-box:after{
-    content:"DESIGN";
+            background:#11111d;
 
-    position:absolute;
+            transition:.3s;
+        }
 
-    right:-30px;
-    bottom:-75px;
 
-    font-size:180px;
+        .project:hover img{
+            transform:scale(1.03);
+        }
 
-    font-weight:900;
 
-    color:rgba(255,255,255,.035);
-}
+        .project-info{
+            position:absolute;
 
+            left:0;
+            right:0;
+            bottom:0;
 
-.banner-content{
-    position:relative;
+            padding:25px;
 
-    z-index:2;
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(5,5,15,.97)
+                );
+        }
 
-    max-width:650px;
-}
 
+        .project-info h3{
+            font-size:20px;
+        }
 
-.banner-content h2{
-    font-size:55px;
 
-    line-height:1;
+        .project-info p{
+            color:#aaa;
 
-    margin-bottom:20px;
-}
+            font-size:13px;
 
+            margin-top:5px;
+        }
 
-.banner-content p{
-    color:#aaaabc;
 
-    margin-bottom:30px;
+        /* ================= ABOUT ================= */
 
-    line-height:1.7;
-}
+        .about{
+            background:
+                linear-gradient(
+                    135deg,
+                    #111127,
+                    #0b0b17
+                );
+        }
 
 
-/* ================= PORTFOLIO ================= */
+        .about-container{
+            display:grid;
 
-.portfolio{
-    background:#08080f;
-}
+            grid-template-columns:
+                1fr 1fr;
 
+            gap:70px;
 
-.portfolio-grid{
-    display:grid;
+            align-items:center;
+        }
 
-    grid-template-columns:
-        repeat(3,1fr);
 
-    gap:18px;
-}
+        .about-text p{
+            color:#aaa;
 
+            line-height:1.9;
 
-.project{
-    height:360px;
+            margin-bottom:20px;
+        }
 
-    position:relative;
 
-    overflow:hidden;
+        .skills{
+            display:grid;
 
-    background:
-        linear-gradient(
-            145deg,
-            #181825,
-            #0e0e16
-        );
+            grid-template-columns:
+                1fr 1fr;
 
-    border:1px solid #29293c;
+            gap:15px;
+        }
 
-    border-radius:12px;
 
-    transition:.35s;
-}
+        .skill{
+            padding:22px;
 
+            background:
+                rgba(255,255,255,.04);
 
-.project:before{
-    content:"";
+            border:1px solid rgba(255,255,255,.08);
 
-    position:absolute;
+            border-radius:10px;
 
-    inset:0;
+            transition:.3s;
+        }
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,60,172,.08),
-            rgba(0,219,222,.08)
-        );
 
-    opacity:0;
+        .skill:hover{
+            border-color:#ff3cac;
 
-    transition:.3s;
+            transform:translateY(-4px);
+        }
 
-    z-index:2;
-}
 
+        .skill strong{
+            display:block;
 
-.project:hover{
-    transform:translateY(-7px);
+            margin-bottom:5px;
+        }
 
-    border-color:#784ba0;
 
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.4);
-}
+        .skill span{
+            color:#888;
 
+            font-size:13px;
+        }
 
-.project:hover:before{
-    opacity:1;
-}
 
+        /* ================= CONTACT ================= */
 
-.project img{
-    width:100%;
+        .contact{
+            text-align:center;
 
-    height:100%;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(139,92,246,.20),
+                    transparent 45%
+                ),
 
-    object-fit:contain;
+                #080812;
+        }
 
-    display:block;
 
-    background:#11111a;
+        .contact .section-description{
+            margin-left:auto;
 
-    transition:.4s;
-}
+            margin-right:auto;
+        }
 
 
-.project:hover img{
-    transform:scale(1.04);
-}
+        .contact-buttons{
+            display:flex;
 
+            justify-content:center;
 
-.project-info{
-    position:absolute;
+            gap:15px;
 
-    left:0;
-    right:0;
-    bottom:0;
+            flex-wrap:wrap;
+        }
 
-    padding:25px;
 
-    z-index:4;
+        /* ================= FOOTER ================= */
 
-    background:
-        linear-gradient(
-            transparent,
-            rgba(5,5,10,.97)
-        );
-}
+        footer{
+            padding:30px 7%;
 
+            background:#05050c;
 
-.project-info h3{
-    font-size:20px;
-}
+            border-top:1px solid rgba(255,255,255,.08);
 
+            display:flex;
 
-.project-info p{
-    color:#aaa;
+            justify-content:space-between;
 
-    font-size:13px;
+            color:#777;
 
-    margin-top:5px;
-}
+            font-size:13px;
+        }
 
 
-/* ================= ABOUT ================= */
+        /* ================= MOBILE ================= */
 
-.about{
-    background:
-        linear-gradient(
-            135deg,
-            #10101b,
-            #151125
-        );
-}
+        @media(max-width:900px){
 
+            nav{
+                display:none;
+            }
 
-.about-container{
-    display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+            .hero-content{
+                width:100%;
+            }
 
-    gap:70px;
 
-    align-items:center;
-}
+            .services-grid,
+            .portfolio-grid{
+                grid-template-columns:1fr 1fr;
+            }
 
 
-.about-text p{
-    color:#aaaabc;
+            .about-container{
+                grid-template-columns:1fr;
+            }
 
-    line-height:1.9;
+        }
 
-    margin-bottom:20px;
-}
 
+        @media(max-width:700px){
 
-.skills{
-    display:grid;
+            .hero{
+                min-height:100vh;
 
-    grid-template-columns:
-        1fr 1fr;
+                padding:
+                    120px 7% 70px;
 
-    gap:15px;
-}
+                display:flex;
 
+                align-items:center;
+            }
 
-.skill{
-    padding:22px;
 
-    background:
-        rgba(255,255,255,.035);
+            .hero-content{
+                width:100%;
+            }
 
-    border:1px solid #29293c;
 
-    border-radius:9px;
+            .hero h1{
+                font-size:58px;
 
-    transition:.3s;
-}
+                letter-spacing:-3px;
+            }
 
 
-.skill:hover{
-    border-color:#ff3cac;
+            .hero p{
+                font-size:16px;
+            }
 
-    transform:translateY(-4px);
-}
 
+            .services-grid,
+            .portfolio-grid{
+                grid-template-columns:1fr;
+            }
 
-.skill strong{
-    display:block;
 
-    margin-bottom:5px;
-}
+            .skills{
+                grid-template-columns:1fr;
+            }
 
 
-.skill span{
-    color:#888999;
+            .section-title{
+                font-size:40px;
+            }
 
-    font-size:13px;
-}
 
+            .banner-box{
+                padding:40px 25px;
 
-/* ================= CONTACT ================= */
+                min-height:350px;
+            }
 
-.contact{
-    text-align:center;
 
-    background:
+            .banner-content h2{
+                font-size:40px;
+            }
 
-        radial-gradient(
-            circle at 30% 30%,
-            rgba(255,60,172,.15),
-            transparent 30%
-        ),
 
-        radial-gradient(
-            circle at 70% 70%,
-            rgba(0,219,222,.15),
-            transparent 30%
-        ),
+            footer{
+                flex-direction:column;
 
-        #090910;
-}
+                gap:10px;
 
+                text-align:center;
+            }
 
-.contact .section-description{
-    margin-left:auto;
+        }
 
-    margin-right:auto;
-}
-
-
-.contact-buttons{
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer{
-    padding:30px 7%;
-
-    background:#050509;
-
-    border-top:1px solid #222;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:#777;
-
-    font-size:13px;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-    nav{
-        display:none;
-    }
-
-
-    .hero-content{
-        width:100%;
-    }
-
-
-    .services-grid,
-    .portfolio-grid{
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-
-    .about-container{
-        grid-template-columns:1fr;
-    }
-
-}
-
-
-@media(max-width:700px){
-
-    .hero{
-        min-height:auto;
-
-        padding:
-            130px 7% 80px;
-
-        display:block;
-    }
-
-
-    .hero-content{
-        width:100%;
-    }
-
-
-    .hero h1{
-        font-size:
-            clamp(48px,15vw,70px);
-
-        letter-spacing:-3px;
-    }
-
-
-    .hero p{
-        font-size:16px;
-    }
-
-
-    .services-grid,
-    .portfolio-grid{
-        grid-template-columns:1fr;
-    }
-
-
-    .project{
-        height:340px;
-    }
-
-
-    .section-title{
-        font-size:38px;
-    }
-
-
-    .banner-box{
-        padding:40px 25px;
-
-        min-height:350px;
-    }
-
-
-    .banner-content h2{
-        font-size:40px;
-    }
-
-
-    .skills{
-        grid-template-columns:1fr;
-    }
-
-
-    footer{
-        flex-direction:column;
-
-        gap:10px;
-
-        text-align:center;
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -946,719 +885,723 @@ footer{
 <body>
 
 
-<!-- ================= HEADER ================= -->
+    <!-- ================= HEADER ================= -->
 
-<header>
+    <header>
 
-    <div class="logo">
-        DESIGNER <span>197</span>
-    </div>
-
-
-    <nav>
-
-        <a href="#home">Home</a>
-
-        <a href="#services">Services</a>
-
-        <a href="#portfolio">Portfolio</a>
-
-        <a href="#about">About</a>
-
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-</header>
-
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-
-    <div class="hero-content">
-
-
-        <div class="badge">
-            Graphic Design Studio
+        <div class="logo">
+            DESIGNER <span>197</span>
         </div>
 
 
-        <h1>
+        <nav>
 
-            Creative
-            <br>
+            <a href="#home">
+                Home
+            </a>
 
-            <span class="gradient-text">
-                Designs.
-            </span>
+            <a href="#services">
+                Services
+            </a>
 
-            <br>
+            <a href="#portfolio">
+                Portfolio
+            </a>
 
-            Real Impact.
+            <a href="#about">
+                About
+            </a>
 
-        </h1>
+            <a href="#contact">
+                Contact
+            </a>
+
+        </nav>
+
+    </header>
 
 
-        <p>
 
-            I create modern and professional visual designs
-            for brands, businesses and creators — from logos
-            and branding to social media creatives, packaging,
-            posters and marketing materials.
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+
+        <div class="hero-content">
+
+
+            <div class="badge">
+                Graphic Design Studio
+            </div>
+
+
+            <h1>
+
+                Creative
+                <br>
+
+                <span>
+                    Designs.
+                </span>
+
+                <br>
+
+                Real Impact.
+
+            </h1>
+
+
+            <p>
+
+                I'm a graphic designer specializing in
+                branding, social media creatives, posters,
+                packaging and professional visual design.
+                I create bold and modern visuals that help
+                brands stand out.
+
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    href="#contact"
+                    class="btn">
+
+                    Start a Project
+
+                </a>
+
+
+                <a
+                    href="#portfolio"
+                    class="btn dark">
+
+                    View My Work
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section
+        class="services"
+        id="services">
+
+
+        <div class="section-label">
+            What I Do
+        </div>
+
+
+        <h2 class="section-title">
+            Design Services
+        </h2>
+
+
+        <p class="section-description">
+
+            Creative solutions designed to help your brand
+            look professional, consistent and memorable.
 
         </p>
 
 
-        <div class="buttons">
+        <div class="services-grid">
 
-            <a
-                href="#contact"
-                class="btn">
 
-                Start a Project
+            <div class="service">
 
-            </a>
-
-
-            <a
-                href="#portfolio"
-                class="btn dark">
-
-                View My Work
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= SERVICES ================= -->
-
-<section
-    class="services"
-    id="services">
-
-
-    <div class="section-label">
-        What I Do
-    </div>
-
-
-    <h2 class="section-title">
-        Design Services
-    </h2>
-
-
-    <p class="section-description">
-
-        Creative solutions designed to help your brand
-        look professional, consistent and memorable.
-
-    </p>
-
-
-    <div class="services-grid">
-
-
-        <div class="service">
-
-            <div class="service-number">
-                01
-            </div>
-
-            <h3>
-                Logo & Branding
-            </h3>
-
-            <p>
-                Professional logos, brand identity,
-                typography and visual direction.
-            </p>
-
-        </div>
-
-
-
-        <div class="service">
-
-            <div class="service-number">
-                02
-            </div>
-
-            <h3>
-                Social Media Design
-            </h3>
-
-            <p>
-                Instagram posts, advertisements,
-                promotional creatives and banners.
-            </p>
-
-        </div>
-
-
-
-        <div class="service">
-
-            <div class="service-number">
-                03
-            </div>
-
-            <h3>
-                Poster & Banner
-            </h3>
-
-            <p>
-                Creative posters, event graphics,
-                advertisements and promotional banners.
-            </p>
-
-        </div>
-
-
-
-        <div class="service">
-
-            <div class="service-number">
-                04
-            </div>
-
-            <h3>
-                Packaging Design
-            </h3>
-
-            <p>
-                Product packaging, labels and
-                professional product presentation.
-            </p>
-
-        </div>
-
-
-
-        <div class="service">
-
-            <div class="service-number">
-                05
-            </div>
-
-            <h3>
-                Catalogue & PDF
-            </h3>
-
-            <p>
-                Business catalogues, brochures,
-                price lists and professional PDFs.
-            </p>
-
-        </div>
-
-
-
-        <div class="service">
-
-            <div class="service-number">
-                06
-            </div>
-
-            <h3>
-                Photo Editing
-            </h3>
-
-            <p>
-                Product editing, background removal,
-                retouching and image enhancement.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= BIG BANNER ================= -->
-
-<section class="design-banner">
-
-
-    <div class="banner-box">
-
-
-        <div class="banner-content">
-
-
-            <div class="section-label">
-                Your Brand Deserves Better
-            </div>
-
-
-            <h2>
-
-                Let's Create Something
-                <br>
-                Great Together.
-
-            </h2>
-
-
-            <p>
-
-                Have a brand, product or business that needs
-                professional visual design? Let's turn your
-                idea into powerful visuals.
-
-            </p>
-
-
-            <a
-                href="#contact"
-                class="btn">
-
-                Get a Design Quote
-
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= PORTFOLIO ================= -->
-
-<section
-    class="portfolio"
-    id="portfolio">
-
-
-    <div class="section-label">
-        Selected Work
-    </div>
-
-
-    <h2 class="section-title">
-        My Portfolio
-    </h2>
-
-
-    <p class="section-description">
-
-        A selection of branding, packaging, social media
-        and graphic design projects.
-
-    </p>
-
-
-    <div class="portfolio-grid">
-
-
-        <!-- PROJECT 1 -->
-
-        <a
-            href="logo-branding.html"
-            style="
-                text-decoration:none;
-                color:inherit;
-                display:block;
-            ">
-
-            <div class="project">
-
-
-                <img
-                    src="126964242873967.697a4a33b146d.png"
-                    alt="Logo & Branding">
-
-
-                <div class="project-info">
-
-                    <h3>
-                        Logo & Branding
-                    </h3>
-
-                    <p>
-                        Brand Identity · View Gallery →
-                    </p>
-
+                <div class="service-number">
+                    01
                 </div>
 
+                <h3>
+                    Logo & Branding
+                </h3>
+
+                <p>
+                    Professional logos, brand identity,
+                    typography and visual direction.
+                </p>
 
             </div>
 
-        </a>
+
+
+            <div class="service">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Social Media Design
+                </h3>
+
+                <p>
+                    Instagram posts, advertisements,
+                    promotional creatives and banners.
+                </p>
+
+            </div>
 
 
 
-        <!-- PROJECT 2 -->
+            <div class="service">
 
-        <div class="project">
+                <div class="service-number">
+                    03
+                </div>
 
-            <img
-                src="https://placehold.co/800x900/202020/ffffff?text=PACKAGING+DESIGN"
-                alt="Packaging Design">
+                <h3>
+                    Poster & Banner
+                </h3>
+
+                <p>
+                    Creative posters, event graphics,
+                    advertisements and promotional banners.
+                </p>
+
+            </div>
 
 
-            <div class="project-info">
+
+            <div class="service">
+
+                <div class="service-number">
+                    04
+                </div>
 
                 <h3>
                     Packaging Design
                 </h3>
 
                 <p>
-                    Product Packaging
+                    Product packaging, labels and
+                    professional product presentation.
                 </p>
 
             </div>
 
-        </div>
 
 
+            <div class="service">
 
-        <!-- PROJECT 3 -->
-
-        <div class="project">
-
-            <img
-                src="https://placehold.co/800x900/252525/ffffff?text=SOCIAL+MEDIA"
-                alt="Social Media Design">
-
-
-            <div class="project-info">
+                <div class="service-number">
+                    05
+                </div>
 
                 <h3>
-                    Social Media
+                    Catalogue & PDF
                 </h3>
 
                 <p>
-                    Marketing Creative
+                    Business catalogues, brochures,
+                    price lists and professional PDFs.
                 </p>
 
             </div>
 
-        </div>
 
 
+            <div class="service">
 
-        <!-- PROJECT 4 -->
-
-        <div class="project">
-
-            <img
-                src="ChatGPT%20Image%20Sep%206,%202026,%2008_06_01%20PM.png"
-                alt="Poster Design">
-
-
-            <div class="project-info">
+                <div class="service-number">
+                    06
+                </div>
 
                 <h3>
-                    Poster & Banner Design
+                    Photo Editing
                 </h3>
 
                 <p>
-                    Advertising
+                    Product editing, background removal,
+                    retouching and image enhancement.
                 </p>
 
             </div>
 
+
         </div>
 
+    </section>
 
 
-        <!-- PROJECT 5 -->
 
-        <div class="project">
+    <!-- ================= BIG BANNER ================= -->
 
-            <img
-                src="https://placehold.co/800x900/202020/ffffff?text=PRODUCT+DESIGN"
-                alt="Product Design">
+    <section class="design-banner">
 
 
-            <div class="project-info">
+        <div class="banner-box">
 
-                <h3>
-                    Product Design
-                </h3>
+
+            <div class="banner-content">
+
+
+                <div class="section-label">
+                    Your Brand Deserves Better
+                </div>
+
+
+                <h2>
+
+                    Let's Create Something
+                    <br>
+                    Great Together.
+
+                </h2>
+
 
                 <p>
-                    Creative Design
+
+                    Have a brand, product or business that needs
+                    professional visual design? Let's turn your
+                    idea into powerful visuals.
+
                 </p>
+
+
+                <a
+                    href="#contact"
+                    class="btn">
+
+                    Get a Design Quote
+
+                </a>
+
 
             </div>
 
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PORTFOLIO ================= -->
+
+    <section
+        class="portfolio"
+        id="portfolio">
+
+
+        <div class="section-label">
+            Selected Work
         </div>
 
 
-
-        <!-- PROJECT 6 -->
-
-        <div class="project">
-
-            <img
-                src="https://placehold.co/800x900/181818/ffffff?text=CATALOGUE+DESIGN"
-                alt="Catalogue Design">
+        <h2 class="section-title">
+            My Portfolio
+        </h2>
 
 
-            <div class="project-info">
+        <p class="section-description">
 
-                <h3>
-                    Catalogue Design
-                </h3>
+            A selection of branding, packaging, social media
+            and graphic design projects.
+
+        </p>
+
+
+        <div class="portfolio-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <a
+                href="logo-branding.html"
+                style="text-decoration:none; color:inherit; display:block;">
+
+                <div class="project">
+
+
+                    <img
+                        src="126964242873967.697a4a33b146d.png"
+                        alt="Logo & Branding">
+
+
+                    <div class="project-info">
+
+                        <h3>
+                            Logo & Branding
+                        </h3>
+
+                        <p>
+                            Brand Identity · View Gallery →
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </a>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project">
+
+                <img
+                    src="https://placehold.co/800x900/202020/ffffff?text=PACKAGING+DESIGN"
+                    alt="Packaging Design">
+
+                <div class="project-info">
+
+                    <h3>
+                        Packaging Design
+                    </h3>
+
+                    <p>
+                        Product Packaging
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project">
+
+                <img
+                    src="https://placehold.co/800x900/252525/ffffff?text=SOCIAL+MEDIA"
+                    alt="Social Media Design">
+
+                <div class="project-info">
+
+                    <h3>
+                        Social Media
+                    </h3>
+
+                    <p>
+                        Marketing Creative
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="project">
+
+                <img
+                    src="ChatGPT%20Image%20Sep%206,%202026,%2008_06_01%20PM.png"
+                    alt="The Girl Behind the Byline Book Cover Design">
+
+                <div class="project-info">
+
+                    <h3>
+                        Poster & Banner Design
+                    </h3>
+
+                    <p>
+                        Advertising
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 5 -->
+
+            <div class="project">
+
+                <img
+                    src="https://placehold.co/800x900/202020/ffffff?text=PRODUCT+DESIGN"
+                    alt="Product Design">
+
+                <div class="project-info">
+
+                    <h3>
+                        Product Design
+                    </h3>
+
+                    <p>
+                        Creative Design
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 6 -->
+
+            <div class="project">
+
+                <img
+                    src="https://placehold.co/800x900/181818/ffffff?text=CATALOGUE+DESIGN"
+                    alt="Catalogue Design">
+
+                <div class="project-info">
+
+                    <h3>
+                        Catalogue Design
+                    </h3>
+
+                    <p>
+                        Business Materials
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section
+        class="about"
+        id="about">
+
+
+        <div class="about-container">
+
+
+            <div>
+
+                <div class="section-label">
+                    About Me
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Designer Behind
+                    <br>
+                    The Work.
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="about-text">
+
 
                 <p>
-                    Business Materials
+
+                    I'm Harsh, a graphic designer focused on
+                    creating clean, modern and professional
+                    visual designs for brands and businesses.
+
                 </p>
 
+
+                <p>
+
+                    I work across graphic design, social media
+                    creatives, posters, branding, packaging,
+                    catalogues and creative workflows.
+
+                </p>
+
+
+                <div class="skills">
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Adobe Photoshop
+                        </strong>
+
+                        <span>
+                            Design & Photo Editing
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Canva
+                        </strong>
+
+                        <span>
+                            Social Media & Marketing Design
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Branding
+                        </strong>
+
+                        <span>
+                            Logo & Visual Identity
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Creative Tools
+                        </strong>
+
+                        <span>
+                            Design & Creative Ideation
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
             </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section
+        class="contact"
+        id="contact">
+
+
+        <div class="section-label">
+            Start a Project
+        </div>
+
+
+        <h2 class="section-title">
+            Have a Design Project?
+        </h2>
+
+
+        <p class="section-description">
+
+            Tell me about your project, design requirements
+            and deadline. Let's discuss the project and pricing.
+
+        </p>
+
+
+        <div class="contact-buttons">
+
+
+            <a
+                href="https://wa.me/91XXXXXXXXXX"
+                target="_blank"
+                class="btn">
+
+                WhatsApp Me
+
+            </a>
+
+
+            <a
+                href="https://instagram.com/YOUR_INSTAGRAM"
+                target="_blank"
+                class="btn dark">
+
+                Instagram
+
+            </a>
+
 
         </div>
 
 
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- ================= ABOUT ================= -->
+    <!-- ================= FOOTER ================= -->
 
-<section
-    class="about"
-    id="about">
-
-
-    <div class="about-container">
+    <footer>
 
 
         <div>
-
-            <div class="section-label">
-                About Me
-            </div>
-
-
-            <h2 class="section-title">
-
-                Designer Behind
-                <br>
-                The Work.
-
-            </h2>
-
+            © 2026 DESIGNER 197
         </div>
 
 
-
-        <div class="about-text">
-
-
-            <p>
-
-                I'm Harsh, a graphic designer focused on
-                creating clean, modern and professional
-                visual designs for brands and businesses.
-
-            </p>
-
-
-            <p>
-
-                I work across graphic design, social media
-                creatives, posters, branding, packaging,
-                catalogues and AI-assisted creative workflows.
-
-            </p>
-
-
-            <div class="skills">
-
-
-                <div class="skill">
-
-                    <strong>
-                        Adobe Photoshop
-                    </strong>
-
-                    <span>
-                        Design & Photo Editing
-                    </span>
-
-                </div>
-
-
-
-                <div class="skill">
-
-                    <strong>
-                        Canva
-                    </strong>
-
-                    <span>
-                        Social Media & Marketing Design
-                    </span>
-
-                </div>
-
-
-
-                <div class="skill">
-
-                    <strong>
-                        Branding
-                    </strong>
-
-                    <span>
-                        Logo & Visual Identity
-                    </span>
-
-                </div>
-
-
-
-                <div class="skill">
-
-                    <strong>
-                        AI Tools
-                    </strong>
-
-                    <span>
-                        Creative Assistance & Ideation
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
+        <div>
+            Graphic Design • Branding • Social Media
         </div>
 
 
-    </div>
-
-</section>
+    </footer>
 
 
 
-<!-- ================= CONTACT ================= -->
+    <!-- ================= JAVASCRIPT ================= -->
 
-<section
-    class="contact"
-    id="contact">
+    <script>
 
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(function(link){
 
-    <div class="section-label">
-        Start a Project
-    </div>
+                link.addEventListener(
+                    "click",
+                    function(event){
 
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
 
-    <h2 class="section-title">
-        Have a Design Project?
-    </h2>
+                        if(target){
 
+                            event.preventDefault();
 
-    <p class="section-description">
+                            target.scrollIntoView({
+                                behavior:"smooth"
+                            });
 
-        Tell me about your project, design requirements
-        and deadline. Let's discuss the project and pricing.
+                        }
 
-    </p>
-
-
-    <div class="contact-buttons">
-
-
-        <a
-            href="https://wa.me/91XXXXXXXXXX"
-            target="_blank"
-            class="btn">
-
-            WhatsApp Me
-
-        </a>
-
-
-        <a
-            href="https://instagram.com/YOUR_INSTAGRAM"
-            target="_blank"
-            class="btn dark">
-
-            Instagram
-
-        </a>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div>
-        © 2026 DESIGNER 197
-    </div>
-
-
-    <div>
-        Graphic Design • Branding • Social Media
-    </div>
-
-</footer>
-
-
-
-<!-- ================= JAVASCRIPT ================= -->
-
-<script>
-
-document
-.querySelectorAll('a[href^="#"]')
-.forEach(function(link){
-
-    link.addEventListener(
-        "click",
-        function(event){
-
-            const target =
-                document.querySelector(
-                    this.getAttribute("href")
+                    }
                 );
 
-            if(target){
+            });
 
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior:"smooth"
-                });
-
-            }
-
-        }
-    );
-
-});
-
-</script>
+    </script>
 
 
 </body>
