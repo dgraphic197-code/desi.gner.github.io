@@ -12,7 +12,6 @@
     <meta name="description"
         content="DESIGNER 197 creates professional branding, logo, social media, packaging, poster and marketing designs for businesses and brands.">
 
-
     <style>
 
         * {
@@ -21,7 +20,6 @@
             box-sizing: border-box;
             scroll-behavior: smooth;
         }
-
 
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -47,18 +45,15 @@
             border-bottom: 1px solid rgba(255, 255, 255, .08);
         }
 
-
         .logo {
             font-size: 24px;
             font-weight: 800;
             letter-spacing: 2px;
         }
 
-
         .logo span {
             color: #aaa;
         }
-
 
         nav a {
             color: #fff;
@@ -67,7 +62,6 @@
             font-size: 14px;
             transition: .3s;
         }
-
 
         nav a:hover {
             color: #aaa;
@@ -78,7 +72,7 @@
 
         .hero {
             min-height: 100vh;
-            padding: 140px 7% 80px;
+            padding: 130px 7% 70px;
             display: flex;
             align-items: center;
             position: relative;
@@ -105,38 +99,7 @@
         }
 
 
-        /* HERO IMAGE */
-
-        .hero-image {
-            position: absolute;
-            right: 4%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 46%;
-            max-width: 700px;
-            z-index: 1;
-        }
-
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
-
-            box-shadow:
-                0 25px 80px rgba(0, 0, 0, .6);
-        }
-
-
-        /* TEXT IMAGE ke upar na aaye */
-
-        .hero-content {
-            width: 55%;
-            position: relative;
-            z-index: 3;
-        }
-
+        /* Decorative Circle */
 
         .hero:after {
             content: "";
@@ -147,15 +110,18 @@
             border-radius: 50%;
             right: -180px;
             top: 150px;
+            pointer-events: none;
         }
 
+
+        /* ================= HERO CONTENT ================= */
 
         .hero-content {
-            width: 60%;
+            width: 50%;
             position: relative;
-            z-index: 2;
+            z-index: 3;
+            padding-right: 35px;
         }
-
 
         .badge {
             display: inline-block;
@@ -169,22 +135,19 @@
             text-transform: uppercase;
         }
 
-
         .hero h1 {
-            font-size: clamp(50px, 8vw, 100px);
+            font-size: clamp(50px, 7vw, 95px);
             line-height: .92;
             letter-spacing: -4px;
             margin-bottom: 30px;
         }
 
-
         .hero h1 span {
             color: #888;
         }
 
-
         .hero p {
-            max-width: 650px;
+            max-width: 620px;
             color: #aaa;
             font-size: 18px;
             line-height: 1.8;
@@ -192,12 +155,39 @@
         }
 
 
+        /* ================= HERO IMAGE ================= */
+
+        .hero-image {
+            position: absolute;
+            right: 4%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44%;
+            max-width: 680px;
+            z-index: 2;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, .75),
+                0 0 40px rgba(0, 100, 255, .08);
+
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+
+        /* ================= BUTTONS ================= */
+
         .buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
-
 
         .btn {
             display: inline-block;
@@ -210,11 +200,9 @@
             transition: .3s;
         }
 
-
         .btn:hover {
             transform: translateY(-3px);
         }
-
 
         .btn.dark {
             background: transparent;
@@ -229,7 +217,6 @@
             padding: 100px 7%;
         }
 
-
         .section-label {
             color: #888;
             text-transform: uppercase;
@@ -238,12 +225,10 @@
             margin-bottom: 12px;
         }
 
-
         .section-title {
             font-size: 50px;
             margin-bottom: 18px;
         }
-
 
         .section-description {
             max-width: 700px;
@@ -259,13 +244,11 @@
             background: #101010;
         }
 
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
-
 
         .service {
             background: #171717;
@@ -275,12 +258,10 @@
             transition: .35s;
         }
 
-
         .service:hover {
             transform: translateY(-8px);
             border-color: #777;
         }
-
 
         .service-number {
             color: #666;
@@ -288,12 +269,10 @@
             margin-bottom: 30px;
         }
 
-
         .service h3 {
             font-size: 22px;
             margin-bottom: 14px;
         }
-
 
         .service p {
             color: #999;
@@ -307,7 +286,6 @@
         .design-banner {
             padding: 0 7% 100px;
         }
-
 
         .banner-box {
             min-height: 400px;
@@ -327,7 +305,6 @@
             border: 1px solid #333;
         }
 
-
         .banner-box:before {
             content: "DESIGN";
             position: absolute;
@@ -338,20 +315,17 @@
             color: rgba(255, 255, 255, .035);
         }
 
-
         .banner-content {
             position: relative;
             z-index: 2;
             max-width: 650px;
         }
 
-
         .banner-content h2 {
             font-size: 55px;
             line-height: 1;
             margin-bottom: 20px;
         }
-
 
         .banner-content p {
             color: #aaa;
@@ -365,13 +339,11 @@
             background: #080808;
         }
 
-
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
-
 
         .project {
             height: 360px;
@@ -380,7 +352,6 @@
             background: #1b1b1b;
             border: 1px solid #292929;
         }
-
 
         .project img {
             width: 100%;
@@ -391,11 +362,9 @@
             transition: transform .3s ease;
         }
 
-
         .project:hover img {
             transform: scale(1.02);
         }
-
 
         .project-info {
             position: absolute;
@@ -411,11 +380,9 @@
                 );
         }
 
-
         .project-info h3 {
             font-size: 20px;
         }
-
 
         .project-info p {
             color: #aaa;
@@ -430,7 +397,6 @@
             background: #111;
         }
 
-
         .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -438,13 +404,11 @@
             align-items: center;
         }
 
-
         .about-text p {
             color: #aaa;
             line-height: 1.9;
             margin-bottom: 20px;
         }
-
 
         .skills {
             display: grid;
@@ -452,19 +416,16 @@
             gap: 15px;
         }
 
-
         .skill {
             padding: 22px;
             background: #181818;
             border: 1px solid #292929;
         }
 
-
         .skill strong {
             display: block;
             margin-bottom: 5px;
         }
-
 
         .skill span {
             color: #888;
@@ -485,12 +446,10 @@
                 );
         }
 
-
         .contact .section-description {
             margin-left: auto;
             margin-right: auto;
         }
-
 
         .contact-buttons {
             display: flex;
@@ -513,7 +472,7 @@
         }
 
 
-        /* ================= MOBILE ================= */
+        /* ================= TABLET ================= */
 
         @media(max-width: 900px) {
 
@@ -521,17 +480,24 @@
                 display: none;
             }
 
-
-            .hero-content {
-                width: 100%;
+            .hero {
+                min-height: auto;
+                padding-top: 130px;
             }
 
+            .hero-content {
+                width: 52%;
+            }
+
+            .hero-image {
+                width: 43%;
+                right: 3%;
+            }
 
             .services-grid,
             .portfolio-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
 
             .about-container {
                 grid-template-columns: 1fr;
@@ -540,32 +506,74 @@
         }
 
 
-       @media(max-width:700px){
+        /* ================= MOBILE ================= */
 
-    .hero{
-        min-height:auto;
-        padding:120px 7% 60px;
-        display:block;
-    }
+        @media(max-width:700px) {
 
-    .hero-content{
-        width:100%;
-    }
+            .hero {
+                min-height: auto;
+                padding: 120px 7% 60px;
+                display: block;
+            }
 
-    .hero-image{
-        position:relative;
-        right:auto;
-        top:auto;
-        transform:none;
-        width:100%;
-        margin-top:50px;
-    }
+            .hero-content {
+                width: 100%;
+                padding-right: 0;
+            }
 
-    .hero-image img{
-        width:100%;
-        border-radius:10px;
-    }
-}
+            .hero h1 {
+                font-size: clamp(48px, 14vw, 70px);
+                letter-spacing: -3px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-image {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 100%;
+                max-width: none;
+                margin-top: 50px;
+            }
+
+            .hero-image img {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .banner-box {
+                padding: 40px 25px;
+                min-height: 350px;
+            }
+
+            .banner-content h2 {
+                font-size: 40px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+        }
 
     </style>
 
@@ -582,7 +590,6 @@
         <div class="logo">
             DESIGNER <span>197</span>
         </div>
-
 
         <nav>
 
@@ -617,19 +624,9 @@
     <section class="hero" id="home">
 
 
-        <!-- HERO IMAGE -->
-
-        <div class="hero-image">
-
-            <img
-                src="designer-ai-social-hero.png"
-                alt="Graphic Designer working with AI and Social Media Design">
-
-        </div>
-
+        <!-- HERO TEXT -->
 
         <div class="hero-content">
-
 
             <div class="badge">
                 Graphic Design Studio
@@ -683,8 +680,20 @@
 
             </div>
 
+        </div>
+
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-image">
+
+            <img
+                src="designer-future-banner.png.png"
+                alt="Graphic Designer specializing in Branding, Social Media and Visual Design">
 
         </div>
+
 
     </section>
 
@@ -954,11 +963,9 @@
 
             <div class="project">
 
-
                 <img
                     src="https://placehold.co/800x900/202020/ffffff?text=PACKAGING+DESIGN"
                     alt="Packaging Design">
-
 
                 <div class="project-info">
 
@@ -972,7 +979,6 @@
 
                 </div>
 
-
             </div>
 
 
@@ -981,11 +987,9 @@
 
             <div class="project">
 
-
                 <img
                     src="https://placehold.co/800x900/252525/ffffff?text=SOCIAL+MEDIA"
                     alt="Social Media Design">
-
 
                 <div class="project-info">
 
@@ -999,7 +1003,6 @@
 
                 </div>
 
-
             </div>
 
 
@@ -1008,11 +1011,9 @@
 
             <div class="project">
 
-
                 <img
                     src="ChatGPT%20Image%20Sep%206,%202026,%2008_06_01%20PM.png"
                     alt="The Girl Behind the Byline Book Cover Design">
-
 
                 <div class="project-info">
 
@@ -1026,7 +1027,6 @@
 
                 </div>
 
-
             </div>
 
 
@@ -1035,11 +1035,9 @@
 
             <div class="project">
 
-
                 <img
                     src="https://placehold.co/800x900/202020/ffffff?text=PRODUCT+DESIGN"
                     alt="Product Design">
-
 
                 <div class="project-info">
 
@@ -1053,7 +1051,6 @@
 
                 </div>
 
-
             </div>
 
 
@@ -1062,11 +1059,9 @@
 
             <div class="project">
 
-
                 <img
                     src="https://placehold.co/800x900/181818/ffffff?text=CATALOGUE+DESIGN"
                     alt="Catalogue Design">
-
 
                 <div class="project-info">
 
@@ -1079,7 +1074,6 @@
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -1269,16 +1263,13 @@
 
     <footer>
 
-
         <div>
             © 2026 DESIGNER 197
         </div>
 
-
         <div>
             Graphic Design • Branding • Social Media
         </div>
-
 
     </footer>
 
@@ -1287,10 +1278,6 @@
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
-
-        /*
-         * Simple smooth scroll support
-         */
 
         document
             .querySelectorAll('a[href^="#"]')
