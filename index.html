@@ -2203,7 +2203,27 @@ footer{
 
 }
 
-</style>
+
+<style>
+/* ===== DESIGNER 197 MASCOT + AI CHAT ===== */
+.designer-buddy{position:fixed;right:24px;bottom:100px;z-index:9998;display:flex;align-items:flex-end;gap:10px;animation:buddyFloat 4s ease-in-out infinite}
+.buddy-character{width:76px;height:76px;border:3px solid #fff;border-radius:50%;background:linear-gradient(145deg,#eaff9b,#b9f34a);box-shadow:0 10px 35px #b9f34a40;display:grid;place-items:center;font-size:45px;cursor:pointer;transition:.3s ease}
+.buddy-character:hover{transform:scale(1.12) rotate(-8deg)}
+.buddy-bubble{max-width:190px;padding:13px 16px;background:#f4f4ed;color:#121410;border-radius:16px 16px 4px 16px;font-size:12px;line-height:1.5;box-shadow:0 8px 25px #0003}
+.buddy-bubble strong{display:block;font-size:13px;margin-bottom:3px}
+@keyframes buddyFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.ai-chat-button{position:fixed;right:24px;bottom:24px;z-index:10000;display:flex;align-items:center;gap:10px;padding:15px 20px;border:1px solid #d8ff55;border-radius:50px;background:#d8ff55;color:#10120c;font:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 30px #d8ff5530;transition:.25s ease}
+.ai-chat-button:hover{transform:translateY(-4px);box-shadow:0 12px 35px #d8ff5550}.ai-icon{font-size:20px}
+.ai-chat-window{position:fixed;right:24px;bottom:90px;z-index:10001;width:min(370px,calc(100vw - 32px));height:min(540px,calc(100dvh - 120px));display:none;flex-direction:column;overflow:hidden;background:#121410;color:#f4f4ed;border:1px solid #ffffff20;border-radius:22px;box-shadow:0 20px 80px #0008}
+.ai-chat-window.open{display:flex;animation:chatAppear .25s ease-out}
+@keyframes chatAppear{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.ai-chat-header{display:flex;align-items:center;gap:12px;padding:18px;background:#1b1e17;border-bottom:1px solid #ffffff15}.ai-avatar{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:#d8ff55;color:#111;font-size:24px}.ai-chat-heading{flex:1}.ai-chat-heading strong{display:block;font-size:14px}.ai-chat-heading span{display:block;margin-top:4px;color:#a7ad9c;font-size:11px}.ai-close{border:0;background:transparent;color:#f4f4ed;font-size:25px;cursor:pointer}
+.ai-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}.ai-message{max-width:88%;padding:12px 14px;border-radius:15px;font-size:13px;line-height:1.6;overflow-wrap:anywhere;white-space:pre-wrap}.ai-message.bot{align-self:flex-start;background:#22251e;border:1px solid #ffffff0d}.ai-message.user{align-self:flex-end;background:#d8ff55;color:#111;border-radius:15px 15px 3px 15px}
+.ai-quick-actions{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 12px}.ai-quick-actions button{border:1px solid #ffffff25;border-radius:30px;padding:8px 11px;background:transparent;color:#e9eddf;font:inherit;font-size:11px;cursor:pointer;transition:.2s}.ai-quick-actions button:hover{background:#d8ff55;color:#111;border-color:#d8ff55}
+.ai-chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #ffffff15}.ai-chat-form input{min-width:0;flex:1;padding:13px;border:1px solid #ffffff20;border-radius:12px;outline:none;background:#1b1e17;color:#fff;font:inherit;font-size:13px}.ai-chat-form input:focus{border-color:#d8ff55}.ai-chat-form button{width:46px;border:0;border-radius:12px;background:#d8ff55;color:#111;font-size:20px;cursor:pointer}
+@media(max-width:480px){.designer-buddy{right:14px;bottom:88px}.buddy-character{width:58px;height:58px;font-size:35px}.buddy-bubble{max-width:155px;padding:10px 12px}.ai-chat-button{right:14px;bottom:14px;padding:13px 16px}.ai-chat-window{right:8px;bottom:78px;width:calc(100vw - 16px);height:min(570px,calc(100dvh - 95px))}}
+@media(prefers-reduced-motion:reduce){.designer-buddy{animation:none}.ai-chat-window.open{animation:none}}
+</style></style>
 </head>
 
 
@@ -3780,6 +3800,111 @@ window.addEventListener(
     {passive:true}
 );
 
+</script>
+
+
+
+
+<!-- DESIGNER 197 CARTOON MASCOT -->
+<div class="designer-buddy" id="designerBuddy">
+  <div class="buddy-bubble"><strong>Hey, creative! 👋</strong>Need a cool design?</div>
+  <button class="buddy-character" id="buddyCharacter" aria-label="Open DESIGNER 197 AI" title="Chat with DESIGNER 197 AI">🧑‍🎨</button>
+</div>
+
+<!-- DESIGNER 197 AI BUTTON -->
+<button class="ai-chat-button" id="aiChatButton" aria-label="Open AI design assistant" aria-expanded="false"><span class="ai-icon">✦</span> AI DESIGN ASSISTANT</button>
+
+<!-- DESIGNER 197 AI CHAT -->
+<section class="ai-chat-window" id="aiChatWindow" role="dialog" aria-label="DESIGNER 197 AI chat">
+  <div class="ai-chat-header">
+    <div class="ai-avatar">✦</div>
+    <div class="ai-chat-heading"><strong>DESIGNER 197 AI</strong><span>Your creative design assistant</span></div>
+    <button class="ai-close" id="aiChatClose" aria-label="Close chat">×</button>
+  </div>
+  <div class="ai-chat-messages" id="aiChatMessages" aria-live="polite">
+    <div class="ai-message bot">Hi! 👋 Welcome to DESIGNER 197.
+
+I can help you explore Harsh's design services, portfolio and creative process.
+
+What would you like to know?</div>
+  </div>
+  <div class="ai-quick-actions" id="aiQuickActions">
+    <button type="button" data-question="What services do you offer?">Services</button>
+    <button type="button" data-question="Show me the portfolio">Portfolio</button>
+    <button type="button" data-question="Tell me about logo design">Logo Design</button>
+    <button type="button" data-question="Tell me about social media design">Social Media</button>
+    <button type="button" data-question="How can I start a project?">Start a Project</button>
+  </div>
+  <form class="ai-chat-form" id="aiChatForm">
+    <input id="aiChatInput" type="text" placeholder="Ask about design..." autocomplete="off" aria-label="Type your message" required>
+    <button type="submit" aria-label="Send message">↑</button>
+  </form>
+</section>
+
+
+<script>
+/* ===== DESIGNER 197 AI ASSISTANT ===== */
+(function(){
+  const chat=document.getElementById('aiChatWindow');
+  const openBtn=document.getElementById('aiChatButton');
+  const closeBtn=document.getElementById('aiChatClose');
+  const form=document.getElementById('aiChatForm');
+  const input=document.getElementById('aiChatInput');
+  const messages=document.getElementById('aiChatMessages');
+  const buddy=document.getElementById('buddyCharacter');
+  const bubble=document.querySelector('.buddy-bubble');
+  if(!chat||!openBtn||!closeBtn||!form||!input||!messages||!buddy)return;
+
+  function openChat(){chat.classList.add('open');openBtn.setAttribute('aria-expanded','true');input.focus()}
+  function closeChat(){chat.classList.remove('open');openBtn.setAttribute('aria-expanded','false')}
+  openBtn.addEventListener('click',openChat);closeBtn.addEventListener('click',closeChat);buddy.addEventListener('click',openChat);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeChat()});
+
+  function addMessage(text,type){
+    const el=document.createElement('div');
+    el.className='ai-message '+type;
+    el.textContent=text;
+    messages.appendChild(el);
+    messages.scrollTop=messages.scrollHeight;
+    return el;
+  }
+
+  function reply(text){
+    const t=text.toLowerCase();
+    if(t.includes('service')||t.includes('services')||t.includes('kya karte'))return 'DESIGNER 197 offers:\n\n• Logo & Branding\n• Social Media Design\n• Posters & Banners\n• Packaging Design\n• Catalogue & Print\n• Photo Editing\n\nAsk me about any service!';
+    if(t.includes('portfolio')||t.includes('work')||t.includes('design'))return 'You can explore Harsh’s design work in the Portfolio section. The portfolio includes branding, packaging, digital and print projects.';
+    if(t.includes('logo')||t.includes('brand'))return 'Logo & Branding helps businesses create a strong and recognisable visual identity. Explore the Logo & Branding portfolio category to see the work.';
+    if(t.includes('social')||t.includes('instagram'))return 'Harsh creates social media creatives, promotional posts and campaign visuals for brands and businesses.';
+    if(t.includes('packaging')||t.includes('product'))return 'Packaging design helps a product stand out and communicate its brand clearly. Explore the Packaging section of the portfolio.';
+    if(t.includes('project')||t.includes('contact')||t.includes('hire')||t.includes('start'))return 'You can start a project through the Contact section of the website. Send your project details and Harsh can discuss the design requirements with you.';
+    if(t.includes('harsh')||t.includes('about')||t.includes('designer'))return 'Harsh Chawla is the graphic designer behind DESIGNER 197. His work focuses on modern branding, digital visuals, social media creatives, posters, packaging and print design.';
+    if(t.includes('hello')||t.includes('hi')||t.includes('hey')||t.includes('namaste'))return 'Hey! 👋 Welcome to DESIGNER 197.\n\nI can help you explore Services, Portfolio, Logo Design, Social Media, Packaging and Starting a Project.';
+    return 'I’m the DESIGNER 197 website assistant. ✦\n\nAsk me about Services, Portfolio, Logo & Branding, Social Media, Packaging or Starting a Project.';
+  }
+
+  async function send(text){
+    text=text.trim();
+    if(!text)return;
+    addMessage(text,'user');
+    input.value='';input.disabled=true;
+    const typing=addMessage('Thinking...','bot');
+    await new Promise(r=>setTimeout(r,450));
+    typing.textContent=reply(text);
+    input.disabled=false;input.focus();messages.scrollTop=messages.scrollHeight;
+  }
+
+  form.addEventListener('submit',e=>{e.preventDefault();send(input.value)});
+  document.querySelectorAll('#aiQuickActions button').forEach(btn=>btn.addEventListener('click',()=>send(btn.dataset.question)));
+
+  const bubbleTexts=[
+    '<strong>Hey, creative! 👋</strong>Need a cool design?',
+    '<strong>Let’s create! ✦</strong>Explore Harsh’s design work.',
+    '<strong>Got an idea?</strong>Let’s make it stand out.',
+    '<strong>Need a designer?</strong>DESIGNER 197 is ready!'
+  ];
+  let i=0;
+  setInterval(()=>{if(!chat.classList.contains('open')){i=(i+1)%bubbleTexts.length;bubble.innerHTML=bubbleTexts[i]}},6000);
+})();
 </script>
 
 </body>
