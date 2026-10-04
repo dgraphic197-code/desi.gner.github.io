@@ -1,1 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Logo & Branding — DESIGNER 197</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0d0f0c;
+    color:#f4f4ed;
+    font-family:"Manrope",sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+:root{
+    --bg:#0d0f0c;
+    --panel:#181b16;
+    --white:#f4f4ed;
+    --muted:#969b8f;
+    --green:#d8ff55;
+    --line:rgba(255,255,255,.12);
+    --max:1250px;
+}
+
+.container{
+    width:min(var(--max),calc(100% - 80px));
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    height:82px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(13,15,12,.78);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav{
+    height:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--green);
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:#b8bbb1;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--green);
+}
+
+.nav-button{
+    border:1px solid var(--line);
+    padding:12px 18px;
+}
+
+/* HERO */
+
+.hero{
+    padding:170px 0 90px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    right:-250px;
+    top:50px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(216,255,85,.12),
+        transparent 68%
+    );
+    pointer-events:none;
+}
+
+.eyebrow{
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.eyebrow::before{
+    content:"";
+    width:28px;
+    height:1px;
+    background:var(--green);
+}
+
+.hero h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(55px,8vw,110px);
+    line-height:.9;
+    letter-spacing:-.09em;
+    margin-top:25px;
+    max-width:900px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero-description{
+    max-width:620px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.9;
+    margin-top:30px;
+}
+
+/* PROJECTS */
+
+.projects{
+    padding:40px 0 120px;
+}
+
+.project-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:35px;
+}
+
+.project-number{
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    color:var(--green);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+}
+
+.project-count{
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    color:#777d72;
+}
+
+/* GRID */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* CARD */
+
+.project-card{
+    display:block;
+    background:#121410;
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:.4s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(216,255,85,.6);
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.project-image{
+    height:420px;
+    background:#181b16;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    overflow:hidden;
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    transition:.5s ease;
+}
+
+.project-card:hover .project-image img{
+    transform:scale(1.04);
+}
+
+.project-info{
+    padding:22px 25px 25px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+}
+
+.project-info h2{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:27px;
+    letter-spacing:-.05em;
+}
+
+.project-info p{
+    margin-top:7px;
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    text-transform:uppercase;
+}
+
+.project-arrow{
+    color:var(--green);
+    font-size:22px;
+}
+
+/* FUTURE PROJECTS */
+
+.future-project{
+    border:1px dashed rgba(255,255,255,.16);
+    min-height:490px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#11130f;
+    transition:.3s;
+}
+
+.future-project:hover{
+    border-color:rgba(216,255,85,.4);
+}
+
+.future-content{
+    text-align:center;
+}
+
+.future-number{
+    color:var(--green);
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    margin-bottom:15px;
+}
+
+.future-content h3{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:25px;
+}
+
+.future-content p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+/* BUTTONS */
+
+.back-area{
+    padding-top:60px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 22px;
+    border:1px solid var(--green);
+    background:var(--green);
+    color:#111;
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:transparent;
+    color:var(--green);
+    transform:translateY(-3px);
+}
+
+.btn.secondary{
+    background:transparent;
+    color:white;
+    border-color:var(--line);
+}
+
+.btn.secondary:hover{
+    border-color:var(--green);
+    color:var(--green);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:30px 0;
+    color:#777d72;
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    text-transform:uppercase;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .container{
+        width:min(100% - 35px,var(--max));
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding-top:145px;
+    }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-image{
+        height:380px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            DESIGNER<span>197</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html#services">
+                Services
+            </a>
+
+            <a href="index.html#work">
+                Work
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#contact" class="nav-button">
+                Let's Talk
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="eyebrow">
+            01 / IDENTITY
+        </div>
+
+        <h1>
+            Logo & <span>Branding</span>
+        </h1>
+
+        <p class="hero-description">
+            Distinctive logos and cohesive visual systems that give brands a recognisable voice.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="projects">
+
+    <div class="container">
+
+        <div class="project-heading">
+
+            <div class="project-number">
+                Selected Work
+            </div>
+
+            <div class="project-count">
+                01 — 10
+            </div>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <!-- PROJECT 01 : TIMEVERA -->
+
+            <a href="timevera.html" class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="2%20(16).png"
+                        alt="TIMEVERA Luxury Watch Brand Identity"
+                    >
+
+                </div>
+
+                <div class="project-info">
+
+                    <div>
+
+                        <h2>TIMEVERA</h2>
+
+                        <p>
+                            Brand Identity · 01
+                        </p>
+
+                    </div>
+
+                    <div class="project-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- PROJECT 02 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        02 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 03 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        03 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 04 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        04 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 05 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        05 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 06 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        06 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 07 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        07 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 08 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        08 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 09 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        09 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 10 -->
+
+            <div class="future-project">
+
+                <div class="future-content">
+
+                    <div class="future-number">
+                        10 / 10
+                    </div>
+
+                    <h3>Next Logo Project</h3>
+
+                    <p>
+                        Coming soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="back-area">
+
+            <a href="index.html#work" class="btn secondary">
+                ← Back to Work
+            </a>
+
+            <a href="index.html#contact" class="btn">
+                Let's Work Together →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <span>
+            DESIGNER 197 — Harsh Chawla
+        </span>
+
+        <span>
+            Graphic Design · Branding · Visual Design
+        </span>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
