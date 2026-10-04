@@ -5,18 +5,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DESIGNER 197 — Harsh Chawla</title>
+<title>DESIGNER 197 — Visual Designer</title>
 
+<meta name="description" content="DESIGNER 197 — Independent graphic designer creating bold identities, digital campaigns, packaging, print and visual experiences.">
+
+<!-- PREMIUM FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
+:root{
+    --black:#070807;
+    --dark:#0d100d;
+    --card:#111411;
+    --white:#f5f7f2;
+    --soft:#c4cac1;
+    --muted:#7f887e;
+    --line:rgba(255,255,255,.10);
+    --lime:#c9ff3d;
+    --max:1280px;
+}
 
 *{
     margin:0;
@@ -29,11 +40,24 @@ html{
 }
 
 body{
-    background:#0d0f0c;
-    color:#f4f4ed;
-    font-family:"Manrope",sans-serif;
+    background:var(--black);
+    color:var(--white);
+
+    /* NEW FONT */
+    font-family:"Plus Jakarta Sans",sans-serif;
+
     overflow-x:hidden;
-    cursor:none;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    pointer-events:none;
+    opacity:.025;
+
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a{
@@ -42,482 +66,275 @@ a{
 }
 
 button{
-    font:inherit;
+    font-family:inherit;
 }
-
-::selection{
-    background:#d8ff55;
-    color:#111;
-}
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root{
-
-    --bg:#0d0f0c;
-    --dark:#121410;
-    --panel:#181b16;
-
-    --white:#f4f4ed;
-    --muted:#969b8f;
-
-    --green:#d8ff55;
-    --orange:#ff765c;
-
-    --line:rgba(255,255,255,.12);
-
-    --max:1250px;
-}
-
-
-/* =========================================================
-   NOISE
-========================================================= */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:999;
-
-    opacity:.035;
-
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-
-}
-
-
-/* =========================================================
-   CURSOR
-========================================================= */
-
-.cursor{
-
-    position:fixed;
-
-    width:7px;
-    height:7px;
-
-    background:var(--green);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:2000;
-
-    transform:translate(-50%,-50%);
-
-}
-
-.cursor-ring{
-
-    position:fixed;
-
-    width:35px;
-    height:35px;
-
-    border:1px solid var(--green);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:1999;
-
-    transform:translate(-50%,-50%);
-
-    transition:
-        width .25s ease,
-        height .25s ease,
-        background .25s ease;
-
-}
-
-.cursor-ring.active{
-
-    width:65px;
-    height:65px;
-
-    background:rgba(216,255,85,.08);
-
-}
-
-
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-.progress{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:0;
-    height:3px;
-
-    background:var(--green);
-
-    z-index:3000;
-
-}
-
-
-/* =========================================================
-   CONTAINER
-========================================================= */
 
 .container{
-
-    width:min(
-        var(--max),
-        calc(100% - 80px)
-    );
-
+    width:min(var(--max),calc(100% - 60px));
     margin:auto;
-
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* ================= HEADER ================= */
 
-header{
-
-    height:82px;
-
+.header{
     position:fixed;
-
+    width:100%;
     top:0;
     left:0;
-    right:0;
+    z-index:5000;
 
-    z-index:1000;
+    padding:18px 0;
 
-    background:rgba(13,15,12,.72);
+    border-bottom:1px solid rgba(255,255,255,.06);
 
-    backdrop-filter:blur(20px);
+    background:rgba(7,8,7,.68);
 
-    border-bottom:1px solid var(--line);
-
+    backdrop-filter:blur(22px);
 }
 
 .nav{
-
-    height:100%;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
 }
 
 .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:22px;
-
     font-weight:700;
 
-    letter-spacing:-1px;
+    font-size:17px;
 
+    letter-spacing:-.04em;
 }
 
-.logo span{
+.logo-box{
+    width:34px;
+    height:34px;
 
-    color:var(--green);
+    border:1px solid rgba(255,255,255,.25);
 
-}
-
-.nav-links{
-
-    display:flex;
-
-    gap:35px;
-
-    align-items:center;
-
-}
-
-.nav-links a{
-
-    font-family:"DM Mono",monospace;
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.1em;
-
-    color:#b8bbb1;
-
-    transition:.3s;
-
-}
-
-.nav-links a:hover{
-
-    color:var(--green);
-
-}
-
-.nav-button{
-
-    border:1px solid var(--line);
-
-    padding:12px 18px;
-
-}
-
-.menu{
-
-    display:none;
-
-    border:0;
-
-    background:none;
-
-    color:white;
-
-    font-size:25px;
-
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    min-height:100vh;
-
-    padding-top:82px;
-
-    display:flex;
-
-    align-items:center;
+    display:grid;
+    place-items:center;
 
     position:relative;
 
     overflow:hidden;
+}
 
+.logo-box:before{
+    content:"";
+
+    width:15px;
+    height:15px;
+
+    background:var(--lime);
+
+    position:absolute;
+
+    transform:rotate(45deg);
+
+    transition:.5s;
+}
+
+.logo-box span{
+    position:relative;
+    z-index:2;
+
+    font:800 11px "Space Grotesk",sans-serif;
+
+    color:#080908;
+}
+
+.logo:hover .logo-box:before{
+    transform:rotate(225deg) scale(1.5);
+}
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:35px;
+}
+
+.nav-menu a{
+    font:500 10px "DM Mono",monospace;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+    color:#929a90;
+
+    transition:.25s;
+}
+
+.nav-menu a:hover{
+    color:var(--lime);
+}
+
+.nav-contact{
+    background:var(--lime);
+
+    color:#080908!important;
+
+    padding:12px 17px;
+
+    font-weight:600!important;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+
+    padding:145px 0 90px;
+
+    position:relative;
+
+    overflow:hidden;
 }
 
 .hero-grid{
-
     position:absolute;
 
     inset:0;
 
-    opacity:.12;
-
-    background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.12) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.12) 1px,
-            transparent 1px
-        );
-
-    background-size:80px 80px;
-
-    mask-image:
-        linear-gradient(
-            90deg,
-            black,
-            transparent
-        );
-
-}
-
-.hero::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:700px;
-    height:700px;
-
-    right:-200px;
-    top:10%;
-
-    border-radius:50%;
+    opacity:.35;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(216,255,85,.15),
-            transparent 68%
-        );
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
 
-    animation:breathe 7s infinite ease-in-out;
+    background-size:70px 70px;
 
+    mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);
 }
 
-.hero-content{
+.hero-glow{
+    position:absolute;
 
+    width:650px;
+    height:650px;
+
+    right:-150px;
+    top:100px;
+
+    background:radial-gradient(
+        circle,
+        rgba(201,255,61,.13),
+        transparent 65%
+    );
+
+    filter:blur(20px);
+}
+
+.hero-inner{
     position:relative;
 
-    z-index:5;
+    z-index:2;
 
     display:grid;
 
-    grid-template-columns:1.1fr .9fr;
-
-    gap:30px;
+    grid-template-columns:1.05fr .95fr;
 
     align-items:center;
 
+    gap:70px;
 }
 
-.eyebrow{
-
-    font-family:"DM Mono",monospace;
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.15em;
-
-    color:var(--green);
-
+.kicker{
     display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-}
-
-.eyebrow::before{
-
-    content:"";
-
-    width:25px;
-
-    height:1px;
-
-    background:var(--green);
-
-}
-
-.status{
-
-    display:inline-flex;
 
     align-items:center;
 
     gap:10px;
 
-    border:1px solid var(--line);
+    color:var(--lime);
 
-    padding:9px 14px;
-
-    margin:28px 0;
-
-    border-radius:30px;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:9px;
+    font:10px "DM Mono",monospace;
 
     text-transform:uppercase;
 
-    color:#b7bcb1;
+    letter-spacing:.12em;
 
+    margin-bottom:26px;
 }
 
-.status-dot{
-
+.kicker-dot{
     width:7px;
     height:7px;
 
     border-radius:50%;
 
-    background:var(--green);
+    background:var(--lime);
 
-    box-shadow:0 0 15px var(--green);
+    box-shadow:0 0 18px var(--lime);
 
-    animation:blink 1.5s infinite;
+    animation:blink 1.8s infinite;
+}
 
+@keyframes blink{
+    0%,100%{opacity:1}
+    50%{opacity:.3}
 }
 
 .hero h1{
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:clamp(60px,8vw,115px);
-
-    line-height:.9;
-
-    letter-spacing:-.09em;
-
     font-weight:700;
 
+    font-size:clamp(62px,8vw,120px);
+
+    line-height:.84;
+
+    letter-spacing:-.075em;
 }
 
 .hero h1 .outline{
-
     color:transparent;
 
-    -webkit-text-stroke:1px rgba(255,255,255,.8);
-
+    -webkit-text-stroke:1px rgba(255,255,255,.7);
 }
 
-.hero h1 .green{
-
-    color:var(--green);
-
+.hero h1 .lime{
+    color:var(--lime);
 }
 
 .hero-description{
+    margin-top:30px;
 
-    max-width:500px;
+    max-width:560px;
 
-    color:var(--muted);
+    color:#959e94;
 
     font-size:14px;
 
-    line-height:1.9;
-
-    margin:30px 0;
-
+    line-height:1.85;
 }
 
-.buttons{
-
+.hero-buttons{
     display:flex;
 
-    gap:12px;
+    gap:10px;
+
+    margin-top:34px;
 
     flex-wrap:wrap;
-
 }
 
-.btn{
+.button{
+    min-height:51px;
+
+    padding:0 21px;
+
+    border:1px solid var(--line);
 
     display:inline-flex;
 
@@ -525,560 +342,501 @@ header{
 
     justify-content:center;
 
-    gap:20px;
+    gap:12px;
 
-    padding:16px 21px;
-
-    border:1px solid var(--green);
-
-    background:var(--green);
-
-    color:#111;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:10px;
-
-    font-weight:600;
+    font:500 10px "DM Mono",monospace;
 
     text-transform:uppercase;
 
     letter-spacing:.08em;
 
     transition:.3s;
-
 }
 
-.btn:hover{
+.button.primary{
+    background:var(--lime);
 
-    background:transparent;
+    color:#080908;
 
-    color:var(--green);
+    border-color:var(--lime);
 
+    font-weight:600;
+}
+
+.button.primary:hover{
     transform:translateY(-4px);
 
+    box-shadow:0 15px 35px rgba(201,255,61,.15);
 }
 
-.btn.secondary{
+.button.secondary:hover{
+    border-color:var(--lime);
 
-    background:transparent;
-
-    border-color:var(--line);
-
-    color:white;
-
-}
-
-.btn.secondary:hover{
-
-    border-color:var(--green);
-
-    color:var(--green);
-
-}
-
-.hero-stats{
-
-    display:flex;
-
-    gap:40px;
-
-    margin-top:55px;
-
-}
-
-.stat strong{
-
-    display:block;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:20px;
-
-    margin-bottom:5px;
-
-}
-
-.stat span{
-
-    font-family:"DM Mono",monospace;
-
-    font-size:8px;
-
-    color:#7d8278;
-
-    text-transform:uppercase;
-
+    color:var(--lime);
 }
 
 
-/* =========================================================
-   HERO GRAPHIC
-========================================================= */
+/* ================= HERO VISUAL ================= */
 
-.visual{
-
-    height:550px;
+.hero-visual{
+    height:600px;
 
     position:relative;
-
-    perspective:1000px;
-
 }
 
-.orbit{
+.visual-main{
+    width:390px;
+    height:490px;
 
     position:absolute;
 
-    width:420px;
-    height:420px;
-
-    top:50%;
     left:50%;
+    top:50%;
 
-    transform:translate(-50%,-50%) rotate(-20deg);
+    transform:translate(-50%,-50%) rotate(4deg);
 
-    border:1px solid rgba(216,255,85,.4);
+    background:#141814;
 
-    border-radius:50%;
+    border:1px solid rgba(255,255,255,.16);
 
-    animation:orbit 20s linear infinite;
+    box-shadow:35px 45px 90px rgba(0,0,0,.5);
+
+    overflow:hidden;
+
+    animation:posterMove 6s ease-in-out infinite;
+}
+
+@keyframes posterMove{
+
+    0%,100%{
+        transform:translate(-50%,-50%) rotate(4deg);
+    }
+
+    50%{
+        transform:translate(-50%,-54%) rotate(1deg);
+    }
 
 }
 
-.orbit::before{
+.visual-main:before{
 
     content:"";
 
     position:absolute;
 
-    inset:35px;
-
-    border:1px solid rgba(216,255,85,.2);
-
-    border-radius:50%;
-
-}
-
-.orbit::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:80px;
-
-    border:1px dashed rgba(216,255,85,.2);
-
-    border-radius:50%;
-
-}
-
-.orbit-ball{
-
-    position:absolute;
-
-    width:13px;
-    height:13px;
-
-    background:var(--green);
-
-    border-radius:50%;
-
-    top:45px;
-    left:45px;
-
-    box-shadow:0 0 30px var(--green);
-
-}
-
-.poster{
-
-    position:absolute;
-
-    width:275px;
+    width:360px;
     height:360px;
 
-    top:50%;
-    left:50%;
+    border:1px solid rgba(201,255,61,.35);
 
-    transform:
-        translate(-50%,-50%)
-        rotate(7deg);
+    border-radius:50%;
 
-    background:var(--green);
+    left:55%;
+    top:40%;
 
-    color:#111;
-
-    padding:24px;
-
-    box-shadow:
-        0 40px 80px rgba(0,0,0,.5);
-
-    animation:posterFloat 6s infinite ease-in-out;
-
+    transform:translate(-50%,-50%);
 }
 
-.poster-top{
+.visual-main:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:160px;
+    height:160px;
+
+    border-radius:50%;
+
+    background:var(--lime);
+
+    left:55%;
+    top:40%;
+
+    transform:translate(-50%,-50%);
+
+    opacity:.92;
+
+    box-shadow:0 0 100px rgba(201,255,61,.18);
+}
+
+.visual-label{
+
+    position:absolute;
+
+    top:22px;
+    left:22px;
+    right:22px;
 
     display:flex;
 
     justify-content:space-between;
 
-    font-family:"DM Mono",monospace;
+    font:9px "DM Mono",monospace;
 
-    font-size:9px;
+    color:#8b9389;
 
+    z-index:3;
 }
 
-.poster-number{
+.visual-number{
+
+    position:absolute;
+
+    top:57px;
+    left:22px;
+
+    z-index:3;
+
+    font:9px "DM Mono",monospace;
+
+    color:var(--lime);
+}
+
+.visual-title{
+
+    position:absolute;
+
+    left:23px;
+    bottom:110px;
+
+    z-index:4;
 
     font-family:"Space Grotesk",sans-serif;
 
     font-weight:700;
 
-    font-size:160px;
+    font-size:76px;
 
-    line-height:.8;
+    line-height:.79;
 
-    letter-spacing:-.15em;
-
-    margin:50px 0 15px;
-
+    letter-spacing:-.09em;
 }
 
-.poster h3{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:29px;
-
-    line-height:.95;
-
-    text-transform:uppercase;
-
-    letter-spacing:-.06em;
-
-}
-
-.poster-bottom{
-
-    position:absolute;
-
-    bottom:20px;
-
-    left:24px;
-    right:24px;
-
-    padding-top:10px;
-
-    border-top:1px solid rgba(0,0,0,.3);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:8px;
-
-}
-
-.float-card{
-
-    position:absolute;
-
-    padding:15px 18px;
-
-    background:#1d201b;
-
-    border:1px solid var(--line);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.4);
-
-    backdrop-filter:blur(10px);
-
-}
-
-.float-card small{
+.visual-title span{
 
     display:block;
 
-    font-family:"DM Mono",monospace;
+    color:transparent;
 
-    color:#858a80;
-
-    font-size:8px;
-
-    text-transform:uppercase;
-
-    margin-bottom:7px;
-
+    -webkit-text-stroke:1px #fff;
 }
 
-.float-card strong{
+.visual-bottom{
 
-    font-family:"Space Grotesk",sans-serif;
+    position:absolute;
 
-    font-size:14px;
+    bottom:23px;
 
-}
+    left:23px;
+    right:23px;
 
-.card-one{
+    z-index:5;
 
-    top:80px;
-    left:0;
+    border-top:1px solid rgba(255,255,255,.13);
 
-    transform:rotate(-8deg);
-
-    animation:float 5s infinite ease-in-out;
-
-}
-
-.card-two{
-
-    right:0;
-    bottom:70px;
-
-    transform:rotate(7deg);
-
-    animation:float 5s infinite ease-in-out -2s;
-
-}
-
-.swatches{
-
-    display:flex;
-
-    gap:5px;
-
-    margin-top:8px;
-
-}
-
-.swatches i{
-
-    width:17px;
-    height:17px;
-
-    border-radius:50%;
-
-    background:#d8ff55;
-
-}
-
-.swatches i:nth-child(2){
-    background:#ff765c;
-}
-
-.swatches i:nth-child(3){
-    background:#f1eee2;
-}
-
-.swatches i:nth-child(4){
-    background:#56634c;
-}
-
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee{
-
-    overflow:hidden;
-
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-
-    padding:20px 0;
-
-    background:#141613;
-
-}
-
-.marquee-track{
-
-    display:flex;
-
-    width:max-content;
-
-    animation:marquee 25s linear infinite;
-
-}
-
-.marquee span{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:600;
-
-    text-transform:uppercase;
-
-    font-size:14px;
-
-    letter-spacing:.1em;
-
-    padding:0 25px;
-
-    color:#c3c6bb;
-
-}
-
-.marquee b{
-
-    color:var(--green);
-
-}
-
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-.section{
-
-    padding:125px 0;
-
-}
-
-.section-heading{
+    padding-top:11px;
 
     display:flex;
 
     justify-content:space-between;
 
-    align-items:end;
+    font:8px "DM Mono",monospace;
 
-    gap:30px;
+    color:#858d83;
+}
 
-    margin-bottom:55px;
+.visual-d{
+    color:white;
 
+    font-weight:600;
+}
+
+
+/* ================= FLOATING TAGS ================= */
+
+.floating-tag{
+
+    position:absolute;
+
+    z-index:10;
+
+    padding:11px 14px;
+
+    background:rgba(13,16,13,.9);
+
+    border:1px solid rgba(255,255,255,.13);
+
+    backdrop-filter:blur(15px);
+
+    font:9px "DM Mono",monospace;
+
+    color:#d6ddd2;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.tag-one{
+
+    top:18%;
+    left:2%;
+
+    transform:rotate(-7deg);
+
+    animation:tagFloat 4s infinite ease-in-out;
+}
+
+.tag-two{
+
+    top:35%;
+    right:0;
+
+    transform:rotate(6deg);
+
+    animation:tagFloat 4.5s infinite ease-in-out reverse;
+}
+
+.tag-three{
+
+    bottom:17%;
+    left:8%;
+
+    transform:rotate(3deg);
+}
+
+@keyframes tagFloat{
+
+    50%{
+        transform:translateY(-10px) rotate(-4deg);
+    }
+
+}
+
+
+/* ================= TICKER ================= */
+
+.ticker{
+
+    border-top:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+
+    background:#0c0f0c;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    padding:19px 0;
+}
+
+.ticker-track{
+
+    display:inline-flex;
+
+    animation:ticker 28s linear infinite;
+}
+
+.ticker span{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    font-size:15px;
+
+    margin:0 28px;
+
+    letter-spacing:-.03em;
+}
+
+.ticker b{
+    color:var(--lime);
+}
+
+@keyframes ticker{
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:130px 0;
+
+    position:relative;
+}
+
+.section-top{
+
+    display:grid;
+
+    grid-template-columns:.8fr 1.2fr;
+
+    gap:60px;
+
+    margin-bottom:60px;
+}
+
+.section-number{
+
+    color:var(--lime);
+
+    font:10px "DM Mono",monospace;
+
+    letter-spacing:.12em;
 }
 
 .section-title{
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:clamp(45px,6vw,75px);
+    font-weight:700;
 
-    line-height:.95;
+    font-size:clamp(48px,6vw,82px);
 
-    letter-spacing:-.08em;
+    line-height:.9;
 
-    margin-top:20px;
-
+    letter-spacing:-.07em;
 }
 
 .section-title span{
-
-    color:var(--green);
-
+    color:#777f76;
 }
 
 .section-description{
 
-    max-width:340px;
+    color:#8f988e;
 
-    color:var(--muted);
+    line-height:1.8;
 
-    font-size:12px;
+    max-width:550px;
 
-    line-height:1.9;
+    align-self:end;
 
+    font-size:13px;
 }
 
 
-/* =========================================================
-   SERVICES
-========================================================= */
+/* ================= SERVICES ================= */
 
 .services{
-
-    background:#141613;
-
+    border-bottom:1px solid var(--line);
 }
 
-.services-grid{
+.service-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,1fr);
 
-    border-top:1px solid var(--line);
-
-    border-left:1px solid var(--line);
-
+    gap:16px;
 }
 
 .service{
 
-    min-height:255px;
-
-    padding:30px;
-
-    border-right:1px solid var(--line);
-
-    border-bottom:1px solid var(--line);
+    height:480px;
 
     position:relative;
 
     overflow:hidden;
 
-    transition:.4s;
+    border:1px solid var(--line);
 
+    background:var(--card);
+
+    transition:.55s cubic-bezier(.2,.8,.2,1);
+
+    isolation:isolate;
 }
 
 .service:hover{
 
-    background:#20231d;
+    transform:translateY(-9px);
 
-    transform:translateY(-5px);
+    border-color:rgba(201,255,61,.4);
 
+    box-shadow:0 35px 80px rgba(0,0,0,.35);
 }
 
-.service-number{
+.service-no{
 
-    display:flex;
+    position:absolute;
 
-    justify-content:space-between;
+    left:24px;
+    top:23px;
 
-    font-family:"DM Mono",monospace;
+    z-index:20;
 
-    color:#777c72;
+    color:#626960;
 
-    font-size:9px;
-
+    font:10px "DM Mono",monospace;
 }
 
-.service-icon{
+.service-top{
 
-    color:var(--green);
+    position:absolute;
 
-    font-size:22px;
+    top:23px;
+    right:24px;
 
+    z-index:20;
+
+    font:9px "DM Mono",monospace;
+
+    color:#777f75;
+
+    text-transform:uppercase;
+}
+
+.service-info{
+
+    position:absolute;
+
+    left:26px;
+    right:26px;
+    bottom:25px;
+
+    z-index:20;
+}
+
+.service-type{
+
+    color:var(--lime);
+
+    font:9px "DM Mono",monospace;
+
+    text-transform:uppercase;
+
+    letter-spacing:.1em;
+
+    margin-bottom:9px;
 }
 
 .service h3{
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:24px;
+    font-weight:700;
 
-    margin-top:50px;
+    font-size:34px;
 
-    margin-bottom:12px;
+    letter-spacing:-.06em;
 
+    margin-bottom:10px;
 }
 
 .service p{
 
-    color:var(--muted);
+    color:#8d968b;
 
     font-size:12px;
 
-    line-height:1.8;
+    line-height:1.65;
 
+    max-width:430px;
 }
 
 .service-arrow{
@@ -1086,265 +844,445 @@ header{
     position:absolute;
 
     right:25px;
+    bottom:25px;
 
-    bottom:22px;
+    width:43px;
+    height:43px;
 
-    color:var(--green);
+    display:grid;
 
-    font-size:20px;
+    place-items:center;
 
-    transition:.3s;
+    border:1px solid rgba(255,255,255,.14);
 
+    z-index:21;
+
+    transition:.35s;
 }
 
 .service:hover .service-arrow{
 
-    transform:translate(5px,-5px);
+    background:var(--lime);
 
+    color:#080908;
+
+    border-color:var(--lime);
+
+    transform:rotate(45deg);
 }
 
 
-/* =========================================================
-   WORK
-========================================================= */
+/* ================= BRAND ART ================= */
 
-.filters{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:8px;
-
-    margin-bottom:30px;
-
+.brand-art{
+    position:absolute;
+    inset:0;
 }
 
-.filter{
+.brand-grid{
 
-    background:transparent;
+    position:absolute;
 
-    color:#9ba095;
+    inset:55px;
 
-    border:1px solid var(--line);
+    background:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
 
-    padding:10px 16px;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+    background-size:30px 30px;
 }
 
-.filter:hover,
-.filter.active{
+.brand-circle{
 
-    background:var(--green);
+    position:absolute;
 
-    color:#111;
+    width:245px;
+    height:245px;
 
-    border-color:var(--green);
+    border:1px dashed rgba(201,255,61,.3);
 
+    border-radius:50%;
+
+    left:50%;
+    top:43%;
+
+    transform:translate(-50%,-50%);
+
+    animation:rotateCircle 15s linear infinite;
 }
 
-.portfolio{
+.brand-circle:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--lime);
+
+    top:12px;
+    left:50%;
+}
+
+.brand-mark{
+
+    position:absolute;
+
+    width:135px;
+    height:135px;
+
+    left:50%;
+    top:43%;
+
+    transform:translate(-50%,-50%) rotate(45deg);
+
+    border:2px solid var(--lime);
+
+    transition:.7s;
+}
+
+.brand-mark:before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:23px;
+
+    border:1px solid white;
+}
+
+.brand-mark span{
+
+    position:absolute;
+
+    inset:0;
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    place-items:center;
 
-    gap:18px;
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    font-size:78px;
+
+    color:var(--lime);
+
+    transform:rotate(-45deg);
+}
+
+.service:hover .brand-mark{
+
+    transform:translate(-50%,-50%) rotate(135deg) scale(1.1);
+}
+
+@keyframes rotateCircle{
+
+    to{
+        transform:translate(-50%,-50%) rotate(360deg);
+    }
 
 }
 
-.project{
 
-    background:#171a15;
+/* ================= SOCIAL ART ================= */
 
-    border:1px solid var(--line);
-
-    overflow:hidden;
-
-    transition:.4s;
-
+.social-art{
+    position:absolute;
+    inset:0;
 }
 
-.project:nth-child(even){
+.social-card{
 
-    margin-top:65px;
+    position:absolute;
 
+    width:185px;
+    height:235px;
+
+    left:50%;
+    top:42%;
+
+    padding:10px;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    background:#191d19;
+
+    box-shadow:20px 25px 50px rgba(0,0,0,.3);
+
+    transition:.6s cubic-bezier(.2,.8,.2,1);
 }
 
-.project:hover{
+.social-card:nth-child(1){
 
-    transform:translateY(-8px);
-
-    border-color:rgba(216,255,85,.5);
-
+    transform:translate(-75%,-50%) rotate(-13deg);
 }
 
-.project-image{
+.social-card:nth-child(2){
 
-    height:430px;
+    transform:translate(-50%,-50%) rotate(0);
+
+    z-index:3;
+}
+
+.social-card:nth-child(3){
+
+    transform:translate(-25%,-50%) rotate(13deg);
+}
+
+.social-image{
+
+    height:140px;
 
     position:relative;
 
     overflow:hidden;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:
-
-        radial-gradient(
-            circle at center,
-            #3c472c,
-            #151812
-        );
-
+    background:linear-gradient(135deg,#303830,#101210);
 }
 
-.project:nth-child(2) .project-image{
+.social-image:before{
 
-    background:
-        radial-gradient(
-            circle at center,
-            #4b2d25,
-            #16110f
-        );
+    content:"";
 
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    border:1px solid var(--lime);
+
+    border-radius:50%;
+
+    right:-25px;
+    top:-10px;
 }
 
-.project:nth-child(3) .project-image{
+.social-image:after{
 
-    background:
-        radial-gradient(
-            circle at center,
-            #38334b,
-            #111016
-        );
+    content:"197";
 
-}
+    position:absolute;
 
-.project:nth-child(4) .project-image{
-
-    background:
-        radial-gradient(
-            circle at center,
-            #3c473d,
-            #111410
-        );
-
-}
-
-.project-art{
-
-    width:250px;
-    height:310px;
-
-    background:var(--green);
-
-    color:#111;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    left:12px;
+    bottom:8px;
 
     font-family:"Space Grotesk",sans-serif;
-
-    font-size:55px;
 
     font-weight:700;
 
-    letter-spacing:-.08em;
+    font-size:34px;
 
-    box-shadow:0 30px 70px rgba(0,0,0,.45);
-
-    transform:rotate(-7deg);
-
-    transition:.7s;
-
+    color:white;
 }
 
-.project:hover .project-art{
+.social-line{
 
-    transform:
-        rotate(0deg)
-        scale(1.08);
+    height:5px;
 
+    background:#596058;
+
+    margin-top:12px;
+
+    width:70%;
 }
 
-.project:nth-child(2) .project-art{
+.social-line.small{
 
-    background:var(--orange);
+    width:42%;
 
+    margin-top:7px;
 }
 
-.project:nth-child(3) .project-art{
+.service:hover .social-card:nth-child(1){
 
-    background:#cfc5ff;
-
+    transform:translate(-90%,-54%) rotate(-19deg);
 }
 
-.project:nth-child(4) .project-art{
+.service:hover .social-card:nth-child(3){
 
-    background:#eee9dc;
-
+    transform:translate(-10%,-54%) rotate(19deg);
 }
 
-.project-info{
 
-    display:flex;
+/* ================= POSTER ART ================= */
 
-    align-items:center;
+.poster-art{
 
-    justify-content:space-between;
+    position:absolute;
 
-    padding:19px 20px;
-
+    inset:0;
 }
 
-.project-info h3{
+.poster-sheet{
 
-    font-family:"Space Grotesk",sans-serif;
+    position:absolute;
 
-    font-size:18px;
+    width:205px;
+    height:270px;
 
+    left:50%;
+    top:32px;
+
+    padding:18px;
+
+    transition:.6s;
+
+    box-shadow:20px 25px 45px rgba(0,0,0,.35);
 }
 
-.project-info small{
+.poster-sheet.one{
+
+    background:#e7ece2;
+
+    color:#10120f;
+
+    transform:translateX(-50%) rotate(-8deg);
+
+    z-index:1;
+}
+
+.poster-sheet.two{
+
+    background:var(--lime);
+
+    color:#10120f;
+
+    transform:translateX(-50%) rotate(7deg);
+
+    z-index:2;
+}
+
+.poster-sheet.three{
+
+    background:#191c19;
+
+    border:1px solid #444b43;
+
+    transform:translateX(-50%) rotate(0);
+
+    z-index:3;
+
+    color:white;
+}
+
+.poster-sheet strong{
 
     display:block;
 
-    margin-top:5px;
+    font-family:"Space Grotesk",sans-serif;
 
-    color:#777c72;
+    font-weight:700;
 
-    font-family:"DM Mono",monospace;
+    font-size:34px;
 
-    font-size:8px;
+    line-height:.82;
 
-    text-transform:uppercase;
-
+    letter-spacing:-.08em;
 }
 
-.project-arrow{
+.poster-sheet small{
 
-    width:38px;
-    height:38px;
+    display:block;
 
-    border:1px solid var(--line);
+    margin-top:20px;
+
+    font:8px "DM Mono",monospace;
+
+    color:#7d857b;
+}
+
+.poster-orb{
+
+    width:75px;
+    height:75px;
+
+    border:1px solid var(--lime);
+
+    border-radius:50%;
+
+    margin-top:35px;
+}
+
+.service:hover .poster-sheet.one{
+
+    transform:translateX(-50%) translateX(-20px) rotate(-14deg);
+}
+
+.service:hover .poster-sheet.two{
+
+    transform:translateX(-50%) translateX(20px) rotate(13deg);
+}
+
+
+/* ================= PACKAGING ================= */
+
+.package-art{
+
+    position:absolute;
+
+    inset:0;
+
+    perspective:800px;
+}
+
+.box{
+
+    position:absolute;
+
+    width:210px;
+    height:220px;
+
+    left:50%;
+    top:45px;
+
+    transform:translateX(-50%) rotateY(-18deg) rotateX(4deg);
+
+    transition:.7s;
+
+    filter:drop-shadow(25px 30px 35px rgba(0,0,0,.4));
+}
+
+.box-front{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#dfe6d8;
+
+    border:1px solid #899286;
+
+    color:#11140f;
+
+    padding:20px;
+}
+
+.box-front:before{
+
+    content:"COLA";
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    font-size:44px;
+
+    letter-spacing:-.09em;
+}
+
+.box-circle{
+
+    width:100px;
+    height:100px;
+
+    border:2px solid #111;
 
     border-radius:50%;
 
@@ -1352,378 +1290,950 @@ header{
 
     place-items:center;
 
-    color:var(--green);
+    margin:20px auto;
+
+    text-align:center;
+
+    font:800 11px "DM Mono",monospace;
+}
+
+.box-side{
+
+    position:absolute;
+
+    width:40px;
+    height:212px;
+
+    right:-39px;
+    top:7px;
+
+    background:#99a291;
+
+    transform:skewY(-24deg);
+
+    transform-origin:left;
+}
+
+.box-top{
+
+    position:absolute;
+
+    width:210px;
+    height:18px;
+
+    top:-17px;
+    left:0;
+
+    background:#f0f4e9;
+
+    transform:skewX(-43deg);
+
+    transform-origin:left bottom;
+}
+
+.service:hover .box{
+
+    transform:
+        translateX(-50%)
+        rotateY(-29deg)
+        rotateX(8deg)
+        translateY(-13px);
+}
+
+
+/* ================= CATALOG ================= */
+
+.catalog-art{
+
+    position:absolute;
+
+    inset:0;
+
+    perspective:800px;
+}
+
+.book{
+
+    position:absolute;
+
+    width:330px;
+    height:220px;
+
+    left:50%;
+    top:60px;
+
+    display:flex;
+
+    transform:
+        translateX(-50%)
+        rotateZ(-4deg)
+        rotateX(7deg);
+
+    transition:.6s;
+
+    filter:drop-shadow(20px 30px 35px rgba(0,0,0,.4));
+}
+
+.book-page{
+
+    width:50%;
+
+    height:100%;
+
+    padding:17px;
+
+    background:#e7ece2;
+
+    color:#111;
+
+    border:1px solid #b8beb5;
+}
+
+.book-page.dark{
+
+    background:#191c19;
+
+    color:white;
+}
+
+.book-page h4{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    font-size:25px;
+
+    line-height:.85;
+
+    letter-spacing:-.07em;
+}
+
+.book-lines{
+
+    margin-top:18px;
+}
+
+.book-lines i{
+
+    display:block;
+
+    height:4px;
+
+    background:currentColor;
+
+    opacity:.25;
+
+    margin:7px 0;
+}
+
+.book-photo{
+
+    height:70px;
+
+    margin-top:15px;
+
+    background:#9da89a;
+}
+
+.service:hover .book{
+
+    transform:
+        translateX(-50%)
+        rotateZ(0deg)
+        rotateX(7deg)
+        translateY(-10px);
+}
+
+
+/* ================= PHOTO EDIT ================= */
+
+.edit-art{
+
+    position:absolute;
+
+    inset:0;
+}
+
+.edit-window{
+
+    position:absolute;
+
+    width:320px;
+    height:220px;
+
+    left:50%;
+    top:60px;
+
+    transform:translateX(-50%);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    background:#181b18;
+
+    overflow:hidden;
+}
+
+.before-image,
+.after-image{
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+
+    width:50%;
+}
+
+.before-image{
+
+    left:0;
+
+    background:
+        radial-gradient(circle at 45% 42%,#747d73 0 24%,transparent 25%),
+        linear-gradient(145deg,#454d45,#111311);
+
+    filter:grayscale(1);
+}
+
+.after-image{
+
+    right:0;
+
+    background:
+        radial-gradient(circle at 55% 42%,var(--lime) 0 20%,transparent 21%),
+        linear-gradient(145deg,#293329,#101210);
+}
+
+.edit-line{
+
+    position:absolute;
+
+    width:2px;
+
+    top:0;
+    bottom:0;
+
+    left:50%;
+
+    background:white;
+
+    box-shadow:0 0 18px rgba(255,255,255,.4);
+}
+
+.edit-knob{
+
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#111;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:11px;
+}
+
+.edit-label{
+
+    position:absolute;
+
+    bottom:12px;
+
+    font:8px "DM Mono",monospace;
+}
+
+.edit-label.left{
+
+    left:12px;
+
+    color:#fff;
+}
+
+.edit-label.right{
+
+    right:12px;
+
+    color:var(--lime);
+}
+
+.service:hover .edit-line{
+
+    animation:editMove 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes editMove{
+
+    from{
+        left:38%;
+    }
+
+    to{
+        left:62%;
+    }
+
+}
+
+
+/* ================= WORK ================= */
+
+.work{
+
+    background:#0a0d0a;
+
+    border-bottom:1px solid var(--line);
+}
+
+.work-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(12,1fr);
+
+    gap:16px;
+}
+
+.project{
+
+    position:relative;
+
+    min-height:420px;
+
+    overflow:hidden;
+
+    border:1px solid var(--line);
+
+    background:#141814;
+}
+
+.project:nth-child(1){
+    grid-column:span 7;
+}
+
+.project:nth-child(2){
+    grid-column:span 5;
+}
+
+.project:nth-child(3){
+    grid-column:span 5;
+}
+
+.project:nth-child(4){
+    grid-column:span 7;
+}
+
+.project-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    transition:.7s;
+}
+
+.project:hover .project-bg{
+    transform:scale(1.06);
+}
+
+.timevera{
+
+    background:
+        radial-gradient(circle at 50% 40%,rgba(201,255,61,.25),transparent 20%),
+        linear-gradient(145deg,#202720,#090b09);
+}
+
+.watch{
+
+    width:170px;
+    height:170px;
+
+    border:6px solid #8b9588;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    box-shadow:0 0 60px rgba(201,255,61,.08);
+}
+
+.watch:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:3px;
+    height:57px;
+
+    background:var(--lime);
+
+    left:50%;
+    top:50%;
+
+    transform-origin:bottom;
+
+    transform:
+        translate(-50%,-100%)
+        rotate(30deg);
+}
+
+.watch:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:3px;
+    height:48px;
+
+    background:white;
+
+    left:50%;
+    top:50%;
+
+    transform-origin:bottom;
+
+    transform:
+        translate(-50%,-100%)
+        rotate(125deg);
+}
+
+.cola-project{
+
+    background:
+        radial-gradient(circle at 60% 40%,rgba(201,255,61,.22),transparent 25%),
+        linear-gradient(135deg,#252d25,#0b0d0b);
+}
+
+.can{
+
+    width:105px;
+    height:240px;
+
+    position:absolute;
+
+    left:50%;
+    top:45%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(7deg);
+
+    background:#dfe6d8;
+
+    border-radius:26px 26px 20px 20px;
+
+    box-shadow:20px 30px 50px rgba(0,0,0,.4);
+}
+
+.can:before{
+
+    content:"COLA";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-90deg);
+
+    color:#10130f;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    font-size:32px;
+}
+
+.social-project{
+
+    background:linear-gradient(135deg,#1e241e,#0c0f0c);
+}
+
+.phone{
+
+    width:150px;
+    height:275px;
+
+    position:absolute;
+
+    left:50%;
+    top:45%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-7deg);
+
+    border:5px solid #343b34;
+
+    border-radius:25px;
+
+    padding:8px;
+
+    background:#111;
+}
+
+.phone-screen{
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201,255,61,.7),
+            transparent 35%
+        ),
+        #252c25;
+
+    position:relative;
+}
+
+.phone-screen:after{
+
+    content:"SOCIAL";
+
+    position:absolute;
+
+    bottom:22px;
+    left:12px;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    font-size:28px;
+}
+
+.poster-project{
+
+    background:
+        radial-gradient(
+            circle at 52% 42%,
+            rgba(201,255,61,.16),
+            transparent 25%
+        ),
+        #151815;
+}
+
+.impact{
+
+    position:absolute;
+
+    left:50%;
+    top:45%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-8deg);
+
+    color:transparent;
+
+    -webkit-text-stroke:1px #d5dbd2;
+
+    white-space:nowrap;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:700;
+
+    font-size:105px;
+
+    letter-spacing:-.1em;
+}
+
+.project-info{
+
+    position:absolute;
+
+    z-index:5;
+
+    left:25px;
+    right:25px;
+    bottom:23px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+}
+
+.project-info small{
+
+    font:8px "DM Mono",monospace;
+
+    color:#7d857b;
+
+    text-transform:uppercase;
+}
+
+.project-info h3{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-weight:600;
+
+    font-size:21px;
+
+    margin-top:5px;
+}
+
+.project-arrow{
+
+    width:40px;
+    height:40px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    display:grid;
+
+    place-items:center;
 
     transition:.3s;
-
 }
 
 .project:hover .project-arrow{
 
-    background:var(--green);
+    background:var(--lime);
 
-    color:#111;
-
-    transform:rotate(45deg);
-
+    color:#080908;
 }
 
 
-/* =========================================================
-   ABOUT
-========================================================= */
+/* ================= ABOUT ================= */
 
 .about{
 
-    background:#e8e8df;
-
-    color:#161813;
-
+    border-bottom:1px solid var(--line);
 }
 
-.about .eyebrow{
-
-    color:#4c6230;
-
-}
-
-.about .eyebrow::before{
-
-    background:#4c6230;
-
-}
-
-.about-layout{
+.about-grid{
 
     display:grid;
 
-    grid-template-columns:.9fr 1.1fr;
+    grid-template-columns:.75fr 1.25fr;
 
-    gap:90px;
+    gap:100px;
 
     align-items:center;
-
 }
 
-.about-graphic{
+.about-visual{
 
-    min-height:470px;
+    height:390px;
 
-    background:var(--green);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    border:1px solid var(--line);
 
     position:relative;
 
     overflow:hidden;
 
+    display:grid;
+
+    place-items:center;
 }
 
-.about-graphic::before{
+.about-visual:before{
 
-    content:"";
-
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    border:1px solid rgba(0,0,0,.3);
-
-    border-radius:50%;
-
-}
-
-.about-graphic::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:260px;
-    height:260px;
-
-    border:1px dashed rgba(0,0,0,.3);
-
-    border-radius:50%;
-
-    animation:spin 25s linear infinite;
-
-}
-
-.about-letter{
+    content:"197";
 
     font-family:"Space Grotesk",sans-serif;
-
-    font-size:230px;
-
-    line-height:.8;
 
     font-weight:700;
 
-    letter-spacing:-.15em;
+    font-size:210px;
 
-    z-index:2;
+    color:transparent;
 
+    -webkit-text-stroke:1px rgba(255,255,255,.11);
+
+    letter-spacing:-.12em;
 }
 
-.stamp{
+.about-visual:after{
+
+    content:"DESIGNER";
 
     position:absolute;
 
-    right:20px;
-    bottom:20px;
+    bottom:23px;
+    left:23px;
 
-    padding:13px 16px;
+    color:var(--lime);
 
-    background:#151713;
-
-    color:var(--green);
-
-    font-family:"DM Mono",monospace;
-
-    font-size:9px;
-
-    text-transform:uppercase;
-
-    transform:rotate(-5deg);
-
-    z-index:3;
-
+    font:9px "DM Mono",monospace;
 }
 
-.about .section-title{
+.about-ring{
 
-    color:#171914;
+    position:absolute;
 
+    width:190px;
+    height:190px;
+
+    border:1px solid rgba(201,255,61,.35);
+
+    border-radius:50%;
+
+    animation:
+        rotateCircle
+        15s
+        linear
+        infinite
+        reverse;
 }
 
-.about-text{
-
-    color:#60655b;
-
-    font-size:14px;
-
-    line-height:2;
-
-    margin-top:25px;
-
+.about-content .section-number{
+    margin-bottom:22px;
 }
 
-.about-facts{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    margin-top:35px;
-
-    gap:1px;
-
-    background:#c7c9bf;
-
-}
-
-.fact{
-
-    padding:20px;
-
-    background:#e8e8df;
-
-}
-
-.fact strong{
-
-    display:block;
+.about-content h2{
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:20px;
+    font-weight:700;
 
+    font-size:clamp(45px,5.5vw,76px);
+
+    line-height:.9;
+
+    letter-spacing:-.07em;
 }
 
-.fact span{
+.about-content h2 span{
+    color:var(--lime);
+}
 
-    font-family:"DM Mono",monospace;
+.about-content p{
 
-    font-size:8px;
+    color:#8f978d;
+
+    line-height:1.85;
+
+    max-width:650px;
+
+    margin-top:24px;
+
+    font-size:14px;
+}
+
+.skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:28px;
+}
+
+.skill{
+
+    border:1px solid var(--line);
+
+    padding:9px 12px;
+
+    font:9px "DM Mono",monospace;
 
     text-transform:uppercase;
 
-    color:#777b72;
-
+    color:#a7aea4;
 }
 
 
-/* =========================================================
-   PROCESS
-========================================================= */
+/* ================= PROCESS ================= */
 
 .process{
 
-    background:#141613;
-
+    border-bottom:1px solid var(--line);
 }
 
 .process-list{
 
     border-top:1px solid var(--line);
-
 }
 
-.process-item{
+.process-row{
 
     display:grid;
 
-    grid-template-columns:80px 1fr 1fr;
-
-    gap:25px;
+    grid-template-columns:100px 1fr 1fr 40px;
 
     align-items:center;
 
-    padding:30px 0;
+    gap:30px;
+
+    min-height:150px;
 
     border-bottom:1px solid var(--line);
 
+    transition:.3s;
 }
 
-.process-number{
+.process-row:hover{
 
-    font-family:"DM Mono",monospace;
+    padding-left:15px;
 
-    color:var(--green);
-
-    font-size:10px;
-
+    background:#0d100d;
 }
 
-.process-item h3{
+.process-num{
+
+    color:var(--lime);
+
+    font:10px "DM Mono",monospace;
+}
+
+.process-row h3{
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:26px;
+    font-weight:600;
 
+    font-size:30px;
+
+    letter-spacing:-.05em;
 }
 
-.process-item p{
+.process-row p{
 
-    color:var(--muted);
+    color:#7e877d;
 
     font-size:12px;
 
-    line-height:1.8;
+    line-height:1.7;
+}
 
+.process-symbol{
+
+    font-size:21px;
+
+    transition:.4s;
+}
+
+.process-row:hover .process-symbol{
+
+    color:var(--lime);
+
+    transform:rotate(45deg);
 }
 
 
-/* =========================================================
-   CONTACT
-========================================================= */
+/* ================= CTA ================= */
 
-.contact{
+.cta{
 
-    padding:140px 0;
+    padding:160px 0;
 
     text-align:center;
 
-    position:relative;
-
     overflow:hidden;
-
 }
 
-.contact::before{
-
-    content:"";
+.cta-glow{
 
     position:absolute;
 
     width:600px;
     height:600px;
 
-    top:50%;
+    border-radius:50%;
+
+    background:rgba(201,255,61,.06);
+
+    filter:blur(70px);
+
     left:50%;
+    top:20%;
 
-    transform:translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(216,255,85,.12),
-            transparent 70%
-        );
-
+    transform:translateX(-50%);
 }
 
-.contact .eyebrow{
-
-    justify-content:center;
-
-}
-
-.contact h2{
+.cta-content{
 
     position:relative;
+
+    z-index:2;
+}
+
+.cta-label{
+
+    color:var(--lime);
+
+    font:9px "DM Mono",monospace;
+
+    letter-spacing:.12em;
+}
+
+.cta h2{
+
+    max-width:1050px;
+
+    margin:25px auto 30px;
 
     font-family:"Space Grotesk",sans-serif;
 
-    font-size:clamp(50px,8vw,105px);
+    font-weight:700;
 
-    line-height:.95;
+    font-size:clamp(54px,8vw,110px);
+
+    line-height:.84;
 
     letter-spacing:-.08em;
-
-    margin:30px auto;
-
 }
 
-.contact h2 span{
+.cta h2 span{
 
-    color:var(--green);
+    display:block;
 
+    color:transparent;
+
+    -webkit-text-stroke:1px rgba(255,255,255,.6);
 }
 
-.contact p{
+.cta p{
 
-    position:relative;
+    max-width:550px;
 
-    max-width:480px;
+    margin:0 auto;
 
-    margin:0 auto 30px;
+    color:#8b948a;
 
-    color:var(--muted);
-
-    font-size:13px;
+    font-size:14px;
 
     line-height:1.8;
-
-}
-
-.contact .buttons{
-
-    position:relative;
-
-    justify-content:center;
-
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
 footer{
 
     border-top:1px solid var(--line);
 
-    background:#090a08;
-
     padding:28px 0;
-
 }
 
 .footer{
@@ -1735,534 +2245,696 @@ footer{
     align-items:center;
 
     gap:20px;
-
 }
 
 .footer-copy{
 
-    color:#777c72;
+    color:#697169;
 
-    font-family:"DM Mono",monospace;
-
-    font-size:8px;
-
-    text-transform:uppercase;
-
+    font:9px "DM Mono",monospace;
 }
 
-.socials{
+.footer-links{
 
     display:flex;
 
-    gap:20px;
-
+    gap:24px;
 }
 
-.socials a{
+.footer-links a{
 
-    font-family:"DM Mono",monospace;
+    color:#7f887e;
 
-    font-size:9px;
-
-    color:#aaa;
+    font:9px "DM Mono",monospace;
 
     text-transform:uppercase;
-
 }
 
-.socials a:hover{
-
-    color:var(--green);
-
+.footer-links a:hover{
+    color:var(--lime);
 }
 
 
-/* =========================================================
-   REVEAL
-========================================================= */
+/* ================= WALKING DESIGNER ================= */
+
+.walker{
+
+    position:fixed;
+
+    left:-70px;
+
+    bottom:15px;
+
+    width:55px;
+    height:78px;
+
+    z-index:3000;
+
+    pointer-events:none;
+
+    animation:
+        walk
+        18s
+        linear
+        infinite;
+}
+
+.walk-head{
+
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    background:#d7ad87;
+
+    border-radius:50%;
+
+    left:18px;
+    top:0;
+}
+
+.walk-hair{
+
+    position:absolute;
+
+    width:21px;
+    height:11px;
+
+    background:#171917;
+
+    border-radius:15px 15px 4px 4px;
+
+    left:17px;
+    top:-2px;
+}
+
+.walk-body{
+
+    position:absolute;
+
+    width:25px;
+    height:30px;
+
+    left:16px;
+    top:20px;
+
+    border-radius:8px 8px 3px 3px;
+
+    background:#252a25;
+}
+
+.walk-shirt{
+
+    position:absolute;
+
+    width:7px;
+    height:15px;
+
+    left:25px;
+    top:24px;
+
+    background:var(--lime);
+}
+
+.arm{
+
+    position:absolute;
+
+    width:5px;
+    height:24px;
+
+    top:23px;
+
+    background:#d7ad87;
+
+    border-radius:5px;
+
+    transform-origin:top;
+}
+
+.arm.a{
+
+    left:14px;
+
+    animation:
+        armA
+        .55s
+        infinite
+        alternate;
+}
+
+.arm.b{
+
+    left:37px;
+
+    animation:
+        armB
+        .55s
+        infinite
+        alternate;
+}
+
+.leg{
+
+    position:absolute;
+
+    width:6px;
+    height:27px;
+
+    top:47px;
+
+    background:#171917;
+
+    border-radius:5px;
+
+    transform-origin:top;
+}
+
+.leg.a{
+
+    left:20px;
+
+    animation:
+        legA
+        .55s
+        infinite
+        alternate;
+}
+
+.leg.b{
+
+    left:30px;
+
+    animation:
+        legB
+        .55s
+        infinite
+        alternate;
+}
+
+.bag{
+
+    position:absolute;
+
+    width:14px;
+    height:19px;
+
+    border:2px solid #a5ada3;
+
+    left:40px;
+    top:27px;
+
+    border-radius:3px;
+}
+
+@keyframes walk{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    45%{
+        transform:translateX(calc(50vw - 20px));
+    }
+
+    100%{
+        transform:translateX(calc(100vw + 140px));
+    }
+
+}
+
+@keyframes armA{
+    to{
+        transform:rotate(27deg);
+    }
+}
+
+@keyframes armB{
+    to{
+        transform:rotate(-27deg);
+    }
+}
+
+@keyframes legA{
+    to{
+        transform:rotate(25deg);
+    }
+}
+
+@keyframes legB{
+    to{
+        transform:rotate(-25deg);
+    }
+}
+
+
+/* ================= AI ================= */
+
+.ai-button{
+
+    position:fixed;
+
+    right:22px;
+    bottom:20px;
+
+    width:54px;
+    height:54px;
+
+    border:1px solid var(--lime);
+
+    background:#101310;
+
+    color:var(--lime);
+
+    z-index:5000;
+
+    cursor:pointer;
+
+    font:800 11px "DM Mono",monospace;
+
+    transition:.3s;
+}
+
+.ai-button:hover{
+
+    background:var(--lime);
+
+    color:#080908;
+
+    transform:translateY(-4px);
+}
+
+.ai-panel{
+
+    position:fixed;
+
+    right:22px;
+    bottom:87px;
+
+    width:335px;
+
+    background:#101310;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    z-index:4999;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(15px);
+
+    transition:.3s;
+}
+
+.ai-panel.open{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:none;
+}
+
+.ai-header{
+
+    padding:15px 17px;
+
+    border-bottom:1px solid var(--line);
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+.ai-header strong{
+
+    color:var(--lime);
+
+    font:9px "DM Mono",monospace;
+}
+
+.ai-close{
+
+    background:none;
+
+    border:0;
+
+    color:#777;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+.ai-body{
+
+    padding:17px;
+}
+
+.ai-body p{
+
+    color:#969e94;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+.ai-options{
+
+    display:grid;
+
+    gap:7px;
+
+    margin-top:13px;
+}
+
+.ai-option{
+
+    border:1px solid var(--line);
+
+    background:#171a17;
+
+    color:#aeb6ac;
+
+    padding:11px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font:9px "DM Mono",monospace;
+
+    transition:.2s;
+}
+
+.ai-option:hover{
+
+    border-color:var(--lime);
+
+    color:var(--lime);
+}
+
+.ai-answer{
+
+    display:none;
+
+    margin-top:13px;
+
+    padding:12px;
+
+    border-left:2px solid var(--lime);
+
+    background:#171a17;
+
+    color:#aeb6ac;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* ================= REVEAL ================= */
 
 .reveal{
 
     opacity:0;
 
-    transform:translateY(35px);
+    transform:translateY(25px);
 
     transition:
         opacity .8s ease,
-        transform .8s cubic-bezier(.2,.7,.2,1);
-
+        transform .8s ease;
 }
 
-.reveal.show{
+.reveal.visible{
 
     opacity:1;
 
-    transform:translateY(0);
-
+    transform:none;
 }
 
 
-/* =========================================================
-   ANIMATIONS
-========================================================= */
+/* ================= RESPONSIVE ================= */
 
-@keyframes orbit{
-
-    from{
-        transform:
-            translate(-50%,-50%)
-            rotate(-20deg);
-    }
-
-    to{
-        transform:
-            translate(-50%,-50%)
-            rotate(340deg);
-    }
-
-}
-
-@keyframes posterFloat{
-
-    0%,100%{
-        transform:
-            translate(-50%,-50%)
-            rotate(7deg);
-    }
-
-    50%{
-        transform:
-            translate(-50%,-54%)
-            rotate(3deg);
-    }
-
-}
-
-@keyframes float{
-
-    0%,100%{
-        transform:translateY(0) rotate(-8deg);
-    }
-
-    50%{
-        transform:translateY(-14px) rotate(-8deg);
-    }
-
-}
-
-@keyframes breathe{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.2);
-    }
-
-}
-
-@keyframes blink{
-
-    50%{
-        opacity:.3;
-        box-shadow:none;
-    }
-
-}
-
-@keyframes marquee{
-
-    to{
-        transform:translateX(-50%);
-    }
-
-}
-
-@keyframes spin{
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:900px){
+@media(max-width:950px){
 
     .container{
-
-        width:calc(100% - 48px);
-
+        width:min(var(--max),calc(100% - 38px));
     }
 
-    .hero-content{
+    .nav-menu{
+        display:none;
+    }
 
+    .hero-inner{
+        grid-template-columns:1fr;
+    }
+
+    .hero-visual{
+        height:530px;
+    }
+
+    .section-top{
         grid-template-columns:1fr;
 
+        gap:25px;
     }
 
-    .visual{
-
-        height:430px;
-
-    }
-
-    .services-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-    .about-layout{
+    .about-grid{
+        grid-template-columns:1fr;
 
         gap:45px;
+    }
 
+    .process-row{
+        grid-template-columns:70px 1fr 40px;
+    }
+
+    .process-row p{
+        display:none;
     }
 
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:680px){
-
-    body{
-
-        cursor:auto;
-
-    }
-
-    .cursor,
-    .cursor-ring{
-
-        display:none;
-
-    }
+@media(max-width:650px){
 
     .container{
-
-        width:calc(100% - 36px);
-
+        width:calc(100% - 28px);
     }
 
-    header{
-
-        height:70px;
-
+    .header{
+        padding:13px 0;
     }
 
-    .nav-links{
-
-        display:none;
-
-        position:absolute;
-
-        top:70px;
-        left:0;
-        right:0;
-
-        padding:20px;
-
-        background:#141613;
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-        gap:0;
-
-        border-bottom:1px solid var(--line);
-
+    .logo{
+        font-size:14px;
     }
 
-    .nav-links.open{
-
-        display:flex;
-
+    .logo-box{
+        width:30px;
+        height:30px;
     }
 
-    .nav-links a{
+    .nav-contact{
+        padding:9px 11px;
 
-        padding:15px 0;
-
-        border-bottom:1px solid var(--line);
-
-    }
-
-    .nav-button{
-
-        text-align:center;
-
-        margin-top:12px;
-
-    }
-
-    .menu{
-
-        display:block;
-
+        font-size:8px!important;
     }
 
     .hero{
-
-        padding-top:120px;
-
-        padding-bottom:60px;
-
+        padding:110px 0 55px;
     }
 
     .hero h1{
-
-        font-size:clamp(55px,16vw,85px);
-
+        font-size:54px;
     }
 
     .hero-description{
-
         font-size:13px;
-
     }
 
-    .hero-stats{
-
-        gap:20px;
-
-        margin-top:40px;
-
+    .hero-visual{
+        height:410px;
     }
 
-    .visual{
-
-        height:400px;
-
+    .visual-main{
+        width:285px;
+        height:365px;
     }
 
-    .orbit{
-
-        width:310px;
-        height:310px;
-
+    .visual-main:before{
+        width:270px;
+        height:270px;
     }
 
-    .poster{
-
-        width:215px;
-        height:285px;
-
+    .visual-main:after{
+        width:120px;
+        height:120px;
     }
 
-    .poster-number{
-
-        font-size:120px;
-
-        margin-top:40px;
-
+    .visual-title{
+        font-size:58px;
+        bottom:82px;
     }
 
-    .poster h3{
-
-        font-size:22px;
-
-    }
-
-    .card-one{
-
-        left:0;
-        top:30px;
-
-    }
-
-    .card-two{
-
-        right:0;
-        bottom:30px;
-
+    .floating-tag{
+        display:none;
     }
 
     .section{
-
-        padding:85px 0;
-
+        padding:90px 0;
     }
 
-    .section-heading{
-
-        display:block;
-
-        margin-bottom:35px;
-
+    .section-title{
+        font-size:46px;
     }
 
-    .section-description{
-
-        margin-top:20px;
-
-    }
-
-    .services-grid{
-
+    .service-grid{
         grid-template-columns:1fr;
-
     }
 
-    .portfolio{
+    .service{
+        height:440px;
+    }
 
+    .service h3{
+        font-size:30px;
+    }
+
+    .work-grid{
         grid-template-columns:1fr;
-
     }
 
-    .project:nth-child(even){
+    .project:nth-child(n){
+        grid-column:span 1;
 
-        margin-top:0;
-
+        min-height:370px;
     }
 
-    .project-image{
-
-        height:340px;
-
+    .impact{
+        font-size:75px;
     }
 
-    .about-layout{
-
-        grid-template-columns:1fr;
-
+    .about-visual{
+        height:270px;
     }
 
-    .about-graphic{
-
-        min-height:330px;
-
+    .about-visual:before{
+        font-size:140px;
     }
 
-    .about-letter{
+    .process-row{
+        grid-template-columns:55px 1fr 30px;
 
-        font-size:170px;
-
+        min-height:120px;
     }
 
-    .process-item{
-
-        grid-template-columns:40px 1fr;
-
-        gap:10px;
-
+    .process-row h3{
+        font-size:24px;
     }
 
-    .process-item p{
+    .cta{
+        padding:110px 0;
+    }
 
-        grid-column:2;
-
+    .cta h2{
+        font-size:54px;
     }
 
     .footer{
 
         flex-direction:column;
 
-        text-align:center;
-
+        align-items:flex-start;
     }
 
-    .socials{
+    .footer-links{
 
         flex-wrap:wrap;
+    }
 
-        justify-content:center;
+    .walker{
+        display:none;
+    }
 
+    .ai-button{
+
+        right:14px;
+
+        bottom:14px;
+    }
+
+    .ai-panel{
+
+        left:12px;
+
+        right:12px;
+
+        width:auto;
+
+        bottom:82px;
     }
 
 }
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
     *,
-    *::before,
-    *::after{
+    *:before,
+    *:after{
 
-        animation-duration:.01ms !important;
+        animation:none!important;
 
-        animation-iteration-count:1 !important;
+        transition:none!important;
 
-        transition-duration:.01ms !important;
-
-        scroll-behavior:auto !important;
-
+        scroll-behavior:auto!important;
     }
 
 }
 
-
-<style>
-/* ===== DESIGNER 197 MASCOT + AI CHAT ===== */
-.designer-buddy{position:fixed;right:24px;bottom:100px;z-index:9998;display:flex;align-items:flex-end;gap:10px;animation:buddyFloat 4s ease-in-out infinite}
-.buddy-character{width:76px;height:76px;border:3px solid #fff;border-radius:50%;background:linear-gradient(145deg,#eaff9b,#b9f34a);box-shadow:0 10px 35px #b9f34a40;display:grid;place-items:center;font-size:45px;cursor:pointer;transition:.3s ease}
-.buddy-character:hover{transform:scale(1.12) rotate(-8deg)}
-.buddy-bubble{max-width:190px;padding:13px 16px;background:#f4f4ed;color:#121410;border-radius:16px 16px 4px 16px;font-size:12px;line-height:1.5;box-shadow:0 8px 25px #0003}
-.buddy-bubble strong{display:block;font-size:13px;margin-bottom:3px}
-@keyframes buddyFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.ai-chat-button{position:fixed;right:24px;bottom:24px;z-index:10000;display:flex;align-items:center;gap:10px;padding:15px 20px;border:1px solid #d8ff55;border-radius:50px;background:#d8ff55;color:#10120c;font:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 30px #d8ff5530;transition:.25s ease}
-.ai-chat-button:hover{transform:translateY(-4px);box-shadow:0 12px 35px #d8ff5550}.ai-icon{font-size:20px}
-.ai-chat-window{position:fixed;right:24px;bottom:90px;z-index:10001;width:min(370px,calc(100vw - 32px));height:min(540px,calc(100dvh - 120px));display:none;flex-direction:column;overflow:hidden;background:#121410;color:#f4f4ed;border:1px solid #ffffff20;border-radius:22px;box-shadow:0 20px 80px #0008}
-.ai-chat-window.open{display:flex;animation:chatAppear .25s ease-out}
-@keyframes chatAppear{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-.ai-chat-header{display:flex;align-items:center;gap:12px;padding:18px;background:#1b1e17;border-bottom:1px solid #ffffff15}.ai-avatar{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:#d8ff55;color:#111;font-size:24px}.ai-chat-heading{flex:1}.ai-chat-heading strong{display:block;font-size:14px}.ai-chat-heading span{display:block;margin-top:4px;color:#a7ad9c;font-size:11px}.ai-close{border:0;background:transparent;color:#f4f4ed;font-size:25px;cursor:pointer}
-.ai-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}.ai-message{max-width:88%;padding:12px 14px;border-radius:15px;font-size:13px;line-height:1.6;overflow-wrap:anywhere;white-space:pre-wrap}.ai-message.bot{align-self:flex-start;background:#22251e;border:1px solid #ffffff0d}.ai-message.user{align-self:flex-end;background:#d8ff55;color:#111;border-radius:15px 15px 3px 15px}
-.ai-quick-actions{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 12px}.ai-quick-actions button{border:1px solid #ffffff25;border-radius:30px;padding:8px 11px;background:transparent;color:#e9eddf;font:inherit;font-size:11px;cursor:pointer;transition:.2s}.ai-quick-actions button:hover{background:#d8ff55;color:#111;border-color:#d8ff55}
-.ai-chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #ffffff15}.ai-chat-form input{min-width:0;flex:1;padding:13px;border:1px solid #ffffff20;border-radius:12px;outline:none;background:#1b1e17;color:#fff;font:inherit;font-size:13px}.ai-chat-form input:focus{border-color:#d8ff55}.ai-chat-form button{width:46px;border:0;border-radius:12px;background:#d8ff55;color:#111;font-size:20px;cursor:pointer}
-@media(max-width:480px){.designer-buddy{right:14px;bottom:88px}.buddy-character{width:58px;height:58px;font-size:35px}.buddy-bubble{max-width:155px;padding:10px 12px}.ai-chat-button{right:14px;bottom:14px;padding:13px 16px}.ai-chat-window{right:8px;bottom:78px;width:calc(100vw - 16px);height:min(570px,calc(100dvh - 95px))}}
-@media(prefers-reduced-motion:reduce){.designer-buddy{animation:none}.ai-chat-window.open{animation:none}}
-</style></style>
+</style>
 </head>
 
 
 <body>
 
-<div class="progress" id="progress"></div>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<!-- HEADER -->
 
-
-<!-- ======================================================
-     HEADER
-====================================================== -->
-
-<header>
+<header class="header">
 
 <div class="container nav">
 
-<a href="#home" class="logo">
-DESIGNER<span>197</span>
+<a href="index.html" class="logo">
+
+<div class="logo-box">
+<span>D</span>
+</div>
+
+DESIGNER 197
+
 </a>
 
-<button class="menu" id="menu">
-☰
-</button>
 
-<nav class="nav-links" id="navLinks">
-
-<a href="#home">Home</a>
-
-<a href="#services">Services</a>
+<nav class="nav-menu">
 
 <a href="#work">Work</a>
 
+<a href="#services">Services</a>
+
+<a href="#process">Process</a>
+
 <a href="#about">About</a>
 
-<a href="#contact" class="nav-button">
-Let's Talk ↗
+<a href="#contact" class="nav-contact">
+Start Project ↗
 </a>
 
 </nav>
@@ -2272,175 +2944,123 @@ Let's Talk ↗
 </header>
 
 
+<!-- HERO -->
 
-<main>
-
-
-<!-- ======================================================
-     HERO
-====================================================== -->
-
-<section class="hero" id="home">
+<section class="hero">
 
 <div class="hero-grid"></div>
 
-<div class="container hero-content">
+<div class="hero-glow"></div>
 
 
-<div>
-
-<div class="eyebrow">
-Independent Graphic Designer · India
-</div>
+<div class="container hero-inner">
 
 
-<div class="status">
+<div class="hero-text reveal">
 
-<span class="status-dot"></span>
+<div class="kicker">
 
-Available for selected projects
+<span class="kicker-dot"></span>
+
+Independent Graphic Designer
 
 </div>
 
 
 <h1>
 
-Ideas<br>
+I make
 
-made <span class="outline">to</span><br>
+<span class="outline">
+ideas
+</span>
 
-<span class="green">stand out.</span>
+look
+
+<span class="lime">
+unforgettable.
+</span>
 
 </h1>
 
 
 <p class="hero-description">
 
-I'm Harsh — a graphic designer creating bold identities,
-digital visuals and thoughtful designs for brands that
-want to be remembered.
+Visual design for brands, businesses and creators.
+From identity and packaging to social media,
+posters, print and photo editing — I turn ideas
+into clear, confident visuals.
 
 </p>
 
 
-<div class="buttons">
+<div class="hero-buttons">
 
-<a href="#work" class="btn">
-Explore My Work
-<span>↗</span>
+<a href="#work" class="button primary">
+Explore My Work ↗
 </a>
 
-<a href="#contact" class="btn secondary">
-Start A Project
-<span>↗</span>
+<a href="#services" class="button secondary">
+What I Design
 </a>
 
 </div>
 
-
-<div class="hero-stats">
-
-<div class="stat">
-
-<strong>01</strong>
-
-<span>Visual Identity</span>
-
-</div>
-
-<div class="stat">
-
-<strong>02</strong>
-
-<span>Digital Design</span>
-
-</div>
-
-<div class="stat">
-
-<strong>03</strong>
-
-<span>Print & Packaging</span>
-
-</div>
-
-</div>
-
 </div>
 
 
+<div class="hero-visual reveal">
 
-<!-- HERO MOTION GRAPHIC -->
 
-<div class="visual">
+<div class="floating-tag tag-one">
+BRAND IDENTITY / 01
+</div>
 
-<div class="orbit">
+<div class="floating-tag tag-two">
+VISUAL DESIGN / 197
+</div>
 
-<div class="orbit-ball"></div>
-
+<div class="floating-tag tag-three">
+PS · CANVA · CREATIVE
 </div>
 
 
-<div class="poster" id="poster">
+<div class="visual-main">
 
-<div class="poster-top">
+<div class="visual-label">
 
-<span>DESIGNER 197</span>
+<span>DESIGN STUDIO</span>
 
 <span>2026</span>
 
 </div>
 
 
-<div class="poster-number">
-D.
+<div class="visual-number">
+D/197 — VISUAL SYSTEM
 </div>
 
 
-<h3>
+<div class="visual-title">
 
-Make<br>
-it matter.
+MAKE
 
-</h3>
+<span>IT</span>
 
-
-<div class="poster-bottom">
-
-<span>CREATIVE</span>
-
-<span>001 / 026</span>
-
-</div>
+MATTER.
 
 </div>
 
 
-<div class="float-card card-one">
+<div class="visual-bottom">
 
-<small>Creative Direction</small>
+<span>
+BRANDING / DIGITAL / PRINT
+</span>
 
-<strong>
-Think. Make. Impact.
-</strong>
-
-</div>
-
-
-<div class="float-card card-two">
-
-<small>Colour Study</small>
-
-<strong>
-Fresh Perspective
-</strong>
-
-<div class="swatches">
-
-<i></i>
-<i></i>
-<i></i>
-<i></i>
+<span class="visual-d">
+D197
+</span>
 
 </div>
 
@@ -2453,93 +3073,110 @@ Fresh Perspective
 </section>
 
 
+<!-- TICKER -->
 
-<!-- ======================================================
-     MARQUEE
-====================================================== -->
+<div class="ticker">
 
-<div class="marquee">
+<div class="ticker-track">
 
-<div class="marquee-track">
+<span>LOGO <b>✦</b> BRANDING</span>
 
-<span>Brand Identity</span>
-<b>✳</b>
+<span>SOCIAL MEDIA <b>✦</b></span>
 
-<span>Graphic Design</span>
-<b>✳</b>
+<span>POSTERS <b>✦</b></span>
 
-<span>Visual Storytelling</span>
-<b>✳</b>
+<span>PACKAGING <b>✦</b></span>
 
-<span>Digital Experiences</span>
-<b>✳</b>
+<span>PRINT <b>✦</b></span>
 
-<span>Brand Identity</span>
-<b>✳</b>
+<span>PHOTO EDITING <b>✦</b></span>
 
-<span>Graphic Design</span>
-<b>✳</b>
 
-<span>Visual Storytelling</span>
-<b>✳</b>
+<span>LOGO <b>✦</b> BRANDING</span>
 
-<span>Digital Experiences</span>
-<b>✳</b>
+<span>SOCIAL MEDIA <b>✦</b></span>
+
+<span>POSTERS <b>✦</b></span>
+
+<span>PACKAGING <b>✦</b></span>
+
+<span>PRINT <b>✦</b></span>
+
+<span>PHOTO EDITING <b>✦</b></span>
 
 </div>
 
 </div>
 
 
-
-<!-- ======================================================
-     SERVICES
-====================================================== -->
+<!-- SERVICES -->
 
 <section class="section services" id="services">
 
 <div class="container">
 
-<div class="section-heading reveal">
+
+<div class="section-top reveal">
 
 <div>
 
-<div class="eyebrow">
-What I Do
+<div class="section-number">
+01 / SERVICES
 </div>
 
 <h2 class="section-title">
 
-Design that<br>
-
-<span>does more.</span>
+Six creative
+<span>directions.</span>
 
 </h2>
 
 </div>
 
+
 <p class="section-description">
 
-From the first spark of an idea to the final pixel,
-I create visuals with clarity, character and purpose.
+Need one design or a complete visual system?
+These are the core services I provide to help
+a brand look more professional, consistent
+and memorable.
 
 </p>
 
 </div>
 
 
+<div class="service-grid">
 
-<div class="services-grid">
+
+<!-- 01 -->
+
+<a href="logo-branding.html" class="service reveal">
+
+<span class="service-no">01</span>
+
+<span class="service-top">
+Identity / Strategy
+</span>
 
 
-<article class="service reveal">
+<div class="brand-art">
 
-<div class="service-number">
+<div class="brand-grid"></div>
 
-<span>01 / IDENTITY</span>
+<div class="brand-circle"></div>
 
-<span class="service-icon">✳</span>
+<div class="brand-mark">
+<span>D</span>
+</div>
 
+</div>
+
+
+<div class="service-info">
+
+<div class="service-type">
+Build recognition
 </div>
 
 <h3>
@@ -2547,26 +3184,73 @@ Logo & Branding
 </h3>
 
 <p>
-
-Distinctive logos and cohesive visual systems that
-give your brand a recognisable voice.
-
+Logo design, brand identity, visual systems,
+typography and creative direction for businesses
+that want a recognizable presence.
 </p>
 
-<span class="service-arrow">↗</span>
-
-</article>
+</div>
 
 
+<div class="service-arrow">
+↗
+</div>
 
-<article class="service reveal">
+</a>
 
-<div class="service-number">
 
-<span>02 / DIGITAL</span>
+<!-- 02 -->
 
-<span class="service-icon">◈</span>
+<a href="social-media-design.html" class="service reveal">
 
+<span class="service-no">02</span>
+
+<span class="service-top">
+Digital / Content
+</span>
+
+
+<div class="social-art">
+
+<div class="social-card">
+
+<div class="social-image"></div>
+
+<div class="social-line"></div>
+
+<div class="social-line small"></div>
+
+</div>
+
+
+<div class="social-card">
+
+<div class="social-image"></div>
+
+<div class="social-line"></div>
+
+<div class="social-line small"></div>
+
+</div>
+
+
+<div class="social-card">
+
+<div class="social-image"></div>
+
+<div class="social-line"></div>
+
+<div class="social-line small"></div>
+
+</div>
+
+</div>
+
+
+<div class="service-info">
+
+<div class="service-type">
+Stop the scroll
 </div>
 
 <h3>
@@ -2574,26 +3258,84 @@ Social Media Design
 </h3>
 
 <p>
-
-Scroll-stopping posts, campaigns and creative assets
-built to connect with your audience.
-
+Instagram posts, promotional creatives,
+campaigns, stories and branded content
+designed for digital attention.
 </p>
 
-<span class="service-arrow">↗</span>
-
-</article>
+</div>
 
 
+<div class="service-arrow">
+↗
+</div>
 
-<article class="service reveal">
+</a>
 
-<div class="service-number">
 
-<span>03 / CAMPAIGN</span>
+<!-- 03 -->
 
-<span class="service-icon">✴</span>
+<a href="posters-banners.html" class="service reveal">
 
+<span class="service-no">03</span>
+
+<span class="service-top">
+Campaign / Promotion
+</span>
+
+
+<div class="poster-art">
+
+<div class="poster-sheet one">
+
+<strong>
+MAKE<br>
+NOISE.
+</strong>
+
+<small>
+POSTER / 01
+</small>
+
+<div class="poster-orb"></div>
+
+</div>
+
+
+<div class="poster-sheet two">
+
+<strong>
+BIG<br>
+IDEAS.
+</strong>
+
+<small>
+CAMPAIGN / 02
+</small>
+
+</div>
+
+
+<div class="poster-sheet three">
+
+<strong>
+VISUAL<br>
+IMPACT.
+</strong>
+
+<small>
+DESIGN / 03
+</small>
+
+</div>
+
+</div>
+
+
+<div class="service-info">
+
+<div class="service-type">
+Get attention
 </div>
 
 <h3>
@@ -2601,26 +3343,62 @@ Posters & Banners
 </h3>
 
 <p>
-
-High-impact promotional graphics, event posters and
-advertising layouts.
-
+Promotional posters, event graphics, advertising
+banners and campaign visuals that communicate
+the message fast.
 </p>
 
-<span class="service-arrow">↗</span>
-
-</article>
+</div>
 
 
+<div class="service-arrow">
+↗
+</div>
 
-<article class="service reveal">
+</a>
 
-<div class="service-number">
 
-<span>04 / PRODUCT</span>
+<!-- 04 -->
 
-<span class="service-icon">▧</span>
+<a href="packaging-design.html" class="service reveal">
 
+<span class="service-no">04</span>
+
+<span class="service-top">
+Product / Packaging
+</span>
+
+
+<div class="package-art">
+
+<div class="box">
+
+<div class="box-front">
+
+<div class="box-circle">
+ORIGINAL<br>
+DESIGN
+</div>
+
+<small>
+PRODUCT / PACKAGING
+</small>
+
+</div>
+
+<div class="box-side"></div>
+
+<div class="box-top"></div>
+
+</div>
+
+</div>
+
+
+<div class="service-info">
+
+<div class="service-type">
+Make products stand out
 </div>
 
 <h3>
@@ -2628,26 +3406,84 @@ Packaging Design
 </h3>
 
 <p>
-
-Product labels and packaging that bring shelf appeal
-and personality together.
-
+Labels, boxes, pouches, product graphics and
+packaging concepts designed to make products
+feel polished and market-ready.
 </p>
 
-<span class="service-arrow">↗</span>
-
-</article>
+</div>
 
 
+<div class="service-arrow">
+↗
+</div>
 
-<article class="service reveal">
+</a>
 
-<div class="service-number">
 
-<span>05 / PRINT</span>
+<!-- 05 -->
 
-<span class="service-icon">▤</span>
+<a href="catalogue-print.html" class="service reveal">
 
+<span class="service-no">05</span>
+
+<span class="service-top">
+Editorial / Print
+</span>
+
+
+<div class="catalog-art">
+
+<div class="book">
+
+<div class="book-page">
+
+<h4>
+CATALOG<br>
+2026
+</h4>
+
+<div class="book-lines">
+
+<i></i>
+<i></i>
+<i></i>
+
+</div>
+
+<div class="book-photo"></div>
+
+</div>
+
+
+<div class="book-page dark">
+
+<h4>
+PRINT<br>
+WORK.
+</h4>
+
+<div class="book-lines">
+
+<i></i>
+<i></i>
+<i></i>
+
+</div>
+
+<div class="book-photo"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="service-info">
+
+<div class="service-type">
+Structure information
 </div>
 
 <h3>
@@ -2655,26 +3491,63 @@ Catalogue & Print
 </h3>
 
 <p>
-
-Brochures, catalogues, business stationery and
-polished print-ready layouts.
-
+Catalogues, brochures, flyers, menus, business
+materials and print layouts with clean visual
+hierarchy and professional presentation.
 </p>
 
-<span class="service-arrow">↗</span>
-
-</article>
+</div>
 
 
+<div class="service-arrow">
+↗
+</div>
 
-<article class="service reveal">
+</a>
 
-<div class="service-number">
 
-<span>06 / IMAGE</span>
+<!-- 06 -->
 
-<span class="service-icon">◉</span>
+<a href="photo-editing.html" class="service reveal">
 
+<span class="service-no">06</span>
+
+<span class="service-top">
+Retouch / Composite
+</span>
+
+
+<div class="edit-art">
+
+<div class="edit-window">
+
+<div class="before-image"></div>
+
+<div class="after-image"></div>
+
+<div class="edit-line"></div>
+
+<div class="edit-knob">
+↔
+</div>
+
+<span class="edit-label left">
+BEFORE
+</span>
+
+<span class="edit-label right">
+AFTER
+</span>
+
+</div>
+
+</div>
+
+
+<div class="service-info">
+
+<div class="service-type">
+Refine every detail
 </div>
 
 <h3>
@@ -2682,15 +3555,19 @@ Photo Editing
 </h3>
 
 <p>
-
-Thoughtful retouching, product clean-ups and image
-enhancement for a refined finish.
-
+Background removal, retouching, product cleanup,
+colour correction and creative Photoshop editing
+for polished final images.
 </p>
 
-<span class="service-arrow">↗</span>
+</div>
 
-</article>
+
+<div class="service-arrow">
+↗
+</div>
+
+</a>
 
 
 </div>
@@ -2700,131 +3577,64 @@ enhancement for a refined finish.
 </section>
 
 
+<!-- SELECTED WORK -->
 
-<!-- ======================================================
-     PORTFOLIO
-====================================================== -->
-
-<section class="section" id="work">
+<section class="section work" id="work">
 
 <div class="container">
 
-<div class="section-heading reveal">
+
+<div class="section-top reveal">
 
 <div>
 
-<div class="eyebrow">
-Selected Work
+<div class="section-number">
+02 / SELECTED WORK
 </div>
 
 <h2 class="section-title">
 
-Things I've<br>
-
-<span>made.</span>
+Concepts made
+<span>to be remembered.</span>
 
 </h2>
 
 </div>
 
+
 <p class="section-description">
 
-A collection of visual experiments and design projects
-across identity, campaigns and product storytelling.
+A selection of visual concepts exploring branding,
+packaging, digital campaigns and promotional design.
 
 </p>
 
 </div>
 
 
+<div class="work-grid">
 
-<div class="filters">
 
-<button class="filter active" data-filter="all">
-All Work
-</button>
+<a href="logo-branding.html" class="project reveal">
 
-<button class="filter" data-filter="branding">
-Branding
-</button>
+<div class="project-bg timevera">
 
-<button class="filter" data-filter="packaging">
-Packaging
-</button>
-
-<button class="filter" data-filter="digital">
-Digital
-</button>
-
-<button class="filter" data-filter="print">
-Print
-</button>
+<div class="watch"></div>
 
 </div>
 
-
-
-<div class="portfolio">
-
-
-<!-- PROJECT 1 -->
-
-<article class="project reveal" data-category="branding">
-
-<div class="project-image">
-
-<div class="project-art">
-BRAND
-</div>
-
-</div>
 
 <div class="project-info">
 
 <div>
-    <a href="logo-branding.html" style="text-decoration: none; color: inherit;">
-        <h3>
-            Logo & Branding
-        </h3>
-
-        <small>
-            Brand Identity 01
-        </small>
-    </a>
-</div>
-
-<div class="project-arrow">
-
-</div>
-
-</div>
-</article>
-
-
-
-<!-- PROJECT 2 -->
-
-<article class="project reveal" data-category="packaging">
-
-<div class="project-image">
-
-<div class="project-art">
-PACK
-</div>
-
-</div>
-
-<div class="project-info">
-
-<div>
-
-<h3>
-Packaging Design
-</h3>
 
 <small>
-Product Design · 02
+Brand Identity / Luxury
 </small>
+
+<h3>
+TIMEVERA
+</h3>
 
 </div>
 
@@ -2834,33 +3644,29 @@ Product Design · 02
 
 </div>
 
-</article>
+</a>
 
 
+<a href="packaging-design.html" class="project reveal">
 
-<!-- PROJECT 3 -->
+<div class="project-bg cola-project">
 
-<article class="project reveal" data-category="digital">
-
-<div class="project-image">
-
-<div class="project-art">
-SOCIAL
-</div>
+<div class="can"></div>
 
 </div>
+
 
 <div class="project-info">
 
 <div>
 
-<h3>
-Social Media Design
-</h3>
-
 <small>
-Digital Campaign · 03
+Packaging / Beverage
 </small>
+
+<h3>
+COLA-VIBE
+</h3>
 
 </div>
 
@@ -2870,33 +3676,33 @@ Digital Campaign · 03
 
 </div>
 
-</article>
+</a>
 
 
+<a href="social-media-design.html" class="project reveal">
 
-<!-- PROJECT 4 -->
+<div class="project-bg social-project">
 
-<article class="project reveal" data-category="print">
+<div class="phone">
 
-<div class="project-image">
-
-<div class="project-art">
-PRINT
-</div>
+<div class="phone-screen"></div>
 
 </div>
+
+</div>
+
 
 <div class="project-info">
 
 <div>
 
-<h3>
-Poster & Book Design
-</h3>
-
 <small>
-Print & Editorial · 04
+Digital / Campaign
 </small>
+
+<h3>
+SOCIAL SERIES
+</h3>
 
 </div>
 
@@ -2906,33 +3712,31 @@ Print & Editorial · 04
 
 </div>
 
-</article>
+</a>
 
 
+<a href="posters-banners.html" class="project reveal">
 
-<!-- PROJECT 5 -->
+<div class="project-bg poster-project">
 
-<article class="project reveal" data-category="packaging">
-
-<div class="project-image">
-
-<div class="project-art">
-OBJECT
+<div class="impact">
+IMPACT
 </div>
 
 </div>
+
 
 <div class="project-info">
 
 <div>
 
-<h3>
-Product Design
-</h3>
-
 <small>
-Product Visuals · 05
+Poster / Art Direction
 </small>
+
+<h3>
+VISUAL IMPACT
+</h3>
 
 </div>
 
@@ -2942,43 +3746,7 @@ Product Visuals · 05
 
 </div>
 
-</article>
-
-
-
-<!-- PROJECT 6 -->
-
-<article class="project reveal" data-category="print">
-
-<div class="project-image">
-
-<div class="project-art">
-CATALOG
-</div>
-
-</div>
-
-<div class="project-info">
-
-<div>
-
-<h3>
-Catalogue Design
-</h3>
-
-<small>
-Business Materials · 06
-</small>
-
-</div>
-
-<div class="project-arrow">
-↗
-</div>
-
-</div>
-
-</article>
+</a>
 
 
 </div>
@@ -2988,120 +3756,70 @@ Business Materials · 06
 </section>
 
 
-
-<!-- ======================================================
-     ABOUT
-====================================================== -->
+<!-- ABOUT -->
 
 <section class="section about" id="about">
 
-<div class="container about-layout">
+<div class="container about-grid">
 
 
-<div class="about-graphic reveal">
+<div class="about-visual reveal">
 
-<div class="about-letter">
-H.
-</div>
-
-<div class="stamp">
-
-Harsh Chawla<br>
-Graphic Designer
-
-</div>
+<div class="about-ring"></div>
 
 </div>
 
 
+<div class="about-content reveal">
 
-<div class="reveal">
-
-<div class="eyebrow">
-About Me
+<div class="section-number">
+03 / ABOUT THE DESIGNER
 </div>
 
-<h2 class="section-title">
 
-Design-minded.<br>
+<h2>
 
-<span>Detail-driven.</span>
+Not just making
+<span>things look good.</span>
 
 </h2>
 
 
-<p class="about-text">
+<p>
 
-I'm Harsh, a graphic designer focused on creating
-clean, modern and memorable visuals for brands and
-businesses.
-
-</p>
-
-
-<p class="about-text">
-
-My work spans logo design, brand identity, social media
-creatives, posters, packaging and print materials.
-Every project is an opportunity to make something
-meaningful.
+I'm Harsh Chawla, an independent graphic designer
+focused on creating modern, clean and memorable
+visual communication.
 
 </p>
 
 
+<p>
 
-<div class="about-facts">
+I work across branding, social media, posters,
+packaging, print design and photo editing.
+My goal is simple — understand the idea,
+find the right visual direction and create
+design that communicates with confidence.
 
-<div class="fact">
-
-<strong>
-Branding
-</strong>
-
-<span>
-Identity & Systems
-</span>
-
-</div>
+</p>
 
 
-<div class="fact">
+<div class="skills">
 
-<strong>
-Digital
-</strong>
+<span class="skill">Photoshop</span>
 
-<span>
-Social & Campaigns
-</span>
+<span class="skill">Canva</span>
 
-</div>
+<span class="skill">Brand Identity</span>
 
+<span class="skill">Social Media</span>
 
-<div class="fact">
+<span class="skill">Packaging</span>
 
-<strong>
-Print
-</strong>
+<span class="skill">Print Design</span>
 
-<span>
-Layouts & Production
-</span>
-
-</div>
-
-
-<div class="fact">
-
-<strong>
-Creative
-</strong>
-
-<span>
-Ideas to Execution
-</span>
-
-</div>
+<span class="skill">Photo Editing</span>
 
 </div>
 
@@ -3112,51 +3830,49 @@ Ideas to Execution
 </section>
 
 
+<!-- PROCESS -->
 
-<!-- ======================================================
-     PROCESS
-====================================================== -->
-
-<section class="section process">
+<section class="section process" id="process">
 
 <div class="container">
 
-<div class="section-heading reveal">
+
+<div class="section-top reveal">
 
 <div>
 
-<div class="eyebrow">
-My Process
+<div class="section-number">
+04 / PROCESS
 </div>
 
 <h2 class="section-title">
 
-Good work has<br>
-
-a <span>process.</span>
+Clear process.
+<span>Better design.</span>
 
 </h2>
 
 </div>
 
+
 <p class="section-description">
 
-A clear, collaborative approach keeps the work focused
-and the final result even stronger.
+Every project follows a simple creative process
+so the final design stays focused on the actual
+business goal.
 
 </p>
 
 </div>
-
 
 
 <div class="process-list">
 
 
-<div class="process-item reveal">
+<div class="process-row reveal">
 
-<div class="process-number">
-01 /
+<div class="process-num">
+01
 </div>
 
 <h3>
@@ -3164,62 +3880,65 @@ Discover
 </h3>
 
 <p>
-
-Understand your goals, audience, brief and the
-opportunity behind the project.
-
+Understand the brief, audience,
+message and requirements.
 </p>
+
+<div class="process-symbol">
+↗
+</div>
 
 </div>
 
 
+<div class="process-row reveal">
 
-<div class="process-item reveal">
-
-<div class="process-number">
-02 /
+<div class="process-num">
+02
 </div>
 
 <h3>
-Explore
+Direction
 </h3>
 
 <p>
-
-Develop creative directions, references and a visual
-language that fits your brand.
-
+Build the visual direction through
+layout, typography and creative ideas.
 </p>
+
+<div class="process-symbol">
+↗
+</div>
 
 </div>
 
 
+<div class="process-row reveal">
 
-<div class="process-item reveal">
-
-<div class="process-number">
-03 /
+<div class="process-num">
+03
 </div>
 
 <h3>
-Create
+Design
 </h3>
 
 <p>
-
-Refine the chosen direction into thoughtful, polished
-and production-ready design.
-
+Develop the selected concept into
+polished, consistent visual design.
 </p>
+
+<div class="process-symbol">
+↗
+</div>
 
 </div>
 
 
+<div class="process-row reveal">
 
-<div class="process-item reveal">
-
-<div class="process-number">
-04 /
+<div class="process-num">
+04
 </div>
 
 <h3>
@@ -3227,11 +3946,13 @@ Deliver
 </h3>
 
 <p>
-
-Prepare final assets and files, ready to make an
-impact wherever they appear.
-
+Prepare final files in the formats
+needed for digital or print use.
 </p>
+
+<div class="process-symbol">
+↗
+</div>
 
 </div>
 
@@ -3243,66 +3964,56 @@ impact wherever they appear.
 </section>
 
 
+<!-- CTA -->
 
-<!-- ======================================================
-     CONTACT
-====================================================== -->
+<section class="cta" id="contact">
 
-<section class="contact" id="contact">
+<div class="cta-glow"></div>
 
-<div class="container">
 
-<div class="eyebrow">
-Have Something In Mind?
+<div class="container cta-content reveal">
+
+<div class="cta-label">
+05 / HAVE A PROJECT?
 </div>
 
 
 <h2>
 
-Let's make<br>
-
-something <span>great.</span>
+Let's create
+<span>something people notice.</span>
 
 </h2>
 
 
 <p>
 
-Have a project, a fresh idea or just want to say hello?
-I'd love to hear what you're working on.
+Have a logo, social campaign, poster, packaging,
+catalogue or photo editing project in mind?
+Tell me what you need and let's start from there.
 
 </p>
 
 
-<div class="buttons">
+<div class="hero-buttons" style="justify-content:center;margin-top:32px;">
 
-<!-- CHANGE YOUR WHATSAPP NUMBER -->
-
-<a
-href="https://wa.me/91XXXXXXXXXX"
-target="_blank"
-class="btn"
->
-
-Chat On WhatsApp
-
-<span>↗</span>
-
-</a>
-
-
-<!-- CHANGE YOUR EMAIL -->
 
 <a
 href="mailto:YOUR_EMAIL@gmail.com"
-class="btn secondary"
+class="button primary"
 >
-
-Send An Email
-
-<span>↗</span>
-
+Email Me ↗
 </a>
+
+
+<a
+href="https://wa.me/919876543210"
+target="_blank"
+class="button secondary"
+>
+WhatsApp ↗
+</a>
+
 
 </div>
 
@@ -3311,47 +4022,36 @@ Send An Email
 </section>
 
 
-</main>
-
-
-
-<!-- ======================================================
-     FOOTER
-====================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
 <div class="container footer">
 
-<div class="logo">
-DESIGNER<span>197</span>
-</div>
-
-
 <div class="footer-copy">
-
-© 2026 Harsh Chawla · Graphic Designer
-
+© 2026 DESIGNER 197 — ALL RIGHTS RESERVED
 </div>
 
 
-<div class="socials">
+<div class="footer-links">
 
-<!-- CHANGE INSTAGRAM -->
+<a href="index.html">
+Home
+</a>
+
+<a href="#services">
+Services
+</a>
 
 <a
-href="https://instagram.com/YOUR_USERNAME"
+href="https://www.behance.net/harshchawla4"
 target="_blank"
 >
-Instagram ↗
+Behance
 </a>
 
-<a href="#work">
-Portfolio ↗
-</a>
-
-<a href="#home">
-Top ↑
+<a href="#contact">
+Contact
 </a>
 
 </div>
@@ -3361,549 +4061,270 @@ Top ↑
 </footer>
 
 
+<!-- WALKING CHARACTER -->
 
-<script>
+<div class="walker">
 
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
+<div class="walk-head"></div>
 
-const progress =
-document.getElementById("progress");
+<div class="walk-hair"></div>
 
-function updateProgress(){
+<div class="walk-body"></div>
 
-    const scrollTop =
-        window.scrollY;
+<div class="walk-shirt"></div>
 
-    const height =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
+<div class="arm a"></div>
 
-    const percentage =
-        height > 0
-        ? (scrollTop / height) * 100
-        : 0;
+<div class="arm b"></div>
 
-    progress.style.width =
-        percentage + "%";
+<div class="leg a"></div>
 
-}
+<div class="leg b"></div>
 
-window.addEventListener(
-    "scroll",
-    updateProgress,
-    {passive:true}
-);
+<div class="bag"></div>
 
-updateProgress();
-
-
-
-/* =========================================================
-   CUSTOM CURSOR
-========================================================= */
-
-const cursor =
-document.getElementById("cursor");
-
-const ring =
-document.getElementById("cursorRing");
-
-let mouseX =
-window.innerWidth / 2;
-
-let mouseY =
-window.innerHeight / 2;
-
-let ringX =
-mouseX;
-
-let ringY =
-mouseY;
-
-
-window.addEventListener(
-    "mousemove",
-    function(event){
-
-        mouseX =
-            event.clientX;
-
-        mouseY =
-            event.clientY;
-
-        cursor.style.left =
-            mouseX + "px";
-
-        cursor.style.top =
-            mouseY + "px";
-
-    }
-);
-
-
-function animateCursor(){
-
-    ringX +=
-        (mouseX - ringX) * .15;
-
-    ringY +=
-        (mouseY - ringY) * .15;
-
-    ring.style.left =
-        ringX + "px";
-
-    ring.style.top =
-        ringY + "px";
-
-    requestAnimationFrame(
-        animateCursor
-    );
-
-}
-
-animateCursor();
-
-
-
-/* =========================================================
-   CURSOR HOVER
-========================================================= */
-
-document
-.querySelectorAll(
-    "a,button,.project,.service"
-)
-.forEach(function(element){
-
-    element.addEventListener(
-        "mouseenter",
-        function(){
-
-            ring.classList.add(
-                "active"
-            );
-
-        }
-    );
-
-    element.addEventListener(
-        "mouseleave",
-        function(){
-
-            ring.classList.remove(
-                "active"
-            );
-
-        }
-    );
-
-});
-
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const menu =
-document.getElementById("menu");
-
-const navLinks =
-document.getElementById("navLinks");
-
-
-menu.addEventListener(
-    "click",
-    function(){
-
-        navLinks.classList.toggle(
-            "open"
-        );
-
-        if(
-            navLinks.classList.contains(
-                "open"
-            )
-        ){
-
-            menu.textContent = "×";
-
-        }else{
-
-            menu.textContent = "☰";
-
-        }
-
-    }
-);
-
-
-document
-.querySelectorAll(".nav-links a")
-.forEach(function(link){
-
-    link.addEventListener(
-        "click",
-        function(){
-
-            navLinks.classList.remove(
-                "open"
-            );
-
-            menu.textContent = "☰";
-
-        }
-    );
-
-});
-
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const observer =
-new IntersectionObserver(
-    function(entries){
-
-        entries.forEach(
-            function(entry){
-
-                if(
-                    entry.isIntersecting
-                ){
-
-                    entry.target.classList.add(
-                        "show"
-                    );
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            }
-        );
-
-    },
-    {
-        threshold:.12
-    }
-);
-
-
-document
-.querySelectorAll(".reveal")
-.forEach(function(element){
-
-    observer.observe(element);
-
-});
-
-
-
-/* =========================================================
-   PORTFOLIO FILTER
-========================================================= */
-
-const filters =
-document.querySelectorAll(
-    ".filter"
-);
-
-const projects =
-document.querySelectorAll(
-    ".project"
-);
-
-
-filters.forEach(
-    function(button){
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                filters.forEach(
-                    function(btn){
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                const selected =
-                    button.dataset.filter;
-
-
-                projects.forEach(
-                    function(project){
-
-                        const category =
-                            project.dataset.category;
-
-                        const visible =
-                            selected === "all" ||
-                            category === selected;
-
-
-                        if(visible){
-
-                            project.style.display =
-                                "block";
-
-                            project.animate(
-                                [
-                                    {
-                                        opacity:0,
-                                        transform:
-                                        "translateY(20px)"
-                                    },
-
-                                    {
-                                        opacity:1,
-                                        transform:
-                                        "translateY(0)"
-                                    }
-                                ],
-                                {
-                                    duration:450,
-                                    easing:"ease-out"
-                                }
-                            );
-
-                        }else{
-
-                            project.style.display =
-                                "none";
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =========================================================
-   HERO 3D MOUSE MOTION
-========================================================= */
-
-const visual =
-document.querySelector(".visual");
-
-const poster =
-document.getElementById("poster");
-
-
-if(
-    visual &&
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
-){
-
-    visual.addEventListener(
-        "mousemove",
-        function(event){
-
-            const rect =
-                visual.getBoundingClientRect();
-
-            const x =
-                (
-                    event.clientX -
-                    rect.left
-                ) / rect.width - .5;
-
-            const y =
-                (
-                    event.clientY -
-                    rect.top
-                ) / rect.height - .5;
-
-
-            poster.style.animation =
-                "none";
-
-
-            poster.style.transform =
-                `
-                translate(
-                    calc(-50% + ${x * 20}px),
-                    calc(-50% + ${y * 20}px)
-                )
-                rotate(${7 + x * 10}deg)
-                `;
-
-        }
-    );
-
-
-    visual.addEventListener(
-        "mouseleave",
-        function(){
-
-            poster.style.animation =
-                "posterFloat 6s ease-in-out infinite";
-
-            poster.style.transform =
-                "";
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   PARALLAX EFFECT
-========================================================= */
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        const visual =
-            document.querySelector(".visual");
-
-        if(!visual) return;
-
-        const scroll =
-            window.scrollY;
-
-        if(scroll < window.innerHeight){
-
-            visual.style.transform =
-                `translateY(${scroll * .08}px)`;
-
-        }
-
-    },
-    {passive:true}
-);
-
-</script>
-
-
-
-
-<!-- DESIGNER 197 CARTOON MASCOT -->
-<div class="designer-buddy" id="designerBuddy">
-  <div class="buddy-bubble"><strong>Hey, creative! 👋</strong>Need a cool design?</div>
-  <button class="buddy-character" id="buddyCharacter" aria-label="Open DESIGNER 197 AI" title="Chat with DESIGNER 197 AI">🧑‍🎨</button>
 </div>
 
-<!-- DESIGNER 197 AI BUTTON -->
-<button class="ai-chat-button" id="aiChatButton" aria-label="Open AI design assistant" aria-expanded="false"><span class="ai-icon">✦</span> AI DESIGN ASSISTANT</button>
 
-<!-- DESIGNER 197 AI CHAT -->
-<section class="ai-chat-window" id="aiChatWindow" role="dialog" aria-label="DESIGNER 197 AI chat">
-  <div class="ai-chat-header">
-    <div class="ai-avatar">✦</div>
-    <div class="ai-chat-heading"><strong>DESIGNER 197 AI</strong><span>Your creative design assistant</span></div>
-    <button class="ai-close" id="aiChatClose" aria-label="Close chat">×</button>
-  </div>
-  <div class="ai-chat-messages" id="aiChatMessages" aria-live="polite">
-    <div class="ai-message bot">Hi! 👋 Welcome to DESIGNER 197.
+<!-- AI BUTTON -->
 
-I can help you explore Harsh's design services, portfolio and creative process.
+<button class="ai-button" id="aiButton">
+AI
+</button>
 
-What would you like to know?</div>
-  </div>
-  <div class="ai-quick-actions" id="aiQuickActions">
-    <button type="button" data-question="What services do you offer?">Services</button>
-    <button type="button" data-question="Show me the portfolio">Portfolio</button>
-    <button type="button" data-question="Tell me about logo design">Logo Design</button>
-    <button type="button" data-question="Tell me about social media design">Social Media</button>
-    <button type="button" data-question="How can I start a project?">Start a Project</button>
-  </div>
-  <form class="ai-chat-form" id="aiChatForm">
-    <input id="aiChatInput" type="text" placeholder="Ask about design..." autocomplete="off" aria-label="Type your message" required>
-    <button type="submit" aria-label="Send message">↑</button>
-  </form>
-</section>
+
+<div class="ai-panel" id="aiPanel">
+
+<div class="ai-header">
+
+<strong>
+DESIGNER 197 / QUICK ASSIST
+</strong>
+
+<button class="ai-close" id="aiClose">
+×
+</button>
+
+</div>
+
+
+<div class="ai-body">
+
+<p>
+What are you looking to design?
+Choose an option and I'll point you
+toward the right service.
+</p>
+
+
+<div class="ai-options">
+
+<button
+class="ai-option"
+data-answer="For a new business or brand, Logo & Branding is the best place to start. It creates the visual foundation for future designs."
+>
+I need a logo / brand
+</button>
+
+
+<button
+class="ai-option"
+data-answer="For Instagram, Facebook and promotional campaigns, Social Media Design is the right service."
+>
+I need social media
+</button>
+
+
+<button
+class="ai-option"
+data-answer="For products, labels, boxes and pouches, Packaging Design will give your product a stronger visual presentation."
+>
+I need packaging
+</button>
+
+
+<button
+class="ai-option"
+data-answer="For flyers, brochures, catalogues, menus and other printed material, Catalogue & Print is the right direction."
+>
+I need print design
+</button>
+
+
+<button
+class="ai-option"
+data-answer="For retouching, background removal, cleanup, colour correction and Photoshop manipulation, choose Photo Editing."
+>
+I need photo editing
+</button>
+
+</div>
+
+
+<div class="ai-answer" id="aiAnswer"></div>
+
+</div>
+
+</div>
 
 
 <script>
-/* ===== DESIGNER 197 AI ASSISTANT ===== */
-(function(){
-  const chat=document.getElementById('aiChatWindow');
-  const openBtn=document.getElementById('aiChatButton');
-  const closeBtn=document.getElementById('aiChatClose');
-  const form=document.getElementById('aiChatForm');
-  const input=document.getElementById('aiChatInput');
-  const messages=document.getElementById('aiChatMessages');
-  const buddy=document.getElementById('buddyCharacter');
-  const bubble=document.querySelector('.buddy-bubble');
-  if(!chat||!openBtn||!closeBtn||!form||!input||!messages||!buddy)return;
 
-  function openChat(){chat.classList.add('open');openBtn.setAttribute('aria-expanded','true');input.focus()}
-  function closeChat(){chat.classList.remove('open');openBtn.setAttribute('aria-expanded','false')}
-  openBtn.addEventListener('click',openChat);closeBtn.addEventListener('click',closeChat);buddy.addEventListener('click',openChat);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeChat()});
+/* CARD LIGHT */
 
-  function addMessage(text,type){
-    const el=document.createElement('div');
-    el.className='ai-message '+type;
-    el.textContent=text;
-    messages.appendChild(el);
-    messages.scrollTop=messages.scrollHeight;
-    return el;
-  }
+document.querySelectorAll(".service").forEach(function(card){
 
-  function reply(text){
-    const t=text.toLowerCase();
-    if(t.includes('service')||t.includes('services')||t.includes('kya karte'))return 'DESIGNER 197 offers:\n\n• Logo & Branding\n• Social Media Design\n• Posters & Banners\n• Packaging Design\n• Catalogue & Print\n• Photo Editing\n\nAsk me about any service!';
-    if(t.includes('portfolio')||t.includes('work')||t.includes('design'))return 'You can explore Harsh’s design work in the Portfolio section. The portfolio includes branding, packaging, digital and print projects.';
-    if(t.includes('logo')||t.includes('brand'))return 'Logo & Branding helps businesses create a strong and recognisable visual identity. Explore the Logo & Branding portfolio category to see the work.';
-    if(t.includes('social')||t.includes('instagram'))return 'Harsh creates social media creatives, promotional posts and campaign visuals for brands and businesses.';
-    if(t.includes('packaging')||t.includes('product'))return 'Packaging design helps a product stand out and communicate its brand clearly. Explore the Packaging section of the portfolio.';
-    if(t.includes('project')||t.includes('contact')||t.includes('hire')||t.includes('start'))return 'You can start a project through the Contact section of the website. Send your project details and Harsh can discuss the design requirements with you.';
-    if(t.includes('harsh')||t.includes('about')||t.includes('designer'))return 'Harsh Chawla is the graphic designer behind DESIGNER 197. His work focuses on modern branding, digital visuals, social media creatives, posters, packaging and print design.';
-    if(t.includes('hello')||t.includes('hi')||t.includes('hey')||t.includes('namaste'))return 'Hey! 👋 Welcome to DESIGNER 197.\n\nI can help you explore Services, Portfolio, Logo Design, Social Media, Packaging and Starting a Project.';
-    return 'I’m the DESIGNER 197 website assistant. ✦\n\nAsk me about Services, Portfolio, Logo & Branding, Social Media, Packaging or Starting a Project.';
-  }
+card.addEventListener("mousemove",function(e){
 
-  async function send(text){
-    text=text.trim();
-    if(!text)return;
-    addMessage(text,'user');
-    input.value='';input.disabled=true;
-    const typing=addMessage('Thinking...','bot');
-    await new Promise(r=>setTimeout(r,450));
-    typing.textContent=reply(text);
-    input.disabled=false;input.focus();messages.scrollTop=messages.scrollHeight;
-  }
+const rect=card.getBoundingClientRect();
 
-  form.addEventListener('submit',e=>{e.preventDefault();send(input.value)});
-  document.querySelectorAll('#aiQuickActions button').forEach(btn=>btn.addEventListener('click',()=>send(btn.dataset.question)));
+const x=((e.clientX-rect.left)/rect.width)*100;
 
-  const bubbleTexts=[
-    '<strong>Hey, creative! 👋</strong>Need a cool design?',
-    '<strong>Let’s create! ✦</strong>Explore Harsh’s design work.',
-    '<strong>Got an idea?</strong>Let’s make it stand out.',
-    '<strong>Need a designer?</strong>DESIGNER 197 is ready!'
-  ];
-  let i=0;
-  setInterval(()=>{if(!chat.classList.contains('open')){i=(i+1)%bubbleTexts.length;bubble.innerHTML=bubbleTexts[i]}},6000);
-})();
+const y=((e.clientY-rect.top)/rect.height)*100;
+
+card.style.setProperty("--x",x+"%");
+
+card.style.setProperty("--y",y+"%");
+
+});
+
+});
+
+
+/* SCROLL REVEAL */
+
+const reveals=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(function(entries){
+
+entries.forEach(function(entry){
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},{
+threshold:.08
+});
+
+reveals.forEach(function(item){
+
+observer.observe(item);
+
+});
+
+
+/* AI */
+
+const aiButton=document.getElementById("aiButton");
+
+const aiPanel=document.getElementById("aiPanel");
+
+const aiClose=document.getElementById("aiClose");
+
+const aiAnswer=document.getElementById("aiAnswer");
+
+
+aiButton.addEventListener("click",function(){
+
+aiPanel.classList.toggle("open");
+
+});
+
+
+aiClose.addEventListener("click",function(){
+
+aiPanel.classList.remove("open");
+
+});
+
+
+document.querySelectorAll(".ai-option").forEach(function(option){
+
+option.addEventListener("click",function(){
+
+aiAnswer.style.display="block";
+
+aiAnswer.textContent=option.dataset.answer;
+
+});
+
+});
+
+
+document.addEventListener("click",function(e){
+
+if(
+aiPanel.classList.contains("open") &&
+!aiPanel.contains(e.target) &&
+!aiButton.contains(e.target)
+){
+
+aiPanel.classList.remove("open");
+
+}
+
+});
+
+
+/* HEADER */
+
+window.addEventListener("scroll",function(){
+
+const header=document.querySelector(".header");
+
+if(window.scrollY>70){
+
+header.style.background="rgba(7,8,7,.94)";
+
+}else{
+
+header.style.background="rgba(7,8,7,.68)";
+
+}
+
+});
+
+
+/* HERO MOUSE */
+
+const hero=document.querySelector(".hero");
+
+const visual=document.querySelector(".visual-main");
+
+if(hero && visual){
+
+hero.addEventListener("mousemove",function(e){
+
+if(window.innerWidth<900) return;
+
+const x=(e.clientX/window.innerWidth-.5);
+
+const y=(e.clientY/window.innerHeight-.5);
+
+visual.style.marginLeft=(x*18)+"px";
+
+visual.style.marginTop=(y*14)+"px";
+
+});
+
+
+hero.addEventListener("mouseleave",function(){
+
+visual.style.marginLeft="0";
+
+visual.style.marginTop="0";
+
+});
+
+}
+
 </script>
 
 </body>
