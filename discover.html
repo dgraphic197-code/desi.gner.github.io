@@ -1,18 +1,43 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Discover — DESIGNER 197 | Harsh Chawla</title>
+<title>DISCOVER — DESIGNER 197 | Project Brief</title>
 
-<meta
-name="description"
-content="Discover your project requirements with Harsh Chawla — Graphic Designer."
->
+<meta name="description"
+content="Start a project with DESIGNER 197. Choose graphic design or web development and tell us what you need.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   DESIGNER 197 — DISCOVER
+===================================================== */
+
+:root{
+    --black:#050505;
+    --black2:#090909;
+    --white:#f5f5f2;
+    --muted:rgba(245,245,242,.55);
+    --muted2:rgba(245,245,242,.32);
+
+    --lime:#c9ff3d;
+
+    --line:rgba(255,255,255,.10);
+    --line2:rgba(255,255,255,.18);
+
+    --mono:"DM Mono",monospace;
+    --display:"Space Grotesk",sans-serif;
+    --body:"Plus Jakarta Sans",sans-serif;
+
+    --ease:cubic-bezier(.2,.8,.2,1);
+}
 
 *{
     margin:0;
@@ -25,490 +50,1126 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#080808;
-    color:#fff;
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(201,255,61,.055),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 5% 80%,
+            rgba(255,255,255,.025),
+            transparent 30%
+        ),
+        var(--black);
+
+    color:var(--white);
+    font-family:var(--body);
+    min-height:100vh;
     overflow-x:hidden;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
+/* GRAIN */
 
 body::before{
     content:"";
     position:fixed;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%);
-    top:-200px;
-    left:-150px;
+    inset:0;
+    z-index:9999;
     pointer-events:none;
+    opacity:.035;
+
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
 
-body::after{
-    content:"";
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   CUSTOM CURSOR
+===================================================== */
+
+.cursor{
     position:fixed;
-    width:500px;
-    height:500px;
-    background:radial-gradient(circle,rgba(255,255,255,.06),transparent 65%);
-    right:-150px;
-    bottom:-150px;
+    width:13px;
+    height:13px;
+
+    border:1px solid var(--lime);
+    border-radius:50%;
+
+    transform:translate(-50%,-50%);
+
     pointer-events:none;
+    z-index:10000;
+
+    transition:
+        width .2s ease,
+        height .2s ease,
+        background .2s ease;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+.cursor.active{
+    width:38px;
+    height:38px;
+    background:rgba(201,255,61,.12);
+}
 
-nav{
-    width:100%;
-    padding:25px 6%;
+
+/* =====================================================
+   NAV
+===================================================== */
+
+.nav{
+    height:82px;
+    padding:0 5vw;
+
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(8,8,8,.75);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    justify-content:space-between;
+
+    border-bottom:1px solid var(--line);
+
+    position:relative;
+    z-index:20;
 }
 
 .logo{
+    font-family:var(--display);
     font-size:22px;
-    font-weight:900;
-    letter-spacing:3px;
+    font-weight:700;
+    letter-spacing:-1px;
 }
 
-.nav-right{
-    display:flex;
-    gap:25px;
+.logo span{
+    color:var(--lime);
 }
 
-.nav-right a{
-    color:#aaa;
-    text-decoration:none;
-    font-size:13px;
+.back-link{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:1.5px;
+    color:var(--muted);
+
     transition:.3s;
 }
 
-.nav-right a:hover{
-    color:#fff;
+.back-link:hover{
+    color:var(--lime);
 }
 
-/* =========================
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:100px 20px;
-    position:relative;
-}
+    min-height:46vh;
 
-.hero-content{
-    max-width:950px;
-}
+    padding:
+        90px
+        7vw
+        65px;
 
-.small-title{
-    letter-spacing:5px;
-    font-size:12px;
-    color:#999;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(70px,14vw,180px);
-    line-height:.8;
-    font-weight:1000;
-    letter-spacing:-8px;
-    text-transform:uppercase;
-}
-
-.hero h1 span{
-    color:#555;
-}
-
-.hero-description{
-    max-width:650px;
-    margin:45px auto;
-    color:#aaa;
-    line-height:1.8;
-    font-size:16px;
-}
-
-/* 3D floating object */
-
-.orb{
-    position:absolute;
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#fff,#555,#111);
-    box-shadow:
-        0 0 50px rgba(255,255,255,.15),
-        inset -25px -25px 50px rgba(0,0,0,.8),
-        inset 15px 15px 25px rgba(255,255,255,.5);
-    animation:float 5s ease-in-out infinite;
-}
-
-.orb.one{
-    top:18%;
-    left:8%;
-}
-
-.orb.two{
-    width:70px;
-    height:70px;
-    right:12%;
-    top:30%;
-    animation-delay:1s;
-}
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0) rotate(0deg);
-    }
-    50%{
-        transform:translateY(-35px) rotate(180deg);
-    }
-}
-
-/* =========================
-   PROCESS
-========================= */
-
-.process{
-    padding:100px 7%;
-}
-
-.section-title{
-    font-size:60px;
-    letter-spacing:-3px;
-    margin-bottom:15px;
-}
-
-.section-description{
-    color:#888;
-    max-width:600px;
-    line-height:1.7;
-    margin-bottom:60px;
-}
-
-.process-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.process-card{
-    min-height:220px;
-    border:1px solid #222;
-    padding:30px;
-    background:linear-gradient(145deg,#111,#090909);
-    transition:.4s;
     position:relative;
     overflow:hidden;
 }
 
-.process-card:hover{
-    transform:translateY(-12px) rotateX(5deg);
-    border-color:#555;
-    box-shadow:0 30px 60px rgba(0,0,0,.5);
+.hero::after{
+    content:"197";
+
+    position:absolute;
+    right:-10px;
+    top:15px;
+
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(180px,30vw,500px);
+    line-height:1;
+
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.045);
+
+    pointer-events:none;
 }
 
-.process-number{
-    font-size:12px;
-    color:#777;
+.eyebrow{
+    font-family:var(--mono);
+    color:var(--lime);
+    font-size:10px;
+    letter-spacing:3px;
+
+    margin-bottom:26px;
+
+    position:relative;
+    z-index:2;
 }
 
-.process-card h3{
-    margin-top:70px;
-    font-size:24px;
+.hero h1{
+    font-family:var(--display);
+
+    font-size:
+        clamp(58px,10vw,145px);
+
+    line-height:.84;
+
+    letter-spacing:-6px;
+
+    position:relative;
+    z-index:2;
 }
 
-.process-card p{
-    color:#888;
-    line-height:1.6;
-    margin-top:12px;
+.hero h1 span{
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px var(--white);
 }
 
-/* =========================
-   QUESTIONNAIRE
-========================= */
+.hero p{
+    max-width:650px;
 
-.questionnaire{
-    padding:120px 7%;
-    max-width:1200px;
+    color:var(--muted);
+
+    font-size:14px;
+    line-height:1.8;
+
+    margin-top:36px;
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-wrap{
+    padding:0 7vw 50px;
+}
+
+.progress{
+    max-width:750px;
+
+    display:flex;
+    gap:7px;
+}
+
+.progress-bar{
+    flex:1;
+    height:3px;
+
+    background:var(--line);
+
+    transition:.4s var(--ease);
+}
+
+.progress-bar.active{
+    background:var(--lime);
+
+    box-shadow:
+        0 0 16px
+        rgba(201,255,61,.35);
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+    width:min(1100px,86vw);
     margin:auto;
+
+    padding-bottom:120px;
 }
 
-.question-block{
-    margin-bottom:90px;
+.step{
+    display:none;
+
+    animation:
+        stepIn .55s var(--ease);
+}
+
+.step.active{
+    display:block;
+}
+
+@keyframes stepIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
 }
 
 .question-number{
-    color:#666;
+    font-family:var(--mono);
+
+    color:var(--lime);
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+}
+
+.question-title{
+    font-family:var(--display);
+
+    font-size:
+        clamp(35px,5vw,60px);
+
+    line-height:.95;
+
+    letter-spacing:-3px;
+
+    margin-bottom:15px;
+}
+
+.question-sub{
+    color:var(--muted);
+
     font-size:13px;
-    letter-spacing:3px;
-    margin-bottom:12px;
-}
 
-.question-block h2{
-    font-size:42px;
-    letter-spacing:-1px;
-    margin-bottom:12px;
-}
-
-.question-block > p{
-    color:#888;
-    margin-bottom:30px;
     line-height:1.7;
+
+    margin-bottom:38px;
 }
+
+
+/* =====================================================
+   SERVICE TYPE
+===================================================== */
+
+.service-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.service-card{
+
+    min-height:245px;
+
+    padding:30px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.008)
+        );
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:
+        transform .35s var(--ease),
+        border-color .35s,
+        box-shadow .35s;
+}
+
+.service-card::before{
+
+    content:"";
+
+    width:150px;
+    height:150px;
+
+    position:absolute;
+
+    right:-80px;
+    bottom:-80px;
+
+    background:var(--lime);
+
+    filter:blur(70px);
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(201,255,61,.45);
+
+}
+
+.service-card:hover::before{
+    opacity:.18;
+}
+
+.service-card.selected{
+
+    border-color:var(--lime);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(201,255,61,.1),
+
+        0 0 45px
+        rgba(201,255,61,.08);
+}
+
+.service-icon{
+
+    font-size:34px;
+
+    margin-bottom:48px;
+
+    position:relative;
+    z-index:2;
+}
+
+.service-card h3{
+
+    font-family:var(--display);
+
+    font-size:25px;
+
+    margin-bottom:9px;
+
+    position:relative;
+    z-index:2;
+}
+
+.service-card p{
+
+    font-size:11px;
+
+    line-height:1.65;
+
+    color:var(--muted);
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* =====================================================
+   OPTIONS
+===================================================== */
 
 .options{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:12px;
 }
 
 .option{
+
+    min-height:70px;
+
+    padding:
+        18px
+        22px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.02);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    transition:
+        transform .3s var(--ease),
+        border-color .3s,
+        background .3s;
+
     position:relative;
+
+    overflow:hidden;
 }
 
-.option input{
+.option:hover{
+
+    transform:translateX(4px);
+
+    border-color:
+        rgba(201,255,61,.45);
+}
+
+.option.selected{
+
+    border-color:var(--lime);
+
+    background:
+        rgba(201,255,61,.055);
+
+}
+
+.option-text{
+    position:relative;
+    z-index:2;
+}
+
+.option-title{
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.option-desc{
+
+    font-size:10px;
+
+    color:var(--muted2);
+
+    margin-top:5px;
+}
+
+.option-price{
+
+    font-family:var(--mono);
+
+    font-size:11px;
+
+    color:var(--lime);
+
+    white-space:nowrap;
+
+    position:relative;
+    z-index:2;
+}
+
+.check{
+
+    width:20px;
+    height:20px;
+
+    border:
+        1px solid var(--line2);
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+    position:relative;
+    z-index:2;
+}
+
+.option.selected .check{
+
+    background:var(--lime);
+
+    border-color:var(--lime);
+
+}
+
+.option.selected .check::after{
+
+    content:"✓";
+
     position:absolute;
-    opacity:0;
+
+    left:4px;
+    top:1px;
+
+    color:#050505;
+
+    font-size:12px;
+
+    font-weight:700;
+
 }
 
-.option label{
-    display:block;
-    padding:24px;
-    border:1px solid #282828;
-    background:#0d0d0d;
-    cursor:pointer;
-    transition:.3s;
-    font-size:16px;
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.price-box{
+
+    margin-top:32px;
+
+    padding:25px 28px;
+
+    border:
+        1px solid
+        rgba(201,255,61,.28);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201,255,61,.07),
+            rgba(255,255,255,.012)
+        );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
 }
 
-.option label:hover{
-    border-color:#777;
-    transform:translateY(-4px);
+.price-label{
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:var(--muted);
 }
 
-.option input:checked + label{
-    background:#fff;
-    color:#000;
-    border-color:#fff;
-    transform:scale(1.02);
+.price{
+
+    font-family:var(--display);
+
+    font-size:
+        clamp(30px,5vw,52px);
+
+    font-weight:700;
+
+    color:var(--lime);
+
+    white-space:nowrap;
 }
 
-/* =========================
-   TEXT AREA
-========================= */
 
-textarea{
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.input-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:15px;
+}
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+}
+
+.input-group.full{
+    grid-column:1/-1;
+}
+
+.input-group label{
+
+    font-family:var(--mono);
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+}
+
+.input-group input,
+.input-group textarea{
+
     width:100%;
-    min-height:150px;
-    padding:20px;
-    background:#0d0d0d;
-    color:#fff;
-    border:1px solid #292929;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.02);
+
+    color:var(--white);
+
+    padding:16px;
+
     outline:none;
+
+    transition:.3s;
+}
+
+.input-group textarea{
+
+    min-height:150px;
+
     resize:vertical;
-    font-size:16px;
 }
 
-textarea:focus{
-    border-color:#777;
+.input-group input:focus,
+.input-group textarea:focus{
+
+    border-color:var(--lime);
+
+    box-shadow:
+        0 0 25px
+        rgba(201,255,61,.05);
 }
 
-/* =========================
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.actions{
+
+    margin-top:45px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.btn{
+
+    padding:
+        16px
+        24px;
+
+    border:
+        1px solid var(--line2);
+
+    background:transparent;
+
+    color:var(--white);
+
+    font-family:var(--mono);
+
+    font-size:10px;
+
+    letter-spacing:1.2px;
+
+    transition:.3s;
+}
+
+.btn:hover{
+
+    border-color:var(--lime);
+
+    color:var(--lime);
+
+}
+
+.btn.next{
+
+    background:var(--lime);
+
+    color:#050505;
+
+    border-color:var(--lime);
+
+    font-weight:700;
+}
+
+.btn.next:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 30px
+        rgba(201,255,61,.22);
+
+}
+
+
+/* =====================================================
    SUMMARY
-========================= */
-
-.summary-section{
-    padding:120px 7%;
-    background:#0c0c0c;
-}
+===================================================== */
 
 .summary{
-    max-width:1000px;
-    margin:auto;
-    border:1px solid #292929;
-    padding:50px;
+
+    border:
+        1px solid var(--line);
+
     background:
-        linear-gradient(145deg,#111,#090909);
-    box-shadow:0 40px 100px rgba(0,0,0,.5);
-    transform-style:preserve-3d;
-    transition:.4s;
+        rgba(255,255,255,.018);
+
+    padding:28px;
+
 }
 
-.summary:hover{
-    transform:perspective(1000px) rotateX(2deg) rotateY(-2deg);
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+    padding:16px 0;
+
+    border-bottom:
+        1px solid var(--line);
 }
 
-.summary h2{
-    font-size:55px;
+.summary-row:last-child{
+    border-bottom:0;
+}
+
+.summary-label{
+
+    font-family:var(--mono);
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+.summary-value{
+
+    max-width:65%;
+
+    text-align:right;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   CONTACT CHOICE
+===================================================== */
+
+.contact-title{
+
+    font-family:var(--display);
+
+    font-size:20px;
+
+    margin-top:35px;
+
     margin-bottom:15px;
 }
 
-.summary > p{
-    color:#888;
-    margin-bottom:40px;
-}
+.contact-buttons{
 
-.summary-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:15px;
+
+    margin-top:20px;
 }
 
-.summary-item{
-    padding:25px;
-    border:1px solid #252525;
-}
+.contact-btn{
 
-.summary-item span{
-    display:block;
-    color:#666;
-    font-size:11px;
-    letter-spacing:2px;
-    margin-bottom:10px;
-}
+    min-height:90px;
 
-.summary-item strong{
-    font-size:18px;
-}
+    padding:22px;
 
-.summary-message{
-    margin-top:30px;
-    padding:25px;
-    border-left:2px solid #fff;
-    color:#aaa;
-    line-height:1.7;
-}
+    border:
+        1px solid var(--line);
 
-/* =========================
-   BUTTON
-========================= */
+    background:
+        rgba(255,255,255,.02);
 
-.submit-area{
-    margin-top:50px;
     display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
 
-button{
-    border:none;
-    padding:18px 30px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:14px;
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:7px;
+
     transition:.3s;
 }
 
-.primary{
-    background:#fff;
-    color:#000;
-}
+.contact-btn:hover{
 
-.primary:hover{
     transform:translateY(-5px);
-    box-shadow:0 15px 30px rgba(255,255,255,.12);
+
 }
 
-.secondary{
-    background:#191919;
-    color:#fff;
-    border:1px solid #333;
+.contact-btn.whatsapp:hover{
+
+    border-color:#25d366;
+
 }
 
-.secondary:hover{
-    border-color:#777;
+.contact-btn.email:hover{
+
+    border-color:var(--lime);
+
 }
 
-/* =========================
+.contact-btn strong{
+
+    font-family:var(--display);
+
+    font-size:19px;
+}
+
+.contact-btn span{
+
+    color:var(--muted);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+.success{
+
+    text-align:center;
+
+    padding:
+        70px
+        20px;
+}
+
+.success-icon{
+
+    width:80px;
+    height:80px;
+
+    margin:
+        0 auto
+        30px;
+
+    border:
+        1px solid var(--lime);
+
+    color:var(--lime);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    box-shadow:
+        0 0 45px
+        rgba(201,255,61,.12);
+}
+
+.success h2{
+
+    font-family:var(--display);
+
+    font-size:
+        clamp(42px,7vw,80px);
+
+    letter-spacing:-4px;
+
+    line-height:.9;
+}
+
+.success p{
+
+    max-width:560px;
+
+    margin:
+        25px auto 35px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
-    padding:60px 7%;
-    border-top:1px solid #202020;
+
+    border-top:
+        1px solid var(--line);
+
+    padding:
+        30px 7vw;
+
     display:flex;
+
     justify-content:space-between;
-    color:#666;
-    font-size:13px;
+
+    gap:20px;
+
+    color:var(--muted2);
+
+    font-family:var(--mono);
+
+    font-size:8px;
+
+    letter-spacing:1px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 
-@media(max-width:900px){
+/* =====================================================
+   MOBILE
+===================================================== */
 
-    .process-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+@media(max-width:800px){
 
-}
-
-@media(max-width:650px){
-
-    nav{
-        padding:20px;
-    }
-
-    .nav-right{
+    .cursor{
         display:none;
     }
 
+    .nav{
+        height:70px;
+
+        padding:
+            0 6vw;
+    }
+
+    .hero{
+
+        padding:
+            70px 6vw 60px;
+
+        min-height:42vh;
+    }
+
     .hero h1{
-        font-size:70px;
-        letter-spacing:-4px;
+
+        letter-spacing:-3px;
     }
 
-    .orb{
-        opacity:.4;
+    .hero::after{
+
+        font-size:180px;
+
+        top:110px;
+
+        right:-20px;
     }
 
-    .process,
-    .questionnaire,
-    .summary-section{
-        padding:80px 20px;
+    .progress-wrap{
+
+        padding:
+            0 6vw 35px;
     }
 
-    .process-grid,
-    .options,
-    .summary-grid{
+    .container{
+
+        width:88vw;
+    }
+
+    .service-grid{
+
         grid-template-columns:1fr;
     }
 
-    .section-title{
-        font-size:45px;
+    .options{
+
+        grid-template-columns:1fr;
     }
 
-    .question-block h2{
-        font-size:32px;
+    .input-grid{
+
+        grid-template-columns:1fr;
     }
 
-    .summary{
-        padding:30px 20px;
+    .input-group.full{
+
+        grid-column:auto;
     }
 
-    .summary h2{
-        font-size:40px;
+    .price-box{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .contact-buttons{
+
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+
+        flex-direction:column-reverse;
+    }
+
+    .actions .btn{
+
+        width:100%;
     }
 
     footer{
+
         flex-direction:column;
-        gap:15px;
+    }
+
+    .summary-row{
+
+        flex-direction:column;
+    }
+
+    .summary-value{
+
+        max-width:100%;
+
+        text-align:left;
     }
 
 }
@@ -516,786 +1177,2317 @@ footer{
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<div class="cursor"></div>
 
-<nav>
 
-<div class="logo">
-DESIGNER 197
-</div>
+<!-- =====================================================
+     NAV
+===================================================== -->
 
-<div class="nav-right">
-<a href="index.html">HOME</a>
-<a href="#process">PROCESS</a>
-<a href="#discover">DISCOVER</a>
-<a href="#summary">SUMMARY</a>
-</div>
+<nav class="nav">
+
+    <a href="index.html" class="logo">
+        DESIGNER <span>197</span>
+    </a>
+
+    <a href="index.html" class="back-link">
+        ← BACK TO HOME
+    </a>
 
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
-<div class="orb one"></div>
-<div class="orb two"></div>
+    <div class="eyebrow">
+        01 / DISCOVER
+    </div>
 
-<div class="hero-content">
+    <h1>
+        LET'S BUILD<br>
+        <span>SOMETHING.</span>
+    </h1>
 
-<div class="small-title">
-01 — DISCOVER
-</div>
-
-<h1>
-DISC<span>OVER</span>
-</h1>
-
-<p class="hero-description">
-Before I design, I understand.
-Every successful project starts with a clear understanding of
-your brand, audience, message, goals and requirements.
-</p>
-
-<a href="#discover">
-<button class="primary">
-START DISCOVERING →
-</button>
-</a>
-
-</div>
+    <p>
+        Tell us what you need. Select your project type,
+        choose the services or website features and share
+        your requirements.
+    </p>
 
 </section>
 
 
-<!-- =========================
-     PROCESS
-========================= -->
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
 
-<section class="process" id="process">
+<div class="progress-wrap">
 
-<div class="small-title">
-THE FIRST STEP
-</div>
+    <div class="progress">
 
-<h2 class="section-title">
-Understand before creating.
-</h2>
+        <div class="progress-bar active"></div>
+        <div class="progress-bar"></div>
+        <div class="progress-bar"></div>
+        <div class="progress-bar"></div>
+        <div class="progress-bar"></div>
 
-<p class="section-description">
-The Discover stage helps me understand what your project needs
-before moving into creative direction and visual design.
-</p>
-
-
-<div class="process-grid">
-
-<div class="process-card">
-
-<div class="process-number">01</div>
-
-<h3>Brief</h3>
-
-<p>
-Understand what needs to be created and what the project goal is.
-</p>
+    </div>
 
 </div>
 
 
-<div class="process-card">
-
-<div class="process-number">02</div>
-
-<h3>Audience</h3>
-
-<p>
-Understand who the design needs to communicate with.
-</p>
-
-</div>
+<main class="container">
 
 
-<div class="process-card">
+<!-- =====================================================
+     STEP 1 — PROJECT TYPE
+===================================================== -->
 
-<div class="process-number">03</div>
+<section class="step active" id="stepProject">
 
-<h3>Message</h3>
+    <div class="question-number">
+        01 / PROJECT TYPE
+    </div>
 
-<p>
-Understand what feeling or message the brand should communicate.
-</p>
+    <h2 class="question-title">
+        What do you need?
+    </h2>
 
-</div>
+    <p class="question-sub">
+        Choose the type of project you want to start.
+    </p>
 
 
-<div class="process-card">
+    <div class="service-grid">
 
-<div class="process-number">04</div>
+        <!-- GRAPHIC -->
 
-<h3>Requirements</h3>
+        <div
+            class="service-card"
+            data-service="graphic"
+        >
 
-<p>
-Understand where and how the final design will be used.
-</p>
+            <div class="service-icon">
+                ✦
+            </div>
 
-</div>
+            <h3>
+                Graphic Design
+            </h3>
 
-</div>
+            <p>
+                Logo, branding, social media,
+                packaging, print, advertising
+                and visual design.
+            </p>
+
+        </div>
+
+
+        <!-- WEB -->
+
+        <div
+            class="service-card"
+            data-service="web"
+        >
+
+            <div class="service-icon">
+                ⌘
+            </div>
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+                Websites, responsive UI, animation,
+                3D experiences, e-commerce and
+                custom web applications.
+            </p>
+
+        </div>
+
+
+        <!-- BOTH -->
+
+        <div
+            class="service-card"
+            data-service="both"
+        >
+
+            <div class="service-icon">
+                ◈
+            </div>
+
+            <h3>
+                Design + Web
+            </h3>
+
+            <p>
+                Complete visual design combined
+                with a custom website experience.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="actions">
+
+        <span></span>
+
+        <button
+            class="btn next"
+            onclick="nextStep()"
+        >
+            CONTINUE →
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     QUESTIONNAIRE
-========================= -->
+<!-- =====================================================
+     STEP 2 — GRAPHIC DESIGN
+===================================================== -->
 
-<section class="questionnaire" id="discover">
+<section class="step" id="stepGraphic">
 
-<div class="small-title">
-PROJECT DISCOVERY FORM
-</div>
+    <div class="question-number">
+        02 / GRAPHIC DESIGN
+    </div>
 
-<h2 class="section-title">
-Tell me about your project.
-</h2>
+    <h2 class="question-title">
+        What are we designing?
+    </h2>
 
-<p class="section-description">
-Choose the options that best describe your project.
-Your answers will automatically create a Final Discover Summary.
-</p>
+    <p class="question-sub">
+        Select everything you need for your design project.
+    </p>
 
 
-<!-- QUESTION 1 -->
+    <div class="options">
 
-<div class="question-block">
 
-<div class="question-number">
-QUESTION 01
-</div>
+        <div class="option graphic-option">
 
-<h2>What do you need designed?</h2>
+            <div class="option-text">
 
-<p>
-Choose the main service you are looking for.
-</p>
+                <div class="option-title">
+                    Logo Design
+                </div>
 
-<div class="options">
+                <div class="option-desc">
+                    Professional logo & logo system
+                </div>
 
-<div class="option">
-<input type="radio" name="project" id="logo" value="Logo Design">
-<label for="logo">01 — Logo Design</label>
-</div>
+            </div>
 
-<div class="option">
-<input type="radio" name="project" id="branding" value="Branding">
-<label for="branding">02 — Branding</label>
-</div>
+            <div class="check"></div>
 
-<div class="option">
-<input type="radio" name="project" id="packaging" value="Packaging Design">
-<label for="packaging">03 — Packaging Design</label>
-</div>
+        </div>
 
-<div class="option">
-<input type="radio" name="project" id="social" value="Social Media Design">
-<label for="social">04 — Social Media Design</label>
-</div>
 
-<div class="option">
-<input type="radio" name="project" id="print" value="Print / Catalogue">
-<label for="print">05 — Print / Catalogue</label>
-</div>
+        <div class="option graphic-option">
 
-<div class="option">
-<input type="radio" name="project" id="web" value="Website / Web Design">
-<label for="web">06 — Website / Web Design</label>
-</div>
+            <div class="option-text">
 
-</div>
+                <div class="option-title">
+                    Brand Identity
+                </div>
 
-</div>
+                <div class="option-desc">
+                    Complete visual identity
+                </div>
 
+            </div>
 
-<!-- QUESTION 2 -->
+            <div class="check"></div>
 
-<div class="question-block">
+        </div>
 
-<div class="question-number">
-QUESTION 02
-</div>
 
-<h2>Who is your target audience?</h2>
+        <div class="option graphic-option">
 
-<p>
-Who do you want your design to connect with?
-</p>
+            <div class="option-text">
 
-<div class="options">
+                <div class="option-title">
+                    Social Media Design
+                </div>
 
-<div class="option">
-<input type="radio" name="audience" id="young" value="Young Audience">
-<label for="young">Young Audience</label>
-</div>
+                <div class="option-desc">
+                    Posts, creatives & campaigns
+                </div>
 
-<div class="option">
-<input type="radio" name="audience" id="professional" value="Professionals">
-<label for="professional">Professionals</label>
-</div>
+            </div>
 
-<div class="option">
-<input type="radio" name="audience" id="luxury" value="Luxury Customers">
-<label for="luxury">Luxury Customers</label>
-</div>
+            <div class="check"></div>
 
-<div class="option">
-<input type="radio" name="audience" id="general" value="General Audience">
-<label for="general">General Audience</label>
-</div>
+        </div>
 
-</div>
 
-</div>
+        <div class="option graphic-option">
 
+            <div class="option-text">
 
-<!-- QUESTION 3 -->
+                <div class="option-title">
+                    Packaging Design
+                </div>
 
-<div class="question-block">
+                <div class="option-desc">
+                    Product packaging & labels
+                </div>
 
-<div class="question-number">
-QUESTION 03
-</div>
+            </div>
 
-<h2>What style fits your brand?</h2>
+            <div class="check"></div>
 
-<p>
-Choose the visual personality you want.
-</p>
+        </div>
 
-<div class="options">
 
-<div class="option">
-<input type="radio" name="style" id="minimal" value="Minimal">
-<label for="minimal">Minimal</label>
-</div>
+        <div class="option graphic-option">
 
-<div class="option">
-<input type="radio" name="style" id="luxuryStyle" value="Luxury">
-<label for="luxuryStyle">Luxury</label>
-</div>
+            <div class="option-text">
 
-<div class="option">
-<input type="radio" name="style" id="bold" value="Bold & Powerful">
-<label for="bold">Bold & Powerful</label>
-</div>
+                <div class="option-title">
+                    Poster / Banner
+                </div>
 
-<div class="option">
-<input type="radio" name="style" id="modern" value="Modern">
-<label for="modern">Modern</label>
-</div>
+                <div class="option-desc">
+                    Advertising & promotional graphics
+                </div>
 
-<div class="option">
-<input type="radio" name="style" id="creative" value="Creative">
-<label for="creative">Creative</label>
-</div>
+            </div>
 
-<div class="option">
-<input type="radio" name="style" id="corporate" value="Professional / Corporate">
-<label for="corporate">Professional / Corporate</label>
-</div>
+            <div class="check"></div>
 
-</div>
+        </div>
 
-</div>
 
+        <div class="option graphic-option">
 
-<!-- QUESTION 4 -->
+            <div class="option-text">
 
-<div class="question-block">
+                <div class="option-title">
+                    Catalogue / Brochure
+                </div>
 
-<div class="question-number">
-QUESTION 04
-</div>
+                <div class="option-desc">
+                    Multi-page print design
+                </div>
 
-<h2>What should people feel?</h2>
+            </div>
 
-<p>
-Choose the main impression your design should create.
-</p>
+            <div class="check"></div>
 
-<div class="options">
+        </div>
 
-<div class="option">
-<input type="radio" name="feeling" id="trust" value="Trust">
-<label for="trust">Trust</label>
-</div>
 
-<div class="option">
-<input type="radio" name="feeling" id="premium" value="Premium">
-<label for="premium">Premium</label>
-</div>
+        <div class="option graphic-option">
 
-<div class="option">
-<input type="radio" name="feeling" id="energy" value="Energy">
-<label for="energy">Energy</label>
-</div>
+            <div class="option-text">
 
-<div class="option">
-<input type="radio" name="feeling" id="friendly" value="Friendly">
-<label for="friendly">Friendly</label>
-</div>
+                <div class="option-title">
+                    Photo Editing
+                </div>
 
-</div>
+                <div class="option-desc">
+                    Professional image editing
+                </div>
 
-</div>
+            </div>
 
+            <div class="check"></div>
 
-<!-- QUESTION 5 -->
+        </div>
 
-<div class="question-block">
 
-<div class="question-number">
-QUESTION 05
-</div>
+        <div class="option graphic-option">
 
-<h2>Where will the design be used?</h2>
+            <div class="option-text">
 
-<p>
-Select the primary platform.
-</p>
+                <div class="option-title">
+                    Advertising Campaign
+                </div>
 
-<div class="options">
+                <div class="option-desc">
+                    Creative campaign design
+                </div>
 
-<div class="option">
-<input type="radio" name="usage" id="instagram" value="Instagram / Social Media">
-<label for="instagram">Instagram / Social Media</label>
-</div>
+            </div>
 
-<div class="option">
-<input type="radio" name="usage" id="website" value="Website">
-<label for="website">Website</label>
-</div>
+            <div class="check"></div>
 
-<div class="option">
-<input type="radio" name="usage" id="printUsage" value="Print">
-<label for="printUsage">Print</label>
-</div>
+        </div>
 
-<div class="option">
-<input type="radio" name="usage" id="packUsage" value="Packaging">
-<label for="packUsage">Packaging</label>
-</div>
 
-</div>
+    </div>
 
-</div>
 
+    <!-- NO GRAPHIC PRICE -->
 
-<!-- QUESTION 6 -->
 
-<div class="question-block">
+    <div class="actions">
 
-<div class="question-number">
-QUESTION 06
-</div>
+        <button
+            class="btn"
+            onclick="prevStep()"
+        >
+            ← BACK
+        </button>
 
-<h2>What is your main goal?</h2>
+        <button
+            class="btn next"
+            onclick="nextStep()"
+        >
+            CONTINUE →
+        </button>
 
-<p>
-What should this project achieve?
-</p>
-
-<div class="options">
-
-<div class="option">
-<input type="radio" name="goal" id="newbrand" value="Build a New Brand">
-<label for="newbrand">Build a New Brand</label>
-</div>
-
-<div class="option">
-<input type="radio" name="goal" id="rebrand" value="Rebrand Existing Business">
-<label for="rebrand">Rebrand Existing Business</label>
-</div>
-
-<div class="option">
-<input type="radio" name="goal" id="professional" value="Look More Professional">
-<label for="professional">Look More Professional</label>
-</div>
-
-<div class="option">
-<input type="radio" name="goal" id="sales" value="Improve Sales / Attention">
-<label for="sales">Improve Sales / Attention</label>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- QUESTION 7 -->
-
-<div class="question-block">
-
-<div class="question-number">
-QUESTION 07
-</div>
-
-<h2>Tell me anything else.</h2>
-
-<p>
-Add any important information, references, ideas or requirements.
-</p>
-
-<textarea
-id="extra"
-placeholder="Tell me about your brand, preferred colours, competitors, references, deadlines, etc..."
-></textarea>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
-     FINAL SUMMARY
-========================= -->
+<!-- =====================================================
+     STEP 3 — WEB DEVELOPMENT
+===================================================== -->
 
-<section class="summary-section" id="summary">
+<section class="step" id="stepWeb">
 
-<div class="summary">
+    <div class="question-number">
+        02 / WEB DEVELOPMENT
+    </div>
 
-<div class="small-title">
-FINAL DISCOVER SUMMARY
-</div>
+    <h2 class="question-title">
+        What are we building?
+    </h2>
 
-<h2>
-Your Project Brief.
-</h2>
-
-<p>
-Review your answers before sending the project request.
-</p>
-
-
-<div class="summary-grid">
-
-<div class="summary-item">
-<span>PROJECT TYPE</span>
-<strong id="summaryProject">
-Not selected
-</strong>
-</div>
-
-<div class="summary-item">
-<span>TARGET AUDIENCE</span>
-<strong id="summaryAudience">
-Not selected
-</strong>
-</div>
-
-<div class="summary-item">
-<span>VISUAL STYLE</span>
-<strong id="summaryStyle">
-Not selected
-</strong>
-</div>
-
-<div class="summary-item">
-<span>BRAND FEELING</span>
-<strong id="summaryFeeling">
-Not selected
-</strong>
-</div>
-
-<div class="summary-item">
-<span>PRIMARY USAGE</span>
-<strong id="summaryUsage">
-Not selected
-</strong>
-</div>
-
-<div class="summary-item">
-<span>MAIN GOAL</span>
-<strong id="summaryGoal">
-Not selected
-</strong>
-</div>
-
-</div>
+    <p class="question-sub">
+        Select the website type and features you need.
+        Your estimated web project value updates automatically.
+    </p>
 
 
-<div class="summary-message">
-
-<strong>Additional Information</strong>
-
-<p id="summaryExtra">
-No additional information provided.
-</p>
-
-</div>
+    <div class="options">
 
 
-<div class="submit-area">
+        <!-- 01 -->
 
-<button
-class="primary"
-onclick="sendWhatsApp()"
->
-SEND PROJECT VIA WHATSAPP →
-</button>
+        <div
+            class="option web-option"
+            data-price="9999"
+        >
 
-<button
-class="secondary"
-onclick="sendEmail()"
->
-SEND VIA EMAIL
-</button>
+            <div class="option-text">
 
-</div>
+                <div class="option-title">
+                    Landing Page
+                </div>
 
-</div>
+                <div class="option-desc">
+                    Single high-conversion website
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹9,999
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div
+            class="option web-option"
+            data-price="14999"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Business Website
+                </div>
+
+                <div class="option-desc">
+                    Professional multi-page website
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹14,999
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div
+            class="option web-option"
+            data-price="11999"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Portfolio
+                </div>
+
+                <div class="option-desc">
+                    Creative personal / agency portfolio
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹11,999
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div
+            class="option web-option"
+            data-price="25000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    E-commerce
+                </div>
+
+                <div class="option-desc">
+                    Products, cart & checkout
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹25,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div
+            class="option web-option"
+            data-price="30000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Web Application
+                </div>
+
+                <div class="option-desc">
+                    Custom interactive web platform
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹30,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div
+            class="option web-option"
+            data-price="5000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Extra Pages
+                </div>
+
+                <div class="option-desc">
+                    Additional custom pages
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹5,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 07 -->
+
+        <div
+            class="option web-option"
+            data-price="10000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Advanced Animation
+                </div>
+
+                <div class="option-desc">
+                    Scroll, hover & motion effects
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹10,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 08 -->
+
+        <div
+            class="option web-option"
+            data-price="15000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    3D Website
+                </div>
+
+                <div class="option-desc">
+                    3D visuals & interactive experience
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹15,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 09 -->
+
+        <div
+            class="option web-option"
+            data-price="5000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Responsive Design
+                </div>
+
+                <div class="option-desc">
+                    Desktop + tablet + mobile
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹5,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div
+            class="option web-option"
+            data-price="4000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    WhatsApp / Contact
+                </div>
+
+                <div class="option-desc">
+                    Lead & enquiry integration
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹4,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div
+            class="option web-option"
+            data-price="7000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Login / Signup
+                </div>
+
+                <div class="option-desc">
+                    User authentication system
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹7,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div
+            class="option web-option"
+            data-price="5000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Payment
+                </div>
+
+                <div class="option-desc">
+                    Online payment integration
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹5,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <!-- 13 -->
+
+        <div
+            class="option web-option"
+            data-price="3000"
+        >
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    SEO
+                </div>
+
+                <div class="option-desc">
+                    Basic technical SEO setup
+                </div>
+
+            </div>
+
+            <div class="option-price">
+                ₹3,000
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="price-box">
+
+        <div>
+
+            <div class="price-label">
+                ESTIMATED WEB PROJECT VALUE
+            </div>
+
+        </div>
+
+        <div
+            class="price"
+            id="webTotal"
+        >
+            ₹0
+        </div>
+
+    </div>
+
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            onclick="prevStep()"
+        >
+            ← BACK
+        </button>
+
+        <button
+            class="btn next"
+            onclick="nextStep()"
+        >
+            CONTINUE →
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- =====================================================
+     STEP 4 — CREATIVE DIRECTION
+===================================================== -->
+
+<section class="step" id="stepDirection">
+
+    <div class="question-number">
+        03 / CREATIVE DIRECTION
+    </div>
+
+    <h2 class="question-title">
+        What's the direction?
+    </h2>
+
+    <p class="question-sub">
+        Select the visual direction that matches your idea.
+    </p>
+
+
+    <div class="options">
+
+
+        <div class="option direction-option">
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Minimal
+                </div>
+
+                <div class="option-desc">
+                    Clean, simple & focused
+                </div>
+
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <div class="option direction-option">
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Premium
+                </div>
+
+                <div class="option-desc">
+                    Luxury & high-end
+                </div>
+
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <div class="option direction-option">
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Bold
+                </div>
+
+                <div class="option-desc">
+                    Strong typography & visuals
+                </div>
+
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <div class="option direction-option">
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Creative
+                </div>
+
+                <div class="option-desc">
+                    Experimental & unique
+                </div>
+
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <div class="option direction-option">
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    Dark / Tech
+                </div>
+
+                <div class="option-desc">
+                    Modern digital aesthetic
+                </div>
+
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+        <div class="option direction-option">
+
+            <div class="option-text">
+
+                <div class="option-title">
+                    3D / Futuristic
+                </div>
+
+                <div class="option-desc">
+                    Depth, motion & technology
+                </div>
+
+            </div>
+
+            <div class="check"></div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            onclick="prevStep()"
+        >
+            ← BACK
+        </button>
+
+        <button
+            class="btn next"
+            onclick="nextStep()"
+        >
+            CONTINUE →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STEP 5 — DETAILS
+===================================================== -->
+
+<section class="step" id="stepDetails">
+
+    <div class="question-number">
+        04 / YOUR DETAILS
+    </div>
+
+    <h2 class="question-title">
+        Tell us about you.
+    </h2>
+
+    <p class="question-sub">
+        Add your contact details and project requirements.
+    </p>
+
+
+    <div class="input-grid">
+
+
+        <div class="input-group">
+
+            <label>
+                YOUR NAME *
+            </label>
+
+            <input
+                id="clientName"
+                type="text"
+                placeholder="Your name"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                EMAIL *
+            </label>
+
+            <input
+                id="clientEmail"
+                type="email"
+                placeholder="your@email.com"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                WHATSAPP / PHONE *
+            </label>
+
+            <input
+                id="clientPhone"
+                type="tel"
+                placeholder="+91..."
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                COMPANY / BRAND
+            </label>
+
+            <input
+                id="clientCompany"
+                type="text"
+                placeholder="Company / Brand"
+            >
+
+        </div>
+
+
+        <div class="input-group full">
+
+            <label>
+                PROJECT DETAILS
+            </label>
+
+            <textarea
+                id="clientMessage"
+                placeholder="Tell me about your idea, requirements, references, deadline etc."
+            ></textarea>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            onclick="prevStep()"
+        >
+            ← BACK
+        </button>
+
+        <button
+            class="btn next"
+            onclick="reviewProject()"
+        >
+            REVIEW PROJECT →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STEP 6 — REVIEW
+===================================================== -->
+
+<section class="step" id="stepReview">
+
+    <div class="question-number">
+        05 / REVIEW
+    </div>
+
+    <h2 class="question-title">
+        READY TO START?
+    </h2>
+
+    <p class="question-sub">
+        Review your project information before contacting DESIGNER 197.
+    </p>
+
+
+    <div
+        class="summary"
+        id="summary"
+    ></div>
+
+
+    <div
+        class="price-box"
+        id="finalPriceBox"
+    >
+
+        <div>
+
+            <div class="price-label">
+                ESTIMATED WEB PROJECT VALUE
+            </div>
+
+        </div>
+
+        <div
+            class="price"
+            id="finalPrice"
+        >
+            ₹0
+        </div>
+
+    </div>
+
+
+    <h3
+        class="contact-title"
+    >
+        HOW DO YOU WANT TO CONTACT?
+    </h3>
+
+
+    <div class="contact-buttons">
+
+
+        <!-- WHATSAPP -->
+
+        <button
+            class="contact-btn whatsapp"
+            onclick="sendWhatsApp()"
+        >
+
+            <strong>
+                WhatsApp →
+            </strong>
+
+            <span>
+                SEND PROJECT BRIEF
+            </span>
+
+        </button>
+
+
+        <!-- EMAIL -->
+
+        <button
+            class="contact-btn email"
+            onclick="sendEmail()"
+        >
+
+            <strong>
+                Email →
+            </strong>
+
+            <span>
+                SEND PROJECT BRIEF
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            onclick="prevStep()"
+        >
+            ← BACK
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUCCESS
+===================================================== -->
+
+<section class="step" id="stepSuccess">
+
+    <div class="success">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            PROJECT<br>
+            <span style="color:var(--lime)">
+                READY.
+            </span>
+        </h2>
+
+        <p>
+            Your project brief has been prepared successfully.
+            We can now discuss the project, timeline and final quotation.
+        </p>
+
+        <a
+            href="index.html"
+            class="btn"
+        >
+            ← BACK TO DESIGNER 197
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
 
 <footer>
 
-<div>
-© 2026 DESIGNER 197 — Harsh Chawla
-</div>
+    <span>
+        © 2026 HARSH CHAWLA
+    </span>
 
-<div>
-Graphic Designer • Branding • Web Design
-</div>
+    <span>
+        DESIGNER 197 / DISCOVER
+    </span>
+
+    <span>
+        GRAPHIC DESIGN × WEB DEVELOPMENT
+    </span>
 
 </footer>
 
 
 <script>
 
-/* ==================================
-   GET SELECTED ANSWER
-================================== */
+/* =====================================================
+   SETTINGS
+===================================================== */
 
-function getValue(name){
+/*
+    IMPORTANT:
+    Replace these two values with your real details.
+*/
 
-    const selected =
-        document.querySelector(
-            'input[name="' + name + '"]:checked'
+const WHATSAPP_NUMBER = "YOUR_PHONE_NUMBER";
+
+const EMAIL_ADDRESS = "YOUR_EMAIL@gmail.com";
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let currentStep = 1;
+
+let selectedService = "";
+
+let webTotal = 0;
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const steps =
+    document.querySelectorAll(".step");
+
+const progressBars =
+    document.querySelectorAll(".progress-bar");
+
+
+/* =====================================================
+   SERVICE SELECTION
+===================================================== */
+
+document
+    .querySelectorAll(".service-card")
+    .forEach(card => {
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(".service-card")
+                    .forEach(item => {
+
+                        item.classList.remove("selected");
+
+                    });
+
+
+                card.classList.add("selected");
+
+                selectedService =
+                    card.dataset.service;
+
+
+                updatePriceVisibility();
+
+            }
         );
 
-    return selected ? selected.value : "Not selected";
-}
+    });
 
 
-/* ==================================
-   UPDATE SUMMARY
-================================== */
-
-function updateSummary(){
-
-    document.getElementById("summaryProject").textContent =
-        getValue("project");
-
-    document.getElementById("summaryAudience").textContent =
-        getValue("audience");
-
-    document.getElementById("summaryStyle").textContent =
-        getValue("style");
-
-    document.getElementById("summaryFeeling").textContent =
-        getValue("feeling");
-
-    document.getElementById("summaryUsage").textContent =
-        getValue("usage");
-
-    document.getElementById("summaryGoal").textContent =
-        getValue("goal");
-
-    const extra =
-        document.getElementById("extra").value.trim();
-
-    document.getElementById("summaryExtra").textContent =
-        extra || "No additional information provided.";
-}
-
-
-/* ==================================
-   LISTEN FOR ANSWERS
-================================== */
+/* =====================================================
+   WEB OPTIONS
+===================================================== */
 
 document
-.querySelectorAll("input")
-.forEach(function(input){
+    .querySelectorAll(".web-option")
+    .forEach(option => {
 
-    input.addEventListener(
-        "change",
-        updateSummary
+        option.addEventListener(
+            "click",
+            () => {
+
+                option.classList.toggle("selected");
+
+                calculateWebPrice();
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   GRAPHIC OPTIONS
+===================================================== */
+
+document
+    .querySelectorAll(".graphic-option")
+    .forEach(option => {
+
+        option.addEventListener(
+            "click",
+            () => {
+
+                option.classList.toggle("selected");
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   DIRECTION OPTIONS
+===================================================== */
+
+document
+    .querySelectorAll(".direction-option")
+    .forEach(option => {
+
+        option.addEventListener(
+            "click",
+            () => {
+
+                option.classList.toggle("selected");
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   PRICE CALCULATION
+===================================================== */
+
+function calculateWebPrice(){
+
+    webTotal = 0;
+
+
+    document
+        .querySelectorAll(".web-option.selected")
+        .forEach(option => {
+
+            webTotal +=
+                Number(
+                    option.dataset.price || 0
+                );
+
+        });
+
+
+    document
+        .getElementById("webTotal")
+        .textContent =
+            formatPrice(webTotal);
+
+}
+
+
+/* =====================================================
+   PRICE FORMAT
+===================================================== */
+
+function formatPrice(number){
+
+    return "₹" +
+        number.toLocaleString("en-IN");
+
+}
+
+
+/* =====================================================
+   UPDATE PRICE VISIBILITY
+===================================================== */
+
+function updatePriceVisibility(){
+
+    const priceBox =
+        document.getElementById(
+            "finalPriceBox"
+        );
+
+    if(
+        selectedService === "graphic"
+    ){
+
+        priceBox.style.display = "none";
+
+    }else{
+
+        priceBox.style.display = "flex";
+
+    }
+
+}
+
+
+/* =====================================================
+   FLOW
+===================================================== */
+
+function getFlow(){
+
+    /*
+        Step indexes:
+
+        1 = Project
+        2 = Graphic
+        3 = Web
+        4 = Direction
+        5 = Details
+        6 = Review
+        7 = Success
+    */
+
+    let flow = [1];
+
+
+    if(selectedService === "graphic"){
+
+        flow.push(2);
+
+    }
+
+
+    if(selectedService === "web"){
+
+        flow.push(3);
+
+    }
+
+
+    if(selectedService === "both"){
+
+        flow.push(2);
+        flow.push(3);
+
+    }
+
+
+    flow.push(4);
+    flow.push(5);
+    flow.push(6);
+    flow.push(7);
+
+
+    return flow;
+
+}
+
+
+/* =====================================================
+   SHOW STEP
+===================================================== */
+
+function showStep(){
+
+    const flow =
+        getFlow();
+
+
+    const actualStep =
+        flow[currentStep - 1];
+
+
+    steps.forEach(step => {
+
+        step.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    if(actualStep){
+
+        steps[
+            actualStep - 1
+        ].classList.add(
+            "active"
+        );
+
+    }
+
+
+    progressBars.forEach(
+        (bar,index) => {
+
+            bar.classList.toggle(
+                "active",
+                index <
+                currentStep
+            );
+
+        }
     );
 
-});
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
 
 
-document
-.getElementById("extra")
-.addEventListener(
-    "input",
-    updateSummary
-);
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextStep(){
+
+    if(
+        currentStep === 1 &&
+        !selectedService
+    ){
+
+        alert(
+            "Please select your project type."
+        );
+
+        return;
+
+    }
 
 
-/* ==================================
+    const flow =
+        getFlow();
+
+
+    if(
+        currentStep <
+        flow.length
+    ){
+
+        currentStep++;
+
+        showStep();
+
+    }
+
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+function prevStep(){
+
+    if(currentStep > 1){
+
+        currentStep--;
+
+        showStep();
+
+    }
+
+}
+
+
+/* =====================================================
+   GET SELECTED ITEMS
+===================================================== */
+
+function getSelectedText(selector){
+
+    const items = [];
+
+    document
+        .querySelectorAll(
+            selector + ".selected"
+        )
+        .forEach(item => {
+
+            const title =
+                item.querySelector(
+                    ".option-title"
+                );
+
+            if(title){
+
+                items.push(
+                    title.textContent.trim()
+                );
+
+            }
+
+        });
+
+
+    return items;
+
+}
+
+
+/* =====================================================
+   SERVICE NAME
+===================================================== */
+
+function getServiceName(){
+
+    if(
+        selectedService ===
+        "graphic"
+    ){
+
+        return "Graphic Design";
+
+    }
+
+    if(
+        selectedService ===
+        "web"
+    ){
+
+        return "Web Development";
+
+    }
+
+    return "Design + Web Development";
+
+}
+
+
+/* =====================================================
+   REVIEW
+===================================================== */
+
+function reviewProject(){
+
+    const name =
+        document
+        .getElementById(
+            "clientName"
+        )
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById(
+            "clientEmail"
+        )
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById(
+            "clientPhone"
+        )
+        .value
+        .trim();
+
+
+    if(
+        !name ||
+        !email ||
+        !phone
+    ){
+
+        alert(
+            "Please enter your name, email and WhatsApp/phone."
+        );
+
+        return;
+
+    }
+
+
+    const company =
+        document
+        .getElementById(
+            "clientCompany"
+        )
+        .value
+        .trim();
+
+
+    const message =
+        document
+        .getElementById(
+            "clientMessage"
+        )
+        .value
+        .trim();
+
+
+    const graphicItems =
+        getSelectedText(
+            ".graphic-option"
+        );
+
+
+    const webItems =
+        getSelectedText(
+            ".web-option"
+        );
+
+
+    const directionItems =
+        getSelectedText(
+            ".direction-option"
+        );
+
+
+    const summary =
+        document.getElementById(
+            "summary"
+        );
+
+
+    summary.innerHTML = `
+
+        <div class="summary-row">
+
+            <span class="summary-label">
+                PROJECT
+            </span>
+
+            <span class="summary-value">
+                ${escapeHTML(
+                    getServiceName()
+                )}
+            </span>
+
+        </div>
+
+
+        ${
+            graphicItems.length
+            ?
+
+            `
+            <div class="summary-row">
+
+                <span class="summary-label">
+                    DESIGN SERVICES
+                </span>
+
+                <span class="summary-value">
+                    ${escapeHTML(
+                        graphicItems.join(", ")
+                    )}
+                </span>
+
+            </div>
+            `
+
+            : ""
+
+        }
+
+
+        ${
+            webItems.length
+            ?
+
+            `
+            <div class="summary-row">
+
+                <span class="summary-label">
+                    WEB FEATURES
+                </span>
+
+                <span class="summary-value">
+                    ${escapeHTML(
+                        webItems.join(", ")
+                    )}
+                </span>
+
+            </div>
+            `
+
+            : ""
+
+        }
+
+
+        ${
+            directionItems.length
+            ?
+
+            `
+            <div class="summary-row">
+
+                <span class="summary-label">
+                    DIRECTION
+                </span>
+
+                <span class="summary-value">
+                    ${escapeHTML(
+                        directionItems.join(", ")
+                    )}
+                </span>
+
+            </div>
+            `
+
+            : ""
+
+        }
+
+
+        <div class="summary-row">
+
+            <span class="summary-label">
+                NAME
+            </span>
+
+            <span class="summary-value">
+                ${escapeHTML(name)}
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span class="summary-label">
+                EMAIL
+            </span>
+
+            <span class="summary-value">
+                ${escapeHTML(email)}
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span class="summary-label">
+                PHONE
+            </span>
+
+            <span class="summary-value">
+                ${escapeHTML(phone)}
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span class="summary-label">
+                COMPANY
+            </span>
+
+            <span class="summary-value">
+                ${escapeHTML(
+                    company ||
+                    "Not provided"
+                )}
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span class="summary-label">
+                REQUIREMENTS
+            </span>
+
+            <span class="summary-value">
+                ${escapeHTML(
+                    message ||
+                    "Not provided"
+                )}
+            </span>
+
+        </div>
+
+    `;
+
+
+    const finalPrice =
+        document.getElementById(
+            "finalPrice"
+        );
+
+
+    if(
+        selectedService ===
+        "graphic"
+    ){
+
+        finalPrice.textContent =
+            "Custom Quote";
+
+    }else{
+
+        finalPrice.textContent =
+            formatPrice(
+                webTotal
+            );
+
+    }
+
+
+    currentStep++;
+
+    showStep();
+
+}
+
+
+/* =====================================================
+   CREATE MESSAGE
+===================================================== */
+
+function createMessage(){
+
+    const name =
+        document
+        .getElementById(
+            "clientName"
+        )
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById(
+            "clientEmail"
+        )
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById(
+            "clientPhone"
+        )
+        .value
+        .trim();
+
+
+    const company =
+        document
+        .getElementById(
+            "clientCompany"
+        )
+        .value
+        .trim();
+
+
+    const message =
+        document
+        .getElementById(
+            "clientMessage"
+        )
+        .value
+        .trim();
+
+
+    const graphicItems =
+        getSelectedText(
+            ".graphic-option"
+        );
+
+
+    const webItems =
+        getSelectedText(
+            ".web-option"
+        );
+
+
+    const directionItems =
+        getSelectedText(
+            ".direction-option"
+        );
+
+
+    let priceText =
+        selectedService ===
+        "graphic"
+
+        ? "Custom Quote"
+
+        : formatPrice(
+            webTotal
+        );
+
+
+    return `
+
+Hello Harsh,
+
+I want to start a project with DESIGNER 197.
+
+PROJECT TYPE:
+${getServiceName()}
+
+GRAPHIC DESIGN:
+${graphicItems.length
+    ? graphicItems.join(", ")
+    : "None"}
+
+WEB DEVELOPMENT:
+${webItems.length
+    ? webItems.join(", ")
+    : "None"}
+
+CREATIVE DIRECTION:
+${directionItems.length
+    ? directionItems.join(", ")
+    : "Not specified"}
+
+ESTIMATED WEB PROJECT VALUE:
+${priceText}
+
+CLIENT NAME:
+${name}
+
+EMAIL:
+${email}
+
+PHONE:
+${phone}
+
+COMPANY / BRAND:
+${company || "Not provided"}
+
+PROJECT DETAILS:
+${message || "Not provided"}
+
+Thank you.
+`.trim();
+
+}
+
+
+/* =====================================================
    WHATSAPP
-================================== */
+===================================================== */
 
 function sendWhatsApp(){
 
-    updateSummary();
+    if(
+        WHATSAPP_NUMBER ===
+        "YOUR_PHONE_NUMBER"
+    ){
 
-    const project = getValue("project");
-    const audience = getValue("audience");
-    const style = getValue("style");
-    const feeling = getValue("feeling");
-    const usage = getValue("usage");
-    const goal = getValue("goal");
-    const extra = document.getElementById("extra").value;
+        alert(
+            "Please add your WhatsApp number in the code first."
+        );
+
+        return;
+
+    }
+
 
     const message =
+        createMessage();
 
-`Hello Harsh,
-
-I would like to start a project.
-
-PROJECT DISCOVER SUMMARY
-
-Project Type:
-${project}
-
-Target Audience:
-${audience}
-
-Visual Style:
-${style}
-
-Brand Feeling:
-${feeling}
-
-Primary Usage:
-${usage}
-
-Main Goal:
-${goal}
-
-Additional Information:
-${extra || "None"}
-
-I would like to discuss the project further.`;
-
-    /*
-      IMPORTANT:
-      Replace 919999999999 with your real
-      WhatsApp number including country code.
-    */
-
-    const phone = "919999999999";
 
     const url =
         "https://wa.me/" +
-        phone +
+        WHATSAPP_NUMBER +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+            message
+        );
 
-    window.open(url, "_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+
+    goSuccess();
 
 }
 
 
-/* ==================================
+/* =====================================================
    EMAIL
-================================== */
+===================================================== */
 
 function sendEmail(){
 
-    updateSummary();
+    if(
+        EMAIL_ADDRESS ===
+        "YOUR_EMAIL@gmail.com"
+    ){
 
-    const project = getValue("project");
-    const audience = getValue("audience");
-    const style = getValue("style");
-    const feeling = getValue("feeling");
-    const usage = getValue("usage");
-    const goal = getValue("goal");
-    const extra = document.getElementById("extra").value;
+        alert(
+            "Please add your email address in the code first."
+        );
+
+        return;
+
+    }
+
 
     const subject =
-        "New Design Project — Discover Brief";
+        "New Project Request — DESIGNER 197";
+
 
     const body =
+        createMessage();
 
-`Hello Harsh,
 
-I would like to start a design project.
+    const mailto =
+        "mailto:" +
+        EMAIL_ADDRESS +
+        "?subject=" +
+        encodeURIComponent(
+            subject
+        ) +
+        "&body=" +
+        encodeURIComponent(
+            body
+        );
 
-PROJECT DISCOVER SUMMARY
-
-Project Type:
-${project}
-
-Target Audience:
-${audience}
-
-Visual Style:
-${style}
-
-Brand Feeling:
-${feeling}
-
-Primary Usage:
-${usage}
-
-Main Goal:
-${goal}
-
-Additional Information:
-${extra || "None"}
-
-Thank you.`;
-
-    /*
-      Replace this with your real email.
-    */
-
-    const email =
-        "your-email@example.com";
 
     window.location.href =
-        "mailto:" +
-        email +
-        "?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
+        mailto;
+
+
+    goSuccess();
 
 }
 
 
-/* ==================================
-   INITIAL SUMMARY
-================================== */
+/* =====================================================
+   SUCCESS
+===================================================== */
 
-updateSummary();
+function goSuccess(){
+
+    const flow =
+        getFlow();
+
+
+    currentStep =
+        flow.length;
+
+
+    showStep();
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    return value
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   CUSTOM CURSOR
+===================================================== */
+
+const cursor =
+    document.querySelector(
+        ".cursor"
+    );
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        cursor.style.left =
+            event.clientX + "px";
+
+        cursor.style.top =
+            event.clientY + "px";
+
+    }
+);
+
+
+document
+    .querySelectorAll(
+        "a,button,.option,.service-card"
+    )
+    .forEach(element => {
+
+        element.addEventListener(
+            "mouseenter",
+            () => {
+
+                cursor.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+
+        element.addEventListener(
+            "mouseleave",
+            () => {
+
+                cursor.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   INITIAL
+===================================================== */
+
+calculateWebPrice();
+
+updatePriceVisibility();
 
 </script>
 
 </body>
 </html>
-```
