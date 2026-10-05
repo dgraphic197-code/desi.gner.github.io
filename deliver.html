@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DELIVER — DESIGNER 197 | Final Design Delivery</title>
+
+<meta
+name="description"
+content="DESIGNER 197 — Final delivery of graphic design, branding, print, web, motion and digital assets."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --black:#050505;
+    --black2:#090909;
+    --white:#f5f5f2;
+    --muted:rgba(245,245,242,.55);
+    --muted2:rgba(245,245,242,.28);
+    --lime:#c9ff3d;
+    --line:rgba(255,255,255,.10);
+    --line2:rgba(255,255,255,.18);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--black);
+    color:var(--white);
+    font-family:"Plus Jakarta Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+/* =====================================================
+   CURSOR
+===================================================== */
+
+.cursor{
+    width:9px;
+    height:9px;
+    position:fixed;
+    border-radius:50%;
+    background:var(--lime);
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 25px rgba(201,255,61,.8);
+}
+
+.cursor-ring{
+    width:38px;
+    height:38px;
+    position:fixed;
+    border:1px solid rgba(201,255,61,.6);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9998;
+    transform:translate(-50%,-50%);
+    transition:.25s ease;
+}
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#050505;
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:loaderOut 1s ease 1.6s forwards;
+}
+
+.loader-inner{
+    text-align:center;
+}
+
+.loader-logo{
+    font-family:"Space Grotesk";
+    font-size:clamp(70px,15vw,180px);
+    font-weight:700;
+    letter-spacing:-.1em;
+    line-height:.8;
+}
+
+.loader-logo span{
+    color:var(--lime);
+}
+
+.loader-text{
+    margin-top:25px;
+    font-family:"DM Mono";
+    font-size:9px;
+    color:var(--muted);
+    letter-spacing:.2em;
+}
+
+.loader-line{
+    width:200px;
+    height:1px;
+    margin:22px auto 0;
+    background:rgba(255,255,255,.12);
+    overflow:hidden;
+}
+
+.loader-line:after{
+    content:"";
+    display:block;
+    height:100%;
+    width:100%;
+    background:var(--lime);
+    transform:translateX(-100%);
+    animation:loaderLine 1.3s ease forwards;
+}
+
+@keyframes loaderLine{
+    to{
+        transform:translateX(0);
+    }
+}
+
+@keyframes loaderOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* =====================================================
+   NAV
+===================================================== */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:24px 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:500;
+    mix-blend-mode:difference;
+}
+
+.logo{
+    font-family:"Space Grotesk";
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-.06em;
+}
+
+.logo span{
+    color:var(--lime);
+}
+
+.nav-right{
+    display:flex;
+    gap:10px;
+}
+
+.nav-item{
+    border:1px solid var(--line);
+    padding:8px 12px;
+    font-family:"DM Mono";
+    font-size:9px;
+    color:var(--muted);
+}
+
+.nav-item.active{
+    color:var(--lime);
+    border-color:rgba(201,255,61,.4);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:130px 5vw 100px;
+    overflow:hidden;
+}
+
+.hero-grid{
+    position:absolute;
+    inset:0;
+    opacity:.12;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+
+    background-size:80px 80px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:10;
+    width:52%;
+}
+
+.kicker{
+    font-family:"DM Mono";
+    color:var(--lime);
+    font-size:11px;
+    letter-spacing:.2em;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-family:"Space Grotesk";
+    font-size:clamp(75px,11vw,175px);
+    line-height:.77;
+    letter-spacing:-.095em;
+    text-transform:uppercase;
+}
+
+.hero h1 .outline{
+    color:transparent;
+    -webkit-text-stroke:1px rgba(245,245,242,.55);
+}
+
+.hero h1 .lime{
+    color:var(--lime);
+}
+
+.hero-text{
+    max-width:600px;
+    margin-top:45px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.8;
+}
+
+.hero-text strong{
+    color:var(--white);
+}
+
+/* =====================================================
+   DELIVERY STAGE
+===================================================== */
+
+.delivery-stage{
+    position:absolute;
+    width:min(48vw,650px);
+    height:min(48vw,650px);
+    min-width:420px;
+    min-height:420px;
+
+    right:1vw;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    perspective:1200px;
+
+    z-index:3;
+}
+
+/* =====================================================
+   GLOW
+===================================================== */
+
+.glow{
+    position:absolute;
+    width:350px;
+    height:350px;
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:var(--lime);
+
+    filter:blur(110px);
+
+    opacity:.08;
+
+    animation:glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+
+    0%,100%{
+        transform:translate(-50%,-50%) scale(.8);
+        opacity:.06;
+    }
+
+    50%{
+        transform:translate(-50%,-50%) scale(1.25);
+        opacity:.14;
+    }
+
+}
+
+/* =====================================================
+   ORBIT RINGS
+===================================================== */
+
+.orbit{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    transform:translate(-50%,-50%) rotateX(65deg);
+
+    animation:orbitSpin 16s linear infinite;
+}
+
+.orbit.one{
+    width:90%;
+    height:45%;
+}
+
+.orbit.two{
+    width:75%;
+    height:37%;
+    animation-duration:12s;
+    animation-direction:reverse;
+}
+
+.orbit.three{
+    width:60%;
+    height:30%;
+    border-color:rgba(201,255,61,.25);
+    animation-duration:9s;
+}
+
+@keyframes orbitSpin{
+
+    to{
+        transform:
+        translate(-50%,-50%)
+        rotateX(65deg)
+        rotateZ(360deg);
+    }
+
+}
+
+/* =====================================================
+   FILE PARTICLES
+===================================================== */
+
+.file{
+    position:absolute;
+
+    width:105px;
+    height:125px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.17);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.5),
+        inset 0 0 25px rgba(255,255,255,.02);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    padding:13px;
+
+    font-family:"DM Mono";
+
+    animation:fileFloat 5s ease-in-out infinite;
+
+    z-index:6;
+}
+
+.file:before{
+    content:"";
+    position:absolute;
+
+    right:0;
+    top:0;
+
+    width:28px;
+    height:28px;
+
+    border-left:1px solid var(--line2);
+    border-bottom:1px solid var(--line2);
+
+    background:rgba(255,255,255,.025);
+}
+
+.file-type{
+    color:var(--lime);
+    font-size:18px;
+    font-weight:500;
+}
+
+.file-name{
+    font-size:7px;
+    color:var(--muted);
+    line-height:1.4;
+}
+
+.file-size{
+    font-size:7px;
+    color:var(--muted2);
+}
+
+.file.f1{
+    left:7%;
+    top:23%;
+    transform:rotate(-13deg);
+    animation-delay:-1s;
+}
+
+.file.f2{
+    right:4%;
+    top:16%;
+    transform:rotate(13deg);
+    animation-delay:-3s;
+}
+
+.file.f3{
+    left:4%;
+    bottom:17%;
+    transform:rotate(10deg);
+    animation-delay:-2s;
+}
+
+.file.f4{
+    right:8%;
+    bottom:12%;
+    transform:rotate(-10deg);
+    animation-delay:-4s;
+}
+
+@keyframes fileFloat{
+
+    0%,100%{
+        translate:0 0;
+    }
+
+    50%{
+        translate:0 -20px;
+    }
+
+}
+
+/* =====================================================
+   MAIN 3D DELIVERY BOX
+===================================================== */
+
+.delivery-box{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:280px;
+    height:280px;
+
+    transform:
+        translate(-50%,-50%)
+        rotateX(12deg)
+        rotateY(-18deg)
+        rotateZ(-4deg);
+
+    transform-style:preserve-3d;
+
+    animation:boxFloat 5s ease-in-out infinite;
+
+    z-index:10;
+}
+
+@keyframes boxFloat{
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            rotateX(12deg)
+            rotateY(-18deg)
+            rotateZ(-4deg);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-57%)
+            rotateX(18deg)
+            rotateY(-10deg)
+            rotateZ(2deg);
+    }
+
+}
+
+/* box base */
+
+.box-front{
+    position:absolute;
+
+    width:280px;
+    height:220px;
+
+    bottom:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #080808
+        );
+
+    border:1px solid rgba(255,255,255,.2);
+
+    transform:translateZ(70px);
+
+    box-shadow:
+        0 40px 80px rgba(0,0,0,.7),
+        inset 0 0 50px rgba(255,255,255,.025);
+}
+
+.box-side{
+    position:absolute;
+
+    width:140px;
+    height:220px;
+
+    right:-140px;
+    bottom:0;
+
+    background:#090909;
+
+    border:1px solid rgba(255,255,255,.13);
+
+    transform-origin:left;
+
+    transform:
+        rotateY(90deg)
+        translateX(-1px);
+}
+
+.box-top{
+    position:absolute;
+
+    width:280px;
+    height:140px;
+
+    top:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #080808
+        );
+
+    border:1px solid rgba(255,255,255,.18);
+
+    transform-origin:bottom;
+
+    transform:
+        rotateX(90deg)
+        translateZ(0);
+
+    transform-style:preserve-3d;
+}
+
+/* box logo */
+
+.box-logo{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(72px);
+
+    font-family:"Space Grotesk";
+
+    font-size:48px;
+
+    font-weight:700;
+
+    letter-spacing:-.09em;
+
+    color:var(--white);
+}
+
+.box-logo span{
+    color:var(--lime);
+}
+
+/* lime seal */
+
+.seal{
+    position:absolute;
+
+    left:50%;
+    top:48%;
+
+    width:48px;
+    height:48px;
+
+    border:1px solid var(--lime);
+
+    border-radius:50%;
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(80px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:"DM Mono";
+
+    font-size:7px;
+
+    color:var(--lime);
+
+    background:rgba(201,255,61,.04);
+
+    box-shadow:
+        0 0 25px rgba(201,255,61,.15);
+
+    animation:sealSpin 8s linear infinite;
+}
+
+@keyframes sealSpin{
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            translateZ(80px)
+            rotate(360deg);
+    }
+
+}
+
+/* box label */
+
+.box-label{
+    position:absolute;
+
+    left:25px;
+    bottom:22px;
+
+    font-family:"DM Mono";
+
+    font-size:8px;
+
+    color:var(--muted);
+
+    transform:translateZ(75px);
+}
+
+.box-label span{
+    color:var(--lime);
+}
+
+/* =====================================================
+   FLOATING MINI BADGES
+===================================================== */
+
+.badge{
+    position:absolute;
+
+    padding:9px 13px;
+
+    border:1px solid rgba(201,255,61,.35);
+
+    background:rgba(5,5,5,.75);
+
+    backdrop-filter:blur(10px);
+
+    color:var(--lime);
+
+    font-family:"DM Mono";
+
+    font-size:8px;
+
+    z-index:20;
+
+    animation:badgeFloat 4s ease-in-out infinite;
+}
+
+.badge.b1{
+    top:11%;
+    left:36%;
+}
+
+.badge.b2{
+    right:22%;
+    top:47%;
+    animation-delay:-2s;
+}
+
+.badge.b3{
+    left:25%;
+    bottom:9%;
+    animation-delay:-1s;
+}
+
+@keyframes badgeFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section{
+    position:relative;
+
+    padding:150px 5vw;
+
+    border-top:1px solid var(--line);
+
+    overflow:hidden;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    margin-bottom:80px;
+}
+
+.section-number{
+    font-family:"DM Mono";
+
+    color:var(--lime);
+
+    font-size:10px;
+}
+
+.section-title{
+    max-width:850px;
+
+    font-family:"Space Grotesk";
+
+    font-size:clamp(48px,7vw,105px);
+
+    line-height:.85;
+
+    letter-spacing:-.08em;
+
+    text-transform:uppercase;
+}
+
+.section-title span{
+    color:transparent;
+
+    -webkit-text-stroke:1px rgba(245,245,242,.45);
+}
+
+/* =====================================================
+   DELIVERY FORMAT GRID
+===================================================== */
+
+.delivery-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    border-top:1px solid var(--line);
+
+    border-left:1px solid var(--line);
+}
+
+.delivery-item{
+    min-height:270px;
+
+    padding:30px;
+
+    border-right:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.5s ease;
+}
+
+.delivery-item:hover{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201,255,61,.05),
+            transparent
+        );
+}
+
+.delivery-item:after{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    background:var(--lime);
+
+    filter:blur(70px);
+
+    opacity:0;
+
+    right:-80px;
+    bottom:-80px;
+
+    transition:.5s ease;
+}
+
+.delivery-item:hover:after{
+    opacity:.1;
+}
+
+.item-number{
+    font-family:"DM Mono";
+
+    color:var(--lime);
+
+    font-size:9px;
+}
+
+.file-icon{
+    margin-top:45px;
+
+    width:65px;
+    height:80px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:"Space Grotesk";
+
+    font-size:17px;
+
+    position:relative;
+
+    transition:.4s ease;
+}
+
+.delivery-item:hover .file-icon{
+    transform:
+        translateY(-8px)
+        rotate(-4deg);
+
+    border-color:var(--lime);
+
+    box-shadow:
+        0 15px 40px rgba(201,255,61,.08);
+}
+
+.item-title{
+    position:absolute;
+
+    bottom:30px;
+    left:30px;
+
+    font-family:"Space Grotesk";
+
+    font-size:25px;
+
+    letter-spacing:-.04em;
+}
+
+.item-info{
+    position:absolute;
+
+    right:30px;
+    bottom:35px;
+
+    font-family:"DM Mono";
+
+    font-size:8px;
+
+    color:var(--muted);
+}
+
+/* =====================================================
+   FINAL PACKAGE
+===================================================== */
+
+.package{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+}
+
+.package-copy h2{
+    font-family:"Space Grotesk";
+
+    font-size:clamp(50px,6vw,90px);
+
+    line-height:.85;
+
+    letter-spacing:-.08em;
+}
+
+.package-copy h2 span{
+    color:var(--lime);
+}
+
+.package-copy p{
+    margin-top:30px;
+
+    max-width:520px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.package-list{
+    margin-top:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.package-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:15px 0;
+
+    border-bottom:1px solid var(--line);
+
+    font-family:"DM Mono";
+
+    font-size:9px;
+
+    color:var(--muted);
+}
+
+.package-row strong{
+    color:var(--white);
+}
+
+.package-row span{
+    color:var(--lime);
+}
+
+/* =====================================================
+   PACKAGE VISUAL
+===================================================== */
+
+.package-visual{
+    height:500px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.package-card{
+    width:330px;
+    height:410px;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.015)
+        );
+
+    backdrop-filter:blur(20px);
+
+    padding:30px;
+
+    transform:
+        rotateY(-15deg)
+        rotateX(8deg)
+        rotateZ(4deg);
+
+    box-shadow:
+        30px 40px 100px rgba(0,0,0,.6);
+
+    animation:packageFloat 6s ease-in-out infinite;
+}
+
+@keyframes packageFloat{
+
+    0%,100%{
+        transform:
+            rotateY(-15deg)
+            rotateX(8deg)
+            rotateZ(4deg)
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            rotateY(-10deg)
+            rotateX(12deg)
+            rotateZ(1deg)
+            translateY(-20px);
+    }
+
+}
+
+.package-card-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-family:"DM Mono";
+
+    font-size:8px;
+
+    color:var(--muted);
+}
+
+.package-big{
+    margin-top:100px;
+
+    font-family:"Space Grotesk";
+
+    font-size:80px;
+
+    line-height:.75;
+
+    font-weight:700;
+
+    letter-spacing:-.1em;
+}
+
+.package-big span{
+    color:var(--lime);
+}
+
+.package-check{
+    margin-top:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-family:"DM Mono";
+
+    font-size:8px;
+
+    color:var(--muted);
+}
+
+.check{
+    width:20px;
+    height:20px;
+
+    border:1px solid var(--lime);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--lime);
+
+    border-radius:50%;
+}
+
+/* =====================================================
+   DELIVERY TIMELINE
+===================================================== */
+
+.timeline{
+    border-top:1px solid var(--line);
+}
+
+.timeline-row{
+    display:grid;
+
+    grid-template-columns:100px 1fr 120px;
+
+    align-items:center;
+
+    min-height:110px;
+
+    border-bottom:1px solid var(--line);
+}
+
+.timeline-no{
+    font-family:"DM Mono";
+
+    color:var(--lime);
+
+    font-size:10px;
+}
+
+.timeline-title{
+    font-family:"Space Grotesk";
+
+    font-size:24px;
+
+    letter-spacing:-.04em;
+}
+
+.timeline-info{
+    text-align:right;
+
+    font-family:"DM Mono";
+
+    font-size:8px;
+
+    color:var(--muted);
+}
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+    min-height:75vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.cta-ring{
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    border:1px solid rgba(201,255,61,.12);
+
+    border-radius:50%;
+
+    animation:ctaSpin 20s linear infinite;
+}
+
+.cta-ring:before,
+.cta-ring:after{
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.cta-ring:before{
+    inset:70px;
+}
+
+.cta-ring:after{
+    inset:150px;
+}
+
+@keyframes ctaSpin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.cta-content{
+    position:relative;
+
+    z-index:5;
+}
+
+.cta-small{
+    font-family:"DM Mono";
+
+    font-size:10px;
+
+    color:var(--lime);
+
+    letter-spacing:.2em;
+}
+
+.cta h2{
+    margin-top:25px;
+
+    font-family:"Space Grotesk";
+
+    font-size:clamp(65px,10vw,150px);
+
+    line-height:.78;
+
+    letter-spacing:-.1em;
+}
+
+.cta h2 span{
+    color:transparent;
+
+    -webkit-text-stroke:1px var(--white);
+}
+
+.cta-button{
+    display:inline-flex;
+
+    margin-top:45px;
+
+    padding:17px 30px;
+
+    border:1px solid var(--lime);
+
+    color:var(--lime);
+
+    text-decoration:none;
+
+    font-family:"DM Mono";
+
+    font-size:9px;
+
+    transition:.4s ease;
+}
+
+.cta-button:hover{
+    background:var(--lime);
+
+    color:#050505;
+
+    box-shadow:
+        0 0 50px rgba(201,255,61,.2);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    border-top:1px solid var(--line);
+
+    padding:25px 5vw;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-family:"DM Mono";
+
+    font-size:9px;
+
+    color:var(--muted);
+}
+
+footer span{
+    color:var(--lime);
+}
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .hero-content{
+        width:100%;
+    }
+
+    .delivery-stage{
+        opacity:.3;
+
+        right:-120px;
+    }
+
+    .delivery-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .package{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:650px){
+
+    nav{
+        padding:18px 5vw;
+    }
+
+    .nav-item:first-child{
+        display:none;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero h1{
+        font-size:22vw;
+    }
+
+    .delivery-stage{
+        width:430px;
+        height:430px;
+
+        right:-180px;
+
+        top:70%;
+
+        opacity:.18;
+    }
+
+    .section{
+        padding:100px 5vw;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-number{
+        margin-bottom:25px;
+    }
+
+    .delivery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .timeline-row{
+        grid-template-columns:60px 1fr;
+    }
+
+    .timeline-info{
+        display:none;
+    }
+
+    .package-visual{
+        height:430px;
+    }
+
+    .package-card{
+        width:280px;
+        height:360px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .cursor,
+    .cursor-ring{
+        display:none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div class="loader">
+
+    <div class="loader-inner">
+
+        <div class="loader-logo">
+            D<span>197</span>
+        </div>
+
+        <div class="loader-text">
+            PREPARING FINAL DELIVERY
+        </div>
+
+        <div class="loader-line"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CURSOR
+===================================================== -->
+
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+
+<!-- =====================================================
+     NAV
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        DESIGNER<span>197</span>
+    </div>
+
+    <div class="nav-right">
+
+        <div class="nav-item">
+            04 / DELIVER
+        </div>
+
+        <div class="nav-item active">
+            FINAL
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-grid"></div>
+
+
+    <div class="hero-content reveal">
+
+        <div class="kicker">
+            04 / DELIVER
+        </div>
+
+        <h1>
+
+            FINAL<br>
+
+            <span class="outline">
+                FILES.
+            </span><br>
+
+            <span class="lime">
+                READY.
+            </span>
+
+        </h1>
+
+        <p class="hero-text">
+
+            The design is complete.
+            Now everything is prepared,
+            organised and delivered in the right format.
+
+            <strong>
+                From editable source files to web-ready assets,
+                every detail is packaged for the next step.
+            </strong>
+
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         3D DELIVERY STAGE
+    ================================================= -->
+
+    <div class="delivery-stage">
+
+        <div class="glow"></div>
+
+        <div class="orbit one"></div>
+        <div class="orbit two"></div>
+        <div class="orbit three"></div>
+
+
+        <!-- FILE 1 -->
+
+        <div class="file f1">
+
+            <div class="file-type">
+                AI
+            </div>
+
+            <div class="file-name">
+                BRAND<br>
+                MASTER.ai
+            </div>
+
+            <div class="file-size">
+                18.4 MB
+            </div>
+
+        </div>
+
+
+        <!-- FILE 2 -->
+
+        <div class="file f2">
+
+            <div class="file-type">
+                PSD
+            </div>
+
+            <div class="file-name">
+                SOCIAL<br>
+                SYSTEM.psd
+            </div>
+
+            <div class="file-size">
+                32.8 MB
+            </div>
+
+        </div>
+
+
+        <!-- FILE 3 -->
+
+        <div class="file f3">
+
+            <div class="file-type">
+                SVG
+            </div>
+
+            <div class="file-name">
+                LOGO<br>
+                VECTOR.svg
+            </div>
+
+            <div class="file-size">
+                2.1 MB
+            </div>
+
+        </div>
+
+
+        <!-- FILE 4 -->
+
+        <div class="file f4">
+
+            <div class="file-type">
+                WEB
+            </div>
+
+            <div class="file-name">
+                WEBSITE<br>
+                ASSETS.zip
+            </div>
+
+            <div class="file-size">
+                48.6 MB
+            </div>
+
+        </div>
+
+
+        <!-- BADGES -->
+
+        <div class="badge b1">
+            100% READY
+        </div>
+
+        <div class="badge b2">
+            SOURCE FILES
+        </div>
+
+        <div class="badge b3">
+            CLIENT PACKAGE
+        </div>
+
+
+        <!-- 3D BOX -->
+
+        <div class="delivery-box">
+
+            <div class="box-top"></div>
+
+            <div class="box-front">
+
+                <div class="box-logo">
+                    D<span>197</span>
+                </div>
+
+                <div class="seal">
+                    FINAL
+                </div>
+
+                <div class="box-label">
+                    CLIENT DELIVERY /
+                    <span>READY</span>
+                </div>
+
+            </div>
+
+            <div class="box-side"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FILE FORMATS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-head reveal">
+
+        <div class="section-number">
+            01 / FILE SYSTEM
+        </div>
+
+        <h2 class="section-title">
+
+            EVERYTHING<br>
+
+            <span>IN PLACE.</span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="delivery-grid reveal">
+
+
+        <div class="delivery-item">
+
+            <div class="item-number">
+                01
+            </div>
+
+            <div class="file-icon">
+                AI
+            </div>
+
+            <div class="item-title">
+                SOURCE
+            </div>
+
+            <div class="item-info">
+                EDITABLE
+            </div>
+
+        </div>
+
+
+        <div class="delivery-item">
+
+            <div class="item-number">
+                02
+            </div>
+
+            <div class="file-icon">
+                PSD
+            </div>
+
+            <div class="item-title">
+                WORKING
+            </div>
+
+            <div class="item-info">
+                LAYERED
+            </div>
+
+        </div>
+
+
+        <div class="delivery-item">
+
+            <div class="item-number">
+                03
+            </div>
+
+            <div class="file-icon">
+                SVG
+            </div>
+
+            <div class="item-title">
+                VECTOR
+            </div>
+
+            <div class="item-info">
+                SCALABLE
+            </div>
+
+        </div>
+
+
+        <div class="delivery-item">
+
+            <div class="item-number">
+                04
+            </div>
+
+            <div class="file-icon">
+                PNG
+            </div>
+
+            <div class="item-title">
+                EXPORT
+            </div>
+
+            <div class="item-info">
+                TRANSPARENT
+            </div>
+
+        </div>
+
+
+        <div class="delivery-item">
+
+            <div class="item-number">
+                05
+            </div>
+
+            <div class="file-icon">
+                PDF
+            </div>
+
+            <div class="item-title">
+                PRINT
+            </div>
+
+            <div class="item-info">
+                HIGH RES
+            </div>
+
+        </div>
+
+
+        <div class="delivery-item">
+
+            <div class="item-number">
+                06
+            </div>
+
+            <div class="file-icon">
+                WEB
+            </div>
+
+            <div class="item-title">
+                DIGITAL
+            </div>
+
+            <div class="item-info">
+                READY
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CLIENT PACKAGE
+===================================================== -->
+
+<section class="section">
+
+    <div class="package reveal">
+
+
+        <div class="package-copy">
+
+            <div class="section-number">
+                02 / CLIENT PACKAGE
+            </div>
+
+            <h2>
+                YOUR<br>
+                <span>FILES.</span>
+            </h2>
+
+            <p>
+                Every final project is organised into a clean
+                delivery package so you know exactly what you
+                are receiving and where everything belongs.
+            </p>
+
+
+            <div class="package-list">
+
+                <div class="package-row">
+                    <strong>Brand Assets</strong>
+                    <span>READY</span>
+                </div>
+
+                <div class="package-row">
+                    <strong>Print Files</strong>
+                    <span>READY</span>
+                </div>
+
+                <div class="package-row">
+                    <strong>Social Assets</strong>
+                    <span>READY</span>
+                </div>
+
+                <div class="package-row">
+                    <strong>Web Assets</strong>
+                    <span>READY</span>
+                </div>
+
+                <div class="package-row">
+                    <strong>Source Files</strong>
+                    <span>READY</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="package-visual">
+
+            <div class="package-card">
+
+                <div class="package-card-top">
+
+                    <span>
+                        DESIGNER 197
+                    </span>
+
+                    <span>
+                        04 / 04
+                    </span>
+
+                </div>
+
+
+                <div class="package-big">
+                    ZIP<span>.</span>
+                </div>
+
+
+                <div class="package-check">
+
+                    <div class="check">
+                        ✓
+                    </div>
+
+                    FINAL DELIVERY PACKAGE
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DELIVERY PROCESS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-head reveal">
+
+        <div class="section-number">
+            03 / FINAL CHECK
+        </div>
+
+        <h2 class="section-title">
+
+            BEFORE<br>
+
+            <span>DELIVERY.</span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="timeline reveal">
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-no">
+                01
+            </div>
+
+            <div class="timeline-title">
+                Final Review
+            </div>
+
+            <div class="timeline-info">
+                COMPLETED
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-no">
+                02
+            </div>
+
+            <div class="timeline-title">
+                File Organisation
+            </div>
+
+            <div class="timeline-info">
+                COMPLETED
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-no">
+                03
+            </div>
+
+            <div class="timeline-title">
+                Export & Quality Check
+            </div>
+
+            <div class="timeline-info">
+                COMPLETED
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-no">
+                04
+            </div>
+
+            <div class="timeline-title">
+                Client Delivery
+            </div>
+
+            <div class="timeline-info">
+                READY
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="cta-ring"></div>
+
+    <div class="cta-content reveal">
+
+        <div class="cta-small">
+            05 / PROJECT COMPLETE
+        </div>
+
+        <h2>
+
+            READY<br>
+
+            <span>TO SHIP.</span>
+
+        </h2>
+
+        <a
+            href="direction.html"
+            class="cta-button"
+        >
+            START A NEW PROJECT ↗
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        © 2026 <span>DESIGNER 197</span>
+    </div>
+
+    <div>
+        HARSH CHAWLA — DESIGN / DIGITAL / MOTION
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   CURSOR
+===================================================== */
+
+const cursor =
+document.querySelector(".cursor");
+
+const ring =
+document.querySelector(".cursor-ring");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ringX = 0;
+let ringY = 0;
+
+document.addEventListener("mousemove",(e)=>{
+
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    cursor.style.left =
+        mouseX + "px";
+
+    cursor.style.top =
+        mouseY + "px";
+
+});
+
+function cursorLoop(){
+
+    ringX +=
+        (mouseX-ringX)*.12;
+
+    ringY +=
+        (mouseY-ringY)*.12;
+
+    ring.style.left =
+        ringX + "px";
+
+    ring.style.top =
+        ringY + "px";
+
+    requestAnimationFrame(
+        cursorLoop
+    );
+
+}
+
+cursorLoop();
+
+
+/* =====================================================
+   CURSOR HOVER
+===================================================== */
+
+document
+.querySelectorAll(
+    "a,.delivery-item,.file,.package-card"
+)
+.forEach(el=>{
+
+    el.addEventListener(
+        "mouseenter",
+        ()=>{
+
+            ring.style.width="62px";
+            ring.style.height="62px";
+
+            ring.style.background=
+                "rgba(201,255,61,.06)";
+
+        }
+    );
+
+    el.addEventListener(
+        "mouseleave",
+        ()=>{
+
+            ring.style.width="38px";
+            ring.style.height="38px";
+
+            ring.style.background=
+                "transparent";
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target
+                .classList
+                .add("show");
+
+        }
+
+    });
+
+},
+{
+    threshold:.12
+});
+
+
+reveals.forEach(
+el=>observer.observe(el)
+);
+
+
+/* =====================================================
+   3D STAGE MOUSE PARALLAX
+===================================================== */
+
+const deliveryStage =
+document.querySelector(
+    ".delivery-stage"
+);
+
+const deliveryBox =
+document.querySelector(
+    ".delivery-box"
+);
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+    if(window.innerWidth < 900)
+        return;
+
+    const x =
+        e.clientX /
+        window.innerWidth -
+        .5;
+
+    const y =
+        e.clientY /
+        window.innerHeight -
+        .5;
+
+
+    deliveryStage.style.transform =
+        `translate(${x*15}px,
+        calc(-50% + ${y*15}px))`;
+
+
+    deliveryBox.style.marginLeft =
+        `${x*18}px`;
+
+    deliveryBox.style.marginTop =
+        `${y*18}px`;
+
+});
+
+
+/* =====================================================
+   SCROLL FILE PARALLAX
+===================================================== */
+
+window.addEventListener(
+"scroll",
+()=>{
+
+    const scroll =
+        window.scrollY;
+
+    document
+    .querySelectorAll(".file")
+    .forEach(
+    (file,index)=>{
+
+        const speed =
+            (index+1)*.025;
+
+        file.style.marginTop =
+            `${scroll*speed}px`;
+
+    });
+
+});
+
+
+/* =====================================================
+   RANDOM FILE FLOAT DELAY
+===================================================== */
+
+document
+.querySelectorAll(".file")
+.forEach(
+(file,index)=>{
+
+    file.style.animationDelay =
+        `${index * -1.4}s`;
+
+});
+
+
+/* =====================================================
+   PACKAGE CARD MOUSE TILT
+===================================================== */
+
+const packageCard =
+document.querySelector(
+    ".package-card"
+);
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+    if(window.innerWidth < 900)
+        return;
+
+    const x =
+        e.clientX /
+        window.innerWidth -
+        .5;
+
+    const y =
+        e.clientY /
+        window.innerHeight -
+        .5;
+
+    packageCard.style.transform =
+        `
+        rotateY(${x*18-8}deg)
+        rotateX(${y*-12+8}deg)
+        rotateZ(3deg)
+        translateY(-5px)
+        `;
+
+});
+
+
+/* =====================================================
+   DELIVERY COMPLETE EFFECT
+===================================================== */
+
+setTimeout(()=>{
+
+    document.body.classList.add(
+        "delivery-ready"
+    );
+
+},2200);
+
+</script>
+
+</body>
+</html>
