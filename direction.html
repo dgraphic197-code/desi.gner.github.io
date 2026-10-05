@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DIRECTION — DESIGNER 197 | Creative Direction</title>
+
+<meta
+name="description"
+content="Direction — DESIGNER 197. Define the visual language, typography, layout, mood and creative direction of your project."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   DESIGNER 197 — DIRECTION
+========================================================= */
+
+:root{
+
+    --black:#050505;
+    --black2:#090909;
+
+    --white:#f5f5f2;
+
+    --muted:rgba(245,245,242,.58);
+    --muted2:rgba(245,245,242,.30);
+
+    --lime:#c9ff3d;
+
+    --line:rgba(255,255,255,.10);
+    --line2:rgba(255,255,255,.18);
+
+    --mono:"DM Mono",monospace;
+    --display:"Space Grotesk",sans-serif;
+    --body:"Plus Jakarta Sans",sans-serif;
+
+    --ease:cubic-bezier(.2,.8,.2,1);
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    background:
+
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(201,255,61,.055),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(255,255,255,.025),
+            transparent 30%
+        ),
+
+        var(--black);
+
+    color:var(--white);
+
+    font-family:var(--body);
+
+    overflow-x:hidden;
+}
+
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    opacity:.035;
+
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+}
+
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor{
+
+    width:12px;
+    height:12px;
+
+    position:fixed;
+
+    border:
+        1px solid var(--lime);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:10000;
+
+    transform:translate(-50%,-50%);
+
+    transition:
+        width .25s,
+        height .25s,
+        background .25s;
+}
+
+
+.cursor.active{
+
+    width:38px;
+    height:38px;
+
+    background:
+        rgba(201,255,61,.10);
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav{
+
+    height:82px;
+
+    padding:
+        0 5vw;
+
+    border-bottom:
+        1px solid var(--line);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    position:relative;
+
+    z-index:20;
+}
+
+
+.logo{
+
+    font-family:var(--display);
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:-1px;
+}
+
+
+.logo span{
+    color:var(--lime);
+}
+
+
+.back{
+
+    font-family:var(--mono);
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    color:var(--muted);
+
+    transition:.3s;
+}
+
+
+.back:hover{
+    color:var(--lime);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:58vh;
+
+    padding:
+        95px 7vw 75px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.hero::after{
+
+    content:"02";
+
+    position:absolute;
+
+    right:-25px;
+
+    top:-30px;
+
+    font-family:var(--display);
+
+    font-size:
+        clamp(260px,38vw,600px);
+
+    line-height:1;
+
+    font-weight:700;
+
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.045);
+
+    pointer-events:none;
+}
+
+
+.eyebrow{
+
+    color:var(--lime);
+
+    font-family:var(--mono);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    margin-bottom:28px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.hero h1{
+
+    font-family:var(--display);
+
+    font-size:
+        clamp(65px,12vw,170px);
+
+    line-height:.80;
+
+    letter-spacing:-8px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.hero h1 span{
+
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px var(--white);
+}
+
+
+.hero p{
+
+    max-width:620px;
+
+    margin-top:38px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.85;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =========================================================
+   INTRO LINE
+========================================================= */
+
+.intro{
+
+    width:86vw;
+
+    margin:auto;
+
+    padding:
+        0 0 80px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 2fr;
+
+    gap:60px;
+
+    border-bottom:
+        1px solid var(--line);
+}
+
+
+.intro-number{
+
+    font-family:var(--mono);
+
+    font-size:11px;
+
+    color:var(--lime);
+
+    letter-spacing:2px;
+}
+
+
+.intro-text{
+
+    font-family:var(--display);
+
+    font-size:
+        clamp(25px,4vw,52px);
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+}
+
+
+.intro-text span{
+    color:var(--muted2);
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    width:86vw;
+
+    margin:auto;
+
+    padding:
+        100px 0;
+}
+
+
+.section-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:30px;
+
+    margin-bottom:42px;
+}
+
+
+.section-number{
+
+    font-family:var(--mono);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:var(--lime);
+
+    margin-bottom:13px;
+}
+
+
+.section-title{
+
+    font-family:var(--display);
+
+    font-size:
+        clamp(38px,6vw,75px);
+
+    line-height:.9;
+
+    letter-spacing:-4px;
+}
+
+
+.section-description{
+
+    max-width:380px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   DIRECTION CARDS
+========================================================= */
+
+.direction-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+}
+
+
+.direction-card{
+
+    min-height:310px;
+
+    padding:28px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.018);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:
+        transform .5s var(--ease),
+        border-color .4s,
+        box-shadow .4s;
+}
+
+
+.direction-card:hover{
+
+    transform:
+        translateY(-10px)
+        rotateX(2deg)
+        rotateY(-2deg);
+
+    border-color:
+        rgba(201,255,61,.45);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.35);
+}
+
+
+.direction-card.selected{
+
+    border-color:var(--lime);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(201,255,61,.08),
+
+        0 25px 70px
+        rgba(201,255,61,.06);
+}
+
+
+.card-number{
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    color:var(--muted2);
+
+    letter-spacing:1px;
+}
+
+
+.card-preview{
+
+    height:135px;
+
+    margin:
+        25px 0 28px;
+
+    border:
+        1px solid var(--line);
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#080808;
+}
+
+
+/* MINIMAL */
+
+.preview-minimal{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+.preview-minimal::after{
+
+    content:"FORM";
+
+    font-family:var(--display);
+
+    font-size:30px;
+
+    letter-spacing:-2px;
+
+    color:var(--white);
+}
+
+
+/* PREMIUM */
+
+.preview-premium{
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,255,255,.16),
+            transparent 32%
+        );
+}
+
+
+.preview-premium::after{
+
+    content:"LUXE";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:serif;
+
+    font-size:32px;
+
+    letter-spacing:7px;
+
+    color:#eee;
+}
+
+
+/* BOLD */
+
+.preview-bold{
+
+    background:
+        linear-gradient(
+            135deg,
+            #111 0%,
+            #111 50%,
+            #c9ff3d 50%
+        );
+}
+
+
+.preview-bold::after{
+
+    content:"BOLD";
+
+    position:absolute;
+
+    left:15px;
+
+    bottom:5px;
+
+    font-family:var(--display);
+
+    font-weight:700;
+
+    font-size:40px;
+
+    letter-spacing:-4px;
+
+    color:white;
+}
+
+
+/* CREATIVE */
+
+.preview-creative{
+
+    background:
+
+        radial-gradient(
+            circle at 25% 35%,
+            rgba(201,255,61,.8),
+            transparent 18%
+        ),
+
+        radial-gradient(
+            circle at 75% 65%,
+            rgba(255,255,255,.5),
+            transparent 20%
+        ),
+
+        #090909;
+}
+
+
+.preview-creative::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(20deg);
+
+    font-size:70px;
+
+    color:white;
+}
+
+
+/* DARK */
+
+.preview-dark{
+
+    background:
+        linear-gradient(
+            120deg,
+            #020202,
+            #151515
+        );
+}
+
+
+.preview-dark::before{
+
+    content:"";
+
+    width:80px;
+    height:80px;
+
+    border:
+        1px solid var(--lime);
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:25px;
+    top:25px;
+
+    box-shadow:
+        0 0 35px
+        rgba(201,255,61,.2);
+}
+
+
+.preview-dark::after{
+
+    content:"SYSTEM";
+
+    position:absolute;
+
+    right:15px;
+    bottom:15px;
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    color:var(--lime);
+}
+
+
+/* FUTURE */
+
+.preview-future{
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 49%,
+            rgba(201,255,61,.3) 50%,
+            transparent 51%
+        ),
+
+        linear-gradient(
+            0deg,
+            transparent 49%,
+            rgba(201,255,61,.3) 50%,
+            transparent 51%
+        );
+
+    background-size:
+        35px 35px;
+}
+
+
+.preview-future::after{
+
+    content:"03D";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        perspective(300px)
+        rotateX(35deg);
+
+    font-family:var(--display);
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:var(--lime);
+
+    text-shadow:
+        0 0 25px
+        rgba(201,255,61,.3);
+}
+
+
+.direction-card h3{
+
+    font-family:var(--display);
+
+    font-size:22px;
+
+    margin-bottom:9px;
+}
+
+
+.direction-card p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.65;
+}
+
+
+.select-mark{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    width:21px;
+    height:21px;
+
+    border:
+        1px solid var(--line2);
+
+    border-radius:50%;
+}
+
+
+.direction-card.selected
+.select-mark{
+
+    background:var(--lime);
+
+    border-color:var(--lime);
+}
+
+
+.direction-card.selected
+.select-mark::after{
+
+    content:"✓";
+
+    color:#050505;
+
+    position:absolute;
+
+    left:4px;
+
+    top:1px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.type-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+}
+
+
+.type-card{
+
+    min-height:180px;
+
+    padding:25px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.018);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    transition:.35s;
+}
+
+
+.type-card:hover{
+
+    border-color:
+        rgba(201,255,61,.4);
+
+    transform:
+        translateY(-7px);
+}
+
+
+.type-card.selected{
+
+    background:
+        rgba(201,255,61,.045);
+
+    border-color:var(--lime);
+}
+
+
+.type-demo{
+
+    font-size:42px;
+
+    line-height:1;
+}
+
+
+.type-card:nth-child(1)
+.type-demo{
+
+    font-family:Arial,sans-serif;
+
+    font-weight:700;
+}
+
+
+.type-card:nth-child(2)
+.type-demo{
+
+    font-family:Georgia,serif;
+
+    font-style:italic;
+}
+
+
+.type-card:nth-child(3)
+.type-demo{
+
+    font-family:var(--mono);
+
+    font-size:28px;
+}
+
+
+.type-card:nth-child(4)
+.type-demo{
+
+    font-family:var(--display);
+
+    font-weight:700;
+
+    letter-spacing:-3px;
+}
+
+
+.type-name{
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    color:var(--muted);
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.layout-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:14px;
+}
+
+
+.layout-card{
+
+    min-height:240px;
+
+    border:
+        1px solid var(--line);
+
+    padding:28px;
+
+    background:
+        rgba(255,255,255,.018);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+
+.layout-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(201,255,61,.4);
+}
+
+
+.layout-card.selected{
+
+    border-color:var(--lime);
+
+    background:
+        rgba(201,255,61,.045);
+}
+
+
+.layout-visual{
+
+    height:135px;
+
+    border:
+        1px solid var(--line);
+
+    margin-bottom:20px;
+
+    position:relative;
+
+    padding:12px;
+}
+
+
+/* GRID VISUAL */
+
+.grid-visual{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:5px;
+}
+
+
+.grid-visual span{
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.03);
+}
+
+
+.grid-visual span:first-child{
+
+    grid-column:
+        span 2;
+
+    background:
+        rgba(201,255,61,.16);
+}
+
+
+/* EDITORIAL */
+
+.editorial-visual{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap:8px;
+}
+
+
+.editorial-visual::before{
+
+    content:"";
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid var(--line);
+}
+
+
+.editorial-visual::after{
+
+    content:"";
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(201,255,61,.25),
+            transparent
+        );
+
+    border:
+        1px solid var(--line);
+}
+
+
+/* BIG TYPE */
+
+.type-layout{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:var(--display);
+
+    font-size:58px;
+
+    font-weight:700;
+
+    letter-spacing:-7px;
+}
+
+
+/* IMAGE */
+
+.image-layout{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(201,255,61,.18),
+            transparent
+        ),
+
+        #0a0a0a;
+}
+
+
+.image-layout::after{
+
+    content:"IMAGE";
+
+    position:absolute;
+
+    left:20px;
+
+    bottom:15px;
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    color:var(--muted);
+}
+
+
+.layout-card h3{
+
+    font-family:var(--display);
+
+    font-size:21px;
+}
+
+
+.layout-card p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    margin-top:7px;
+}
+
+
+/* =========================================================
+   COLOR MOOD
+========================================================= */
+
+.color-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:10px;
+}
+
+
+.color-card{
+
+    height:180px;
+
+    border:
+        1px solid var(--line);
+
+    padding:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.color-card:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+}
+
+
+.color-card.selected{
+
+    border:
+        2px solid var(--lime);
+}
+
+
+.color-dark{
+    background:#050505;
+}
+
+
+.color-lime{
+    background:#c9ff3d;
+    color:#050505;
+}
+
+
+.color-white{
+    background:#f5f5f2;
+    color:#050505;
+}
+
+
+.color-metal{
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #777,
+            #1a1a1a
+        );
+}
+
+
+.color-gradient{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #c9ff3d,
+            #4dffcf,
+            #9d72ff
+        );
+}
+
+
+.color-name{
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =========================================================
+   MOTION
+========================================================= */
+
+.motion-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+}
+
+
+.motion-card{
+
+    min-height:170px;
+
+    padding:25px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.018);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+
+.motion-card:hover{
+
+    border-color:
+        rgba(201,255,61,.4);
+
+    transform:translateY(-7px);
+}
+
+
+.motion-card.selected{
+
+    border-color:var(--lime);
+
+    background:
+        rgba(201,255,61,.04);
+}
+
+
+.motion-demo{
+
+    height:65px;
+
+    position:relative;
+
+    margin-bottom:20px;
+}
+
+
+.motion-ball{
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    background:var(--lime);
+
+    position:absolute;
+
+    top:15px;
+    left:10px;
+
+    animation:
+        floatBall 2.5s infinite ease-in-out;
+}
+
+
+@keyframes floatBall{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    50%{
+        transform:translateX(100px);
+    }
+
+}
+
+
+.motion-pulse{
+
+    width:40px;
+    height:40px;
+
+    border:
+        1px solid var(--lime);
+
+    position:absolute;
+
+    left:10px;
+    top:10px;
+
+    animation:
+        pulse 2s infinite;
+}
+
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(.7);
+        opacity:.3;
+    }
+
+    50%{
+        transform:scale(1.4);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(.7);
+        opacity:.3;
+    }
+
+}
+
+
+.motion-scroll{
+
+    position:absolute;
+
+    width:130px;
+
+    height:2px;
+
+    background:
+        var(--line2);
+
+    top:30px;
+
+    left:10px;
+
+    overflow:hidden;
+}
+
+
+.motion-scroll::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:45px;
+
+    height:100%;
+
+    background:var(--lime);
+
+    animation:
+        scrollLine 2s infinite;
+}
+
+
+@keyframes scrollLine{
+
+    from{
+        transform:translateX(-50px);
+    }
+
+    to{
+        transform:translateX(130px);
+    }
+
+}
+
+
+.motion-card h3{
+
+    font-family:var(--display);
+
+    font-size:18px;
+
+    margin-bottom:6px;
+}
+
+
+.motion-card p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.notes{
+
+    width:100%;
+
+    min-height:180px;
+
+    padding:20px;
+
+    background:
+        rgba(255,255,255,.018);
+
+    border:
+        1px solid var(--line);
+
+    color:var(--white);
+
+    resize:vertical;
+
+    outline:none;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    transition:.3s;
+}
+
+
+.notes:focus{
+
+    border-color:var(--lime);
+
+    box-shadow:
+        0 0 30px
+        rgba(201,255,61,.05);
+}
+
+
+/* =========================================================
+   FINAL PANEL
+========================================================= */
+
+.final-panel{
+
+    width:86vw;
+
+    margin:
+        30px auto 120px;
+
+    padding:
+        70px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(201,255,61,.08),
+            transparent 35%
+        ),
+
+        rgba(255,255,255,.018);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.final-panel::after{
+
+    content:"DIRECTION";
+
+    position:absolute;
+
+    right:-20px;
+
+    bottom:-50px;
+
+    font-family:var(--display);
+
+    font-size:160px;
+
+    font-weight:700;
+
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.035);
+}
+
+
+.final-number{
+
+    font-family:var(--mono);
+
+    color:var(--lime);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.final-panel h2{
+
+    font-family:var(--display);
+
+    font-size:
+        clamp(45px,7vw,90px);
+
+    line-height:.88;
+
+    letter-spacing:-5px;
+
+    max-width:700px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.final-panel p{
+
+    max-width:570px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    margin:
+        25px 0 35px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.final-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    position:relative;
+
+    z-index:3;
+}
+
+
+.btn{
+
+    padding:
+        16px 24px;
+
+    border:
+        1px solid var(--line2);
+
+    background:transparent;
+
+    color:var(--white);
+
+    font-family:var(--mono);
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+
+.btn:hover{
+
+    border-color:var(--lime);
+
+    color:var(--lime);
+}
+
+
+.btn.primary{
+
+    background:var(--lime);
+
+    border-color:var(--lime);
+
+    color:#050505;
+
+    font-weight:700;
+}
+
+
+.btn.primary:hover{
+
+    box-shadow:
+        0 0 35px
+        rgba(201,255,61,.22);
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    border-top:
+        1px solid var(--line);
+
+    padding:
+        30px 7vw;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:var(--muted2);
+
+    font-family:var(--mono);
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .direction-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .type-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .color-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+
+    .motion-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .cursor{
+        display:none;
+    }
+
+
+    .nav{
+
+        height:70px;
+
+        padding:
+            0 6vw;
+    }
+
+
+    .hero{
+
+        padding:
+            75px 6vw 65px;
+    }
+
+
+    .hero h1{
+
+        letter-spacing:-4px;
+    }
+
+
+    .hero::after{
+
+        font-size:220px;
+
+        top:130px;
+    }
+
+
+    .intro{
+
+        width:88vw;
+
+        grid-template-columns:
+            1fr;
+
+        gap:20px;
+
+        padding-bottom:55px;
+    }
+
+
+    .section{
+
+        width:88vw;
+
+        padding:
+            70px 0;
+    }
+
+
+    .section-head{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+
+    .direction-grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .type-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .layout-grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .color-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .motion-grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .final-panel{
+
+        width:88vw;
+
+        padding:40px 25px;
+
+        margin-bottom:70px;
+    }
+
+
+    .final-panel h2{
+
+        letter-spacing:-3px;
+    }
+
+
+    .final-actions{
+
+        flex-direction:column;
+    }
+
+
+    .final-actions .btn{
+
+        width:100%;
+
+        text-align:center;
+    }
+
+
+    footer{
+
+        flex-direction:column;
+
+        gap:12px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="cursor"></div>
+
+
+<!-- =========================================================
+     NAV
+========================================================= -->
+
+<nav class="nav">
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+        DESIGNER <span>197</span>
+    </a>
+
+
+    <a
+        href="discover.html"
+        class="back"
+    >
+        ← BACK TO DISCOVER
+    </a>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="eyebrow">
+        02 / DIRECTION
+    </div>
+
+
+    <h1>
+
+        BUILD THE<br>
+
+        <span>VISUAL LANGUAGE.</span>
+
+    </h1>
+
+
+    <p>
+
+        Direction is where the idea starts becoming visual.
+        Choose the mood, typography, layout, colour and
+        motion that should define your project.
+
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="intro">
+
+    <div class="intro-number">
+        02 — CREATIVE DIRECTION
+    </div>
+
+
+    <div class="intro-text">
+
+        We don't just make things look good.
+        <span>
+            We create a visual system that makes
+            the brand feel right.
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VISUAL MOOD
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-number">
+                01 / MOOD
+            </div>
+
+            <h2 class="section-title">
+                What should<br>it feel like?
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Choose one or more visual directions.
+            These choices help establish the personality
+            of your design.
+
+        </p>
+
+    </div>
+
+
+    <div class="direction-grid">
+
+
+        <!-- MINIMAL -->
+
+        <div
+            class="direction-card"
+            data-value="Minimal"
+        >
+
+            <div class="card-number">
+                01
+            </div>
+
+            <div class="card-preview preview-minimal"></div>
+
+            <h3>
+                Minimal
+            </h3>
+
+            <p>
+                Clean, balanced and focused.
+                Less noise, stronger communication.
+            </p>
+
+            <div class="select-mark"></div>
+
+        </div>
+
+
+        <!-- PREMIUM -->
+
+        <div
+            class="direction-card"
+            data-value="Premium"
+        >
+
+            <div class="card-number">
+                02
+            </div>
+
+            <div class="card-preview preview-premium"></div>
+
+            <h3>
+                Premium
+            </h3>
+
+            <p>
+                Elegant, sophisticated and
+                high-end visual language.
+            </p>
+
+            <div class="select-mark"></div>
+
+        </div>
+
+
+        <!-- BOLD -->
+
+        <div
+            class="direction-card"
+            data-value="Bold"
+        >
+
+            <div class="card-number">
+                03
+            </div>
+
+            <div class="card-preview preview-bold"></div>
+
+            <h3>
+                Bold
+            </h3>
+
+            <p>
+                Strong typography, contrast and
+                confident visual statements.
+            </p>
+
+            <div class="select-mark"></div>
+
+        </div>
+
+
+        <!-- CREATIVE -->
+
+        <div
+            class="direction-card"
+            data-value="Creative"
+        >
+
+            <div class="card-number">
+                04
+            </div>
+
+            <div class="card-preview preview-creative"></div>
+
+            <h3>
+                Creative
+            </h3>
+
+            <p>
+                Experimental, expressive and
+                visually unexpected.
+            </p>
+
+            <div class="select-mark"></div>
+
+        </div>
+
+
+        <!-- DARK -->
+
+        <div
+            class="direction-card"
+            data-value="Dark / Tech"
+        >
+
+            <div class="card-number">
+                05
+            </div>
+
+            <div class="card-preview preview-dark"></div>
+
+            <h3>
+                Dark / Tech
+            </h3>
+
+            <p>
+                Digital, futuristic and
+                technology-driven.
+            </p>
+
+            <div class="select-mark"></div>
+
+        </div>
+
+
+        <!-- FUTURE -->
+
+        <div
+            class="direction-card"
+            data-value="3D / Futuristic"
+        >
+
+            <div class="card-number">
+                06
+            </div>
+
+            <div class="card-preview preview-future"></div>
+
+            <h3>
+                3D / Futuristic
+            </h3>
+
+            <p>
+                Depth, dimension, lighting
+                and immersive visuals.
+            </p>
+
+            <div class="select-mark"></div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TYPOGRAPHY
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-number">
+                02 / TYPOGRAPHY
+            </div>
+
+            <h2 class="section-title">
+                Type has<br>a voice.
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Typography controls the personality
+            and rhythm of a visual identity.
+
+        </p>
+
+    </div>
+
+
+    <div class="type-grid">
+
+
+        <div
+            class="type-card"
+            data-value="Clean Sans"
+        >
+
+            <div class="type-demo">
+                Aa
+            </div>
+
+            <div class="type-name">
+                CLEAN / SANS
+            </div>
+
+        </div>
+
+
+        <div
+            class="type-card"
+            data-value="Elegant Serif"
+        >
+
+            <div class="type-demo">
+                Aa
+            </div>
+
+            <div class="type-name">
+                ELEGANT / SERIF
+            </div>
+
+        </div>
+
+
+        <div
+            class="type-card"
+            data-value="Technical Mono"
+        >
+
+            <div class="type-demo">
+                01
+            </div>
+
+            <div class="type-name">
+                TECHNICAL / MONO
+            </div>
+
+        </div>
+
+
+        <div
+            class="type-card"
+            data-value="Experimental Display"
+        >
+
+            <div class="type-demo">
+                Aa
+            </div>
+
+            <div class="type-name">
+                DISPLAY / EXPERIMENTAL
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LAYOUT
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-number">
+                03 / LAYOUT
+            </div>
+
+            <h2 class="section-title">
+                How should<br>it move?
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Choose the layout language that best
+            matches your brand and content.
+
+        </p>
+
+    </div>
+
+
+    <div class="layout-grid">
+
+
+        <div
+            class="layout-card"
+            data-value="Structured Grid"
+        >
+
+            <div class="layout-visual grid-visual">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <h3>
+                Structured Grid
+            </h3>
+
+            <p>
+                Organised, modular and systematic.
+            </p>
+
+        </div>
+
+
+        <div
+            class="layout-card"
+            data-value="Editorial"
+        >
+
+            <div
+                class="layout-visual editorial-visual"
+            ></div>
+
+            <h3>
+                Editorial
+            </h3>
+
+            <p>
+                Premium magazine-inspired composition.
+            </p>
+
+        </div>
+
+
+        <div
+            class="layout-card"
+            data-value="Big Typography"
+        >
+
+            <div
+                class="layout-visual type-layout"
+            >
+                TYPE
+            </div>
+
+            <h3>
+                Big Typography
+            </h3>
+
+            <p>
+                Typography becomes the main visual.
+            </p>
+
+        </div>
+
+
+        <div
+            class="layout-card"
+            data-value="Image Led"
+        >
+
+            <div
+                class="layout-visual image-layout"
+            ></div>
+
+            <h3>
+                Image Led
+            </h3>
+
+            <p>
+                Visual storytelling through imagery.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COLOUR
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-number">
+                04 / COLOUR
+            </div>
+
+            <h2 class="section-title">
+                Choose<br>the mood.
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Colour creates emotion before
+            the viewer reads a single word.
+
+        </p>
+
+    </div>
+
+
+    <div class="color-grid">
+
+
+        <div
+            class="color-card color-dark"
+            data-value="Dark"
+        >
+
+            <div class="color-name">
+                DARK
+            </div>
+
+        </div>
+
+
+        <div
+            class="color-card color-lime"
+            data-value="Neon Lime"
+        >
+
+            <div class="color-name">
+                NEON LIME
+            </div>
+
+        </div>
+
+
+        <div
+            class="color-card color-white"
+            data-value="Light / White"
+        >
+
+            <div class="color-name">
+                LIGHT
+            </div>
+
+        </div>
+
+
+        <div
+            class="color-card color-metal"
+            data-value="Metallic"
+        >
+
+            <div class="color-name">
+                METALLIC
+            </div>
+
+        </div>
+
+
+        <div
+            class="color-card color-gradient"
+            data-value="Gradient"
+        >
+
+            <div class="color-name">
+                GRADIENT
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MOTION
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-number">
+                05 / MOTION
+            </div>
+
+            <h2 class="section-title">
+                Give it<br>some life.
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Select the motion language you prefer.
+            This is a creative direction choice,
+            not an additional price.
+
+        </p>
+
+    </div>
+
+
+    <div class="motion-grid">
+
+
+        <div
+            class="motion-card"
+            data-value="Smooth Motion"
+        >
+
+            <div class="motion-demo">
+
+                <div class="motion-ball"></div>
+
+            </div>
+
+            <h3>
+                Smooth Motion
+            </h3>
+
+            <p>
+                Soft transitions and fluid movement.
+            </p>
+
+        </div>
+
+
+        <div
+            class="motion-card"
+            data-value="Interactive Motion"
+        >
+
+            <div class="motion-demo">
+
+                <div class="motion-pulse"></div>
+
+            </div>
+
+            <h3>
+                Interactive
+            </h3>
+
+            <p>
+                Elements react to user interaction.
+            </p>
+
+        </div>
+
+
+        <div
+            class="motion-card"
+            data-value="Scroll Motion"
+        >
+
+            <div class="motion-demo">
+
+                <div class="motion-scroll"></div>
+
+            </div>
+
+            <h3>
+                Scroll Motion
+            </h3>
+
+            <p>
+                Visual storytelling through scrolling.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     NOTES
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div>
+
+            <div class="section-number">
+                06 / YOUR IDEA
+            </div>
+
+            <h2 class="section-title">
+                Anything<br>else?
+            </h2>
+
+        </div>
+
+
+        <p class="section-description">
+
+            Share references, ideas, competitors,
+            links or anything that can help us
+            understand the direction.
+
+        </p>
+
+    </div>
+
+
+    <textarea
+        id="directionNotes"
+        class="notes"
+        placeholder="Example: I want the brand to feel premium but not too luxurious. I like bold typography, dark backgrounds and subtle 3D effects..."
+    ></textarea>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="final-panel">
+
+    <div class="final-number">
+        02 / DIRECTION COMPLETE
+    </div>
+
+
+    <h2>
+        NOW WE KNOW<br>
+        <span style="color:var(--lime)">
+            THE DIRECTION.
+        </span>
+    </h2>
+
+
+    <p>
+
+        Your creative direction is ready.
+        Continue to the Design stage and turn
+        this visual language into the final design.
+
+    </p>
+
+
+    <div class="final-actions">
+
+        <a
+            href="discover.html"
+            class="btn"
+        >
+            ← DISCOVER
+        </a>
+
+
+        <button
+            class="btn primary"
+            onclick="continueToDesign()"
+        >
+            CONTINUE TO DESIGN →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <span>
+        © 2026 HARSH CHAWLA
+    </span>
+
+    <span>
+        DESIGNER 197
+    </span>
+
+    <span>
+        DISCOVER / DIRECTION / DESIGN / DELIVER
+    </span>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   SELECTABLE CARDS
+========================================================= */
+
+const selectableCards =
+    document.querySelectorAll(
+        ".direction-card, .type-card, .layout-card, .color-card, .motion-card"
+    );
+
+
+selectableCards.forEach(card => {
+
+    card.addEventListener(
+        "click",
+        () => {
+
+            card.classList.toggle(
+                "selected"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   SAVE DIRECTION
+========================================================= */
+
+function getSelected(selector){
+
+    return [
+        ...document.querySelectorAll(
+            selector + ".selected"
+        )
+    ].map(
+        item =>
+            item.dataset.value
+    );
+
+}
+
+
+function getDirectionData(){
+
+    return {
+
+        mood:getSelected(
+            ".direction-card"
+        ),
+
+        typography:getSelected(
+            ".type-card"
+        ),
+
+        layout:getSelected(
+            ".layout-card"
+        ),
+
+        colour:getSelected(
+            ".color-card"
+        ),
+
+        motion:getSelected(
+            ".motion-card"
+        ),
+
+        notes:
+            document
+            .getElementById(
+                "directionNotes"
+            )
+            .value
+            .trim()
+
+    };
+
+}
+
+
+/* =========================================================
+   CONTINUE
+========================================================= */
+
+function continueToDesign(){
+
+    const data =
+        getDirectionData();
+
+
+    /*
+       Save direction locally so
+       design.html can use it later.
+    */
+
+    localStorage.setItem(
+        "designer197_direction",
+        JSON.stringify(data)
+    );
+
+
+    window.location.href =
+        "design.html";
+
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+const cursor =
+    document.querySelector(
+        ".cursor"
+    );
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        cursor.style.left =
+            event.clientX + "px";
+
+        cursor.style.top =
+            event.clientY + "px";
+
+    }
+);
+
+
+document
+.querySelectorAll(
+    "a,button,.direction-card,.type-card,.layout-card,.color-card,.motion-card"
+)
+.forEach(element => {
+
+    element.addEventListener(
+        "mouseenter",
+        () => {
+
+            cursor.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+
+    element.addEventListener(
+        "mouseleave",
+        () => {
+
+            cursor.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   PARALLAX HERO
+========================================================= */
+
+const hero =
+    document.querySelector(
+        ".hero"
+    );
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        if(!hero) return;
+
+
+        const x =
+            (event.clientX /
+            window.innerWidth - .5) * 8;
+
+
+        const y =
+            (event.clientY /
+            window.innerHeight - .5) * 8;
+
+
+        hero.style.transform =
+            `translate(${x}px,${y}px)`;
+
+    }
+);
+
+</script>
+
+</body>
+</html>
