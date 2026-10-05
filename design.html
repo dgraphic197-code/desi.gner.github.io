@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DESIGN — DESIGNER 197 | Harsh Chawla</title>
+
+<meta name="description"
+content="DESIGN — Turning creative direction into polished graphic and web design experiences by DESIGNER 197.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#050505;
+    --bg2:#090909;
+    --text:#f5f5f2;
+    --muted:#8d8d8d;
+    --line:rgba(255,255,255,.12);
+    --lime:#c9ff3d;
+    --lime2:#9edb18;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 50% 15%,rgba(201,255,61,.07),transparent 30%),
+        var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   CURSOR
+========================= */
+
+.cursor{
+    position:fixed;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--lime);
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 25px var(--lime);
+    transition:transform .08s linear;
+}
+
+.cursor-ring{
+    position:fixed;
+    width:38px;
+    height:38px;
+    border:1px solid rgba(201,255,61,.55);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9998;
+    transform:translate(-50%,-50%);
+    transition:.12s ease;
+}
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+    height:80px;
+    padding:0 5vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    z-index:20;
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.logo span{
+    color:var(--lime);
+}
+
+.back{
+    text-decoration:none;
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.back:hover{
+    color:var(--lime);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:88vh;
+    padding:80px 5vw;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:50px;
+    position:relative;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:55px 55px;
+    mask-image:linear-gradient(to bottom,#000,transparent);
+    pointer-events:none;
+}
+
+.eyebrow{
+    color:var(--lime);
+    font-size:11px;
+    letter-spacing:5px;
+    margin-bottom:28px;
+}
+
+.hero h1{
+    font-size:clamp(70px,12vw,180px);
+    line-height:.78;
+    letter-spacing:-8px;
+    text-transform:uppercase;
+    position:relative;
+    z-index:2;
+}
+
+.hero h1 .outline{
+    color:transparent;
+    -webkit-text-stroke:1px rgba(245,245,242,.65);
+}
+
+.hero h1 .lime{
+    color:var(--lime);
+}
+
+.hero-text{
+    margin-top:40px;
+    max-width:590px;
+    color:#999;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.hero-text strong{
+    color:#eee;
+}
+
+/* =========================
+   3D DESIGN STAGE
+========================= */
+
+.design-stage{
+    height:520px;
+    position:relative;
+    perspective:1200px;
+}
+
+.stage{
+    position:absolute;
+    inset:40px 20px;
+    transform-style:preserve-3d;
+    transform:rotateX(8deg) rotateY(-12deg);
+    animation:stageFloat 7s ease-in-out infinite;
+}
+
+@keyframes stageFloat{
+    0%,100%{
+        transform:rotateX(8deg) rotateY(-12deg) translateY(0);
+    }
+    50%{
+        transform:rotateX(4deg) rotateY(-6deg) translateY(-16px);
+    }
+}
+
+/* Main canvas */
+
+.canvas{
+    position:absolute;
+    width:75%;
+    height:72%;
+    left:12%;
+    top:14%;
+    border:1px solid rgba(255,255,255,.22);
+    background:
+        linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.015)),
+        #0b0b0b;
+    box-shadow:
+        0 40px 80px rgba(0,0,0,.7),
+        0 0 70px rgba(201,255,61,.08);
+    transform:translateZ(60px);
+    overflow:hidden;
+}
+
+/* Grid */
+
+.canvas:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+    background-size:30px 30px;
+}
+
+/* Pen tool */
+
+.pen{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:120px;
+    height:120px;
+    transform:translate(-50%,-50%) rotate(-32deg);
+    z-index:8;
+    animation:penMove 4s ease-in-out infinite;
+}
+
+@keyframes penMove{
+    0%,100%{
+        transform:translate(-50%,-50%) rotate(-32deg);
+    }
+    25%{
+        transform:translate(-35%,-62%) rotate(-22deg);
+    }
+    50%{
+        transform:translate(-58%,-35%) rotate(-42deg);
+    }
+    75%{
+        transform:translate(-40%,-48%) rotate(-28deg);
+    }
+}
+
+.pen-body{
+    position:absolute;
+    width:70px;
+    height:100px;
+    left:25px;
+    top:5px;
+    background:
+        linear-gradient(135deg,#eeeeea,#777,#151515);
+    clip-path:polygon(50% 0,100% 70%,50% 100%,0 70%);
+    filter:drop-shadow(0 15px 20px rgba(0,0,0,.7));
+}
+
+.pen-tip{
+    position:absolute;
+    left:49px;
+    top:88px;
+    width:0;
+    height:0;
+    border-left:11px solid transparent;
+    border-right:11px solid transparent;
+    border-top:30px solid #eee;
+    filter:drop-shadow(0 5px 8px rgba(201,255,61,.6));
+}
+
+.pen-dot{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--lime);
+    left:56px;
+    top:111px;
+    box-shadow:0 0 20px var(--lime);
+}
+
+/* Pen line */
+
+.draw-line{
+    position:absolute;
+    width:280px;
+    height:100px;
+    left:17%;
+    top:52%;
+    border-top:2px solid var(--lime);
+    border-radius:50%;
+    transform:rotate(-13deg);
+    filter:drop-shadow(0 0 8px var(--lime));
+    animation:draw 4s ease-in-out infinite;
+    transform-origin:left;
+}
+
+@keyframes draw{
+    0%{
+        width:0;
+        opacity:0;
+    }
+    25%{
+        width:280px;
+        opacity:1;
+    }
+    70%{
+        width:280px;
+        opacity:1;
+    }
+    100%{
+        width:0;
+        opacity:0;
+    }
+}
+
+/* =========================
+   COLOR OBJECTS
+========================= */
+
+.color{
+    position:absolute;
+    border-radius:50%;
+    transform-style:preserve-3d;
+    box-shadow:
+        inset -15px -15px 30px rgba(0,0,0,.3),
+        0 20px 50px rgba(0,0,0,.5);
+}
+
+.c1{
+    width:90px;
+    height:90px;
+    background:#c9ff3d;
+    right:2%;
+    top:8%;
+    transform:translateZ(130px);
+    animation:orb1 5s infinite ease-in-out;
+}
+
+.c2{
+    width:65px;
+    height:65px;
+    background:#ff4d8d;
+    left:2%;
+    bottom:8%;
+    transform:translateZ(100px);
+    animation:orb2 6s infinite ease-in-out;
+}
+
+.c3{
+    width:48px;
+    height:48px;
+    background:#55d6ff;
+    right:8%;
+    bottom:15%;
+    transform:translateZ(170px);
+    animation:orb3 4s infinite ease-in-out;
+}
+
+@keyframes orb1{
+    0%,100%{transform:translateZ(130px) translateY(0)}
+    50%{transform:translateZ(170px) translateY(-30px)}
+}
+
+@keyframes orb2{
+    0%,100%{transform:translateZ(100px) translateY(0)}
+    50%{transform:translateZ(150px) translateY(25px)}
+}
+
+@keyframes orb3{
+    0%,100%{transform:translateZ(170px) rotate(0)}
+    50%{transform:translateZ(220px) rotate(180deg)}
+}
+
+/* =========================
+   FLOATING TYPE
+========================= */
+
+.floating-type{
+    position:absolute;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,.2);
+    font-size:110px;
+    font-weight:900;
+    letter-spacing:-8px;
+    transform:translateZ(30px) rotate(-90deg);
+    opacity:.45;
+    animation:typeFloat 8s infinite ease-in-out;
+}
+
+@keyframes typeFloat{
+    0%,100%{transform:translateZ(30px) rotate(-90deg) translateX(0)}
+    50%{transform:translateZ(80px) rotate(-90deg) translateX(25px)}
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:130px 5vw;
+    position:relative;
+}
+
+.section-number{
+    color:var(--lime);
+    font-size:11px;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:clamp(45px,7vw,100px);
+    line-height:.9;
+    letter-spacing:-5px;
+    max-width:900px;
+}
+
+.section-title span{
+    color:transparent;
+    -webkit-text-stroke:1px #777;
+}
+
+/* =========================
+   DESIGN PROCESS
+========================= */
+
+.process{
+    margin-top:80px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+}
+
+.process-card{
+    min-height:300px;
+    padding:30px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.process-card:hover{
+    background:rgba(201,255,61,.035);
+    transform:translateY(-8px);
+}
+
+.process-card:after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border:1px solid rgba(201,255,61,.25);
+    border-radius:50%;
+    right:-50px;
+    bottom:-50px;
+    transition:.5s;
+}
+
+.process-card:hover:after{
+    width:180px;
+    height:180px;
+}
+
+.step{
+    font-size:11px;
+    color:var(--lime);
+    letter-spacing:3px;
+}
+
+.process-card h3{
+    margin-top:80px;
+    font-size:27px;
+}
+
+.process-card p{
+    color:#777;
+    margin-top:18px;
+    line-height:1.7;
+    font-size:13px;
+}
+
+/* =========================
+   COLOR LAB
+========================= */
+
+.color-section{
+    background:#080808;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+}
+
+.color-layout{
+    margin-top:80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.palette{
+    display:flex;
+    height:280px;
+    transform:skewY(-7deg);
+    perspective:800px;
+}
+
+.swatch{
+    flex:1;
+    position:relative;
+    transform:rotateY(18deg);
+    transition:.5s;
+    overflow:hidden;
+}
+
+.swatch:hover{
+    flex:1.8;
+    transform:rotateY(0) translateZ(40px);
+}
+
+.swatch:nth-child(1){
+    background:#c9ff3d;
+}
+
+.swatch:nth-child(2){
+    background:#55d6ff;
+}
+
+.swatch:nth-child(3){
+    background:#ff4d8d;
+}
+
+.swatch:nth-child(4){
+    background:#ffffff;
+}
+
+.swatch:nth-child(5){
+    background:#111111;
+    border:1px solid #333;
+}
+
+.swatch span{
+    position:absolute;
+    bottom:20px;
+    left:15px;
+    font-size:10px;
+    font-weight:bold;
+    writing-mode:vertical-rl;
+    color:#050505;
+}
+
+.swatch:nth-child(5) span{
+    color:white;
+}
+
+.color-copy h2{
+    font-size:55px;
+    line-height:.95;
+    letter-spacing:-3px;
+}
+
+.color-copy p{
+    margin-top:30px;
+    color:#777;
+    line-height:1.8;
+    max-width:500px;
+}
+
+.color-copy .highlight{
+    color:var(--lime);
+}
+
+/* =========================
+   GRAPHIC + WEB
+========================= */
+
+.services{
+    margin-top:80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.service{
+    min-height:430px;
+    border:1px solid var(--line);
+    padding:40px;
+    position:relative;
+    overflow:hidden;
+    background:
+        linear-gradient(135deg,rgba(255,255,255,.035),transparent);
+    transition:.5s;
+}
+
+.service:hover{
+    border-color:rgba(201,255,61,.5);
+    transform:translateY(-10px);
+}
+
+.service-number{
+    color:var(--lime);
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.service h3{
+    margin-top:100px;
+    font-size:50px;
+    letter-spacing:-3px;
+}
+
+.service p{
+    color:#777;
+    line-height:1.8;
+    max-width:500px;
+    margin-top:20px;
+}
+
+.service-visual{
+    position:absolute;
+    right:-50px;
+    bottom:-50px;
+    width:220px;
+    height:220px;
+    border:1px solid rgba(201,255,61,.3);
+    transform:rotate(25deg);
+}
+
+.service-visual:before{
+    content:"";
+    position:absolute;
+    inset:25px;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.web-window{
+    position:absolute;
+    right:35px;
+    bottom:35px;
+    width:230px;
+    height:150px;
+    background:#101010;
+    border:1px solid #444;
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+}
+
+.web-top{
+    height:22px;
+    border-bottom:1px solid #333;
+    display:flex;
+    gap:5px;
+    padding:7px;
+}
+
+.web-top i{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#777;
+}
+
+.web-content{
+    padding:20px;
+}
+
+.web-content div{
+    height:6px;
+    background:#333;
+    margin-bottom:10px;
+}
+
+.web-content div:first-child{
+    width:80%;
+    background:var(--lime);
+}
+
+.web-content div:nth-child(2){
+    width:55%;
+}
+
+.web-content div:nth-child(3){
+    width:70%;
+}
+
+/* =========================
+   MOTION
+========================= */
+
+.motion{
+    min-height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center,rgba(201,255,61,.08),transparent 35%);
+}
+
+.motion-title{
+    position:absolute;
+    font-size:clamp(60px,12vw,180px);
+    font-weight:900;
+    letter-spacing:-10px;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,.12);
+    white-space:nowrap;
+    animation:marquee 12s linear infinite;
+}
+
+@keyframes marquee{
+    from{transform:translateX(40%)}
+    to{transform:translateX(-40%)}
+}
+
+.motion-object{
+    width:180px;
+    height:180px;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:spin 8s linear infinite;
+}
+
+@keyframes spin{
+    from{transform:rotateX(0) rotateY(0) rotateZ(0)}
+    to{transform:rotateX(360deg) rotateY(360deg) rotateZ(360deg)}
+}
+
+.motion-object div{
+    position:absolute;
+    inset:0;
+    border:2px solid var(--lime);
+    background:rgba(201,255,61,.025);
+}
+
+.motion-object div:nth-child(1){
+    transform:rotateY(0deg) translateZ(90px);
+}
+
+.motion-object div:nth-child(2){
+    transform:rotateY(90deg) translateZ(90px);
+}
+
+.motion-object div:nth-child(3){
+    transform:rotateX(90deg) translateZ(90px);
+}
+
+.motion-object:after{
+    content:"DESIGN";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--lime);
+    font-size:16px;
+    letter-spacing:4px;
+    font-weight:bold;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border-top:1px solid var(--line);
+}
+
+.cta h2{
+    font-size:clamp(60px,11vw,160px);
+    line-height:.8;
+    letter-spacing:-8px;
+}
+
+.cta h2 span{
+    color:var(--lime);
+}
+
+.cta p{
+    max-width:520px;
+    margin-top:40px;
+    color:#777;
+    line-height:1.8;
+}
+
+.cta-button{
+    margin-top:40px;
+    width:max-content;
+    padding:17px 30px;
+    border:1px solid var(--lime);
+    color:var(--lime);
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:3px;
+    transition:.3s;
+}
+
+.cta-button:hover{
+    background:var(--lime);
+    color:#050505;
+    box-shadow:0 0 35px rgba(201,255,61,.25);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:30px 5vw;
+    display:flex;
+    justify-content:space-between;
+    color:#555;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:70px;
+    }
+
+    .design-stage{
+        height:420px;
+    }
+
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .color-layout,
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .color-copy{
+        order:-1;
+    }
+
+    .hero h1{
+        letter-spacing:-5px;
+    }
+}
+
+@media(max-width:600px){
+
+    .cursor,
+    .cursor-ring{
+        display:none;
+    }
+
+    nav{
+        height:70px;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:80px 6vw;
+    }
+
+    .hero h1{
+        font-size:70px;
+    }
+
+    .design-stage{
+        height:350px;
+    }
+
+    .canvas{
+        width:82%;
+        left:9%;
+    }
+
+    .pen{
+        transform:translate(-50%,-50%) rotate(-32deg) scale(.75);
+    }
+
+    section{
+        padding:90px 6vw;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .service{
+        min-height:350px;
+    }
+
+    .service h3{
+        font-size:40px;
+        margin-top:70px;
+    }
+
+    .palette{
+        height:190px;
+    }
+
+    .color-copy h2{
+        font-size:42px;
+    }
+
+    .cta h2{
+        font-size:70px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- NAV -->
+
+<nav>
+    <div class="logo">DESIGNER <span>197</span></div>
+    <a href="index.html" class="back">← BACK TO HOME</a>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div>
+
+        <div class="eyebrow">03 / DESIGN</div>
+
+        <h1>
+            MAKE<br>
+            <span class="outline">IT</span><br>
+            <span class="lime">REAL.</span>
+        </h1>
+
+        <p class="hero-text">
+            Once the direction is clear, the idea becomes a visual system.
+            <strong>Typography, colour, layout, graphics, interface and motion</strong>
+            come together to create a polished and consistent design.
+        </p>
+
+    </div>
+
+
+    <!-- 3D DESIGN STAGE -->
+
+    <div class="design-stage">
+
+        <div class="stage">
+
+            <div class="canvas">
+
+                <div class="draw-line"></div>
+
+                <div class="pen">
+                    <div class="pen-body"></div>
+                    <div class="pen-tip"></div>
+                    <div class="pen-dot"></div>
+                </div>
+
+            </div>
+
+            <div class="color c1"></div>
+            <div class="color c2"></div>
+            <div class="color c3"></div>
+
+            <div class="floating-type">TYPE</div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- DESIGN EXPLANATION -->
+
+<section>
+
+    <div class="section-number">THE IDEA</div>
+
+    <h2 class="section-title">
+        FROM A <span>CONCEPT</span><br>
+        TO A <strong>DESIGN.</strong>
+    </h2>
+
+    <div class="process">
+
+        <div class="process-card">
+            <div class="step">01 / BUILD</div>
+            <h3>Structure</h3>
+            <p>
+                Layout, grid, spacing and composition create the foundation
+                of the visual experience.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="step">02 / SHAPE</div>
+            <h3>Typography</h3>
+            <p>
+                Type choices define personality, hierarchy and how the
+                message communicates.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="step">03 / STYLE</div>
+            <h3>Visuals</h3>
+            <p>
+                Colours, graphics, imagery and details turn the concept
+                into a recognisable visual language.
+            </p>
+        </div>
+
+        <div class="process-card">
+            <div class="step">04 / POLISH</div>
+            <h3>Finish</h3>
+            <p>
+                Every detail is refined until the final design feels
+                balanced, consistent and ready to launch.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COLOR LAB -->
+
+<section class="color-section">
+
+    <div class="section-number">COLOR / SYSTEM</div>
+
+    <div class="color-layout">
+
+        <div class="palette">
+
+            <div class="swatch">
+                <span>#C9FF3D</span>
+            </div>
+
+            <div class="swatch">
+                <span>#55D6FF</span>
+            </div>
+
+            <div class="swatch">
+                <span>#FF4D8D</span>
+            </div>
+
+            <div class="swatch">
+                <span>#FFFFFF</span>
+            </div>
+
+            <div class="swatch">
+                <span>#111111</span>
+            </div>
+
+        </div>
+
+
+        <div class="color-copy">
+
+            <h2>
+                COLOUR<br>
+                <span class="highlight">CREATES</span><br>
+                ENERGY.
+            </h2>
+
+            <p>
+                Colour is not simply decoration. It controls mood,
+                hierarchy and attention. Different colours can be mixed,
+                layered and animated to create a visual identity that
+                feels alive.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GRAPHIC + WEB -->
+
+<section>
+
+    <div class="section-number">WHAT GETS DESIGNED</div>
+
+    <h2 class="section-title">
+        GRAPHIC <span>+</span><br>
+        WEB DESIGN.
+    </h2>
+
+
+    <div class="services">
+
+        <!-- GRAPHIC -->
+
+        <div class="service">
+
+            <div class="service-number">01 / GRAPHIC</div>
+
+            <h3>GRAPHIC<br>DESIGN</h3>
+
+            <p>
+                Logos, brand identity, social media, packaging, posters,
+                catalogues, advertising creatives and visual campaigns —
+                all developed into one consistent design language.
+            </p>
+
+            <div class="service-visual"></div>
+
+        </div>
+
+
+        <!-- WEB -->
+
+        <div class="service">
+
+            <div class="service-number">02 / DIGITAL</div>
+
+            <h3>WEB<br>DESIGN</h3>
+
+            <p>
+                Interfaces, landing pages, portfolio websites and digital
+                experiences designed with responsive layouts, typography,
+                interaction, motion and 3D visual elements.
+            </p>
+
+            <div class="web-window">
+
+                <div class="web-top">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+
+                <div class="web-content">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MOTION GRAPHIC -->
+
+<section class="motion">
+
+    <div class="motion-title">
+        DESIGN • MOTION • TYPE • COLOR •
+    </div>
+
+    <div class="motion-object">
+
+        <div></div>
+        <div></div>
+        <div></div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="cta">
+
+    <div class="section-number">03 / FINAL DESIGN</div>
+
+    <h2>
+        IDEA<br>
+        <span>→</span> DESIGN
+    </h2>
+
+    <p>
+        The final design brings every decision together —
+        concept, typography, colour, composition, interaction and motion —
+        into one polished visual experience.
+    </p>
+
+    <a href="discover.html" class="cta-button">
+        START A PROJECT ↗
+    </a>
+
+</section>
+
+
+<footer>
+
+    <div>DESIGNER 197 — HARSH CHAWLA</div>
+
+    <div>GRAPHIC DESIGN × WEB DESIGN</div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   CUSTOM CURSOR
+========================= */
+
+const cursor = document.querySelector(".cursor");
+const ring = document.querySelector(".cursor-ring");
+
+document.addEventListener("mousemove",(e)=>{
+
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+
+    ring.style.left = e.clientX + "px";
+    ring.style.top = e.clientY + "px";
+
+});
+
+
+/* =========================
+   3D STAGE MOUSE EFFECT
+========================= */
+
+const stage = document.querySelector(".stage");
+
+document.addEventListener("mousemove",(e)=>{
+
+    if(window.innerWidth < 900) return;
+
+    const x = (window.innerWidth / 2 - e.clientX) / 45;
+    const y = (window.innerHeight / 2 - e.clientY) / 45;
+
+    stage.style.transform =
+        `rotateX(${8 + y}deg) rotateY(${-12 + x}deg)`;
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealItems = document.querySelectorAll(
+    ".process-card,.service,.color-copy,.palette,.section-title"
+);
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform =
+                "translateY(0)";
+
+        }
+
+    });
+
+},{
+    threshold:.15
+});
+
+
+revealItems.forEach(item=>{
+
+    item.style.opacity = "0";
+    item.style.transform = "translateY(35px)";
+    item.style.transition =
+        "opacity .8s ease, transform .8s ease";
+
+    observer.observe(item);
+
+});
+
+
+/* =========================
+   COLOR SWATCH INTERACTION
+========================= */
+
+const swatches = document.querySelectorAll(".swatch");
+
+swatches.forEach(swatch=>{
+
+    swatch.addEventListener("mouseenter",()=>{
+
+        document.body.style.background =
+            "radial-gradient(circle at 50% 20%, rgba(201,255,61,.08), transparent 30%), #050505";
+
+    });
+
+});
+
+
+/* =========================
+   PEN TOOL CLICK EFFECT
+========================= */
+
+const pen = document.querySelector(".pen");
+
+pen.addEventListener("click",()=>{
+
+    pen.style.animation = "none";
+
+    setTimeout(()=>{
+
+        pen.style.animation =
+            "penMove 4s ease-in-out infinite";
+
+    },50);
+
+});
+
+
+</script>
+
+</body>
+</html>
