@@ -1,0 +1,1301 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discover — DESIGNER 197 | Harsh Chawla</title>
+
+<meta
+name="description"
+content="Discover your project requirements with Harsh Chawla — Graphic Designer."
+>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%);
+    top:-200px;
+    left:-150px;
+    pointer-events:none;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,rgba(255,255,255,.06),transparent 65%);
+    right:-150px;
+    bottom:-150px;
+    pointer-events:none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    width:100%;
+    padding:25px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,8,8,.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.nav-right{
+    display:flex;
+    gap:25px;
+}
+
+.nav-right a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-right a:hover{
+    color:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 20px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.small-title{
+    letter-spacing:5px;
+    font-size:12px;
+    color:#999;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(70px,14vw,180px);
+    line-height:.8;
+    font-weight:1000;
+    letter-spacing:-8px;
+    text-transform:uppercase;
+}
+
+.hero h1 span{
+    color:#555;
+}
+
+.hero-description{
+    max-width:650px;
+    margin:45px auto;
+    color:#aaa;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* 3D floating object */
+
+.orb{
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#fff,#555,#111);
+    box-shadow:
+        0 0 50px rgba(255,255,255,.15),
+        inset -25px -25px 50px rgba(0,0,0,.8),
+        inset 15px 15px 25px rgba(255,255,255,.5);
+    animation:float 5s ease-in-out infinite;
+}
+
+.orb.one{
+    top:18%;
+    left:8%;
+}
+
+.orb.two{
+    width:70px;
+    height:70px;
+    right:12%;
+    top:30%;
+    animation-delay:1s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-35px) rotate(180deg);
+    }
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process{
+    padding:100px 7%;
+}
+
+.section-title{
+    font-size:60px;
+    letter-spacing:-3px;
+    margin-bottom:15px;
+}
+
+.section-description{
+    color:#888;
+    max-width:600px;
+    line-height:1.7;
+    margin-bottom:60px;
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.process-card{
+    min-height:220px;
+    border:1px solid #222;
+    padding:30px;
+    background:linear-gradient(145deg,#111,#090909);
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.process-card:hover{
+    transform:translateY(-12px) rotateX(5deg);
+    border-color:#555;
+    box-shadow:0 30px 60px rgba(0,0,0,.5);
+}
+
+.process-number{
+    font-size:12px;
+    color:#777;
+}
+
+.process-card h3{
+    margin-top:70px;
+    font-size:24px;
+}
+
+.process-card p{
+    color:#888;
+    line-height:1.6;
+    margin-top:12px;
+}
+
+/* =========================
+   QUESTIONNAIRE
+========================= */
+
+.questionnaire{
+    padding:120px 7%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.question-block{
+    margin-bottom:90px;
+}
+
+.question-number{
+    color:#666;
+    font-size:13px;
+    letter-spacing:3px;
+    margin-bottom:12px;
+}
+
+.question-block h2{
+    font-size:42px;
+    letter-spacing:-1px;
+    margin-bottom:12px;
+}
+
+.question-block > p{
+    color:#888;
+    margin-bottom:30px;
+    line-height:1.7;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.option{
+    position:relative;
+}
+
+.option input{
+    position:absolute;
+    opacity:0;
+}
+
+.option label{
+    display:block;
+    padding:24px;
+    border:1px solid #282828;
+    background:#0d0d0d;
+    cursor:pointer;
+    transition:.3s;
+    font-size:16px;
+}
+
+.option label:hover{
+    border-color:#777;
+    transform:translateY(-4px);
+}
+
+.option input:checked + label{
+    background:#fff;
+    color:#000;
+    border-color:#fff;
+    transform:scale(1.02);
+}
+
+/* =========================
+   TEXT AREA
+========================= */
+
+textarea{
+    width:100%;
+    min-height:150px;
+    padding:20px;
+    background:#0d0d0d;
+    color:#fff;
+    border:1px solid #292929;
+    outline:none;
+    resize:vertical;
+    font-size:16px;
+}
+
+textarea:focus{
+    border-color:#777;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary-section{
+    padding:120px 7%;
+    background:#0c0c0c;
+}
+
+.summary{
+    max-width:1000px;
+    margin:auto;
+    border:1px solid #292929;
+    padding:50px;
+    background:
+        linear-gradient(145deg,#111,#090909);
+    box-shadow:0 40px 100px rgba(0,0,0,.5);
+    transform-style:preserve-3d;
+    transition:.4s;
+}
+
+.summary:hover{
+    transform:perspective(1000px) rotateX(2deg) rotateY(-2deg);
+}
+
+.summary h2{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.summary > p{
+    color:#888;
+    margin-bottom:40px;
+}
+
+.summary-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.summary-item{
+    padding:25px;
+    border:1px solid #252525;
+}
+
+.summary-item span{
+    display:block;
+    color:#666;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.summary-item strong{
+    font-size:18px;
+}
+
+.summary-message{
+    margin-top:30px;
+    padding:25px;
+    border-left:2px solid #fff;
+    color:#aaa;
+    line-height:1.7;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.submit-area{
+    margin-top:50px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:none;
+    padding:18px 30px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    transition:.3s;
+}
+
+.primary{
+    background:#fff;
+    color:#000;
+}
+
+.primary:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(255,255,255,.12);
+}
+
+.secondary{
+    background:#191919;
+    color:#fff;
+    border:1px solid #333;
+}
+
+.secondary:hover{
+    border-color:#777;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:60px 7%;
+    border-top:1px solid #202020;
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    nav{
+        padding:20px;
+    }
+
+    .nav-right{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:70px;
+        letter-spacing:-4px;
+    }
+
+    .orb{
+        opacity:.4;
+    }
+
+    .process,
+    .questionnaire,
+    .summary-section{
+        padding:80px 20px;
+    }
+
+    .process-grid,
+    .options,
+    .summary-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-title{
+        font-size:45px;
+    }
+
+    .question-block h2{
+        font-size:32px;
+    }
+
+    .summary{
+        padding:30px 20px;
+    }
+
+    .summary h2{
+        font-size:40px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<div class="logo">
+DESIGNER 197
+</div>
+
+<div class="nav-right">
+<a href="index.html">HOME</a>
+<a href="#process">PROCESS</a>
+<a href="#discover">DISCOVER</a>
+<a href="#summary">SUMMARY</a>
+</div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="orb one"></div>
+<div class="orb two"></div>
+
+<div class="hero-content">
+
+<div class="small-title">
+01 — DISCOVER
+</div>
+
+<h1>
+DISC<span>OVER</span>
+</h1>
+
+<p class="hero-description">
+Before I design, I understand.
+Every successful project starts with a clear understanding of
+your brand, audience, message, goals and requirements.
+</p>
+
+<a href="#discover">
+<button class="primary">
+START DISCOVERING →
+</button>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section class="process" id="process">
+
+<div class="small-title">
+THE FIRST STEP
+</div>
+
+<h2 class="section-title">
+Understand before creating.
+</h2>
+
+<p class="section-description">
+The Discover stage helps me understand what your project needs
+before moving into creative direction and visual design.
+</p>
+
+
+<div class="process-grid">
+
+<div class="process-card">
+
+<div class="process-number">01</div>
+
+<h3>Brief</h3>
+
+<p>
+Understand what needs to be created and what the project goal is.
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-number">02</div>
+
+<h3>Audience</h3>
+
+<p>
+Understand who the design needs to communicate with.
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-number">03</div>
+
+<h3>Message</h3>
+
+<p>
+Understand what feeling or message the brand should communicate.
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-number">04</div>
+
+<h3>Requirements</h3>
+
+<p>
+Understand where and how the final design will be used.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     QUESTIONNAIRE
+========================= -->
+
+<section class="questionnaire" id="discover">
+
+<div class="small-title">
+PROJECT DISCOVERY FORM
+</div>
+
+<h2 class="section-title">
+Tell me about your project.
+</h2>
+
+<p class="section-description">
+Choose the options that best describe your project.
+Your answers will automatically create a Final Discover Summary.
+</p>
+
+
+<!-- QUESTION 1 -->
+
+<div class="question-block">
+
+<div class="question-number">
+QUESTION 01
+</div>
+
+<h2>What do you need designed?</h2>
+
+<p>
+Choose the main service you are looking for.
+</p>
+
+<div class="options">
+
+<div class="option">
+<input type="radio" name="project" id="logo" value="Logo Design">
+<label for="logo">01 — Logo Design</label>
+</div>
+
+<div class="option">
+<input type="radio" name="project" id="branding" value="Branding">
+<label for="branding">02 — Branding</label>
+</div>
+
+<div class="option">
+<input type="radio" name="project" id="packaging" value="Packaging Design">
+<label for="packaging">03 — Packaging Design</label>
+</div>
+
+<div class="option">
+<input type="radio" name="project" id="social" value="Social Media Design">
+<label for="social">04 — Social Media Design</label>
+</div>
+
+<div class="option">
+<input type="radio" name="project" id="print" value="Print / Catalogue">
+<label for="print">05 — Print / Catalogue</label>
+</div>
+
+<div class="option">
+<input type="radio" name="project" id="web" value="Website / Web Design">
+<label for="web">06 — Website / Web Design</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="question-block">
+
+<div class="question-number">
+QUESTION 02
+</div>
+
+<h2>Who is your target audience?</h2>
+
+<p>
+Who do you want your design to connect with?
+</p>
+
+<div class="options">
+
+<div class="option">
+<input type="radio" name="audience" id="young" value="Young Audience">
+<label for="young">Young Audience</label>
+</div>
+
+<div class="option">
+<input type="radio" name="audience" id="professional" value="Professionals">
+<label for="professional">Professionals</label>
+</div>
+
+<div class="option">
+<input type="radio" name="audience" id="luxury" value="Luxury Customers">
+<label for="luxury">Luxury Customers</label>
+</div>
+
+<div class="option">
+<input type="radio" name="audience" id="general" value="General Audience">
+<label for="general">General Audience</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="question-block">
+
+<div class="question-number">
+QUESTION 03
+</div>
+
+<h2>What style fits your brand?</h2>
+
+<p>
+Choose the visual personality you want.
+</p>
+
+<div class="options">
+
+<div class="option">
+<input type="radio" name="style" id="minimal" value="Minimal">
+<label for="minimal">Minimal</label>
+</div>
+
+<div class="option">
+<input type="radio" name="style" id="luxuryStyle" value="Luxury">
+<label for="luxuryStyle">Luxury</label>
+</div>
+
+<div class="option">
+<input type="radio" name="style" id="bold" value="Bold & Powerful">
+<label for="bold">Bold & Powerful</label>
+</div>
+
+<div class="option">
+<input type="radio" name="style" id="modern" value="Modern">
+<label for="modern">Modern</label>
+</div>
+
+<div class="option">
+<input type="radio" name="style" id="creative" value="Creative">
+<label for="creative">Creative</label>
+</div>
+
+<div class="option">
+<input type="radio" name="style" id="corporate" value="Professional / Corporate">
+<label for="corporate">Professional / Corporate</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="question-block">
+
+<div class="question-number">
+QUESTION 04
+</div>
+
+<h2>What should people feel?</h2>
+
+<p>
+Choose the main impression your design should create.
+</p>
+
+<div class="options">
+
+<div class="option">
+<input type="radio" name="feeling" id="trust" value="Trust">
+<label for="trust">Trust</label>
+</div>
+
+<div class="option">
+<input type="radio" name="feeling" id="premium" value="Premium">
+<label for="premium">Premium</label>
+</div>
+
+<div class="option">
+<input type="radio" name="feeling" id="energy" value="Energy">
+<label for="energy">Energy</label>
+</div>
+
+<div class="option">
+<input type="radio" name="feeling" id="friendly" value="Friendly">
+<label for="friendly">Friendly</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="question-block">
+
+<div class="question-number">
+QUESTION 05
+</div>
+
+<h2>Where will the design be used?</h2>
+
+<p>
+Select the primary platform.
+</p>
+
+<div class="options">
+
+<div class="option">
+<input type="radio" name="usage" id="instagram" value="Instagram / Social Media">
+<label for="instagram">Instagram / Social Media</label>
+</div>
+
+<div class="option">
+<input type="radio" name="usage" id="website" value="Website">
+<label for="website">Website</label>
+</div>
+
+<div class="option">
+<input type="radio" name="usage" id="printUsage" value="Print">
+<label for="printUsage">Print</label>
+</div>
+
+<div class="option">
+<input type="radio" name="usage" id="packUsage" value="Packaging">
+<label for="packUsage">Packaging</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="question-block">
+
+<div class="question-number">
+QUESTION 06
+</div>
+
+<h2>What is your main goal?</h2>
+
+<p>
+What should this project achieve?
+</p>
+
+<div class="options">
+
+<div class="option">
+<input type="radio" name="goal" id="newbrand" value="Build a New Brand">
+<label for="newbrand">Build a New Brand</label>
+</div>
+
+<div class="option">
+<input type="radio" name="goal" id="rebrand" value="Rebrand Existing Business">
+<label for="rebrand">Rebrand Existing Business</label>
+</div>
+
+<div class="option">
+<input type="radio" name="goal" id="professional" value="Look More Professional">
+<label for="professional">Look More Professional</label>
+</div>
+
+<div class="option">
+<input type="radio" name="goal" id="sales" value="Improve Sales / Attention">
+<label for="sales">Improve Sales / Attention</label>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="question-block">
+
+<div class="question-number">
+QUESTION 07
+</div>
+
+<h2>Tell me anything else.</h2>
+
+<p>
+Add any important information, references, ideas or requirements.
+</p>
+
+<textarea
+id="extra"
+placeholder="Tell me about your brand, preferred colours, competitors, references, deadlines, etc..."
+></textarea>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINAL SUMMARY
+========================= -->
+
+<section class="summary-section" id="summary">
+
+<div class="summary">
+
+<div class="small-title">
+FINAL DISCOVER SUMMARY
+</div>
+
+<h2>
+Your Project Brief.
+</h2>
+
+<p>
+Review your answers before sending the project request.
+</p>
+
+
+<div class="summary-grid">
+
+<div class="summary-item">
+<span>PROJECT TYPE</span>
+<strong id="summaryProject">
+Not selected
+</strong>
+</div>
+
+<div class="summary-item">
+<span>TARGET AUDIENCE</span>
+<strong id="summaryAudience">
+Not selected
+</strong>
+</div>
+
+<div class="summary-item">
+<span>VISUAL STYLE</span>
+<strong id="summaryStyle">
+Not selected
+</strong>
+</div>
+
+<div class="summary-item">
+<span>BRAND FEELING</span>
+<strong id="summaryFeeling">
+Not selected
+</strong>
+</div>
+
+<div class="summary-item">
+<span>PRIMARY USAGE</span>
+<strong id="summaryUsage">
+Not selected
+</strong>
+</div>
+
+<div class="summary-item">
+<span>MAIN GOAL</span>
+<strong id="summaryGoal">
+Not selected
+</strong>
+</div>
+
+</div>
+
+
+<div class="summary-message">
+
+<strong>Additional Information</strong>
+
+<p id="summaryExtra">
+No additional information provided.
+</p>
+
+</div>
+
+
+<div class="submit-area">
+
+<button
+class="primary"
+onclick="sendWhatsApp()"
+>
+SEND PROJECT VIA WHATSAPP →
+</button>
+
+<button
+class="secondary"
+onclick="sendEmail()"
+>
+SEND VIA EMAIL
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div>
+© 2026 DESIGNER 197 — Harsh Chawla
+</div>
+
+<div>
+Graphic Designer • Branding • Web Design
+</div>
+
+</footer>
+
+
+<script>
+
+/* ==================================
+   GET SELECTED ANSWER
+================================== */
+
+function getValue(name){
+
+    const selected =
+        document.querySelector(
+            'input[name="' + name + '"]:checked'
+        );
+
+    return selected ? selected.value : "Not selected";
+}
+
+
+/* ==================================
+   UPDATE SUMMARY
+================================== */
+
+function updateSummary(){
+
+    document.getElementById("summaryProject").textContent =
+        getValue("project");
+
+    document.getElementById("summaryAudience").textContent =
+        getValue("audience");
+
+    document.getElementById("summaryStyle").textContent =
+        getValue("style");
+
+    document.getElementById("summaryFeeling").textContent =
+        getValue("feeling");
+
+    document.getElementById("summaryUsage").textContent =
+        getValue("usage");
+
+    document.getElementById("summaryGoal").textContent =
+        getValue("goal");
+
+    const extra =
+        document.getElementById("extra").value.trim();
+
+    document.getElementById("summaryExtra").textContent =
+        extra || "No additional information provided.";
+}
+
+
+/* ==================================
+   LISTEN FOR ANSWERS
+================================== */
+
+document
+.querySelectorAll("input")
+.forEach(function(input){
+
+    input.addEventListener(
+        "change",
+        updateSummary
+    );
+
+});
+
+
+document
+.getElementById("extra")
+.addEventListener(
+    "input",
+    updateSummary
+);
+
+
+/* ==================================
+   WHATSAPP
+================================== */
+
+function sendWhatsApp(){
+
+    updateSummary();
+
+    const project = getValue("project");
+    const audience = getValue("audience");
+    const style = getValue("style");
+    const feeling = getValue("feeling");
+    const usage = getValue("usage");
+    const goal = getValue("goal");
+    const extra = document.getElementById("extra").value;
+
+    const message =
+
+`Hello Harsh,
+
+I would like to start a project.
+
+PROJECT DISCOVER SUMMARY
+
+Project Type:
+${project}
+
+Target Audience:
+${audience}
+
+Visual Style:
+${style}
+
+Brand Feeling:
+${feeling}
+
+Primary Usage:
+${usage}
+
+Main Goal:
+${goal}
+
+Additional Information:
+${extra || "None"}
+
+I would like to discuss the project further.`;
+
+    /*
+      IMPORTANT:
+      Replace 919999999999 with your real
+      WhatsApp number including country code.
+    */
+
+    const phone = "919999999999";
+
+    const url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+}
+
+
+/* ==================================
+   EMAIL
+================================== */
+
+function sendEmail(){
+
+    updateSummary();
+
+    const project = getValue("project");
+    const audience = getValue("audience");
+    const style = getValue("style");
+    const feeling = getValue("feeling");
+    const usage = getValue("usage");
+    const goal = getValue("goal");
+    const extra = document.getElementById("extra").value;
+
+    const subject =
+        "New Design Project — Discover Brief";
+
+    const body =
+
+`Hello Harsh,
+
+I would like to start a design project.
+
+PROJECT DISCOVER SUMMARY
+
+Project Type:
+${project}
+
+Target Audience:
+${audience}
+
+Visual Style:
+${style}
+
+Brand Feeling:
+${feeling}
+
+Primary Usage:
+${usage}
+
+Main Goal:
+${goal}
+
+Additional Information:
+${extra || "None"}
+
+Thank you.`;
+
+    /*
+      Replace this with your real email.
+    */
+
+    const email =
+        "your-email@example.com";
+
+    window.location.href =
+        "mailto:" +
+        email +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+
+}
+
+
+/* ==================================
+   INITIAL SUMMARY
+================================== */
+
+updateSummary();
+
+</script>
+
+</body>
+</html>
+```
