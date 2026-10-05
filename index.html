@@ -1,32 +1,39 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DESIGNER 197 — Visual Designer</title>
+<title>DESIGNER 197 — Graphic Designer & Web Developer</title>
 
-<meta name="description" content="DESIGNER 197 — Independent graphic designer creating bold identities, digital campaigns, packaging, print and visual experiences.">
+<meta name="description" content="DESIGNER 197 — Graphic Designer & Web Developer. Branding, social media, packaging, print and modern web experiences.">
 
-<!-- PREMIUM FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-    --black:#070807;
-    --dark:#0d100d;
-    --card:#111411;
-    --white:#f5f7f2;
-    --soft:#c4cac1;
-    --muted:#7f887e;
-    --line:rgba(255,255,255,.10);
+    --bg:#050705;
+    --bg2:#080c08;
+    --card:#0c110d;
+    --card2:#111811;
+
+    --white:#f4f7ef;
+    --soft:#bbc3b8;
+    --muted:#697268;
+
     --lime:#c9ff3d;
-    --max:1280px;
+    --lime2:#9dcc20;
+
+    --line:rgba(255,255,255,.09);
+    --glass:rgba(255,255,255,.045);
+
+    --shadow:rgba(0,0,0,.6);
+
+    --ease:cubic-bezier(.16,1,.3,1);
 }
 
 *{
@@ -37,3987 +44,2504 @@
 
 html{
     scroll-behavior:smooth;
+    background:var(--bg);
 }
 
 body{
-    background:var(--black);
+    background:
+        radial-gradient(circle at 50% -10%,rgba(201,255,61,.09),transparent 35%),
+        var(--bg);
     color:var(--white);
-
-    /* NEW FONT */
     font-family:"Plus Jakarta Sans",sans-serif;
-
     overflow-x:hidden;
+    cursor:none;
 }
 
 body:before{
     content:"";
     position:fixed;
     inset:0;
-    z-index:9999;
     pointer-events:none;
-    opacity:.025;
+    z-index:9997;
+    opacity:.045;
 
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button{
-    font-family:inherit;
-}
-
-.container{
-    width:min(var(--max),calc(100% - 60px));
-    margin:auto;
-}
-
-
-/* ================= HEADER ================= */
-
-.header{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    z-index:5000;
-
-    padding:18px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.06);
-
-    background:rgba(7,8,7,.68);
-
-    backdrop-filter:blur(22px);
-}
-
-.nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:17px;
-
-    letter-spacing:-.04em;
-}
-
-.logo-box{
-    width:34px;
-    height:34px;
-
-    border:1px solid rgba(255,255,255,.25);
-
-    display:grid;
-    place-items:center;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.logo-box:before{
-    content:"";
-
-    width:15px;
-    height:15px;
-
-    background:var(--lime);
-
-    position:absolute;
-
-    transform:rotate(45deg);
-
-    transition:.5s;
-}
-
-.logo-box span{
-    position:relative;
-    z-index:2;
-
-    font:800 11px "Space Grotesk",sans-serif;
-
-    color:#080908;
-}
-
-.logo:hover .logo-box:before{
-    transform:rotate(225deg) scale(1.5);
-}
-
-.nav-menu{
-    display:flex;
-    align-items:center;
-    gap:35px;
-}
-
-.nav-menu a{
-    font:500 10px "DM Mono",monospace;
-
-    text-transform:uppercase;
-
-    letter-spacing:.08em;
-
-    color:#929a90;
-
-    transition:.25s;
-}
-
-.nav-menu a:hover{
-    color:var(--lime);
-}
-
-.nav-contact{
-    background:var(--lime);
-
-    color:#080908!important;
-
-    padding:12px 17px;
-
-    font-weight:600!important;
-}
-
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100vh;
-
-    padding:145px 0 90px;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.hero-grid{
-    position:absolute;
-
-    inset:0;
-
-    opacity:.35;
-
-    background:
-        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-image:
+        linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
 
     background-size:70px 70px;
 
-    mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);
+    mask-image:linear-gradient(to bottom,black,transparent 80%);
 }
 
-.hero-glow{
-    position:absolute;
+/* =========================
+   CURSOR
+========================= */
 
-    width:650px;
-    height:650px;
-
-    right:-150px;
-    top:100px;
-
-    background:radial-gradient(
-        circle,
-        rgba(201,255,61,.13),
-        transparent 65%
-    );
-
-    filter:blur(20px);
+.cursor{
+    position:fixed;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--lime);
+    box-shadow:0 0 25px var(--lime);
+    pointer-events:none;
+    z-index:10000;
+    transform:translate(-50%,-50%);
+    transition:width .2s,height .2s;
 }
 
-.hero-inner{
-    position:relative;
-
-    z-index:2;
-
-    display:grid;
-
-    grid-template-columns:1.05fr .95fr;
-
-    align-items:center;
-
-    gap:70px;
+.cursor-ring{
+    position:fixed;
+    width:42px;
+    height:42px;
+    border:1px solid rgba(201,255,61,.7);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    transition:.15s ease-out;
 }
 
-.kicker{
+body.hovering .cursor{
+    width:5px;
+    height:5px;
+}
+
+body.hovering .cursor-ring{
+    width:65px;
+    height:65px;
+    border-color:var(--lime);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050705;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--lime),#536e19);
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--white);
+}
+
+/* =========================
+   SCROLL RAIL
+========================= */
+
+.scroll-rail{
+    position:fixed;
+    right:22px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:500;
     display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    color:var(--lime);
-
-    font:10px "DM Mono",monospace;
-
-    text-transform:uppercase;
-
-    letter-spacing:.12em;
-
-    margin-bottom:26px;
+    flex-direction:column;
+    gap:13px;
 }
 
-.kicker-dot{
+.scroll-dot{
     width:7px;
     height:7px;
-
+    border:1px solid var(--muted);
     border-radius:50%;
+    transition:.3s var(--ease);
+    position:relative;
+}
 
+.scroll-dot:after{
+    content:attr(data-label);
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    white-space:nowrap;
+
+    font:10px "DM Mono",monospace;
+    letter-spacing:1px;
+    color:var(--muted);
+
+    opacity:0;
+    transition:.3s;
+}
+
+.scroll-dot:hover:after,
+.scroll-dot.active:after{
+    opacity:1;
+}
+
+.scroll-dot.active{
     background:var(--lime);
-
-    box-shadow:0 0 18px var(--lime);
-
-    animation:blink 1.8s infinite;
+    border-color:var(--lime);
+    box-shadow:0 0 15px var(--lime);
+    transform:scale(1.5);
 }
 
-@keyframes blink{
-    0%,100%{opacity:1}
-    50%{opacity:.3}
+/* =========================
+   NAV
+========================= */
+
+.nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:900;
+
+    padding:22px 5vw;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(5,7,5,.9),
+        transparent
+    );
+
+    transition:.4s;
 }
 
-.hero h1{
+.nav.scrolled{
+    background:rgba(5,7,5,.8);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.logo{
+    color:var(--white);
+    text-decoration:none;
 
     font-family:"Space Grotesk",sans-serif;
-
     font-weight:700;
-
-    font-size:clamp(62px,8vw,120px);
-
-    line-height:.84;
-
-    letter-spacing:-.075em;
+    letter-spacing:-1px;
+    font-size:20px;
 }
 
-.hero h1 .outline{
-    color:transparent;
-
-    -webkit-text-stroke:1px rgba(255,255,255,.7);
-}
-
-.hero h1 .lime{
+.logo span{
     color:var(--lime);
 }
 
-.hero-description{
-    margin-top:30px;
-
-    max-width:560px;
-
-    color:#959e94;
-
-    font-size:14px;
-
-    line-height:1.85;
-}
-
-.hero-buttons{
+.nav-links{
     display:flex;
-
-    gap:10px;
-
-    margin-top:34px;
-
-    flex-wrap:wrap;
+    gap:30px;
+    align-items:center;
 }
 
-.button{
-    min-height:51px;
+.nav-links a{
+    color:var(--soft);
+    text-decoration:none;
 
-    padding:0 21px;
-
-    border:1px solid var(--line);
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:12px;
-
-    font:500 10px "DM Mono",monospace;
-
+    font-size:11px;
     text-transform:uppercase;
-
-    letter-spacing:.08em;
+    letter-spacing:1.4px;
 
     transition:.3s;
 }
 
-.button.primary{
-    background:var(--lime);
-
-    color:#080908;
-
-    border-color:var(--lime);
-
-    font-weight:600;
-}
-
-.button.primary:hover{
-    transform:translateY(-4px);
-
-    box-shadow:0 15px 35px rgba(201,255,61,.15);
-}
-
-.button.secondary:hover{
-    border-color:var(--lime);
-
+.nav-links a:hover{
     color:var(--lime);
 }
 
+.nav-availability{
+    display:flex;
+    align-items:center;
+    gap:8px;
 
-/* ================= HERO VISUAL ================= */
-
-.hero-visual{
-    height:600px;
-
-    position:relative;
+    font:10px "DM Mono",monospace;
+    color:var(--muted);
 }
 
-.visual-main{
-    width:390px;
-    height:490px;
+.live-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--lime);
+    box-shadow:0 0 12px var(--lime);
+    animation:pulse 1.5s infinite;
+}
 
+@keyframes pulse{
+    50%{
+        opacity:.35;
+        transform:scale(.7);
+    }
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+section{
+    position:relative;
+    min-height:100vh;
+    padding:130px 7vw;
+    overflow:hidden;
+}
+
+.section-label{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    color:var(--lime);
+    font:11px "DM Mono",monospace;
+    letter-spacing:2px;
+
+    margin-bottom:30px;
+}
+
+.section-label:before{
+    content:"";
+    width:28px;
+    height:1px;
+    background:var(--lime);
+}
+
+.section-title{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(45px,7vw,105px);
+    line-height:.9;
+    letter-spacing:-5px;
+    max-width:1000px;
+}
+
+.section-title span{
+    color:var(--lime);
+}
+
+.muted{
+    color:var(--muted);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:40px;
+    align-items:center;
+}
+
+.hero-kicker{
+    color:var(--lime);
+    font:11px "DM Mono",monospace;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.hero-title{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(65px,10vw,155px);
+    font-weight:700;
+    letter-spacing:-9px;
+    line-height:.77;
+    perspective:1000px;
+}
+
+.hero-title .line{
+    display:block;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform 1s var(--ease);
+}
+
+.hero-title .line:hover{
+    transform:translateX(15px) rotateX(8deg) rotateY(-8deg);
+}
+
+.hero-title .depth{
     position:absolute;
+    left:0;
+    top:0;
+    color:#273018;
+    z-index:-1;
 
+    transform:translate3d(12px,14px,-30px);
+    text-shadow:
+        2px 2px #202718,
+        4px 4px #1d2416,
+        6px 6px #182012,
+        8px 8px #141b10,
+        10px 10px #10160d;
+}
+
+.hero-title .lime{
+    color:var(--lime);
+    text-shadow:
+        0 0 30px rgba(201,255,61,.08),
+        0 8px 0 #91b42a,
+        0 15px 0 #5d761b;
+}
+
+.hero-description{
+    max-width:560px;
+    margin-top:38px;
+
+    color:var(--soft);
+    line-height:1.8;
+    font-size:15px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    min-height:50px;
+    padding:0 22px;
+
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:1px;
+
+    font:11px "DM Mono",monospace;
+
+    border:1px solid var(--line);
+    color:var(--white);
+    background:var(--glass);
+
+    transition:.35s var(--ease);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    border-color:var(--lime);
+    color:var(--lime);
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.btn.primary{
+    color:#050705;
+    background:var(--lime);
+    border-color:var(--lime);
+    font-weight:700;
+}
+
+.btn.primary:hover{
+    color:#050705;
+    box-shadow:0 0 35px rgba(201,255,61,.22);
+}
+
+/* HERO 3D OBJECT */
+
+.hero-stage{
+    height:600px;
+    display:grid;
+    place-items:center;
+    perspective:1200px;
+}
+
+.orbit-system{
+    width:420px;
+    height:420px;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-20px) rotateX(5deg);
+    }
+}
+
+.orbit{
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(201,255,61,.22);
+    border-radius:50%;
+    transform-style:preserve-3d;
+}
+
+.orbit:nth-child(1){
+    transform:rotateX(70deg) rotateZ(15deg);
+}
+
+.orbit:nth-child(2){
+    transform:rotateY(70deg) rotateZ(-20deg);
+}
+
+.orbit:nth-child(3){
+    transform:rotateX(55deg) rotateY(55deg);
+}
+
+.orbit-dot{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:var(--lime);
+    border-radius:50%;
+    box-shadow:0 0 30px var(--lime);
+}
+
+.orbit:nth-child(1) .orbit-dot{
+    top:30px;
+    left:50%;
+}
+
+.orbit:nth-child(2) .orbit-dot{
+    right:25px;
+    top:50%;
+}
+
+.orbit:nth-child(3) .orbit-dot{
+    left:40px;
+    bottom:55px;
+}
+
+.core{
+    position:absolute;
+    width:190px;
+    height:190px;
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%) rotate(4deg);
+    transform:
+        translate(-50%,-50%)
+        rotateX(18deg)
+        rotateY(-25deg);
 
-    background:#141814;
+    border-radius:30% 70% 55% 45%;
+    background:
+        radial-gradient(circle at 30% 25%,#f4ffcf,transparent 7%),
+        radial-gradient(circle at 55% 50%,#c9ff3d,transparent 40%),
+        linear-gradient(135deg,#a9dd2c,#202c0e);
 
-    border:1px solid rgba(255,255,255,.16);
+    box-shadow:
+        inset -25px -30px 60px rgba(0,0,0,.5),
+        inset 15px 10px 30px rgba(255,255,255,.2),
+        0 0 100px rgba(201,255,61,.2);
 
-    box-shadow:35px 45px 90px rgba(0,0,0,.5);
-
-    overflow:hidden;
-
-    animation:posterMove 6s ease-in-out infinite;
+    animation:coreRotate 8s linear infinite;
 }
 
-@keyframes posterMove{
-
-    0%,100%{
-        transform:translate(-50%,-50%) rotate(4deg);
+@keyframes coreRotate{
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotateX(18deg)
+            rotateY(335deg);
     }
-
-    50%{
-        transform:translate(-50%,-54%) rotate(1deg);
-    }
-
 }
 
-.visual-main:before{
-
-    content:"";
-
+.core:after{
+    content:"DESIGN";
     position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(-20deg);
 
-    width:360px;
-    height:360px;
-
-    border:1px solid rgba(201,255,61,.35);
-
-    border-radius:50%;
-
-    left:55%;
-    top:40%;
-
-    transform:translate(-50%,-50%);
+    font:700 18px "Space Grotesk";
+    letter-spacing:4px;
+    color:#17200b;
 }
 
-.visual-main:after{
-
-    content:"";
-
-    position:absolute;
-
-    width:160px;
-    height:160px;
-
-    border-radius:50%;
-
-    background:var(--lime);
-
-    left:55%;
-    top:40%;
-
-    transform:translate(-50%,-50%);
-
-    opacity:.92;
-
-    box-shadow:0 0 100px rgba(201,255,61,.18);
-}
-
-.visual-label{
-
-    position:absolute;
-
-    top:22px;
-    left:22px;
-    right:22px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font:9px "DM Mono",monospace;
-
-    color:#8b9389;
-
-    z-index:3;
-}
-
-.visual-number{
-
-    position:absolute;
-
-    top:57px;
-    left:22px;
-
-    z-index:3;
-
-    font:9px "DM Mono",monospace;
-
-    color:var(--lime);
-}
-
-.visual-title{
-
-    position:absolute;
-
-    left:23px;
-    bottom:110px;
-
-    z-index:4;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:76px;
-
-    line-height:.79;
-
-    letter-spacing:-.09em;
-}
-
-.visual-title span{
-
-    display:block;
-
-    color:transparent;
-
-    -webkit-text-stroke:1px #fff;
-}
-
-.visual-bottom{
-
-    position:absolute;
-
-    bottom:23px;
-
-    left:23px;
-    right:23px;
-
-    z-index:5;
-
-    border-top:1px solid rgba(255,255,255,.13);
-
-    padding-top:11px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font:8px "DM Mono",monospace;
-
-    color:#858d83;
-}
-
-.visual-d{
-    color:white;
-
-    font-weight:600;
-}
-
-
-/* ================= FLOATING TAGS ================= */
-
-.floating-tag{
-
-    position:absolute;
-
-    z-index:10;
-
-    padding:11px 14px;
-
-    background:rgba(13,16,13,.9);
-
-    border:1px solid rgba(255,255,255,.13);
-
-    backdrop-filter:blur(15px);
-
-    font:9px "DM Mono",monospace;
-
-    color:#d6ddd2;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
-
-.tag-one{
-
-    top:18%;
-    left:2%;
-
-    transform:rotate(-7deg);
-
-    animation:tagFloat 4s infinite ease-in-out;
-}
-
-.tag-two{
-
-    top:35%;
-    right:0;
-
-    transform:rotate(6deg);
-
-    animation:tagFloat 4.5s infinite ease-in-out reverse;
-}
-
-.tag-three{
-
-    bottom:17%;
-    left:8%;
-
-    transform:rotate(3deg);
-}
-
-@keyframes tagFloat{
-
-    50%{
-        transform:translateY(-10px) rotate(-4deg);
-    }
-
-}
-
-
-/* ================= TICKER ================= */
-
-.ticker{
-
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee{
+    min-height:auto;
+    padding:25px 0;
     border-top:1px solid var(--line);
-
     border-bottom:1px solid var(--line);
-
-    background:#0c0f0c;
-
-    overflow:hidden;
-
-    white-space:nowrap;
-
-    padding:19px 0;
 }
 
-.ticker-track{
-
-    display:inline-flex;
-
-    animation:ticker 28s linear infinite;
+.marquee-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 25s linear infinite;
 }
 
-.ticker span{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:15px;
-
-    margin:0 28px;
-
-    letter-spacing:-.03em;
+.marquee span{
+    padding:0 35px;
+    font:700 45px "Space Grotesk";
+    color:transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,.2);
 }
 
-.ticker b{
+.marquee span:nth-child(even){
     color:var(--lime);
+    -webkit-text-stroke:0;
 }
 
-@keyframes ticker{
+@keyframes marquee{
     to{
         transform:translateX(-50%);
     }
 }
 
-
-/* ================= SECTION ================= */
-
-.section{
-    padding:130px 0;
-
-    position:relative;
-}
-
-.section-top{
-
-    display:grid;
-
-    grid-template-columns:.8fr 1.2fr;
-
-    gap:60px;
-
-    margin-bottom:60px;
-}
-
-.section-number{
-
-    color:var(--lime);
-
-    font:10px "DM Mono",monospace;
-
-    letter-spacing:.12em;
-}
-
-.section-title{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:clamp(48px,6vw,82px);
-
-    line-height:.9;
-
-    letter-spacing:-.07em;
-}
-
-.section-title span{
-    color:#777f76;
-}
-
-.section-description{
-
-    color:#8f988e;
-
-    line-height:1.8;
-
-    max-width:550px;
-
-    align-self:end;
-
-    font-size:13px;
-}
-
-
-/* ================= SERVICES ================= */
+/* =========================
+   SERVICES
+========================= */
 
 .services{
-    border-bottom:1px solid var(--line);
+    background:
+        radial-gradient(circle at 80% 50%,rgba(201,255,61,.07),transparent 30%);
 }
 
 .service-grid{
+    margin-top:70px;
 
     display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:16px;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-.service{
-
-    height:480px;
-
+.service-card{
     position:relative;
+    min-height:310px;
 
-    overflow:hidden;
+    padding:30px;
+
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
 
     border:1px solid var(--line);
 
-    background:var(--card);
+    transform-style:preserve-3d;
+    transition:.5s var(--ease);
 
-    transition:.55s cubic-bezier(.2,.8,.2,1);
-
-    isolation:isolate;
+    overflow:hidden;
 }
 
-.service:hover{
+.service-card:hover{
+    transform:
+        perspective(900px)
+        rotateX(6deg)
+        rotateY(-6deg)
+        translateY(-10px);
 
-    transform:translateY(-9px);
-
-    border-color:rgba(201,255,61,.4);
-
-    box-shadow:0 35px 80px rgba(0,0,0,.35);
+    border-color:rgba(201,255,61,.35);
 }
 
-.service-no{
-
+.service-card:before{
+    content:"";
     position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
 
-    left:24px;
-    top:23px;
+    background:rgba(201,255,61,.05);
+    filter:blur(30px);
 
-    z-index:20;
-
-    color:#626960;
-
-    font:10px "DM Mono",monospace;
+    right:-70px;
+    bottom:-70px;
 }
 
-.service-top{
-
-    position:absolute;
-
-    top:23px;
-    right:24px;
-
-    z-index:20;
-
-    font:9px "DM Mono",monospace;
-
-    color:#777f75;
-
-    text-transform:uppercase;
-}
-
-.service-info{
-
-    position:absolute;
-
-    left:26px;
-    right:26px;
-    bottom:25px;
-
-    z-index:20;
-}
-
-.service-type{
-
+.service-number{
+    font:11px "DM Mono",monospace;
     color:var(--lime);
-
-    font:9px "DM Mono",monospace;
-
-    text-transform:uppercase;
-
-    letter-spacing:.1em;
-
-    margin-bottom:9px;
 }
 
-.service h3{
+.service-icon{
+    height:90px;
+    display:grid;
+    place-items:center;
+    font-size:48px;
 
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:34px;
-
-    letter-spacing:-.06em;
-
-    margin-bottom:10px;
+    transform:translateZ(50px);
 }
 
-.service p{
-
-    color:#8d968b;
-
-    font-size:12px;
-
-    line-height:1.65;
-
-    max-width:430px;
+.service-card h3{
+    font:600 25px "Space Grotesk";
+    margin-top:20px;
+    transform:translateZ(35px);
 }
 
-.service-arrow{
+.service-card p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+    margin-top:12px;
+    transform:translateZ(25px);
+}
 
+.service-link{
     position:absolute;
-
     right:25px;
     bottom:25px;
 
-    width:43px;
-    height:43px;
-
-    display:grid;
-
-    place-items:center;
-
-    border:1px solid rgba(255,255,255,.14);
-
-    z-index:21;
-
-    transition:.35s;
-}
-
-.service:hover .service-arrow{
-
-    background:var(--lime);
-
-    color:#080908;
-
-    border-color:var(--lime);
-
-    transform:rotate(45deg);
-}
-
-
-/* ================= BRAND ART ================= */
-
-.brand-art{
-    position:absolute;
-    inset:0;
-}
-
-.brand-grid{
-
-    position:absolute;
-
-    inset:55px;
-
-    background:
-        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-
-    background-size:30px 30px;
-}
-
-.brand-circle{
-
-    position:absolute;
-
-    width:245px;
-    height:245px;
-
-    border:1px dashed rgba(201,255,61,.3);
-
-    border-radius:50%;
-
-    left:50%;
-    top:43%;
-
-    transform:translate(-50%,-50%);
-
-    animation:rotateCircle 15s linear infinite;
-}
-
-.brand-circle:before{
-
-    content:"";
-
-    position:absolute;
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:var(--lime);
-
-    top:12px;
-    left:50%;
-}
-
-.brand-mark{
-
-    position:absolute;
-
-    width:135px;
-    height:135px;
-
-    left:50%;
-    top:43%;
-
-    transform:translate(-50%,-50%) rotate(45deg);
-
-    border:2px solid var(--lime);
-
-    transition:.7s;
-}
-
-.brand-mark:before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:23px;
-
-    border:1px solid white;
-}
-
-.brand-mark span{
-
-    position:absolute;
-
-    inset:0;
-
-    display:grid;
-
-    place-items:center;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:78px;
-
     color:var(--lime);
+    text-decoration:none;
 
-    transform:rotate(-45deg);
+    font:11px "DM Mono",monospace;
 }
 
-.service:hover .brand-mark{
+/* =========================
+   WORK
+========================= */
 
-    transform:translate(-50%,-50%) rotate(135deg) scale(1.1);
+.work-grid{
+    margin-top:70px;
+
+    display:grid;
+    grid-template-columns:1.4fr .8fr;
+    gap:18px;
 }
 
-@keyframes rotateCircle{
-
-    to{
-        transform:translate(-50%,-50%) rotate(360deg);
-    }
-
-}
-
-
-/* ================= SOCIAL ART ================= */
-
-.social-art{
-    position:absolute;
-    inset:0;
-}
-
-.social-card{
-
-    position:absolute;
-
-    width:185px;
-    height:235px;
-
-    left:50%;
-    top:42%;
-
-    padding:10px;
-
-    border:1px solid rgba(255,255,255,.18);
-
-    background:#191d19;
-
-    box-shadow:20px 25px 50px rgba(0,0,0,.3);
-
-    transition:.6s cubic-bezier(.2,.8,.2,1);
-}
-
-.social-card:nth-child(1){
-
-    transform:translate(-75%,-50%) rotate(-13deg);
-}
-
-.social-card:nth-child(2){
-
-    transform:translate(-50%,-50%) rotate(0);
-
-    z-index:3;
-}
-
-.social-card:nth-child(3){
-
-    transform:translate(-25%,-50%) rotate(13deg);
-}
-
-.social-image{
-
-    height:140px;
-
+.work-card{
+    min-height:440px;
+    border:1px solid var(--line);
+    background:var(--card);
     position:relative;
-
     overflow:hidden;
 
-    background:linear-gradient(135deg,#303830,#101210);
+    transition:.5s var(--ease);
+    transform-style:preserve-3d;
 }
 
-.social-image:before{
+.work-card.large{
+    min-height:600px;
+}
 
-    content:"";
+.work-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(201,255,61,.3);
+}
 
+.work-visual{
     position:absolute;
-
-    width:110px;
-    height:110px;
-
-    border:1px solid var(--lime);
-
-    border-radius:50%;
-
-    right:-25px;
-    top:-10px;
-}
-
-.social-image:after{
-
-    content:"197";
-
-    position:absolute;
-
-    left:12px;
-    bottom:8px;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:34px;
-
-    color:white;
-}
-
-.social-line{
-
-    height:5px;
-
-    background:#596058;
-
-    margin-top:12px;
-
-    width:70%;
-}
-
-.social-line.small{
-
-    width:42%;
-
-    margin-top:7px;
-}
-
-.service:hover .social-card:nth-child(1){
-
-    transform:translate(-90%,-54%) rotate(-19deg);
-}
-
-.service:hover .social-card:nth-child(3){
-
-    transform:translate(-10%,-54%) rotate(19deg);
-}
-
-
-/* ================= POSTER ART ================= */
-
-.poster-art{
-
-    position:absolute;
-
     inset:0;
+
+    display:grid;
+    place-items:center;
+
+    background:
+        radial-gradient(circle at 50% 35%,rgba(201,255,61,.12),transparent 28%),
+        linear-gradient(135deg,#0c110d,#050705);
 }
 
-.poster-sheet{
+.work-visual:before{
+    content:"";
+    width:230px;
+    height:300px;
 
+    border:1px solid rgba(201,255,61,.3);
+
+    transform:
+        perspective(700px)
+        rotateX(55deg)
+        rotateZ(35deg);
+
+    box-shadow:
+        0 0 80px rgba(201,255,61,.08),
+        inset 0 0 40px rgba(201,255,61,.06);
+}
+
+.work-word{
     position:absolute;
 
-    width:205px;
-    height:270px;
+    font:700 clamp(50px,8vw,120px) "Space Grotesk";
+    letter-spacing:-7px;
 
-    left:50%;
-    top:32px;
+    transform:
+        translateZ(70px)
+        rotate(-8deg);
 
-    padding:18px;
+    color:var(--white);
 
-    transition:.6s;
-
-    box-shadow:20px 25px 45px rgba(0,0,0,.35);
+    text-shadow:
+        5px 5px 0 #20281a,
+        10px 10px 0 #151b11,
+        15px 15px 25px #000;
 }
 
-.poster-sheet.one{
-
-    background:#e7ece2;
-
-    color:#10120f;
-
-    transform:translateX(-50%) rotate(-8deg);
-
-    z-index:1;
-}
-
-.poster-sheet.two{
-
-    background:var(--lime);
-
-    color:#10120f;
-
-    transform:translateX(-50%) rotate(7deg);
+.work-info{
+    position:absolute;
+    left:25px;
+    right:25px;
+    bottom:25px;
 
     z-index:2;
 }
 
-.poster-sheet.three{
-
-    background:#191c19;
-
-    border:1px solid #444b43;
-
-    transform:translateX(-50%) rotate(0);
-
-    z-index:3;
-
-    color:white;
-}
-
-.poster-sheet strong{
-
-    display:block;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:34px;
-
-    line-height:.82;
-
-    letter-spacing:-.08em;
-}
-
-.poster-sheet small{
-
-    display:block;
-
-    margin-top:20px;
-
-    font:8px "DM Mono",monospace;
-
-    color:#7d857b;
-}
-
-.poster-orb{
-
-    width:75px;
-    height:75px;
-
-    border:1px solid var(--lime);
-
-    border-radius:50%;
-
-    margin-top:35px;
-}
-
-.service:hover .poster-sheet.one{
-
-    transform:translateX(-50%) translateX(-20px) rotate(-14deg);
-}
-
-.service:hover .poster-sheet.two{
-
-    transform:translateX(-50%) translateX(20px) rotate(13deg);
-}
-
-
-/* ================= PACKAGING ================= */
-
-.package-art{
-
-    position:absolute;
-
-    inset:0;
-
-    perspective:800px;
-}
-
-.box{
-
-    position:absolute;
-
-    width:210px;
-    height:220px;
-
-    left:50%;
-    top:45px;
-
-    transform:translateX(-50%) rotateY(-18deg) rotateX(4deg);
-
-    transition:.7s;
-
-    filter:drop-shadow(25px 30px 35px rgba(0,0,0,.4));
-}
-
-.box-front{
-
-    position:absolute;
-
-    inset:0;
-
-    background:#dfe6d8;
-
-    border:1px solid #899286;
-
-    color:#11140f;
-
-    padding:20px;
-}
-
-.box-front:before{
-
-    content:"COLA";
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:44px;
-
-    letter-spacing:-.09em;
-}
-
-.box-circle{
-
-    width:100px;
-    height:100px;
-
-    border:2px solid #111;
-
-    border-radius:50%;
-
-    display:grid;
-
-    place-items:center;
-
-    margin:20px auto;
-
-    text-align:center;
-
-    font:800 11px "DM Mono",monospace;
-}
-
-.box-side{
-
-    position:absolute;
-
-    width:40px;
-    height:212px;
-
-    right:-39px;
-    top:7px;
-
-    background:#99a291;
-
-    transform:skewY(-24deg);
-
-    transform-origin:left;
-}
-
-.box-top{
-
-    position:absolute;
-
-    width:210px;
-    height:18px;
-
-    top:-17px;
-    left:0;
-
-    background:#f0f4e9;
-
-    transform:skewX(-43deg);
-
-    transform-origin:left bottom;
-}
-
-.service:hover .box{
-
-    transform:
-        translateX(-50%)
-        rotateY(-29deg)
-        rotateX(8deg)
-        translateY(-13px);
-}
-
-
-/* ================= CATALOG ================= */
-
-.catalog-art{
-
-    position:absolute;
-
-    inset:0;
-
-    perspective:800px;
-}
-
-.book{
-
-    position:absolute;
-
-    width:330px;
-    height:220px;
-
-    left:50%;
-    top:60px;
-
-    display:flex;
-
-    transform:
-        translateX(-50%)
-        rotateZ(-4deg)
-        rotateX(7deg);
-
-    transition:.6s;
-
-    filter:drop-shadow(20px 30px 35px rgba(0,0,0,.4));
-}
-
-.book-page{
-
-    width:50%;
-
-    height:100%;
-
-    padding:17px;
-
-    background:#e7ece2;
-
-    color:#111;
-
-    border:1px solid #b8beb5;
-}
-
-.book-page.dark{
-
-    background:#191c19;
-
-    color:white;
-}
-
-.book-page h4{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:25px;
-
-    line-height:.85;
-
-    letter-spacing:-.07em;
-}
-
-.book-lines{
-
-    margin-top:18px;
-}
-
-.book-lines i{
-
-    display:block;
-
-    height:4px;
-
-    background:currentColor;
-
-    opacity:.25;
-
-    margin:7px 0;
-}
-
-.book-photo{
-
-    height:70px;
-
-    margin-top:15px;
-
-    background:#9da89a;
-}
-
-.service:hover .book{
-
-    transform:
-        translateX(-50%)
-        rotateZ(0deg)
-        rotateX(7deg)
-        translateY(-10px);
-}
-
-
-/* ================= PHOTO EDIT ================= */
-
-.edit-art{
-
-    position:absolute;
-
-    inset:0;
-}
-
-.edit-window{
-
-    position:absolute;
-
-    width:320px;
-    height:220px;
-
-    left:50%;
-    top:60px;
-
-    transform:translateX(-50%);
-
-    border:1px solid rgba(255,255,255,.18);
-
-    background:#181b18;
-
-    overflow:hidden;
-}
-
-.before-image,
-.after-image{
-
-    position:absolute;
-
-    top:0;
-    bottom:0;
-
-    width:50%;
-}
-
-.before-image{
-
-    left:0;
-
-    background:
-        radial-gradient(circle at 45% 42%,#747d73 0 24%,transparent 25%),
-        linear-gradient(145deg,#454d45,#111311);
-
-    filter:grayscale(1);
-}
-
-.after-image{
-
-    right:0;
-
-    background:
-        radial-gradient(circle at 55% 42%,var(--lime) 0 20%,transparent 21%),
-        linear-gradient(145deg,#293329,#101210);
-}
-
-.edit-line{
-
-    position:absolute;
-
-    width:2px;
-
-    top:0;
-    bottom:0;
-
-    left:50%;
-
-    background:white;
-
-    box-shadow:0 0 18px rgba(255,255,255,.4);
-}
-
-.edit-knob{
-
-    position:absolute;
-
-    width:30px;
-    height:30px;
-
-    border-radius:50%;
-
-    background:white;
-
-    color:#111;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:11px;
-}
-
-.edit-label{
-
-    position:absolute;
-
-    bottom:12px;
-
-    font:8px "DM Mono",monospace;
-}
-
-.edit-label.left{
-
-    left:12px;
-
-    color:#fff;
-}
-
-.edit-label.right{
-
-    right:12px;
-
+.work-info small{
     color:var(--lime);
+    font:10px "DM Mono";
 }
 
-.service:hover .edit-line{
-
-    animation:editMove 1.4s ease-in-out infinite alternate;
-}
-
-@keyframes editMove{
-
-    from{
-        left:38%;
-    }
-
-    to{
-        left:62%;
-    }
-
-}
-
-
-/* ================= WORK ================= */
-
-.work{
-
-    background:#0a0d0a;
-
-    border-bottom:1px solid var(--line);
-}
-
-.work-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(12,1fr);
-
-    gap:16px;
-}
-
-.project{
-
-    position:relative;
-
-    min-height:420px;
-
-    overflow:hidden;
-
-    border:1px solid var(--line);
-
-    background:#141814;
-}
-
-.project:nth-child(1){
-    grid-column:span 7;
-}
-
-.project:nth-child(2){
-    grid-column:span 5;
-}
-
-.project:nth-child(3){
-    grid-column:span 5;
-}
-
-.project:nth-child(4){
-    grid-column:span 7;
-}
-
-.project-bg{
-
-    position:absolute;
-
-    inset:0;
-
-    transition:.7s;
-}
-
-.project:hover .project-bg{
-    transform:scale(1.06);
-}
-
-.timevera{
-
-    background:
-        radial-gradient(circle at 50% 40%,rgba(201,255,61,.25),transparent 20%),
-        linear-gradient(145deg,#202720,#090b09);
-}
-
-.watch{
-
-    width:170px;
-    height:170px;
-
-    border:6px solid #8b9588;
-
-    border-radius:50%;
-
-    position:absolute;
-
-    left:50%;
-    top:45%;
-
-    transform:translate(-50%,-50%);
-
-    box-shadow:0 0 60px rgba(201,255,61,.08);
-}
-
-.watch:before{
-
-    content:"";
-
-    position:absolute;
-
-    width:3px;
-    height:57px;
-
-    background:var(--lime);
-
-    left:50%;
-    top:50%;
-
-    transform-origin:bottom;
-
-    transform:
-        translate(-50%,-100%)
-        rotate(30deg);
-}
-
-.watch:after{
-
-    content:"";
-
-    position:absolute;
-
-    width:3px;
-    height:48px;
-
-    background:white;
-
-    left:50%;
-    top:50%;
-
-    transform-origin:bottom;
-
-    transform:
-        translate(-50%,-100%)
-        rotate(125deg);
-}
-
-.cola-project{
-
-    background:
-        radial-gradient(circle at 60% 40%,rgba(201,255,61,.22),transparent 25%),
-        linear-gradient(135deg,#252d25,#0b0d0b);
-}
-
-.can{
-
-    width:105px;
-    height:240px;
-
-    position:absolute;
-
-    left:50%;
-    top:45%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(7deg);
-
-    background:#dfe6d8;
-
-    border-radius:26px 26px 20px 20px;
-
-    box-shadow:20px 30px 50px rgba(0,0,0,.4);
-}
-
-.can:before{
-
-    content:"COLA";
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-90deg);
-
-    color:#10130f;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:32px;
-}
-
-.social-project{
-
-    background:linear-gradient(135deg,#1e241e,#0c0f0c);
-}
-
-.phone{
-
-    width:150px;
-    height:275px;
-
-    position:absolute;
-
-    left:50%;
-    top:45%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-7deg);
-
-    border:5px solid #343b34;
-
-    border-radius:25px;
-
-    padding:8px;
-
-    background:#111;
-}
-
-.phone-screen{
-
-    width:100%;
-    height:100%;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(201,255,61,.7),
-            transparent 35%
-        ),
-        #252c25;
-
-    position:relative;
-}
-
-.phone-screen:after{
-
-    content:"SOCIAL";
-
-    position:absolute;
-
-    bottom:22px;
-    left:12px;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:28px;
-}
-
-.poster-project{
-
-    background:
-        radial-gradient(
-            circle at 52% 42%,
-            rgba(201,255,61,.16),
-            transparent 25%
-        ),
-        #151815;
-}
-
-.impact{
-
-    position:absolute;
-
-    left:50%;
-    top:45%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-8deg);
-
-    color:transparent;
-
-    -webkit-text-stroke:1px #d5dbd2;
-
-    white-space:nowrap;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:105px;
-
-    letter-spacing:-.1em;
-}
-
-.project-info{
-
-    position:absolute;
-
-    z-index:5;
-
-    left:25px;
-    right:25px;
-    bottom:23px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:end;
-}
-
-.project-info small{
-
-    font:8px "DM Mono",monospace;
-
-    color:#7d857b;
-
-    text-transform:uppercase;
-}
-
-.project-info h3{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:600;
-
-    font-size:21px;
-
+.work-info h3{
+    font:600 28px "Space Grotesk";
     margin-top:5px;
 }
 
-.project-arrow{
+.work-info p{
+    color:var(--soft);
+    font-size:12px;
+    margin-top:6px;
+}
 
-    width:40px;
-    height:40px;
+/* =========================
+   DEVELOPER
+========================= */
 
-    border:1px solid rgba(255,255,255,.15);
+.developer{
+    background:
+        radial-gradient(circle at 20% 70%,rgba(201,255,61,.08),transparent 30%),
+        #070a07;
+}
+
+.developer-layout{
+    margin-top:70px;
 
     display:grid;
-
-    place-items:center;
-
-    transition:.3s;
+    grid-template-columns:.8fr 1.2fr;
+    gap:25px;
+    align-items:stretch;
 }
 
-.project:hover .project-arrow{
-
-    background:var(--lime);
-
-    color:#080908;
-}
-
-
-/* ================= ABOUT ================= */
-
-.about{
-
-    border-bottom:1px solid var(--line);
-}
-
-.about-grid{
-
-    display:grid;
-
-    grid-template-columns:.75fr 1.25fr;
-
-    gap:100px;
-
-    align-items:center;
-}
-
-.about-visual{
-
-    height:390px;
+.dev-profile{
+    min-height:540px;
+    padding:35px;
 
     border:1px solid var(--line);
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.01));
 
     position:relative;
-
     overflow:hidden;
 
-    display:grid;
-
-    place-items:center;
+    transform-style:preserve-3d;
 }
 
-.about-visual:before{
-
-    content:"197";
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:210px;
-
-    color:transparent;
-
-    -webkit-text-stroke:1px rgba(255,255,255,.11);
-
-    letter-spacing:-.12em;
-}
-
-.about-visual:after{
-
-    content:"DESIGNER";
-
+.dev-profile:before{
+    content:"";
     position:absolute;
-
-    bottom:23px;
-    left:23px;
-
-    color:var(--lime);
-
-    font:9px "DM Mono",monospace;
-}
-
-.about-ring{
-
-    position:absolute;
-
-    width:190px;
-    height:190px;
-
-    border:1px solid rgba(201,255,61,.35);
-
+    width:300px;
+    height:300px;
     border-radius:50%;
 
-    animation:
-        rotateCircle
-        15s
-        linear
-        infinite
-        reverse;
+    background:var(--lime);
+    opacity:.06;
+    filter:blur(50px);
+
+    right:-150px;
+    top:-100px;
 }
 
-.about-content .section-number{
-    margin-bottom:22px;
+.dev-label{
+    color:var(--lime);
+    font:10px "DM Mono";
+    letter-spacing:2px;
 }
 
-.about-content h2{
+.dev-profile h3{
+    margin-top:35px;
 
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:clamp(45px,5.5vw,76px);
-
-    line-height:.9;
-
-    letter-spacing:-.07em;
+    font:700 55px/0.95 "Space Grotesk";
+    letter-spacing:-3px;
 }
 
-.about-content h2 span{
+.dev-profile h3 span{
     color:var(--lime);
 }
 
-.about-content p{
-
-    color:#8f978d;
-
-    line-height:1.85;
-
-    max-width:650px;
-
-    margin-top:24px;
-
-    font-size:14px;
+.dev-profile p{
+    margin-top:25px;
+    color:var(--soft);
+    line-height:1.8;
+    font-size:13px;
 }
 
-.skills{
-
+.tech-stack{
+    margin-top:30px;
     display:flex;
-
     flex-wrap:wrap;
-
     gap:8px;
-
-    margin-top:28px;
 }
 
-.skill{
-
-    border:1px solid var(--line);
-
+.tech{
     padding:9px 12px;
+    border:1px solid var(--line);
+    color:var(--soft);
 
-    font:9px "DM Mono",monospace;
+    font:10px "DM Mono",monospace;
 
-    text-transform:uppercase;
-
-    color:#a7aea4;
+    background:rgba(255,255,255,.025);
 }
 
+.tech:hover{
+    color:var(--lime);
+    border-color:var(--lime);
+}
 
-/* ================= PROCESS ================= */
+.code-window{
+    min-height:540px;
+    background:#030403;
+    border:1px solid var(--line);
+    overflow:hidden;
 
-.process{
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.45),
+        inset 0 0 80px rgba(201,255,61,.02);
+}
 
+.code-top{
+    height:45px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:0 18px;
     border-bottom:1px solid var(--line);
 }
 
-.process-list{
+.code-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#4d554c;
+}
 
+.code-title{
+    margin-left:auto;
+    color:var(--muted);
+    font:10px "DM Mono";
+}
+
+.code{
+    padding:30px;
+
+    font:13px/2 "DM Mono",monospace;
+    color:#aab3a4;
+}
+
+.code .lime{
+    color:var(--lime);
+}
+
+.code .white{
+    color:#f4f7ef;
+}
+
+.code .muted{
+    color:#596158;
+}
+
+.dev-bottom{
+    margin-top:30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+/* =========================
+   VISITOR ANALYTICS
+========================= */
+
+.analytics{
+    margin-top:25px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.stat{
+    padding:17px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.02);
+}
+
+.stat-label{
+    color:var(--muted);
+    font:9px "DM Mono";
+    letter-spacing:1px;
+}
+
+.stat-value{
+    margin-top:7px;
+    font:700 25px "Space Grotesk";
+    color:var(--white);
+}
+
+.stat-value.live{
+    color:var(--lime);
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process-list{
+    margin-top:70px;
     border-top:1px solid var(--line);
 }
 
-.process-row{
-
+.process{
     display:grid;
+    grid-template-columns:100px 1fr 100px;
 
-    grid-template-columns:100px 1fr 1fr 40px;
-
-    align-items:center;
-
-    gap:30px;
-
-    min-height:150px;
+    padding:30px 0;
 
     border-bottom:1px solid var(--line);
 
-    transition:.3s;
-}
-
-.process-row:hover{
-
-    padding-left:15px;
-
-    background:#0d100d;
-}
-
-.process-num{
-
-    color:var(--lime);
-
-    font:10px "DM Mono",monospace;
-}
-
-.process-row h3{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:600;
-
-    font-size:30px;
-
-    letter-spacing:-.05em;
-}
-
-.process-row p{
-
-    color:#7e877d;
-
-    font-size:12px;
-
-    line-height:1.7;
-}
-
-.process-symbol{
-
-    font-size:21px;
+    align-items:center;
 
     transition:.4s;
 }
 
-.process-row:hover .process-symbol{
-
-    color:var(--lime);
-
-    transform:rotate(45deg);
+.process:hover{
+    padding-left:20px;
+    padding-right:20px;
+    background:rgba(201,255,61,.025);
 }
 
+.process-number{
+    color:var(--lime);
+    font:12px "DM Mono";
+}
 
-/* ================= CTA ================= */
+.process h3{
+    font:600 34px "Space Grotesk";
+}
 
-.cta{
+.process p{
+    margin-top:7px;
+    color:var(--muted);
+    font-size:12px;
+}
 
-    padding:160px 0;
+.process-arrow{
+    text-align:right;
+    font-size:30px;
+    color:var(--lime);
+}
 
-    text-align:center;
+/* =========================
+   AI DESIGN LAB
+========================= */
 
+.ai-section{
+    min-height:100vh;
+
+    background:
+        radial-gradient(circle at 50% 50%,rgba(201,255,61,.07),transparent 35%);
+}
+
+.ai-console{
+    max-width:1100px;
+    margin:70px auto 0;
+
+    border:1px solid rgba(201,255,61,.22);
+
+    background:
+        linear-gradient(145deg,
+        rgba(255,255,255,.065),
+        rgba(255,255,255,.015));
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 50px 150px rgba(0,0,0,.5),
+        0 0 80px rgba(201,255,61,.04);
+
+    transform-style:preserve-3d;
     overflow:hidden;
 }
 
-.cta-glow{
-
-    position:absolute;
-
-    width:600px;
-    height:600px;
-
-    border-radius:50%;
-
-    background:rgba(201,255,61,.06);
-
-    filter:blur(70px);
-
-    left:50%;
-    top:20%;
-
-    transform:translateX(-50%);
-}
-
-.cta-content{
-
-    position:relative;
-
-    z-index:2;
-}
-
-.cta-label{
-
-    color:var(--lime);
-
-    font:9px "DM Mono",monospace;
-
-    letter-spacing:.12em;
-}
-
-.cta h2{
-
-    max-width:1050px;
-
-    margin:25px auto 30px;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:clamp(54px,8vw,110px);
-
-    line-height:.84;
-
-    letter-spacing:-.08em;
-}
-
-.cta h2 span{
-
-    display:block;
-
-    color:transparent;
-
-    -webkit-text-stroke:1px rgba(255,255,255,.6);
-}
-
-.cta p{
-
-    max-width:550px;
-
-    margin:0 auto;
-
-    color:#8b948a;
-
-    font-size:14px;
-
-    line-height:1.8;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer{
-
-    border-top:1px solid var(--line);
-
-    padding:28px 0;
-}
-
-.footer{
+.ai-top{
+    height:60px;
 
     display:flex;
-
-    justify-content:space-between;
-
     align-items:center;
 
-    gap:20px;
-}
-
-.footer-copy{
-
-    color:#697169;
-
-    font:9px "DM Mono",monospace;
-}
-
-.footer-links{
-
-    display:flex;
-
-    gap:24px;
-}
-
-.footer-links a{
-
-    color:#7f887e;
-
-    font:9px "DM Mono",monospace;
-
-    text-transform:uppercase;
-}
-
-.footer-links a:hover{
-    color:var(--lime);
-}
-
-
-/* ================= WALKING DESIGNER ================= */
-
-.walker{
-
-    position:fixed;
-
-    left:-70px;
-
-    bottom:15px;
-
-    width:55px;
-    height:78px;
-
-    z-index:3000;
-
-    pointer-events:none;
-
-    animation:
-        walk
-        18s
-        linear
-        infinite;
-}
-
-.walk-head{
-
-    position:absolute;
-
-    width:20px;
-    height:20px;
-
-    background:#d7ad87;
-
-    border-radius:50%;
-
-    left:18px;
-    top:0;
-}
-
-.walk-hair{
-
-    position:absolute;
-
-    width:21px;
-    height:11px;
-
-    background:#171917;
-
-    border-radius:15px 15px 4px 4px;
-
-    left:17px;
-    top:-2px;
-}
-
-.walk-body{
-
-    position:absolute;
-
-    width:25px;
-    height:30px;
-
-    left:16px;
-    top:20px;
-
-    border-radius:8px 8px 3px 3px;
-
-    background:#252a25;
-}
-
-.walk-shirt{
-
-    position:absolute;
-
-    width:7px;
-    height:15px;
-
-    left:25px;
-    top:24px;
-
-    background:var(--lime);
-}
-
-.arm{
-
-    position:absolute;
-
-    width:5px;
-    height:24px;
-
-    top:23px;
-
-    background:#d7ad87;
-
-    border-radius:5px;
-
-    transform-origin:top;
-}
-
-.arm.a{
-
-    left:14px;
-
-    animation:
-        armA
-        .55s
-        infinite
-        alternate;
-}
-
-.arm.b{
-
-    left:37px;
-
-    animation:
-        armB
-        .55s
-        infinite
-        alternate;
-}
-
-.leg{
-
-    position:absolute;
-
-    width:6px;
-    height:27px;
-
-    top:47px;
-
-    background:#171917;
-
-    border-radius:5px;
-
-    transform-origin:top;
-}
-
-.leg.a{
-
-    left:20px;
-
-    animation:
-        legA
-        .55s
-        infinite
-        alternate;
-}
-
-.leg.b{
-
-    left:30px;
-
-    animation:
-        legB
-        .55s
-        infinite
-        alternate;
-}
-
-.bag{
-
-    position:absolute;
-
-    width:14px;
-    height:19px;
-
-    border:2px solid #a5ada3;
-
-    left:40px;
-    top:27px;
-
-    border-radius:3px;
-}
-
-@keyframes walk{
-
-    0%{
-        transform:translateX(0);
-    }
-
-    45%{
-        transform:translateX(calc(50vw - 20px));
-    }
-
-    100%{
-        transform:translateX(calc(100vw + 140px));
-    }
-
-}
-
-@keyframes armA{
-    to{
-        transform:rotate(27deg);
-    }
-}
-
-@keyframes armB{
-    to{
-        transform:rotate(-27deg);
-    }
-}
-
-@keyframes legA{
-    to{
-        transform:rotate(25deg);
-    }
-}
-
-@keyframes legB{
-    to{
-        transform:rotate(-25deg);
-    }
-}
-
-
-/* ================= AI ================= */
-
-.ai-button{
-
-    position:fixed;
-
-    right:22px;
-    bottom:20px;
-
-    width:54px;
-    height:54px;
-
-    border:1px solid var(--lime);
-
-    background:#101310;
-
-    color:var(--lime);
-
-    z-index:5000;
-
-    cursor:pointer;
-
-    font:800 11px "DM Mono",monospace;
-
-    transition:.3s;
-}
-
-.ai-button:hover{
-
-    background:var(--lime);
-
-    color:#080908;
-
-    transform:translateY(-4px);
-}
-
-.ai-panel{
-
-    position:fixed;
-
-    right:22px;
-    bottom:87px;
-
-    width:335px;
-
-    background:#101310;
-
-    border:1px solid rgba(255,255,255,.16);
-
-    z-index:4999;
-
-    box-shadow:0 30px 80px rgba(0,0,0,.55);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transform:translateY(15px);
-
-    transition:.3s;
-}
-
-.ai-panel.open{
-
-    opacity:1;
-
-    visibility:visible;
-
-    transform:none;
-}
-
-.ai-header{
-
-    padding:15px 17px;
+    padding:0 20px;
 
     border-bottom:1px solid var(--line);
+}
+
+.ai-brand{
+    font:11px "DM Mono";
+    letter-spacing:2px;
+    color:var(--lime);
+}
+
+.ai-status{
+    margin-left:auto;
 
     display:flex;
+    align-items:center;
+    gap:8px;
 
-    justify-content:space-between;
-}
-
-.ai-header strong{
-
-    color:var(--lime);
-
-    font:9px "DM Mono",monospace;
-}
-
-.ai-close{
-
-    background:none;
-
-    border:0;
-
-    color:#777;
-
-    cursor:pointer;
-
-    font-size:18px;
+    font:9px "DM Mono";
+    color:var(--muted);
 }
 
 .ai-body{
-
-    padding:17px;
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    min-height:500px;
 }
 
-.ai-body p{
+.ai-visual{
+    position:relative;
+    display:grid;
+    place-items:center;
 
-    color:#969e94;
+    border-right:1px solid var(--line);
 
-    font-size:11px;
+    background:
+        linear-gradient(
+            rgba(201,255,61,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(201,255,61,.025) 1px,
+            transparent 1px
+        );
 
-    line-height:1.6;
+    background-size:35px 35px;
 }
 
-.ai-options{
+.ai-orb{
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    position:relative;
+
+    background:
+        radial-gradient(circle at 35% 30%,#e8ffc0,transparent 5%),
+        radial-gradient(circle,#c9ff3d 0%,#6e921d 30%,#11180b 68%);
+
+    box-shadow:
+        0 0 100px rgba(201,255,61,.15),
+        inset 20px 20px 50px rgba(255,255,255,.15),
+        inset -30px -30px 60px rgba(0,0,0,.7);
+
+    animation:aiFloat 4s ease-in-out infinite;
+
+    transform-style:preserve-3d;
+}
+
+@keyframes aiFloat{
+    50%{
+        transform:translateY(-12px) rotateY(18deg) rotateX(8deg);
+    }
+}
+
+.ai-orb:before,
+.ai-orb:after{
+    content:"";
+    position:absolute;
+    inset:-25px;
+
+    border:1px solid rgba(201,255,61,.3);
+    border-radius:50%;
+
+    transform:rotateX(70deg);
+}
+
+.ai-orb:after{
+    transform:rotateY(70deg);
+}
+
+.ai-orb-text{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    font:700 19px "Space Grotesk";
+    letter-spacing:4px;
+    color:#10160b;
+}
+
+.ai-console-grid{
+    position:absolute;
+    left:25px;
+    right:25px;
+    bottom:25px;
 
     display:grid;
-
+    grid-template-columns:repeat(3,1fr);
     gap:7px;
-
-    margin-top:13px;
 }
 
-.ai-option{
-
+.ai-mini{
+    padding:10px;
     border:1px solid var(--line);
-
-    background:#171a17;
-
-    color:#aeb6ac;
-
-    padding:11px;
-
-    text-align:left;
-
-    cursor:pointer;
-
-    font:9px "DM Mono",monospace;
-
-    transition:.2s;
+    background:rgba(0,0,0,.25);
 }
 
-.ai-option:hover{
+.ai-mini small{
+    color:var(--muted);
+    font:8px "DM Mono";
+}
 
-    border-color:var(--lime);
+.ai-mini strong{
+    display:block;
+    margin-top:4px;
+    color:var(--lime);
+    font:12px "DM Mono";
+}
 
+.ai-interface{
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+}
+
+.ai-heading{
+    font:600 30px "Space Grotesk";
+}
+
+.ai-heading span{
     color:var(--lime);
 }
 
-.ai-answer{
-
-    display:none;
-
-    margin-top:13px;
-
-    padding:12px;
-
-    border-left:2px solid var(--lime);
-
-    background:#171a17;
-
-    color:#aeb6ac;
-
-    font-size:11px;
-
+.ai-sub{
+    margin-top:8px;
+    color:var(--muted);
+    font-size:12px;
     line-height:1.7;
 }
 
+.ai-modes{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
 
-/* ================= REVEAL ================= */
+.ai-mode{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+    color:var(--soft);
+
+    padding:9px 12px;
+
+    font:9px "DM Mono";
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.ai-mode.active,
+.ai-mode:hover{
+    color:#050705;
+    background:var(--lime);
+    border-color:var(--lime);
+}
+
+.ai-response{
+    flex:1;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    min-height:160px;
+
+    border:1px solid var(--line);
+    background:#060806;
+
+    font:12px/1.8 "DM Mono";
+    color:var(--soft);
+
+    position:relative;
+}
+
+.ai-response:before{
+    content:"AI RESPONSE";
+    position:absolute;
+    right:12px;
+    top:10px;
+
+    color:#3e463d;
+    font:8px "DM Mono";
+}
+
+.ai-input-row{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.ai-input{
+    flex:1;
+
+    height:50px;
+
+    border:1px solid var(--line);
+    outline:none;
+
+    background:#060806;
+    color:var(--white);
+
+    padding:0 15px;
+
+    font:11px "DM Mono";
+}
+
+.ai-input:focus{
+    border-color:var(--lime);
+}
+
+.ai-generate{
+    width:150px;
+    border:0;
+
+    background:var(--lime);
+    color:#050705;
+
+    font:700 10px "DM Mono";
+    cursor:pointer;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-card{
+    min-height:430px;
+
+    border:1px solid var(--line);
+    background:var(--card);
+
+    display:grid;
+    place-items:center;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+}
+
+.about-card:before{
+    content:"197";
+
+    font:700 180px "Space Grotesk";
+    color:transparent;
+    -webkit-text-stroke:1px rgba(201,255,61,.25);
+
+    transform:
+        perspective(700px)
+        rotateX(55deg)
+        rotateZ(-30deg);
+
+    text-shadow:
+        20px 20px 0 rgba(201,255,61,.03),
+        40px 40px 0 rgba(201,255,61,.02);
+}
+
+.about-copy h2{
+    font:700 clamp(45px,6vw,85px) "Space Grotesk";
+    line-height:.9;
+    letter-spacing:-5px;
+}
+
+.about-copy h2 span{
+    color:var(--lime);
+}
+
+.about-copy p{
+    margin-top:30px;
+    max-width:620px;
+
+    color:var(--soft);
+    line-height:1.9;
+    font-size:14px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    min-height:75vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    background:
+        radial-gradient(circle at center,rgba(201,255,61,.09),transparent 40%);
+}
+
+.contact h2{
+    font:700 clamp(55px,10vw,145px) "Space Grotesk";
+    line-height:.82;
+    letter-spacing:-8px;
+
+    text-shadow:
+        7px 7px 0 #263119,
+        14px 14px 0 #151c0e;
+}
+
+.contact h2 span{
+    color:var(--lime);
+}
+
+.contact p{
+    max-width:500px;
+    margin:30px auto;
+
+    color:var(--soft);
+    line-height:1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:35px 7vw;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-top:1px solid var(--line);
+
+    color:var(--muted);
+    font:10px "DM Mono";
+}
+
+footer a{
+    color:var(--lime);
+    text-decoration:none;
+}
+
+/* =========================
+   REVEAL
+========================= */
 
 .reveal{
-
     opacity:0;
-
-    transform:translateY(25px);
-
+    transform:translateY(60px);
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 1s var(--ease),
+        transform 1s var(--ease);
 }
 
 .reveal.visible{
-
     opacity:1;
-
     transform:none;
 }
 
+/* =========================
+   MOBILE
+========================= */
 
-/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
 
-@media(max-width:950px){
-
-    .container{
-        width:min(var(--max),calc(100% - 38px));
+    body{
+        cursor:auto;
     }
 
-    .nav-menu{
+    .cursor,
+    .cursor-ring{
         display:none;
     }
 
-    .hero-inner{
-        grid-template-columns:1fr;
+    .nav{
+        padding:18px 5vw;
     }
 
-    .hero-visual{
-        height:530px;
-    }
-
-    .section-top{
-        grid-template-columns:1fr;
-
-        gap:25px;
-    }
-
-    .about-grid{
-        grid-template-columns:1fr;
-
-        gap:45px;
-    }
-
-    .process-row{
-        grid-template-columns:70px 1fr 40px;
-    }
-
-    .process-row p{
+    .nav-links{
         display:none;
     }
 
-}
-
-@media(max-width:650px){
-
-    .container{
-        width:calc(100% - 28px);
-    }
-
-    .header{
-        padding:13px 0;
-    }
-
-    .logo{
-        font-size:14px;
-    }
-
-    .logo-box{
-        width:30px;
-        height:30px;
-    }
-
-    .nav-contact{
-        padding:9px 11px;
-
-        font-size:8px!important;
-    }
-
-    .hero{
-        padding:110px 0 55px;
-    }
-
-    .hero h1{
-        font-size:54px;
-    }
-
-    .hero-description{
-        font-size:13px;
-    }
-
-    .hero-visual{
-        height:410px;
-    }
-
-    .visual-main{
-        width:285px;
-        height:365px;
-    }
-
-    .visual-main:before{
-        width:270px;
-        height:270px;
-    }
-
-    .visual-main:after{
-        width:120px;
-        height:120px;
-    }
-
-    .visual-title{
-        font-size:58px;
-        bottom:82px;
-    }
-
-    .floating-tag{
+    .scroll-rail{
         display:none;
     }
 
-    .section{
-        padding:90px 0;
+    section{
+        padding:100px 6vw;
     }
 
-    .section-title{
-        font-size:46px;
+    .hero-grid,
+    .developer-layout,
+    .ai-body,
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .hero-stage{
+        height:420px;
+    }
+
+    .orbit-system{
+        width:300px;
+        height:300px;
+    }
+
+    .core{
+        width:130px;
+        height:130px;
     }
 
     .service-grid{
         grid-template-columns:1fr;
     }
 
-    .service{
-        height:440px;
-    }
-
-    .service h3{
-        font-size:30px;
-    }
-
     .work-grid{
         grid-template-columns:1fr;
     }
 
-    .project:nth-child(n){
-        grid-column:span 1;
-
-        min-height:370px;
+    .work-card.large{
+        min-height:450px;
     }
 
-    .impact{
-        font-size:75px;
+    .ai-visual{
+        min-height:430px;
+        border-right:0;
+        border-bottom:1px solid var(--line);
     }
 
-    .about-visual{
-        height:270px;
+    .process{
+        grid-template-columns:50px 1fr 40px;
     }
 
-    .about-visual:before{
-        font-size:140px;
+    .process h3{
+        font-size:25px;
     }
 
-    .process-row{
-        grid-template-columns:55px 1fr 30px;
-
-        min-height:120px;
+    .analytics{
+        grid-template-columns:1fr;
     }
 
-    .process-row h3{
-        font-size:24px;
+    .dev-profile h3{
+        font-size:45px;
     }
 
-    .cta{
-        padding:110px 0;
-    }
-
-    .cta h2{
-        font-size:54px;
-    }
-
-    .footer{
-
+    .ai-input-row{
         flex-direction:column;
-
-        align-items:flex-start;
     }
 
-    .footer-links{
-
-        flex-wrap:wrap;
+    .ai-generate{
+        width:100%;
+        height:50px;
     }
 
-    .walker{
-        display:none;
+    footer{
+        flex-direction:column;
+        gap:15px;
     }
-
-    .ai-button{
-
-        right:14px;
-
-        bottom:14px;
-    }
-
-    .ai-panel{
-
-        left:12px;
-
-        right:12px;
-
-        width:auto;
-
-        bottom:82px;
-    }
-
 }
 
-@media(prefers-reduced-motion:reduce){
+@media(max-width:500px){
 
-    *,
-    *:before,
-    *:after{
-
-        animation:none!important;
-
-        transition:none!important;
-
-        scroll-behavior:auto!important;
+    .hero-title{
+        font-size:60px;
+        letter-spacing:-5px;
     }
 
+    .hero-title .depth{
+        transform:translate3d(7px,8px,-20px);
+    }
+
+    .section-title{
+        letter-spacing:-3px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .ai-orb{
+        width:180px;
+        height:180px;
+    }
+
+    .contact h2{
+        letter-spacing:-5px;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- HEADER -->
-
-<header class="header">
-
-<div class="container nav">
-
-<a href="index.html" class="logo">
-
-<div class="logo-box">
-<span>D</span>
-</div>
-
-DESIGNER 197
-
-</a>
+<!-- CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
 
 
-<nav class="nav-menu">
+<!-- SCROLL NAV -->
 
-<a href="#work">Work</a>
+<div class="scroll-rail">
 
-<a href="#services">Services</a>
-
-<a href="#process">Process</a>
-
-<a href="#about">About</a>
-
-<a href="#contact" class="nav-contact">
-Start Project ↗
-</a>
-
-</nav>
+    <a class="scroll-dot active" href="#home" data-label="01 HOME"></a>
+    <a class="scroll-dot" href="#services" data-label="02 SERVICES"></a>
+    <a class="scroll-dot" href="#work" data-label="03 WORK"></a>
+    <a class="scroll-dot" href="#developer" data-label="04 DEVELOPER"></a>
+    <a class="scroll-dot" href="#process" data-label="05 PROCESS"></a>
+    <a class="scroll-dot" href="#ai" data-label="06 AI LAB"></a>
+    <a class="scroll-dot" href="#about" data-label="07 ABOUT"></a>
+    <a class="scroll-dot" href="#contact" data-label="08 CONTACT"></a>
 
 </div>
+
+
+<!-- NAV -->
+
+<header class="nav">
+
+    <a href="#home" class="logo">
+        DESIGNER <span>197</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#developer">Developer</a>
+        <a href="#ai">AI Lab</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-availability">
+        <span class="live-dot"></span>
+        AVAILABLE FOR WORK
+    </div>
 
 </header>
 
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="home">
 
-<div class="hero-grid"></div>
+    <div class="hero-grid">
 
-<div class="hero-glow"></div>
+        <div class="hero-copy reveal">
 
+            <div class="hero-kicker">
+                VISUAL DESIGN × DIGITAL EXPERIENCES
+            </div>
 
-<div class="container hero-inner">
+            <h1 class="hero-title">
 
+                <span class="line">
+                    <span class="depth">I MAKE</span>
+                    I MAKE
+                </span>
 
-<div class="hero-text reveal">
+                <span class="line">
+                    <span class="depth">IDEAS</span>
+                    <span class="lime">IDEAS</span>
+                </span>
 
-<div class="kicker">
+                <span class="line">
+                    <span class="depth">UNFORGETTABLE.</span>
+                    UNFORGETTABLE.
+                </span>
 
-<span class="kicker-dot"></span>
+            </h1>
 
-Independent Graphic Designer
+            <p class="hero-description">
+                I'm Harsh Chawla — a Graphic Designer & Web Developer
+                creating bold identities, social visuals, packaging,
+                print systems and modern digital experiences.
+            </p>
 
-</div>
+            <div class="hero-buttons">
 
+                <a href="#work" class="btn primary">
+                    VIEW SELECTED WORK ↗
+                </a>
 
-<h1>
+                <a href="#developer" class="btn">
+                    WEB DEVELOPER →
+                </a>
 
-I make
+            </div>
 
-<span class="outline">
-ideas
-</span>
-
-look
-
-<span class="lime">
-unforgettable.
-</span>
-
-</h1>
-
-
-<p class="hero-description">
-
-Visual design for brands, businesses and creators.
-From identity and packaging to social media,
-posters, print and photo editing — I turn ideas
-into clear, confident visuals.
-
-</p>
-
-
-<div class="hero-buttons">
-
-<a href="#work" class="button primary">
-Explore My Work ↗
-</a>
-
-<a href="#services" class="button secondary">
-What I Design
-</a>
-
-</div>
-
-</div>
+        </div>
 
 
-<div class="hero-visual reveal">
+        <div class="hero-stage reveal">
 
+            <div class="orbit-system">
 
-<div class="floating-tag tag-one">
-BRAND IDENTITY / 01
-</div>
+                <div class="orbit">
+                    <span class="orbit-dot"></span>
+                </div>
 
-<div class="floating-tag tag-two">
-VISUAL DESIGN / 197
-</div>
+                <div class="orbit">
+                    <span class="orbit-dot"></span>
+                </div>
 
-<div class="floating-tag tag-three">
-PS · CANVA · CREATIVE
-</div>
+                <div class="orbit">
+                    <span class="orbit-dot"></span>
+                </div>
 
+                <div class="core">
+                    <div class="core-text"></div>
+                </div>
 
-<div class="visual-main">
+            </div>
 
-<div class="visual-label">
+        </div>
 
-<span>DESIGN STUDIO</span>
-
-<span>2026</span>
-
-</div>
-
-
-<div class="visual-number">
-D/197 — VISUAL SYSTEM
-</div>
-
-
-<div class="visual-title">
-
-MAKE
-
-<span>IT</span>
-
-MATTER.
-
-</div>
-
-
-<div class="visual-bottom">
-
-<span>
-BRANDING / DIGITAL / PRINT
-</span>
-
-<span class="visual-d">
-D197
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- TICKER -->
+<!-- MARQUEE -->
 
-<div class="ticker">
+<div class="marquee">
 
-<div class="ticker-track">
+    <div class="marquee-track">
 
-<span>LOGO <b>✦</b> BRANDING</span>
+        <span>BRAND</span>
+        <span>IDENTITY</span>
+        <span>DIGITAL</span>
+        <span>PACKAGING</span>
+        <span>WEB</span>
+        <span>CREATIVE</span>
 
-<span>SOCIAL MEDIA <b>✦</b></span>
+        <span>BRAND</span>
+        <span>IDENTITY</span>
+        <span>DIGITAL</span>
+        <span>PACKAGING</span>
+        <span>WEB</span>
+        <span>CREATIVE</span>
 
-<span>POSTERS <b>✦</b></span>
-
-<span>PACKAGING <b>✦</b></span>
-
-<span>PRINT <b>✦</b></span>
-
-<span>PHOTO EDITING <b>✦</b></span>
-
-
-<span>LOGO <b>✦</b> BRANDING</span>
-
-<span>SOCIAL MEDIA <b>✦</b></span>
-
-<span>POSTERS <b>✦</b></span>
-
-<span>PACKAGING <b>✦</b></span>
-
-<span>PRINT <b>✦</b></span>
-
-<span>PHOTO EDITING <b>✦</b></span>
-
-</div>
+    </div>
 
 </div>
 
 
 <!-- SERVICES -->
 
-<section class="section services" id="services">
+<section class="services" id="services">
 
-<div class="container">
+    <div class="section-label">02 / WHAT I DO</div>
 
+    <h2 class="section-title reveal">
+        DESIGN WITH<br>
+        <span>PURPOSE.</span>
+    </h2>
 
-<div class="section-top reveal">
 
-<div>
+    <div class="service-grid">
 
-<div class="section-number">
-01 / SERVICES
-</div>
 
-<h2 class="section-title">
+        <article class="service-card reveal">
 
-Six creative
-<span>directions.</span>
+            <div class="service-number">01</div>
 
-</h2>
+            <div class="service-icon">◈</div>
 
-</div>
+            <h3>Logo & Branding</h3>
 
+            <p>
+                Distinctive logos, visual identity systems
+                and brand direction built to be remembered.
+            </p>
 
-<p class="section-description">
+            <a class="service-link" href="logo-branding.html">
+                EXPLORE ↗
+            </a>
 
-Need one design or a complete visual system?
-These are the core services I provide to help
-a brand look more professional, consistent
-and memorable.
+        </article>
 
-</p>
 
-</div>
+        <article class="service-card reveal">
 
+            <div class="service-number">02</div>
 
-<div class="service-grid">
+            <div class="service-icon">✦</div>
 
+            <h3>Social Media</h3>
 
-<!-- 01 -->
+            <p>
+                Scroll-stopping social creatives,
+                campaigns and consistent visual systems.
+            </p>
 
-<a href="logo-branding.html" class="service reveal">
+            <a class="service-link" href="social-media-design.html">
+                EXPLORE ↗
+            </a>
 
-<span class="service-no">01</span>
+        </article>
 
-<span class="service-top">
-Identity / Strategy
-</span>
 
+        <article class="service-card reveal">
 
-<div class="brand-art">
+            <div class="service-number">03</div>
 
-<div class="brand-grid"></div>
+            <div class="service-icon">▣</div>
 
-<div class="brand-circle"></div>
+            <h3>Packaging</h3>
 
-<div class="brand-mark">
-<span>D</span>
-</div>
+            <p>
+                Product packaging that combines shelf impact,
+                hierarchy and strong brand storytelling.
+            </p>
 
-</div>
+            <a class="service-link" href="packaging-design.html">
+                EXPLORE ↗
+            </a>
 
+        </article>
 
-<div class="service-info">
 
-<div class="service-type">
-Build recognition
-</div>
+        <article class="service-card reveal">
 
-<h3>
-Logo & Branding
-</h3>
+            <div class="service-number">04</div>
 
-<p>
-Logo design, brand identity, visual systems,
-typography and creative direction for businesses
-that want a recognizable presence.
-</p>
+            <div class="service-icon">▤</div>
 
-</div>
+            <h3>Posters & Banners</h3>
 
+            <p>
+                High-impact promotional graphics for campaigns,
+                events and businesses.
+            </p>
 
-<div class="service-arrow">
-↗
-</div>
+            <a class="service-link" href="posters-banners.html">
+                EXPLORE ↗
+            </a>
 
-</a>
+        </article>
 
 
-<!-- 02 -->
+        <article class="service-card reveal">
 
-<a href="social-media-design.html" class="service reveal">
+            <div class="service-number">05</div>
 
-<span class="service-no">02</span>
+            <div class="service-icon">▥</div>
 
-<span class="service-top">
-Digital / Content
-</span>
+            <h3>Catalogue & Print</h3>
 
+            <p>
+                Professional print layouts, catalogues,
+                brochures and business materials.
+            </p>
 
-<div class="social-art">
+            <a class="service-link" href="catalogue-print.html">
+                EXPLORE ↗
+            </a>
 
-<div class="social-card">
+        </article>
 
-<div class="social-image"></div>
 
-<div class="social-line"></div>
+        <article class="service-card reveal">
 
-<div class="social-line small"></div>
+            <div class="service-number">06</div>
 
-</div>
+            <div class="service-icon">◉</div>
 
+            <h3>Photo Editing</h3>
 
-<div class="social-card">
+            <p>
+                Product enhancement, retouching,
+                background cleanup and creative manipulation.
+            </p>
 
-<div class="social-image"></div>
+            <a class="service-link" href="photo-editing.html">
+                EXPLORE ↗
+            </a>
 
-<div class="social-line"></div>
+        </article>
 
-<div class="social-line small"></div>
-
-</div>
-
-
-<div class="social-card">
-
-<div class="social-image"></div>
-
-<div class="social-line"></div>
-
-<div class="social-line small"></div>
-
-</div>
-
-</div>
-
-
-<div class="service-info">
-
-<div class="service-type">
-Stop the scroll
-</div>
-
-<h3>
-Social Media Design
-</h3>
-
-<p>
-Instagram posts, promotional creatives,
-campaigns, stories and branded content
-designed for digital attention.
-</p>
-
-</div>
-
-
-<div class="service-arrow">
-↗
-</div>
-
-</a>
-
-
-<!-- 03 -->
-
-<a href="posters-banners.html" class="service reveal">
-
-<span class="service-no">03</span>
-
-<span class="service-top">
-Campaign / Promotion
-</span>
-
-
-<div class="poster-art">
-
-<div class="poster-sheet one">
-
-<strong>
-MAKE<br>
-NOISE.
-</strong>
-
-<small>
-POSTER / 01
-</small>
-
-<div class="poster-orb"></div>
-
-</div>
-
-
-<div class="poster-sheet two">
-
-<strong>
-BIG<br>
-IDEAS.
-</strong>
-
-<small>
-CAMPAIGN / 02
-</small>
-
-</div>
-
-
-<div class="poster-sheet three">
-
-<strong>
-VISUAL<br>
-IMPACT.
-</strong>
-
-<small>
-DESIGN / 03
-</small>
-
-</div>
-
-</div>
-
-
-<div class="service-info">
-
-<div class="service-type">
-Get attention
-</div>
-
-<h3>
-Posters & Banners
-</h3>
-
-<p>
-Promotional posters, event graphics, advertising
-banners and campaign visuals that communicate
-the message fast.
-</p>
-
-</div>
-
-
-<div class="service-arrow">
-↗
-</div>
-
-</a>
-
-
-<!-- 04 -->
-
-<a href="packaging-design.html" class="service reveal">
-
-<span class="service-no">04</span>
-
-<span class="service-top">
-Product / Packaging
-</span>
-
-
-<div class="package-art">
-
-<div class="box">
-
-<div class="box-front">
-
-<div class="box-circle">
-ORIGINAL<br>
-DESIGN
-</div>
-
-<small>
-PRODUCT / PACKAGING
-</small>
-
-</div>
-
-<div class="box-side"></div>
-
-<div class="box-top"></div>
-
-</div>
-
-</div>
-
-
-<div class="service-info">
-
-<div class="service-type">
-Make products stand out
-</div>
-
-<h3>
-Packaging Design
-</h3>
-
-<p>
-Labels, boxes, pouches, product graphics and
-packaging concepts designed to make products
-feel polished and market-ready.
-</p>
-
-</div>
-
-
-<div class="service-arrow">
-↗
-</div>
-
-</a>
-
-
-<!-- 05 -->
-
-<a href="catalogue-print.html" class="service reveal">
-
-<span class="service-no">05</span>
-
-<span class="service-top">
-Editorial / Print
-</span>
-
-
-<div class="catalog-art">
-
-<div class="book">
-
-<div class="book-page">
-
-<h4>
-CATALOG<br>
-2026
-</h4>
-
-<div class="book-lines">
-
-<i></i>
-<i></i>
-<i></i>
-
-</div>
-
-<div class="book-photo"></div>
-
-</div>
-
-
-<div class="book-page dark">
-
-<h4>
-PRINT<br>
-WORK.
-</h4>
-
-<div class="book-lines">
-
-<i></i>
-<i></i>
-<i></i>
-
-</div>
-
-<div class="book-photo"></div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="service-info">
-
-<div class="service-type">
-Structure information
-</div>
-
-<h3>
-Catalogue & Print
-</h3>
-
-<p>
-Catalogues, brochures, flyers, menus, business
-materials and print layouts with clean visual
-hierarchy and professional presentation.
-</p>
-
-</div>
-
-
-<div class="service-arrow">
-↗
-</div>
-
-</a>
-
-
-<!-- 06 -->
-
-<a href="photo-editing.html" class="service reveal">
-
-<span class="service-no">06</span>
-
-<span class="service-top">
-Retouch / Composite
-</span>
-
-
-<div class="edit-art">
-
-<div class="edit-window">
-
-<div class="before-image"></div>
-
-<div class="after-image"></div>
-
-<div class="edit-line"></div>
-
-<div class="edit-knob">
-↔
-</div>
-
-<span class="edit-label left">
-BEFORE
-</span>
-
-<span class="edit-label right">
-AFTER
-</span>
-
-</div>
-
-</div>
-
-
-<div class="service-info">
-
-<div class="service-type">
-Refine every detail
-</div>
-
-<h3>
-Photo Editing
-</h3>
-
-<p>
-Background removal, retouching, product cleanup,
-colour correction and creative Photoshop editing
-for polished final images.
-</p>
-
-</div>
-
-
-<div class="service-arrow">
-↗
-</div>
-
-</a>
-
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- SELECTED WORK -->
+<!-- WORK -->
 
-<section class="section work" id="work">
+<section id="work">
 
-<div class="container">
+    <div class="section-label">03 / SELECTED WORK</div>
 
+    <h2 class="section-title reveal">
+        SOME THINGS<br>
+        <span>I'VE BUILT.</span>
+    </h2>
 
-<div class="section-top reveal">
 
-<div>
+    <div class="work-grid">
 
-<div class="section-number">
-02 / SELECTED WORK
-</div>
 
-<h2 class="section-title">
+        <article class="work-card large reveal">
 
-Concepts made
-<span>to be remembered.</span>
+            <div class="work-visual">
 
-</h2>
+                <div class="work-word">
+                    COLA
+                </div>
 
-</div>
+            </div>
 
+            <div class="work-info">
 
-<p class="section-description">
+                <small>BRAND IDENTITY / PACKAGING</small>
 
-A selection of visual concepts exploring branding,
-packaging, digital campaigns and promotional design.
+                <h3>Cola-Vibe</h3>
 
-</p>
+                <p>
+                    Beverage identity and packaging direction.
+                </p>
 
-</div>
+            </div>
 
+        </article>
 
-<div class="work-grid">
 
+        <div style="display:grid;gap:18px;">
 
-<a href="logo-branding.html" class="project reveal">
+            <article class="work-card reveal">
 
-<div class="project-bg timevera">
+                <div class="work-visual">
 
-<div class="watch"></div>
+                    <div class="work-word">
+                        LUXE
+                    </div>
 
-</div>
+                </div>
 
+                <div class="work-info">
 
-<div class="project-info">
+                    <small>IDENTITY</small>
 
-<div>
+                    <h3>Luxury Watch</h3>
 
-<small>
-Brand Identity / Luxury
-</small>
+                </div>
 
-<h3>
-TIMEVERA
-</h3>
+            </article>
 
-</div>
 
-<div class="project-arrow">
-↗
-</div>
+            <article class="work-card reveal">
 
-</div>
+                <div class="work-visual">
 
-</a>
+                    <div class="work-word">
+                        197
+                    </div>
 
+                </div>
 
-<a href="packaging-design.html" class="project reveal">
+                <div class="work-info">
 
-<div class="project-bg cola-project">
+                    <small>VISUAL SYSTEM</small>
 
-<div class="can"></div>
+                    <h3>Designer 197</h3>
 
-</div>
+                </div>
 
+            </article>
 
-<div class="project-info">
+        </div>
 
-<div>
-
-<small>
-Packaging / Beverage
-</small>
-
-<h3>
-COLA-VIBE
-</h3>
-
-</div>
-
-<div class="project-arrow">
-↗
-</div>
-
-</div>
-
-</a>
-
-
-<a href="social-media-design.html" class="project reveal">
-
-<div class="project-bg social-project">
-
-<div class="phone">
-
-<div class="phone-screen"></div>
-
-</div>
-
-</div>
-
-
-<div class="project-info">
-
-<div>
-
-<small>
-Digital / Campaign
-</small>
-
-<h3>
-SOCIAL SERIES
-</h3>
-
-</div>
-
-<div class="project-arrow">
-↗
-</div>
-
-</div>
-
-</a>
-
-
-<a href="posters-banners.html" class="project reveal">
-
-<div class="project-bg poster-project">
-
-<div class="impact">
-IMPACT
-</div>
-
-</div>
-
-
-<div class="project-info">
-
-<div>
-
-<small>
-Poster / Art Direction
-</small>
-
-<h3>
-VISUAL IMPACT
-</h3>
-
-</div>
-
-<div class="project-arrow">
-↗
-</div>
-
-</div>
-
-</a>
-
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- DEVELOPER -->
 
-<section class="section about" id="about">
+<section class="developer" id="developer">
 
-<div class="container about-grid">
+    <div class="section-label">04 / WEB DEVELOPMENT</div>
 
-
-<div class="about-visual reveal">
-
-<div class="about-ring"></div>
-
-</div>
+    <h2 class="section-title reveal">
+        DESIGN<br>
+        <span>MEETS CODE.</span>
+    </h2>
 
 
-<div class="about-content reveal">
-
-<div class="section-number">
-03 / ABOUT THE DESIGNER
-</div>
+    <div class="developer-layout">
 
 
-<h2>
+        <div class="dev-profile reveal">
 
-Not just making
-<span>things look good.</span>
+            <div class="dev-label">
+                DEVELOPER MODE / ONLINE
+            </div>
 
-</h2>
+            <h3>
+                BUILDING<br>
+                <span>DIGITAL</span><br>
+                EXPERIENCES.
+            </h3>
 
-
-<p>
-
-I'm Harsh Chawla, an independent graphic designer
-focused on creating modern, clean and memorable
-visual communication.
-
-</p>
-
-
-<p>
-
-I work across branding, social media, posters,
-packaging, print design and photo editing.
-My goal is simple — understand the idea,
-find the right visual direction and create
-design that communicates with confidence.
-
-</p>
+            <p>
+                I combine graphic design with front-end development
+                to create websites that don't just look good —
+                they feel interactive, dimensional and alive.
+            </p>
 
 
-<div class="skills">
+            <div class="tech-stack">
 
-<span class="skill">Photoshop</span>
+                <span class="tech">HTML5</span>
+                <span class="tech">CSS3</span>
+                <span class="tech">JAVASCRIPT</span>
+                <span class="tech">GSAP</span>
+                <span class="tech">THREE.JS</span>
+                <span class="tech">REACT</span>
+                <span class="tech">FIGMA</span>
+                <span class="tech">UI/UX</span>
 
-<span class="skill">Canva</span>
+            </div>
 
-<span class="skill">Brand Identity</span>
 
-<span class="skill">Social Media</span>
+            <div class="dev-bottom">
 
-<span class="skill">Packaging</span>
+                <span class="muted" style="font:10px DM Mono;">
+                    CREATIVE + DEVELOPMENT
+                </span>
 
-<span class="skill">Print Design</span>
+                <a href="web-developer.html" class="btn">
+                    DEVELOPER PAGE ↗
+                </a>
 
-<span class="skill">Photo Editing</span>
+            </div>
 
-</div>
+        </div>
 
-</div>
 
-</div>
+        <div class="code-window reveal">
+
+            <div class="code-top">
+
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+
+                <span class="code-title">
+                    designer197.js
+                </span>
+
+            </div>
+
+
+            <div class="code">
+
+                <div>
+                    <span class="muted">// digital experience</span>
+                </div>
+
+                <br>
+
+                <div>
+                    <span class="lime">const</span>
+                    designer =
+                    <span class="white">"Harsh Chawla"</span>;
+                </div>
+
+                <div>
+                    <span class="lime">const</span>
+                    role =
+                    <span class="white">"Designer + Developer"</span>;
+                </div>
+
+                <br>
+
+                <div>
+                    <span class="lime">const</span>
+                    skills = [
+                </div>
+
+                <div>
+                    &nbsp;&nbsp;
+                    <span class="white">"Branding"</span>,
+                </div>
+
+                <div>
+                    &nbsp;&nbsp;
+                    <span class="white">"UI/UX"</span>,
+                </div>
+
+                <div>
+                    &nbsp;&nbsp;
+                    <span class="white">"Web Development"</span>,
+                </div>
+
+                <div>
+                    &nbsp;&nbsp;
+                    <span class="white">"Motion"</span>,
+                </div>
+
+                <div>
+                    &nbsp;&nbsp;
+                    <span class="white">"3D"</span>
+                </div>
+
+                <div>];</div>
+
+                <br>
+
+                <div>
+                    <span class="lime">function</span>
+                    <span class="white">createExperience</span>() {
+                </div>
+
+                <div>
+                    &nbsp;&nbsp;
+                    <span class="lime">return</span>
+                    <span class="white">
+                        "Design + Code + Ideas";
+                    </span>
+                </div>
+
+                <div>}</div>
+
+                <br>
+
+                <div>
+                    <span class="muted">
+                        // result: something unforgettable
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- VISITOR ANALYTICS -->
+
+    <div class="analytics reveal">
+
+        <div class="stat">
+
+            <div class="stat-label">
+                LIVE VISITORS
+            </div>
+
+            <div class="stat-value live" id="liveVisitors">
+                --
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-label">
+                TOTAL VIEWS
+            </div>
+
+            <div class="stat-value" id="totalViews">
+                --
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-label">
+                ANALYTICS STATUS
+            </div>
+
+            <div class="stat-value" id="analyticsStatus">
+                CONNECTING
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 <!-- PROCESS -->
 
-<section class="section process" id="process">
+<section id="process">
 
-<div class="container">
+    <div class="section-label">05 / PROCESS</div>
 
-
-<div class="section-top reveal">
-
-<div>
-
-<div class="section-number">
-04 / PROCESS
-</div>
-
-<h2 class="section-title">
-
-Clear process.
-<span>Better design.</span>
-
-</h2>
-
-</div>
+    <h2 class="section-title reveal">
+        FROM IDEA<br>
+        <span>TO IMPACT.</span>
+    </h2>
 
 
-<p class="section-description">
-
-Every project follows a simple creative process
-so the final design stays focused on the actual
-business goal.
-
-</p>
-
-</div>
+    <div class="process-list">
 
 
-<div class="process-list">
+        <a href="discover.html" style="text-decoration:none;color:inherit;">
+
+            <div class="process reveal">
+
+                <div class="process-number">01</div>
+
+                <div>
+
+                    <h3>Discover</h3>
+
+                    <p>
+                        Understand the brief, audience,
+                        message and requirements.
+                    </p>
+
+                </div>
+
+                <div class="process-arrow">↗</div>
+
+            </div>
+
+        </a>
 
 
-<div class="process-row reveal">
+        <a href="direction.html" style="text-decoration:none;color:inherit;">
 
-<div class="process-num">
-01
-</div>
+            <div class="process reveal">
 
-<h3>
-Discover
-</h3>
+                <div class="process-number">02</div>
 
-<p>
-Understand the brief, audience,
-message and requirements.
-</p>
+                <div>
 
-<div class="process-symbol">
-↗
-</div>
+                    <h3>Direction</h3>
 
-</div>
+                    <p>
+                        Build the visual direction through layout,
+                        typography and creative ideas.
+                    </p>
 
+                </div>
 
-<div class="process-row reveal">
+                <div class="process-arrow">↗</div>
 
-<div class="process-num">
-02
-</div>
+            </div>
 
-<h3>
-Direction
-</h3>
-
-<p>
-Build the visual direction through
-layout, typography and creative ideas.
-</p>
-
-<div class="process-symbol">
-↗
-</div>
-
-</div>
+        </a>
 
 
-<div class="process-row reveal">
+        <a href="design.html" style="text-decoration:none;color:inherit;">
 
-<div class="process-num">
-03
-</div>
+            <div class="process reveal">
 
-<h3>
-Design
-</h3>
+                <div class="process-number">03</div>
 
-<p>
-Develop the selected concept into
-polished, consistent visual design.
-</p>
+                <div>
 
-<div class="process-symbol">
-↗
-</div>
+                    <h3>Design</h3>
 
-</div>
+                    <p>
+                        Develop the selected concept into
+                        polished, consistent visual design.
+                    </p>
 
+                </div>
 
-<div class="process-row reveal">
+                <div class="process-arrow">↗</div>
 
-<div class="process-num">
-04
-</div>
+            </div>
 
-<h3>
-Deliver
-</h3>
-
-<p>
-Prepare final files in the formats
-needed for digital or print use.
-</p>
-
-<div class="process-symbol">
-↗
-</div>
-
-</div>
+        </a>
 
 
-</div>
+        <a href="deliver.html" style="text-decoration:none;color:inherit;">
 
-</div>
+            <div class="process reveal">
+
+                <div class="process-number">04</div>
+
+                <div>
+
+                    <h3>Deliver</h3>
+
+                    <p>
+                        Prepare final assets for digital,
+                        print and production.
+                    </p>
+
+                </div>
+
+                <div class="process-arrow">↗</div>
+
+            </div>
+
+        </a>
+
+    </div>
 
 </section>
 
 
-<!-- CTA -->
+<!-- AI DESIGN LAB -->
 
-<section class="cta" id="contact">
+<section class="ai-section" id="ai">
 
-<div class="cta-glow"></div>
+    <div class="section-label">06 / DESIGNER AI</div>
 
-
-<div class="container cta-content reveal">
-
-<div class="cta-label">
-05 / HAVE A PROJECT?
-</div>
+    <h2 class="section-title reveal">
+        YOUR CREATIVE<br>
+        <span>COMMAND CENTER.</span>
+    </h2>
 
 
-<h2>
-
-Let's create
-<span>something people notice.</span>
-
-</h2>
+    <div class="ai-console reveal">
 
 
-<p>
+        <div class="ai-top">
 
-Have a logo, social campaign, poster, packaging,
-catalogue or photo editing project in mind?
-Tell me what you need and let's start from there.
+            <div class="ai-brand">
+                DESIGNER AI / VISUAL ENGINE 3.0
+            </div>
 
-</p>
+            <div class="ai-status">
 
+                <span class="live-dot"></span>
 
-<div class="hero-buttons" style="justify-content:center;margin-top:32px;">
+                SYSTEM ONLINE
 
+            </div>
 
-<a
-href="mailto:YOUR_EMAIL@gmail.com"
-class="button primary"
->
-Email Me ↗
-</a>
+        </div>
 
 
-<a
-href="https://wa.me/919876543210"
-target="_blank"
-class="button secondary"
->
-WhatsApp ↗
-</a>
+        <div class="ai-body">
 
 
-</div>
+            <div class="ai-visual">
 
-</div>
+                <div class="ai-orb">
+
+                    <div class="ai-orb-text">
+                        AI
+                    </div>
+
+                </div>
+
+
+                <div class="ai-console-grid">
+
+                    <div class="ai-mini">
+
+                        <small>CREATIVE</small>
+
+                        <strong>98%</strong>
+
+                    </div>
+
+                    <div class="ai-mini">
+
+                        <small>VISUAL</small>
+
+                        <strong>3D</strong>
+
+                    </div>
+
+                    <div class="ai-mini">
+
+                        <small>MODE</small>
+
+                        <strong id="aiMode">BRAND</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ai-interface">
+
+                <h3 class="ai-heading">
+                    What are we <span>creating?</span>
+                </h3>
+
+                <p class="ai-sub">
+                    Select a creative mode or type your brief.
+                    The AI panel will generate a design direction,
+                    visual strategy and creative starting point.
+                </p>
+
+
+                <div class="ai-modes">
+
+                    <button class="ai-mode active" data-mode="BRAND">
+                        BRANDING
+                    </button>
+
+                    <button class="ai-mode" data-mode="SOCIAL">
+                        SOCIAL
+                    </button>
+
+                    <button class="ai-mode" data-mode="PACKAGING">
+                        PACKAGING
+                    </button>
+
+                    <button class="ai-mode" data-mode="WEB">
+                        WEB
+                    </button>
+
+                </div>
+
+
+                <div class="ai-response" id="aiResponse">
+
+                    <span style="color:#c9ff3d;">
+                        SYSTEM READY_
+                    </span>
+
+                    <br><br>
+
+                    Tell me what you want to design.
+
+                    <br>
+
+                    Example:
+                    "Create a premium black and lime
+                    branding direction for a tech company."
+
+                </div>
+
+
+                <div class="ai-input-row">
+
+                    <input
+                        id="aiInput"
+                        class="ai-input"
+                        type="text"
+                        placeholder="Describe your design idea..."
+                    >
+
+                    <button
+                        class="ai-generate"
+                        id="generateAI"
+                    >
+                        GENERATE ↗
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-card reveal"></div>
+
+
+    <div class="about-copy reveal">
+
+        <div class="section-label">
+            07 / ABOUT
+        </div>
+
+        <h2>
+            I'M HARSH.<br>
+            I <span>DESIGN</span><br>
+            IDEAS.
+        </h2>
+
+        <p>
+            I'm Harsh Chawla, an independent graphic designer
+            focused on creating modern, clean and memorable
+            visual communication. I also build digital experiences
+            where design and development work together.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="https://www.behance.net/harshchawla4"
+                target="_blank"
+                class="btn primary"
+            >
+                BEHANCE ↗
+            </a>
+
+            <a href="#contact" class="btn">
+                LET'S TALK →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="reveal">
+
+        <div class="section-label" style="justify-content:center;">
+            08 / START A PROJECT
+        </div>
+
+        <h2>
+            LET'S MAKE<br>
+            <span>NOISE.</span>
+        </h2>
+
+        <p>
+            Have a brand, campaign or website idea?
+            Let's turn it into something people remember.
+        </p>
+
+        <!-- Replace YOUR_EMAIL@gmail.com -->
+
+        <a
+            href="mailto:YOUR_EMAIL@gmail.com"
+            class="btn primary"
+        >
+            START A PROJECT ↗
+        </a>
+
+    </div>
 
 </section>
 
@@ -4026,307 +2550,555 @@ WhatsApp ↗
 
 <footer>
 
-<div class="container footer">
+    <div>
+        © 2026 DESIGNER 197 — HARSH CHAWLA
+    </div>
 
-<div class="footer-copy">
-© 2026 DESIGNER 197 — ALL RIGHTS RESERVED
-</div>
+    <div>
+        GRAPHIC DESIGN × WEB DEVELOPMENT
+    </div>
 
-
-<div class="footer-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="#services">
-Services
-</a>
-
-<a
-href="https://www.behance.net/harshchawla4"
-target="_blank"
->
-Behance
-</a>
-
-<a href="#contact">
-Contact
-</a>
-
-</div>
-
-</div>
+    <a href="#home">
+        BACK TO TOP ↑
+    </a>
 
 </footer>
 
 
-<!-- WALKING CHARACTER -->
-
-<div class="walker">
-
-<div class="walk-head"></div>
-
-<div class="walk-hair"></div>
-
-<div class="walk-body"></div>
-
-<div class="walk-shirt"></div>
-
-<div class="arm a"></div>
-
-<div class="arm b"></div>
-
-<div class="leg a"></div>
-
-<div class="leg b"></div>
-
-<div class="bag"></div>
-
-</div>
-
-
-<!-- AI BUTTON -->
-
-<button class="ai-button" id="aiButton">
-AI
-</button>
-
-
-<div class="ai-panel" id="aiPanel">
-
-<div class="ai-header">
-
-<strong>
-DESIGNER 197 / QUICK ASSIST
-</strong>
-
-<button class="ai-close" id="aiClose">
-×
-</button>
-
-</div>
-
-
-<div class="ai-body">
-
-<p>
-What are you looking to design?
-Choose an option and I'll point you
-toward the right service.
-</p>
-
-
-<div class="ai-options">
-
-<button
-class="ai-option"
-data-answer="For a new business or brand, Logo & Branding is the best place to start. It creates the visual foundation for future designs."
->
-I need a logo / brand
-</button>
-
-
-<button
-class="ai-option"
-data-answer="For Instagram, Facebook and promotional campaigns, Social Media Design is the right service."
->
-I need social media
-</button>
-
-
-<button
-class="ai-option"
-data-answer="For products, labels, boxes and pouches, Packaging Design will give your product a stronger visual presentation."
->
-I need packaging
-</button>
-
-
-<button
-class="ai-option"
-data-answer="For flyers, brochures, catalogues, menus and other printed material, Catalogue & Print is the right direction."
->
-I need print design
-</button>
-
-
-<button
-class="ai-option"
-data-answer="For retouching, background removal, cleanup, colour correction and Photoshop manipulation, choose Photo Editing."
->
-I need photo editing
-</button>
-
-</div>
-
-
-<div class="ai-answer" id="aiAnswer"></div>
-
-</div>
-
-</div>
-
-
 <script>
 
-/* CARD LIGHT */
+/* =========================
+   CURSOR
+========================= */
 
-document.querySelectorAll(".service").forEach(function(card){
+const cursor = document.querySelector(".cursor");
+const ring = document.querySelector(".cursor-ring");
 
-card.addEventListener("mousemove",function(e){
+let mouseX = 0;
+let mouseY = 0;
 
-const rect=card.getBoundingClientRect();
+document.addEventListener("mousemove", e => {
 
-const x=((e.clientX-rect.left)/rect.width)*100;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-const y=((e.clientY-rect.top)/rect.height)*100;
+    cursor.style.left = mouseX + "px";
+    cursor.style.top = mouseY + "px";
 
-card.style.setProperty("--x",x+"%");
-
-card.style.setProperty("--y",y+"%");
+    ring.style.left = mouseX + "px";
+    ring.style.top = mouseY + "px";
 
 });
 
+
+document.querySelectorAll("a,button,.service-card,.work-card").forEach(el => {
+
+    el.addEventListener("mouseenter", () => {
+        document.body.classList.add("hovering");
+    });
+
+    el.addEventListener("mouseleave", () => {
+        document.body.classList.remove("hovering");
+    });
+
 });
 
 
-/* SCROLL REVEAL */
+/* =========================
+   REVEAL
+========================= */
 
-const reveals=document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(
+    entries => {
 
-const observer=new IntersectionObserver(function(entries){
+        entries.forEach(entry => {
 
-entries.forEach(function(entry){
+            if(entry.isIntersecting){
 
-if(entry.isIntersecting){
+                entry.target.classList.add("visible");
 
-entry.target.classList.add("visible");
+            }
 
-observer.unobserve(entry.target);
+        });
+
+    },
+    {
+        threshold:.12
+    }
+);
+
+
+document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+});
+
+
+/* =========================
+   NAV SCROLL
+========================= */
+
+const nav = document.querySelector(".nav");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 80){
+
+        nav.classList.add("scrolled");
+
+    }else{
+
+        nav.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================
+   ACTIVE SCROLL DOT
+========================= */
+
+const sections = document.querySelectorAll("section[id]");
+const dots = document.querySelectorAll(".scroll-dot");
+
+function updateScrollNavigation(){
+
+    let current = "home";
+
+    sections.forEach(section => {
+
+        const rect = section.getBoundingClientRect();
+
+        if(rect.top <= window.innerHeight * .45){
+
+            current = section.id;
+
+        }
+
+    });
+
+
+    dots.forEach(dot => {
+
+        const href = dot.getAttribute("href");
+
+        dot.classList.toggle(
+            "active",
+            href === "#" + current
+        );
+
+    });
 
 }
 
-});
-
-},{
-threshold:.08
-});
-
-reveals.forEach(function(item){
-
-observer.observe(item);
-
-});
+window.addEventListener("scroll",updateScrollNavigation);
 
 
-/* AI */
+/* =========================
+   3D CARD TILT
+========================= */
 
-const aiButton=document.getElementById("aiButton");
+document.querySelectorAll(".service-card,.work-card,.dev-profile,.about-card").forEach(card => {
 
-const aiPanel=document.getElementById("aiPanel");
+    card.addEventListener("mousemove", e => {
 
-const aiClose=document.getElementById("aiClose");
+        const rect = card.getBoundingClientRect();
 
-const aiAnswer=document.getElementById("aiAnswer");
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY =
+            ((x / rect.width) - .5) * 10;
+
+        const rotateX =
+            ((y / rect.height) - .5) * -10;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-5px)`;
+
+    });
 
 
-aiButton.addEventListener("click",function(){
+    card.addEventListener("mouseleave", () => {
 
-aiPanel.classList.toggle("open");
+        card.style.transform = "";
 
-});
-
-
-aiClose.addEventListener("click",function(){
-
-aiPanel.classList.remove("open");
-
-});
-
-
-document.querySelectorAll(".ai-option").forEach(function(option){
-
-option.addEventListener("click",function(){
-
-aiAnswer.style.display="block";
-
-aiAnswer.textContent=option.dataset.answer;
-
-});
+    });
 
 });
 
 
-document.addEventListener("click",function(e){
+/* =========================
+   HERO PARALLAX
+========================= */
 
-if(
-aiPanel.classList.contains("open") &&
-!aiPanel.contains(e.target) &&
-!aiButton.contains(e.target)
-){
+const heroStage =
+    document.querySelector(".hero-stage");
 
-aiPanel.classList.remove("open");
+document.addEventListener("mousemove", e => {
+
+    if(!heroStage) return;
+
+    const x =
+        (e.clientX / window.innerWidth - .5);
+
+    const y =
+        (e.clientY / window.innerHeight - .5);
+
+    heroStage.style.transform =
+        `translate3d(${x * 20}px,${y * 20}px,0)`;
+
+});
+
+
+/* =========================
+   AI MODES
+========================= */
+
+const modes =
+    document.querySelectorAll(".ai-mode");
+
+const aiMode =
+    document.getElementById("aiMode");
+
+const aiResponse =
+    document.getElementById("aiResponse");
+
+
+const modeResponses = {
+
+    BRAND:
+    `SYSTEM / BRAND MODE
+
+Creative direction:
+• Premium visual identity
+• Strong geometric logo
+• Black + lime colour system
+• Bold typography
+• Minimal but memorable layout
+
+Recommended:
+Logo → Brand colours → Typography → Brand guidelines`,
+
+    SOCIAL:
+    `SYSTEM / SOCIAL MODE
+
+Creative direction:
+• High contrast compositions
+• Strong headline hierarchy
+• Fast visual recognition
+• Consistent post templates
+• Motion-ready layouts
+
+Recommended:
+Hook → Visual → CTA → Brand signature`,
+
+    PACKAGING:
+    `SYSTEM / PACKAGING MODE
+
+Creative direction:
+• Strong shelf presence
+• Clear product hierarchy
+• Premium typography
+• Front / side / back system
+• Print-ready production
+
+Recommended:
+Product story → Label → Colour → Mockup`,
+
+    WEB:
+    `SYSTEM / WEB MODE
+
+Creative direction:
+• 3D hero interaction
+• Large typography
+• Smooth scroll transitions
+• Interactive cards
+• Strong conversion CTA
+
+Recommended:
+Hero → Story → Services → Work → CTA`
+
+};
+
+
+modes.forEach(mode => {
+
+    mode.addEventListener("click", () => {
+
+        modes.forEach(m =>
+            m.classList.remove("active")
+        );
+
+        mode.classList.add("active");
+
+        const selected =
+            mode.dataset.mode;
+
+        aiMode.textContent = selected;
+
+        aiResponse.innerHTML =
+            modeResponses[selected]
+                .replace(/\n/g,"<br>");
+
+    });
+
+});
+
+
+/* =========================
+   AI GENERATOR
+========================= */
+
+const input =
+    document.getElementById("aiInput");
+
+const generate =
+    document.getElementById("generateAI");
+
+
+generate.addEventListener("click", generateDirection);
+
+
+input.addEventListener("keydown", e => {
+
+    if(e.key === "Enter"){
+
+        generateDirection();
+
+    }
+
+});
+
+
+function generateDirection(){
+
+    const prompt =
+        input.value.trim();
+
+    const active =
+        document.querySelector(".ai-mode.active");
+
+    const mode =
+        active ? active.dataset.mode : "BRAND";
+
+
+    if(!prompt){
+
+        aiResponse.innerHTML = `
+            <span style="color:#c9ff3d;">
+            ERROR / EMPTY BRIEF
+            </span>
+            <br><br>
+            Give me a design idea first.
+        `;
+
+        return;
+
+    }
+
+
+    aiResponse.innerHTML = `
+        <span style="color:#c9ff3d;">
+        ANALYZING BRIEF...
+        </span>
+        <br><br>
+        MODE: ${mode}
+        <br>
+        INPUT: ${escapeHTML(prompt)}
+        <br><br>
+        BUILDING CREATIVE DIRECTION...
+    `;
+
+
+    setTimeout(() => {
+
+        aiResponse.innerHTML = `
+            <span style="color:#c9ff3d;">
+            CREATIVE DIRECTION READY
+            </span>
+
+            <br><br>
+
+            <strong style="color:#f4f7ef;">
+            ${escapeHTML(prompt)}
+            </strong>
+
+            <br><br>
+
+            Visual Style:
+            premium / modern / high contrast
+
+            <br>
+
+            Typography:
+            bold display type + clean supporting text
+
+            <br>
+
+            Colour:
+            deep black + electric lime + neutral white
+
+            <br>
+
+            Composition:
+            large focal element + strong negative space
+
+            <br>
+
+            Interaction:
+            subtle 3D depth + scroll-based movement
+        `;
+
+    },900);
 
 }
 
-});
 
+function escapeHTML(str){
 
-/* HEADER */
-
-window.addEventListener("scroll",function(){
-
-const header=document.querySelector(".header");
-
-if(window.scrollY>70){
-
-header.style.background="rgba(7,8,7,.94)";
-
-}else{
-
-header.style.background="rgba(7,8,7,.68)";
+    return str
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
-});
+
+/* =========================
+   VISITOR COUNTER
+========================= */
+
+/*
+    IMPORTANT:
+
+    A real global visitor counter requires a shared backend.
+
+    This frontend expects:
+
+    GET /api/visitors
+
+    Response:
+
+    {
+        "live": 12,
+        "total": 1528
+    }
+
+    Example backend can be connected later
+    using Firebase / Supabase / your own API.
+
+    Until then, the site deliberately shows "--"
+    instead of fake visitor numbers.
+*/
+
+async function loadVisitorStats(){
+
+    const live =
+        document.getElementById("liveVisitors");
+
+    const total =
+        document.getElementById("totalViews");
+
+    const status =
+        document.getElementById("analyticsStatus");
 
 
-/* HERO MOUSE */
+    try{
 
-const hero=document.querySelector(".hero");
-
-const visual=document.querySelector(".visual-main");
-
-if(hero && visual){
-
-hero.addEventListener("mousemove",function(e){
-
-if(window.innerWidth<900) return;
-
-const x=(e.clientX/window.innerWidth-.5);
-
-const y=(e.clientY/window.innerHeight-.5);
-
-visual.style.marginLeft=(x*18)+"px";
-
-visual.style.marginTop=(y*14)+"px";
-
-});
+        const response =
+            await fetch("/api/visitors",{
+                cache:"no-store"
+            });
 
 
-hero.addEventListener("mouseleave",function(){
+        if(!response.ok){
 
-visual.style.marginLeft="0";
+            throw new Error("API unavailable");
 
-visual.style.marginTop="0";
+        }
 
-});
+
+        const data =
+            await response.json();
+
+
+        live.textContent =
+            Number(data.live ?? 0).toLocaleString();
+
+
+        total.textContent =
+            Number(data.total ?? 0).toLocaleString();
+
+
+        status.textContent =
+            "ONLINE";
+
+    }catch(error){
+
+        live.textContent = "--";
+        total.textContent = "--";
+        status.textContent = "API NEEDED";
+
+    }
 
 }
+
+loadVisitorStats();
+
+
+/* =========================
+   SCROLL DEPTH EFFECT
+========================= */
+
+window.addEventListener("scroll", () => {
+
+    const scroll =
+        window.scrollY;
+
+    document.documentElement.style
+        .setProperty(
+            "--scrollY",
+            scroll
+        );
+
+});
+
+
+/* =========================
+   SMOOTH INTERNAL LINKS
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", e => {
+
+        const target =
+            document.querySelector(
+                link.getAttribute("href")
+            );
+
+        if(target){
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        }
+
+    });
+
+});
 
 </script>
 
 </body>
 </html>
-```
