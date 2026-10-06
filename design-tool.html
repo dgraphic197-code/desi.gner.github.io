@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DESIGNER 197 — Design Tool Shortcuts</title>
+
+<meta name="description"
+content="DESIGNER 197 professional design software keyboard shortcuts for Photoshop, Illustrator, InDesign, CorelDRAW, Premiere Pro, After Effects, XD, Lightroom, Figma, Canva and PDF.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#050505;
+    --bg2:#090909;
+    --card:#0d0d0d;
+    --card2:#111111;
+    --text:#f5f5f2;
+    --muted:rgba(245,245,242,.55);
+    --line:rgba(255,255,255,.10);
+    --line2:rgba(255,255,255,.17);
+    --lime:#c9ff3d;
+    --lime-soft:rgba(201,255,61,.12);
+    --lime-glow:rgba(201,255,61,.25);
+    --shadow:0 30px 100px rgba(0,0,0,.5);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 80% 5%,rgba(201,255,61,.07),transparent 25%),
+        radial-gradient(circle at 10% 40%,rgba(201,255,61,.035),transparent 25%),
+        var(--bg);
+    color:var(--text);
+    font-family:"Plus Jakarta Sans",sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.15;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* =========================
+   NAV
+========================= */
+
+.nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5vw;
+    border-bottom:1px solid var(--line);
+    background:rgba(5,5,5,.75);
+    backdrop-filter:blur(20px);
+}
+
+.logo{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:-.04em;
+}
+
+.logo span{
+    color:var(--lime);
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.status{
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    letter-spacing:.14em;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    background:var(--lime);
+    border-radius:50%;
+    box-shadow:0 0 15px var(--lime);
+    animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.4;transform:scale(.7)}
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    max-width:1400px;
+    margin:auto;
+    padding:100px 5vw 60px;
+    position:relative;
+}
+
+.eyebrow{
+    font-family:"DM Mono",monospace;
+    color:var(--lime);
+    font-size:11px;
+    letter-spacing:.2em;
+    margin-bottom:24px;
+}
+
+.hero h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(55px,9vw,150px);
+    line-height:.82;
+    letter-spacing:-.07em;
+    max-width:1000px;
+}
+
+.hero h1 span{
+    color:transparent;
+    -webkit-text-stroke:1px rgba(245,245,242,.65);
+}
+
+.hero p{
+    max-width:650px;
+    margin-top:34px;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
+}
+
+/* floating cube */
+
+.cube{
+    position:absolute;
+    right:9%;
+    top:120px;
+    width:150px;
+    height:150px;
+    border:1px solid rgba(201,255,61,.3);
+    transform:rotate(35deg) skew(-8deg);
+    box-shadow:
+        0 0 50px rgba(201,255,61,.08),
+        inset 0 0 40px rgba(201,255,61,.04);
+    animation:floatCube 7s ease-in-out infinite;
+}
+
+.cube::before,
+.cube::after{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(255,255,255,.13);
+}
+
+.cube::after{
+    inset:38px;
+    border-color:var(--lime);
+    opacity:.35;
+}
+
+@keyframes floatCube{
+    0%,100%{
+        transform:rotate(35deg) skew(-8deg) translateY(0);
+    }
+    50%{
+        transform:rotate(50deg) skew(-8deg) translateY(-25px);
+    }
+}
+
+/* =========================
+   TOOLKIT
+========================= */
+
+.toolkit{
+    max-width:1400px;
+    margin:auto;
+    padding:20px 5vw 100px;
+}
+
+.toolbar{
+    position:sticky;
+    top:96px;
+    z-index:500;
+    padding:14px;
+    background:rgba(10,10,10,.82);
+    border:1px solid var(--line);
+    border-radius:20px;
+    backdrop-filter:blur(25px);
+    box-shadow:var(--shadow);
+}
+
+.software-list{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding-bottom:8px;
+    scrollbar-width:none;
+}
+
+.software-list::-webkit-scrollbar{
+    display:none;
+}
+
+.software-btn{
+    flex:0 0 auto;
+    border:1px solid var(--line);
+    background:#0b0b0b;
+    color:var(--muted);
+    padding:12px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    transition:.3s;
+}
+
+.software-btn:hover{
+    border-color:rgba(201,255,61,.4);
+    color:var(--text);
+    transform:translateY(-2px);
+}
+
+.software-btn.active{
+    background:var(--lime);
+    color:#050505;
+    border-color:var(--lime);
+    box-shadow:0 0 25px rgba(201,255,61,.18);
+}
+
+.controls{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+}
+
+.search{
+    flex:1;
+    min-width:0;
+    background:#080808;
+    border:1px solid var(--line);
+    color:var(--text);
+    padding:15px 18px;
+    border-radius:12px;
+    outline:none;
+    font-family:"DM Mono",monospace;
+}
+
+.search:focus{
+    border-color:var(--lime);
+    box-shadow:0 0 25px rgba(201,255,61,.08);
+}
+
+.platform{
+    display:flex;
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.platform button{
+    border:0;
+    background:#080808;
+    color:var(--muted);
+    padding:0 18px;
+    cursor:pointer;
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+}
+
+.platform button.active{
+    background:var(--lime);
+    color:#050505;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin:70px 0 25px;
+    gap:20px;
+}
+
+.section-head h2{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(32px,5vw,70px);
+    letter-spacing:-.05em;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+}
+
+/* =========================
+   SHORTCUT GRID
+========================= */
+
+.shortcut-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.shortcut-card{
+    position:relative;
+    min-height:190px;
+    padding:25px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.045),transparent 45%),
+        var(--card);
+    overflow:hidden;
+    transition:.35s cubic-bezier(.2,.8,.2,1);
+}
+
+.shortcut-card::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    right:-55px;
+    top:-55px;
+    border-radius:50%;
+    background:var(--lime);
+    filter:blur(65px);
+    opacity:.06;
+    transition:.4s;
+}
+
+.shortcut-card:hover{
+    transform:translateY(-8px) rotateX(2deg);
+    border-color:rgba(201,255,61,.35);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.4),
+        0 0 35px rgba(201,255,61,.05);
+}
+
+.shortcut-card:hover::before{
+    opacity:.16;
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.category{
+    color:var(--lime);
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:.16em;
+}
+
+.number{
+    color:rgba(255,255,255,.2);
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+}
+
+.action{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:-.025em;
+}
+
+.keys{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:20px;
+}
+
+.key{
+    min-width:34px;
+    padding:8px 10px;
+    border:1px solid rgba(255,255,255,.15);
+    background:linear-gradient(145deg,#171717,#080808);
+    border-radius:7px;
+    color:var(--text);
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    text-align:center;
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.07),
+        0 5px 15px rgba(0,0,0,.3);
+}
+
+.key.lime{
+    border-color:rgba(201,255,61,.45);
+    color:var(--lime);
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+    display:none;
+    padding:80px 20px;
+    text-align:center;
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:var(--muted);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid var(--line);
+    margin-top:50px;
+    padding:40px 5vw;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+}
+
+footer strong{
+    color:var(--lime);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .shortcut-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cube{
+        opacity:.4;
+        right:3%;
+    }
+}
+
+@media(max-width:650px){
+
+    .nav{
+        height:65px;
+        padding:0 20px;
+    }
+
+    .status{
+        display:none;
+    }
+
+    .hero{
+        padding:75px 20px 45px;
+    }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .cube{
+        width:80px;
+        height:80px;
+        top:100px;
+        right:15px;
+    }
+
+    .toolkit{
+        padding:20px 20px 70px;
+    }
+
+    .toolbar{
+        top:75px;
+        border-radius:15px;
+    }
+
+    .controls{
+        flex-direction:column;
+    }
+
+    .platform{
+        height:45px;
+    }
+
+    .platform button{
+        flex:1;
+    }
+
+    .shortcut-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    footer{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav class="nav">
+
+    <div class="logo">
+        DESIGNER <span>197</span>
+    </div>
+
+    <div class="nav-right">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            DESIGN SYSTEM / SHORTCUTS
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="eyebrow">
+        DESIGNER 197 / TOOLKIT 001
+    </div>
+
+    <h1>
+        DESIGN<br>
+        <span>SHORTCUTS.</span>
+    </h1>
+
+    <p>
+        A professional keyboard shortcut reference for designers,
+        editors and creative professionals. Select your software,
+        search a command and build a faster workflow.
+    </p>
+
+    <div class="cube"></div>
+
+</header>
+
+
+<!-- =========================
+     TOOLKIT
+========================= -->
+
+<main class="toolkit">
+
+    <div class="toolbar">
+
+        <div class="software-list" id="softwareList"></div>
+
+        <div class="controls">
+
+            <input
+                id="search"
+                class="search"
+                type="search"
+                placeholder="SEARCH SHORTCUT / COMMAND..."
+                autocomplete="off"
+            >
+
+            <div class="platform">
+
+                <button
+                    id="winBtn"
+                    class="active"
+                    onclick="setPlatform('win')"
+                >
+                    WINDOWS
+                </button>
+
+                <button
+                    id="macBtn"
+                    onclick="setPlatform('mac')"
+                >
+                    MAC
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-head">
+
+        <div>
+            <div class="eyebrow">KEYBOARD DATABASE</div>
+            <h2 id="softwareTitle">PHOTOSHOP</h2>
+        </div>
+
+        <p id="countText">
+            0 SHORTCUTS
+        </p>
+
+    </div>
+
+
+    <div
+        class="shortcut-grid"
+        id="shortcutGrid">
+    </div>
+
+    <div
+        class="empty"
+        id="empty">
+        NO SHORTCUT FOUND.
+        <br>
+        TRY ANOTHER SEARCH.
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div>
+        © 2026 <strong>DESIGNER 197</strong>
+    </div>
+
+    <div>
+        GRAPHIC DESIGN / DIGITAL / MOTION
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   DESIGNER 197 — SHORTCUT DATABASE
+   Windows + macOS
+===================================================== */
+
+const shortcuts = {
+
+    PS: {
+        name:"PHOTOSHOP",
+        desc:"Image Editing",
+        data:[
+
+            ["Move Tool","V","V","Tools"],
+            ["Marquee Tool","M","M","Tools"],
+            ["Lasso Tool","L","L","Tools"],
+            ["Quick Selection / Magic Wand","W","W","Tools"],
+            ["Crop Tool","C","C","Tools"],
+            ["Eyedropper Tool","I","I","Tools"],
+            ["Spot Healing Brush","J","J","Tools"],
+            ["Brush Tool","B","B","Tools"],
+            ["Clone Stamp","S","S","Tools"],
+            ["History Brush","Y","Y","Tools"],
+            ["Eraser Tool","E","E","Tools"],
+            ["Gradient / Paint Bucket","G","G","Tools"],
+            ["Blur / Sharpen / Smudge","R","R","Tools"],
+            ["Dodge / Burn / Sponge","O","O","Tools"],
+            ["Pen Tool","P","P","Tools"],
+            ["Type Tool","T","T","Tools"],
+            ["Path Selection","A","A","Tools"],
+            ["Shape Tool","U","U","Tools"],
+            ["Hand Tool","H","H","Navigation"],
+            ["Zoom Tool","Z","Z","Navigation"],
+
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Cut","Ctrl + X","Cmd + X","Edit"],
+            ["Free Transform","Ctrl + T","Cmd + T","Transform"],
+            ["Duplicate Layer","Ctrl + J","Cmd + J","Layers"],
+            ["New Layer","Ctrl + Shift + N","Cmd + Shift + N","Layers"],
+            ["Select All","Ctrl + A","Cmd + A","Selection"],
+            ["Deselect","Ctrl + D","Cmd + D","Selection"],
+            ["Reselect","Ctrl + Shift + D","Cmd + Shift + D","Selection"],
+            ["Invert Selection","Ctrl + Shift + I","Cmd + Shift + I","Selection"],
+            ["Fill","Shift + Backspace","Shift + Delete","Edit"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["Save As","Ctrl + Shift + S","Cmd + Shift + S","File"],
+            ["Open","Ctrl + O","Cmd + O","File"],
+            ["New Document","Ctrl + N","Cmd + N","File"],
+            ["Close Document","Ctrl + W","Cmd + W","File"],
+            ["Print","Ctrl + P","Cmd + P","File"],
+            ["Fit on Screen","Ctrl + 0","Cmd + 0","View"],
+            ["100% View","Ctrl + 1","Cmd + 1","View"],
+            ["Zoom In","Ctrl + +","Cmd + +","View"],
+            ["Zoom Out","Ctrl + -","Cmd + -","View"],
+            ["Show / Hide Guides","Ctrl + ;","Cmd + ;","View"],
+            ["Show / Hide Grid","Ctrl + '","Cmd + '","View"],
+            ["Preferences","Ctrl + K","Cmd + K","Settings"],
+            ["Keyboard Shortcuts","Alt + Shift + Ctrl + K","Option + Shift + Cmd + K","Settings"],
+            ["Free Transform Layer","Ctrl + T","Cmd + T","Transform"],
+            ["Merge Layers","Ctrl + E","Cmd + E","Layers"],
+            ["Merge Visible","Ctrl + Shift + E","Cmd + Shift + E","Layers"],
+            ["Group Layers","Ctrl + G","Cmd + G","Layers"],
+            ["Clipping Mask","Ctrl + Alt + G","Cmd + Option + G","Layers"],
+            ["Step Backward","Ctrl + Alt + Z","Cmd + Option + Z","History"],
+            ["Step Forward","Ctrl + Shift + Z","Cmd + Shift + Z","History"]
+
+        ]
+    },
+
+
+    AI: {
+        name:"ILLUSTRATOR",
+        desc:"Vector Design",
+        data:[
+
+            ["Selection Tool","V","V","Tools"],
+            ["Direct Selection","A","A","Tools"],
+            ["Magic Wand","Y","Y","Tools"],
+            ["Pen Tool","P","P","Tools"],
+            ["Type Tool","T","T","Tools"],
+            ["Line Segment","\\","\\","Tools"],
+            ["Rectangle Tool","M","M","Tools"],
+            ["Ellipse Tool","L","L","Tools"],
+            ["Paintbrush","B","B","Tools"],
+            ["Pencil","N","N","Tools"],
+            ["Blob Brush","Shift + B","Shift + B","Tools"],
+            ["Eraser","Shift + E","Shift + E","Tools"],
+            ["Scissors","C","C","Tools"],
+            ["Rotate","R","R","Transform"],
+            ["Reflect","O","O","Transform"],
+            ["Scale","S","S","Transform"],
+            ["Free Transform","E","E","Transform"],
+            ["Gradient","G","G","Color"],
+            ["Eyedropper","I","I","Color"],
+            ["Blend","W","W","Tools"],
+            ["Shape Builder","Shift + M","Shift + M","Tools"],
+            ["Artboard Tool","Shift + O","Shift + O","Layout"],
+            ["Hand Tool","H","H","Navigation"],
+            ["Zoom Tool","Z","Z","Navigation"],
+
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Paste in Front","Ctrl + F","Cmd + F","Edit"],
+            ["Paste in Back","Ctrl + B","Cmd + B","Edit"],
+            ["Paste in Place","Ctrl + Shift + V","Cmd + Shift + V","Edit"],
+            ["Select All","Ctrl + A","Cmd + A","Selection"],
+            ["Deselect","Ctrl + Shift + A","Cmd + Shift + A","Selection"],
+            ["Group","Ctrl + G","Cmd + G","Object"],
+            ["Ungroup","Ctrl + Shift + G","Cmd + Shift + G","Object"],
+            ["Lock Selection","Ctrl + 2","Cmd + 2","Object"],
+            ["Unlock All","Alt + Ctrl + 2","Option + Cmd + 2","Object"],
+            ["Hide Selection","Ctrl + 3","Cmd + 3","Object"],
+            ["Show All","Alt + Ctrl + 3","Option + Cmd + 3","Object"],
+            ["Bring Forward","Ctrl + ]","Cmd + ]","Arrange"],
+            ["Bring to Front","Ctrl + Shift + ]","Cmd + Shift + ]","Arrange"],
+            ["Send Backward","Ctrl + [","Cmd + [","Arrange"],
+            ["Send to Back","Ctrl + Shift + [","Cmd + Shift + [","Arrange"],
+            ["Create Compound Path","Ctrl + 8","Cmd + 8","Path"],
+            ["Release Compound Path","Alt + Shift + Ctrl + 8","Option + Shift + Cmd + 8","Path"],
+            ["Join Paths","Ctrl + J","Cmd + J","Path"],
+            ["Outline Stroke","Ctrl + Shift + O","Cmd + Shift + O","Type"],
+            ["Create Clipping Mask","Ctrl + 7","Cmd + 7","Object"],
+            ["Release Clipping Mask","Alt + Ctrl + 7","Option + Cmd + 7","Object"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["Save As","Ctrl + Shift + S","Cmd + Shift + S","File"],
+            ["Open","Ctrl + O","Cmd + O","File"],
+            ["New Document","Ctrl + N","Cmd + N","File"],
+            ["Print","Ctrl + P","Cmd + P","File"],
+            ["Zoom In","Ctrl + +","Cmd + +","View"],
+            ["Zoom Out","Ctrl + -","Cmd + -","View"],
+            ["Fit Artboard","Ctrl + 0","Cmd + 0","View"],
+            ["Show / Hide Guides","Ctrl + ;","Cmd + ;","View"],
+            ["Show / Hide Grid","Ctrl + '","Cmd + '","View"],
+            ["Smart Guides","Ctrl + U","Cmd + U","View"],
+            ["Outline Mode","Ctrl + Y","Cmd + Y","View"],
+            ["Preferences","Ctrl + K","Cmd + K","Settings"],
+            ["Keyboard Shortcuts","Alt + Shift + Ctrl + K","Option + Shift + Cmd + K","Settings"]
+
+        ]
+    },
+
+
+    ID: {
+        name:"INDESIGN",
+        desc:"Layout & Publishing",
+        data:[
+
+            ["Selection Tool","V","V","Tools"],
+            ["Direct Selection","A","A","Tools"],
+            ["Type Tool","T","T","Tools"],
+            ["Line Tool","\\","\\","Tools"],
+            ["Pen Tool","P","P","Tools"],
+            ["Rectangle Frame","F","F","Tools"],
+            ["Rectangle Tool","M","M","Tools"],
+            ["Ellipse Tool","L","L","Tools"],
+            ["Polygon Tool","-","-","Tools"],
+            ["Hand Tool","H","H","Navigation"],
+            ["Zoom Tool","Z","Z","Navigation"],
+
+            ["New Document","Ctrl + N","Cmd + N","File"],
+            ["Open","Ctrl + O","Cmd + O","File"],
+            ["Close","Ctrl + W","Cmd + W","File"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["Save As","Ctrl + Shift + S","Cmd + Shift + S","File"],
+            ["Print","Ctrl + P","Cmd + P","File"],
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Cut","Ctrl + X","Cmd + X","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Paste in Place","Ctrl + Shift + Alt + V","Cmd + Shift + Option + V","Edit"],
+            ["Select All","Ctrl + A","Cmd + A","Selection"],
+            ["Deselect","Ctrl + Shift + A","Cmd + Shift + A","Selection"],
+            ["Group","Ctrl + G","Cmd + G","Object"],
+            ["Ungroup","Ctrl + Shift + G","Cmd + Shift + G","Object"],
+            ["Lock","Ctrl + L","Cmd + L","Object"],
+            ["Unlock All","Ctrl + Alt + L","Cmd + Option + L","Object"],
+            ["Bring Forward","Ctrl + ]","Cmd + ]","Arrange"],
+            ["Bring to Front","Ctrl + Shift + ]","Cmd + Shift + ]","Arrange"],
+            ["Send Backward","Ctrl + [","Cmd + [","Arrange"],
+            ["Send to Back","Ctrl + Shift + [","Cmd + Shift + [","Arrange"],
+            ["Zoom In","Ctrl + +","Cmd + +","View"],
+            ["Zoom Out","Ctrl + -","Cmd + -","View"],
+            ["Fit Page","Ctrl + 0","Cmd + 0","View"],
+            ["Actual Size","Ctrl + 1","Cmd + 1","View"],
+            ["Fit Spread","Ctrl + Alt + 0","Cmd + Option + 0","View"],
+            ["Show / Hide Guides","Ctrl + ;","Cmd + ;","View"],
+            ["Show / Hide Baseline Grid","Ctrl + Alt + '","Cmd + Option + '","View"],
+            ["Show / Hide Frame Edges","Ctrl + H","Cmd + H","View"],
+            ["Find / Change","Ctrl + F","Cmd + F","Type"],
+            ["Check Spelling","Ctrl + I","Cmd + I","Type"],
+            ["Bold","Ctrl + Shift + B","Cmd + Shift + B","Typography"],
+            ["Italic","Ctrl + Shift + I","Cmd + Shift + I","Typography"],
+            ["Underline","Ctrl + Shift + U","Cmd + Shift + U","Typography"],
+            ["Create Outlines","Ctrl + Shift + O","Cmd + Shift + O","Typography"]
+
+        ]
+    },
+
+
+    CDR: {
+        name:"CORELDRAW",
+        desc:"Vector & Print",
+        data:[
+
+            ["Pick Tool","Space","Space","Tools"],
+            ["Shape Tool","F10","F10","Tools"],
+            ["Crop Tool","C","C","Tools"],
+            ["Zoom Tool","Z","Z","Tools"],
+            ["Freehand Tool","F5","F5","Tools"],
+            ["Bezier Tool","Shift + F5","Shift + F5","Tools"],
+            ["Rectangle Tool","F6","F6","Tools"],
+            ["Ellipse Tool","F7","F7","Tools"],
+            ["Polygon Tool","Y","Y","Tools"],
+            ["Text Tool","F8","F8","Tools"],
+            ["Outline Pen","F12","F12","Color"],
+            ["Outline Color","Shift + F12","Shift + F12","Color"],
+            ["Fill Dialog","Shift + F11","Shift + F11","Color"],
+
+            ["New Document","Ctrl + N","Cmd + N","File"],
+            ["Open","Ctrl + O","Cmd + O","File"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["Save As","Ctrl + Shift + S","Cmd + Shift + S","File"],
+            ["Print","Ctrl + P","Cmd + P","File"],
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Duplicate","Ctrl + D","Cmd + D","Object"],
+            ["Group","Ctrl + G","Cmd + G","Object"],
+            ["Ungroup","Ctrl + U","Cmd + U","Object"],
+            ["Combine","Ctrl + L","Cmd + L","Object"],
+            ["Break Apart","Ctrl + K","Cmd + K","Object"],
+            ["Convert to Curves","Ctrl + Q","Cmd + Q","Object"],
+            ["Align Center Horizontally","E","E","Align"],
+            ["Align Center Vertically","C","C","Align"],
+            ["Align Left","L","L","Align"],
+            ["Align Right","R","R","Align"],
+            ["Align Top","T","T","Align"],
+            ["Align Bottom","B","B","Align"],
+            ["Zoom In","Page Up","Page Up","View"],
+            ["Zoom Out","Page Down","Page Down","View"],
+            ["Zoom to Objects","F4","F4","View"],
+            ["Full Screen Preview","F9","F9","View"]
+
+        ]
+    },
+
+
+    PR: {
+        name:"PREMIERE PRO",
+        desc:"Video Editing",
+        data:[
+
+            ["Selection Tool","V","V","Tools"],
+            ["Track Select Forward","A","A","Tools"],
+            ["Ripple Edit","B","B","Tools"],
+            ["Rolling Edit","N","N","Tools"],
+            ["Rate Stretch","R","R","Tools"],
+            ["Razor Tool","C","C","Tools"],
+            ["Slip Tool","Y","Y","Tools"],
+            ["Slide Tool","U","U","Tools"],
+            ["Pen Tool","P","P","Tools"],
+            ["Hand Tool","H","H","Tools"],
+            ["Type Tool","T","T","Tools"],
+
+            ["Play / Stop","Space","Space","Playback"],
+            ["Play Around Edit","Shift + Space","Shift + Space","Playback"],
+            ["Step Forward","Right Arrow","Right Arrow","Playback"],
+            ["Step Backward","Left Arrow","Left Arrow","Playback"],
+            ["Next Edit","Down Arrow","Down Arrow","Navigation"],
+            ["Previous Edit","Up Arrow","Up Arrow","Navigation"],
+            ["Go to In Point","Shift + I","Shift + I","Navigation"],
+            ["Go to Out Point","Shift + O","Shift + O","Navigation"],
+            ["Mark In","I","I","Editing"],
+            ["Mark Out","O","O","Editing"],
+            ["Clear In","Ctrl + Shift + I","Option + I","Editing"],
+            ["Clear Out","Ctrl + Shift + O","Option + O","Editing"],
+            ["Add Edit","Ctrl + K","Cmd + K","Editing"],
+            ["Add Edit to All Tracks","Ctrl + Shift + K","Cmd + Shift + K","Editing"],
+            ["Ripple Delete","Shift + Delete","Shift + Delete","Editing"],
+            ["Lift",";",";","Editing"],
+            ["Extract", "'","'","Editing"],
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Cut","Ctrl + X","Cmd + X","Edit"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["Save As","Ctrl + Shift + S","Cmd + Shift + S","File"],
+            ["New Project","Ctrl + Alt + N","Cmd + Option + N","File"],
+            ["New Sequence","Ctrl + N","Cmd + N","File"],
+            ["Export Media","Ctrl + M","Cmd + M","Export"],
+            ["Export Frame","Ctrl + Shift + E","Cmd + Shift + E","Export"],
+            ["Zoom In Timeline","=","=","Timeline"],
+            ["Zoom Out Timeline","-","-","Timeline"],
+            ["Maximize Panel","~","~","Interface"]
+
+        ]
+    },
+
+
+    AE: {
+        name:"AFTER EFFECTS",
+        desc:"Motion Graphics",
+        data:[
+
+            ["Selection Tool","V","V","Tools"],
+            ["Hand Tool","H","H","Tools"],
+            ["Zoom Tool","Z","Z","Tools"],
+            ["Rotation Tool","W","W","Tools"],
+            ["Pan Behind","Y","Y","Tools"],
+            ["Rectangle Tool","Q","Q","Tools"],
+            ["Pen Tool","G","G","Tools"],
+            ["Text Tool","Ctrl + T","Cmd + T","Tools"],
+            ["Brush Tool","Ctrl + B","Cmd + B","Tools"],
+            ["Clone Stamp","Ctrl + B","Cmd + B","Tools"],
+
+            ["New Composition","Ctrl + N","Cmd + N","Composition"],
+            ["New Solid","Ctrl + Y","Cmd + Y","Layer"],
+            ["New Null Object","Ctrl + Alt + Shift + Y","Cmd + Option + Shift + Y","Layer"],
+            ["New Adjustment Layer","Ctrl + Alt + Y","Cmd + Option + Y","Layer"],
+            ["Duplicate Layer","Ctrl + D","Cmd + D","Layer"],
+            ["Split Layer","Ctrl + Shift + D","Cmd + Shift + D","Layer"],
+            ["Trim Layer to Current Time","Alt + [","Option + [","Layer"],
+            ["Trim Layer End","Alt + ]","Option + ]","Layer"],
+            ["Move Layer Up","Ctrl + Up","Cmd + Up","Layer"],
+            ["Move Layer Down","Ctrl + Down","Cmd + Down","Layer"],
+
+            ["Position","P","P","Properties"],
+            ["Scale","S","S","Properties"],
+            ["Rotation","R","R","Properties"],
+            ["Opacity","T","T","Properties"],
+            ["Anchor Point","A","A","Properties"],
+            ["All Transform Properties","U","U","Properties"],
+            ["Modified Properties","UU","UU","Properties"],
+
+            ["Set Position Keyframe","P then stopwatch","P then stopwatch","Animation"],
+            ["Easy Ease","F9","F9","Animation"],
+            ["Easy Ease In","Shift + F9","Shift + F9","Animation"],
+            ["Easy Ease Out","Ctrl + Shift + F9","Cmd + Shift + F9","Animation"],
+            ["Add Keyframe","Alt + Shift + Property","Option + Shift + Property","Animation"],
+            ["Go to Previous Keyframe","J","J","Animation"],
+            ["Go to Next Keyframe","K","K","Animation"],
+
+            ["Play / Stop","Space","Space","Preview"],
+            ["RAM Preview","Numpad 0","Numpad 0","Preview"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Cut","Ctrl + X","Cmd + X","Edit"],
+            ["Zoom In Timeline","=","=","Timeline"],
+            ["Zoom Out Timeline","-","-","Timeline"],
+            ["Fit Composition","Shift + /","Shift + /","View"],
+            ["Full Screen Panel","Ctrl + `","Cmd + `","Interface"]
+
+        ]
+    },
+
+
+    XD: {
+        name:"ADOBE XD",
+        desc:"UI / UX",
+        data:[
+
+            ["Select","V","V","Tools"],
+            ["Rectangle","R","R","Tools"],
+            ["Ellipse","E","E","Tools"],
+            ["Line","L","L","Tools"],
+            ["Pen","P","P","Tools"],
+            ["Text","T","T","Tools"],
+            ["Artboard","A","A","Tools"],
+            ["Zoom","Z","Z","Tools"],
+
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Duplicate","Ctrl + D","Cmd + D","Object"],
+            ["Group","Ctrl + G","Cmd + G","Object"],
+            ["Ungroup","Ctrl + Shift + G","Cmd + Shift + G","Object"],
+            ["Repeat Grid","Ctrl + R","Cmd + R","Object"],
+            ["Bring Forward","Ctrl + ]","Cmd + ]","Arrange"],
+            ["Send Backward","Ctrl + [","Cmd + [","Arrange"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["New Document","Ctrl + N","Cmd + N","File"],
+            ["Export","Ctrl + E","Cmd + E","Export"]
+
+        ]
+    },
+
+
+    LR: {
+        name:"LIGHTROOM",
+        desc:"Photo Editing",
+        data:[
+
+            ["Crop","R","R","Tools"],
+            ["Spot Removal","Q","Q","Tools"],
+            ["Adjustment Brush","K","K","Tools"],
+            ["Gradient","M","M","Tools"],
+            ["Radial Filter","Shift + M","Shift + M","Tools"],
+            ["Library Module","G","G","Navigation"],
+            ["Develop Module","D","D","Navigation"],
+            ["Map Module","M","M","Navigation"],
+            ["Web Module","W","W","Navigation"],
+
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Copy Settings","Ctrl + C","Cmd + C","Edit"],
+            ["Paste Settings","Ctrl + V","Cmd + V","Edit"],
+            ["Reset","Ctrl + Shift + R","Cmd + Shift + R","Edit"],
+            ["Auto Tone","Ctrl + U","Cmd + U","Edit"],
+            ["Black & White","V","V","Edit"],
+            ["Before / After","\\","\\","View"],
+            ["Loupe View","E","E","View"],
+            ["Grid View","G","G","View"],
+            ["Compare View","C","C","View"],
+            ["Survey View","N","N","View"],
+            ["Full Screen","F","F","View"],
+            ["Flag Pick","P","P","Rating"],
+            ["Flag Reject","X","X","Rating"],
+            ["Remove Flag","U","U","Rating"],
+            ["Rate 1 Star","1","1","Rating"],
+            ["Rate 5 Stars","5","5","Rating"],
+            ["Export","Ctrl + Shift + E","Cmd + Shift + E","File"]
+
+        ]
+    },
+
+
+    FIGMA: {
+        name:"FIGMA",
+        desc:"UI / Interface",
+        data:[
+
+            ["Move","V","V","Tools"],
+            ["Frame","F","F","Tools"],
+            ["Section","Shift + S","Shift + S","Tools"],
+            ["Rectangle","R","R","Tools"],
+            ["Ellipse","O","O","Tools"],
+            ["Line","L","L","Tools"],
+            ["Pen","P","P","Tools"],
+            ["Text","T","T","Tools"],
+            ["Hand","H","H","Navigation"],
+            ["Comment","C","C","Collaboration"],
+
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Duplicate","Ctrl + D","Cmd + D","Object"],
+            ["Group","Ctrl + G","Cmd + G","Object"],
+            ["Ungroup","Ctrl + Shift + G","Cmd + Shift + G","Object"],
+            ["Select All","Ctrl + A","Cmd + A","Selection"],
+            ["Save / Publish","Ctrl + S","Cmd + S","File"],
+            ["Zoom In","Ctrl + +","Cmd + +","View"],
+            ["Zoom Out","Ctrl + -","Cmd + -","View"],
+            ["Fit Selection","Shift + 2","Shift + 2","View"],
+            ["Fit All","Shift + 1","Shift + 1","View"],
+            ["Show / Hide UI","Ctrl + \\","Cmd + \\", "Interface"],
+            ["Show / Hide Layout Grids","Ctrl + Shift + 4","Cmd + Shift + 4","View"]
+
+        ]
+    },
+
+
+    CANVA: {
+        name:"CANVA",
+        desc:"Design Platform",
+        data:[
+
+            ["Text","T","T","Tools"],
+            ["Rectangle","R","R","Tools"],
+            ["Line","L","L","Tools"],
+            ["Circle","C","C","Tools"],
+            ["Add Page","Ctrl + Enter","Cmd + Enter","Pages"],
+            ["Duplicate Element","Ctrl + D","Cmd + D","Object"],
+            ["Group","Ctrl + G","Cmd + G","Object"],
+            ["Ungroup","Ctrl + Shift + G","Cmd + Shift + G","Object"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Y","Cmd + Shift + Z","Edit"],
+            ["Delete","Delete","Delete","Edit"],
+            ["Select All","Ctrl + A","Cmd + A","Selection"],
+            ["Lock","Alt + Shift + L","Option + Shift + L","Object"],
+            ["Bring Forward","Ctrl + ]","Cmd + ]","Arrange"],
+            ["Send Backward","Ctrl + [","Cmd + [","Arrange"],
+            ["Bold","Ctrl + B","Cmd + B","Typography"],
+            ["Italic","Ctrl + I","Cmd + I","Typography"],
+            ["Underline","Ctrl + U","Cmd + U","Typography"],
+            ["Save","Ctrl + S","Cmd + S","File"]
+
+        ]
+    },
+
+
+    PDF: {
+        name:"PDF / ACROBAT",
+        desc:"Document & PDF",
+        data:[
+
+            ["Open PDF","Ctrl + O","Cmd + O","File"],
+            ["Save","Ctrl + S","Cmd + S","File"],
+            ["Save As","Ctrl + Shift + S","Cmd + Shift + S","File"],
+            ["Print","Ctrl + P","Cmd + P","File"],
+            ["Close","Ctrl + W","Cmd + W","File"],
+            ["Undo","Ctrl + Z","Cmd + Z","Edit"],
+            ["Redo","Ctrl + Shift + Z","Cmd + Shift + Z","Edit"],
+            ["Copy","Ctrl + C","Cmd + C","Edit"],
+            ["Paste","Ctrl + V","Cmd + V","Edit"],
+            ["Select All","Ctrl + A","Cmd + A","Selection"],
+            ["Find","Ctrl + F","Cmd + F","Search"],
+            ["Next Page","Page Down","Page Down","Navigation"],
+            ["Previous Page","Page Up","Page Up","Navigation"],
+            ["First Page","Home","Home","Navigation"],
+            ["Last Page","End","End","Navigation"],
+            ["Zoom In","Ctrl + +","Cmd + +","View"],
+            ["Zoom Out","Ctrl + -","Cmd + -","View"],
+            ["Fit Page","Ctrl + 0","Cmd + 0","View"],
+            ["Actual Size","Ctrl + 1","Cmd + 1","View"]
+
+        ]
+    }
+
+};
+
+
+/* =====================================================
+   SOFTWARE BUTTONS
+===================================================== */
+
+const softwareList =
+document.getElementById("softwareList");
+
+const shortcutGrid =
+document.getElementById("shortcutGrid");
+
+const searchInput =
+document.getElementById("search");
+
+const softwareTitle =
+document.getElementById("softwareTitle");
+
+const countText =
+document.getElementById("countText");
+
+const empty =
+document.getElementById("empty");
+
+let currentSoftware = "PS";
+let currentPlatform = "win";
+
+
+Object.keys(shortcuts).forEach((key)=>{
+
+    const btn =
+    document.createElement("button");
+
+    btn.className =
+    "software-btn";
+
+    btn.textContent =
+    key;
+
+    btn.onclick = ()=>{
+        currentSoftware = key;
+
+        document
+        .querySelectorAll(".software-btn")
+        .forEach(b=>b.classList.remove("active"));
+
+        btn.classList.add("active");
+
+        render();
+    };
+
+    softwareList.appendChild(btn);
+
+});
+
+
+/* =====================================================
+   PLATFORM
+===================================================== */
+
+function setPlatform(platform){
+
+    currentPlatform = platform;
+
+    document
+    .getElementById("winBtn")
+    .classList.toggle(
+        "active",
+        platform === "win"
+    );
+
+    document
+    .getElementById("macBtn")
+    .classList.toggle(
+        "active",
+        platform === "mac"
+    );
+
+    render();
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(){
+
+    const software =
+    shortcuts[currentSoftware];
+
+    const query =
+    searchInput.value
+    .trim()
+    .toLowerCase();
+
+    softwareTitle.textContent =
+    software.name;
+
+    const filtered =
+    software.data.filter(item=>{
+
+        const action =
+        item[0].toLowerCase();
+
+        const win =
+        item[1].toLowerCase();
+
+        const mac =
+        item[2].toLowerCase();
+
+        const category =
+        item[3].toLowerCase();
+
+        return (
+            action.includes(query) ||
+            win.includes(query) ||
+            mac.includes(query) ||
+            category.includes(query)
+        );
+
+    });
+
+
+    shortcutGrid.innerHTML = "";
+
+    countText.textContent =
+    filtered.length + " SHORTCUTS";
+
+
+    if(filtered.length === 0){
+
+        empty.style.display = "block";
+
+        return;
+
+    }
+
+    empty.style.display = "none";
+
+
+    filtered.forEach((item,index)=>{
+
+        const card =
+        document.createElement("article");
+
+        card.className =
+        "shortcut-card";
+
+        const shortcut =
+        currentPlatform === "win"
+        ? item[1]
+        : item[2];
+
+
+        const keys =
+        shortcut
+        .split(" + ")
+        .map(k=>{
+
+            return `<span class="key">${escapeHTML(k)}</span>`;
+
+        })
+        .join("");
+
+
+        card.innerHTML = `
+
+            <div class="card-top">
+
+                <span class="category">
+                    ${escapeHTML(item[3])}
+                </span>
+
+                <span class="number">
+                    ${String(index+1).padStart(3,"0")}
+                </span>
+
+            </div>
+
+            <div class="action">
+                ${escapeHTML(item[0])}
+            </div>
+
+            <div class="keys">
+                ${keys}
+            </div>
+
+        `;
+
+        shortcutGrid.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    render
+);
+
+
+/* =====================================================
+   KEYBOARD SEARCH
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(
+            e.key === "/" &&
+            document.activeElement !== searchInput
+        ){
+
+            e.preventDefault();
+
+            searchInput.focus();
+
+        }
+
+        if(
+            e.key === "Escape" &&
+            document.activeElement === searchInput
+        ){
+
+            searchInput.value = "";
+
+            searchInput.blur();
+
+            render();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SECURITY / HTML ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+document
+.querySelector(".software-btn")
+.classList.add("active");
+
+render();
+
+</script>
+
+</body>
+</html>
