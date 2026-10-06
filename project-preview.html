@@ -1,0 +1,2779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PROJECT PREVIEW — DESIGNER 197</title>
+
+<style>
+:root{
+    --bg:#050505;
+    --bg2:#090909;
+    --card:#0d0d0d;
+    --card2:#111111;
+    --text:#f5f5f2;
+    --muted:#858585;
+    --line:rgba(255,255,255,.10);
+    --lime:#c9ff3d;
+    --lime-dark:#aee928;
+    --danger:#ff5555;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 85% 5%,rgba(201,255,61,.08),transparent 28%),
+        radial-gradient(circle at 5% 80%,rgba(255,255,255,.035),transparent 25%),
+        var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* =================================
+HEADER
+================================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    height:78px;
+    padding:0 5vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.logo{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--lime);
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.status{
+    font-size:10px;
+    color:#666;
+    letter-spacing:1.5px;
+}
+
+.status strong{
+    color:var(--lime);
+}
+
+/* =================================
+BUTTONS
+================================= */
+
+.primary-btn{
+    border:1px solid var(--lime);
+    background:var(--lime);
+    color:#050505;
+    padding:13px 19px;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    transition:.25s;
+}
+
+.primary-btn:hover{
+    background:#fff;
+    border-color:#fff;
+    transform:translateY(-2px);
+}
+
+.secondary-btn{
+    border:1px solid var(--line);
+    background:#0c0c0c;
+    color:#fff;
+    padding:12px 17px;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.25s;
+}
+
+.secondary-btn:hover{
+    color:var(--lime);
+    border-color:var(--lime);
+}
+
+.danger-btn{
+    border:1px solid rgba(255,85,85,.3);
+    background:#100909;
+    color:#ff7777;
+    padding:12px 17px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.danger-btn:hover{
+    border-color:var(--danger);
+    color:#fff;
+}
+
+/* =================================
+HERO
+================================= */
+
+.hero{
+    max-width:1500px;
+    margin:auto;
+    padding:90px 5vw 55px;
+}
+
+.kicker{
+    color:var(--lime);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,130px);
+    line-height:.84;
+    letter-spacing:-7px;
+}
+
+.hero h1 span{
+    color:transparent;
+    -webkit-text-stroke:1px #777;
+}
+
+.hero p{
+    max-width:680px;
+    margin-top:30px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.8;
+}
+
+/* =================================
+TOOLBAR
+================================= */
+
+.toolbar{
+    max-width:1500px;
+    margin:auto;
+    padding:0 5vw 35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.project-count{
+    color:#666;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.project-count strong{
+    color:#fff;
+}
+
+/* =================================
+PROJECT GRID
+================================= */
+
+.projects{
+    max-width:1500px;
+    margin:auto;
+    padding:0 5vw 100px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.project{
+    background:linear-gradient(145deg,#111,#080808);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:.35s;
+}
+
+.project:hover{
+    transform:translateY(-6px);
+    border-color:rgba(201,255,61,.3);
+    box-shadow:0 35px 80px rgba(0,0,0,.5);
+}
+
+.preview{
+    height:390px;
+    background:#171717;
+    border-bottom:1px solid var(--line);
+    position:relative;
+}
+
+.preview iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    background:white;
+}
+
+.preview-label{
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:3;
+    padding:8px 10px;
+    background:rgba(0,0,0,.82);
+    border:1px solid rgba(255,255,255,.14);
+    color:var(--lime);
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.project-info{
+    padding:25px;
+}
+
+.project-number{
+    color:#555;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:11px;
+}
+
+.project h2{
+    font-size:31px;
+    letter-spacing:-1.5px;
+}
+
+.project-description{
+    color:#777;
+    font-size:12px;
+    line-height:1.7;
+    margin-top:10px;
+}
+
+.tech-list{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-top:17px;
+}
+
+.tech{
+    border:1px solid #222;
+    color:#888;
+    padding:6px 8px;
+    font-size:8px;
+    letter-spacing:1px;
+}
+
+.project-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:22px;
+}
+
+/* =================================
+MODAL
+================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(14px);
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(1100px,100%);
+    max-height:94vh;
+    overflow:auto;
+    background:#090909;
+    border:1px solid var(--line);
+    box-shadow:0 40px 120px #000;
+}
+
+.modal-header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    padding:19px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#090909;
+    border-bottom:1px solid var(--line);
+}
+
+.modal-title{
+    font-size:14px;
+    font-weight:900;
+}
+
+.close{
+    width:38px;
+    height:38px;
+    background:#111;
+    border:1px solid var(--line);
+    color:#fff;
+    font-size:20px;
+}
+
+.close:hover{
+    color:var(--lime);
+    border-color:var(--lime);
+}
+
+/* =================================
+FORM
+================================= */
+
+.form{
+    padding:25px;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
+    display:block;
+    color:#777;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.field input,
+.field textarea,
+.field select{
+    width:100%;
+    border:1px solid var(--line);
+    background:#0d0d0d;
+    color:#fff;
+    padding:13px;
+    outline:none;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+    border-color:var(--lime);
+}
+
+.field textarea{
+    resize:vertical;
+    min-height:100px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+/* =================================
+TECHNOLOGY SELECTOR
+================================= */
+
+.tech-title{
+    color:#777;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+    margin-bottom:25px;
+}
+
+.tech-btn{
+    min-height:43px;
+    padding:9px;
+    background:#0d0d0d;
+    color:#777;
+    border:1px solid #1b1b1b;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.5px;
+    transition:.2s;
+}
+
+.tech-btn:hover{
+    color:#fff;
+    border-color:#555;
+}
+
+.tech-btn.active{
+    color:#050505;
+    background:var(--lime);
+    border-color:var(--lime);
+}
+
+/* =================================
+EDITOR
+================================= */
+
+.editor-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:25px 0 10px;
+}
+
+.editor-title{
+    color:#777;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+.selected-language{
+    color:var(--lime);
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.editor{
+    width:100%;
+    min-height:360px;
+    resize:vertical;
+    padding:18px;
+    background:#050505;
+    border:1px solid #202020;
+    color:#ddd;
+    font-family:Consolas,Monaco,monospace;
+    font-size:12px;
+    line-height:1.65;
+    outline:none;
+}
+
+.editor:focus{
+    border-color:var(--lime);
+}
+
+/* =================================
+CUSTOM FILES
+================================= */
+
+.upload-box{
+    margin-top:25px;
+    padding:20px;
+    border:1px dashed #292929;
+    background:#0a0a0a;
+}
+
+.upload-box:hover{
+    border-color:#555;
+}
+
+.upload-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+}
+
+.upload-title{
+    color:#aaa;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.file-input{
+    display:none;
+}
+
+.upload-label{
+    display:inline-block;
+    padding:10px 15px;
+    border:1px solid #333;
+    color:#aaa;
+    font-size:9px;
+    cursor:pointer;
+}
+
+.upload-label:hover{
+    color:var(--lime);
+    border-color:var(--lime);
+}
+
+.files-list{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.file-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:9px 11px;
+    background:#111;
+    border:1px solid #1b1b1b;
+    color:#999;
+    font-size:10px;
+}
+
+.file-remove{
+    border:0;
+    background:none;
+    color:#666;
+}
+
+.file-remove:hover{
+    color:#ff5555;
+}
+
+/* =================================
+FORM ACTIONS
+================================= */
+
+.form-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:9px;
+    margin-top:25px;
+}
+
+/* =================================
+CODE VIEWER
+================================= */
+
+.code-tabs{
+    display:flex;
+    border-bottom:1px solid var(--line);
+    overflow:auto;
+}
+
+.code-tab{
+    padding:13px 18px;
+    background:#0b0b0b;
+    border:0;
+    border-right:1px solid var(--line);
+    color:#666;
+    font-size:9px;
+    letter-spacing:1px;
+    white-space:nowrap;
+}
+
+.code-tab.active{
+    background:#111;
+    color:var(--lime);
+}
+
+.code-view{
+    margin:0;
+    padding:25px;
+    height:65vh;
+    overflow:auto;
+    background:#050505;
+    color:#ddd;
+    font-family:Consolas,Monaco,monospace;
+    font-size:12px;
+    line-height:1.7;
+    white-space:pre;
+    user-select:none;
+    -webkit-user-select:none;
+}
+
+/* =================================
+PREVIEW MODAL
+================================= */
+
+.preview-modal-box{
+    width:96%;
+    height:94vh;
+}
+
+.full-preview{
+    width:100%;
+    height:calc(94vh - 77px);
+    border:0;
+    background:#fff;
+}
+
+/* =================================
+EMPTY
+================================= */
+
+.empty{
+    grid-column:1/-1;
+    min-height:300px;
+    border:1px dashed #222;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#555;
+}
+
+.empty strong{
+    display:block;
+    color:#aaa;
+    margin-bottom:8px;
+}
+
+/* =================================
+TOAST
+================================= */
+
+.toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:3000;
+    background:var(--lime);
+    color:#050505;
+    padding:13px 17px;
+    font-size:10px;
+    font-weight:900;
+    transform:translateY(100px);
+    opacity:0;
+    transition:.3s;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* =================================
+RESPONSIVE
+================================= */
+
+@media(max-width:950px){
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .tech-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .header{
+        padding:0 20px;
+    }
+
+    .status{
+        display:none;
+    }
+
+    .hero{
+        padding:65px 20px 45px;
+    }
+
+    .hero h1{
+        letter-spacing:-4px;
+    }
+
+    .toolbar{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .projects{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .tech-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .preview{
+        height:280px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =================================
+HEADER
+================================= -->
+
+<header class="header">
+
+    <div class="logo">
+        DESIGNER <span>197</span>
+    </div>
+
+    <div class="header-right">
+
+        <div class="status">
+            PROJECT STORAGE:
+            <strong>LOCAL</strong>
+        </div>
+
+        <button
+            class="secondary-btn"
+            onclick="openAddModal()"
+        >
+            + ADD WEBSITE
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =================================
+HERO
+================================= -->
+
+<section class="hero">
+
+    <div class="kicker">
+        PROJECT / WEB SHOWCASE
+    </div>
+
+    <h1>
+        WEB<br>
+        <span>PROJECTS.</span>
+    </h1>
+
+    <p>
+        Websites designed and developed by DESIGNER 197.
+        Add projects, store source code, upload custom files
+        and showcase live website previews.
+    </p>
+
+</section>
+
+
+<!-- =================================
+TOOLBAR
+================================= -->
+
+<div class="toolbar">
+
+    <div class="project-count">
+
+        SAVED PROJECTS:
+        <strong id="projectCount">0</strong>
+
+    </div>
+
+    <button
+        class="primary-btn"
+        onclick="openAddModal()"
+    >
+        + ADD NEW WEBSITE
+    </button>
+
+</div>
+
+
+<!-- =================================
+PROJECTS
+================================= -->
+
+<main
+    class="projects"
+    id="projects"
+></main>
+
+
+<!-- =================================
+ADD / EDIT MODAL
+================================= -->
+
+<div
+    class="modal"
+    id="formModal"
+>
+
+<div class="modal-box">
+
+    <div class="modal-header">
+
+        <div
+            class="modal-title"
+            id="formTitle"
+        >
+            ADD WEBSITE
+        </div>
+
+        <button
+            class="close"
+            onclick="closeModal('formModal')"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="form">
+
+
+        <!-- WEBSITE INFORMATION -->
+
+        <div class="form-row">
+
+            <div class="field">
+
+                <label>
+                    WEBSITE NAME
+                </label>
+
+                <input
+                    id="siteName"
+                    type="text"
+                    placeholder="Luxury Watch"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    PROJECT DESCRIPTION
+                </label>
+
+                <input
+                    id="siteDescription"
+                    type="text"
+                    placeholder="Premium luxury website..."
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- TECHNOLOGY -->
+
+        <div class="tech-title">
+            SELECT TECHNOLOGY
+        </div>
+
+
+        <div
+            class="tech-grid"
+            id="techGrid"
+        ></div>
+
+
+        <!-- CODE EDITOR -->
+
+        <div class="editor-header">
+
+            <div class="editor-title">
+                CODE EDITOR
+            </div>
+
+            <div
+                class="selected-language"
+                id="selectedLanguage"
+            >
+                HTML
+            </div>
+
+        </div>
+
+
+        <textarea
+            id="codeEditor"
+            class="editor"
+            spellcheck="false"
+        ></textarea>
+
+
+        <!-- CUSTOM FILES -->
+
+        <div class="upload-box">
+
+            <div class="upload-head">
+
+                <div class="upload-title">
+                    OTHER / CUSTOM FILES
+                </div>
+
+                <label
+                    class="upload-label"
+                    for="customFiles"
+                >
+                    + UPLOAD FILE
+                </label>
+
+                <input
+                    id="customFiles"
+                    class="file-input"
+                    type="file"
+                    multiple
+                >
+
+            </div>
+
+
+            <div
+                class="files-list"
+                id="filesList"
+            ></div>
+
+        </div>
+
+
+        <!-- LIVE WEBSITE HTML -->
+
+        <div
+            class="field"
+            style="margin-top:25px;"
+        >
+
+            <label>
+                LIVE PREVIEW HTML
+            </label>
+
+            <textarea
+                id="previewHTML"
+                class="editor"
+                style="min-height:180px;"
+                spellcheck="false"
+            ></textarea>
+
+        </div>
+
+
+        <!-- CSS -->
+
+        <div class="field">
+
+            <label>
+                LIVE PREVIEW CSS
+            </label>
+
+            <textarea
+                id="previewCSS"
+                class="editor"
+                style="min-height:180px;"
+                spellcheck="false"
+            ></textarea>
+
+        </div>
+
+
+        <!-- JAVASCRIPT -->
+
+        <div class="field">
+
+            <label>
+                LIVE PREVIEW JAVASCRIPT
+            </label>
+
+            <textarea
+                id="previewJS"
+                class="editor"
+                style="min-height:180px;"
+                spellcheck="false"
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                class="secondary-btn"
+                onclick="closeModal('formModal')"
+            >
+                CANCEL
+            </button>
+
+            <button
+                class="primary-btn"
+                onclick="saveProject()"
+            >
+                SAVE WEBSITE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =================================
+CODE VIEWER
+================================= -->
+
+<div
+    class="modal"
+    id="codeModal"
+>
+
+<div class="modal-box">
+
+    <div class="modal-header">
+
+        <div
+            class="modal-title"
+            id="codeTitle"
+        >
+            WEBSITE CODE
+        </div>
+
+        <button
+            class="close"
+            onclick="closeModal('codeModal')"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="code-tabs"
+        id="codeTabs"
+    ></div>
+
+
+    <pre
+        id="codeOutput"
+        class="code-view"
+        oncontextmenu="return false;"
+    ></pre>
+
+</div>
+
+</div>
+
+
+<!-- =================================
+FULL PREVIEW
+================================= -->
+
+<div
+    class="modal"
+    id="previewModal"
+>
+
+<div class="modal-box preview-modal-box">
+
+    <div class="modal-header">
+
+        <div
+            class="modal-title"
+            id="previewTitle"
+        >
+            WEBSITE PREVIEW
+        </div>
+
+        <button
+            class="close"
+            onclick="closeModal('previewModal')"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <iframe
+        id="fullPreview"
+        class="full-preview"
+    ></iframe>
+
+</div>
+
+</div>
+
+
+<!-- =================================
+TOAST
+================================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    SAVED
+</div>
+
+
+<script>
+
+/* =============================================
+TECHNOLOGIES
+============================================= */
+
+const technologies = [
+
+    "HTML",
+    "CSS",
+    "JAVASCRIPT",
+    "SQL",
+    "PYTHON",
+    "JAVA",
+    "PHP",
+    "C",
+    "C++",
+    "C#",
+    "AWS",
+    "W3.CSS",
+    "HOW TO",
+    "BOOTSTRAP",
+    "REACT",
+    "MYSQL",
+    "JQUERY",
+    "EXCEL",
+    "XML",
+    "DJANGO"
+
+];
+
+
+/* =============================================
+BASIC CODE TEMPLATES
+============================================= */
+
+const templates = {
+
+HTML:
+`<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+
+    <h1>Hello World</h1>
+    <p>Welcome to my website.</p>
+
+</body>
+</html>`,
+
+CSS:
+`body {
+    margin: 0;
+    background: #050505;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #c9ff3d;
+}`,
+
+JAVASCRIPT:
+`const message = "Hello World";
+
+console.log(message);
+
+function welcome(){
+    alert(message);
+}
+
+welcome();`,
+
+SQL:
+`CREATE DATABASE website_db;
+
+USE website_db;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(150)
+);
+
+SELECT * FROM users;`,
+
+PYTHON:
+`def welcome(name):
+    return f"Hello {name}"
+
+message = welcome("World")
+
+print(message)`,
+
+JAVA:
+`public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+
+    }
+}`,
+
+PHP:
+`<?php
+
+$name = "World";
+
+echo "Hello " . $name;
+
+?>`,
+
+C:
+`#include <stdio.h>
+
+int main() {
+
+    printf("Hello World");
+
+    return 0;
+}`,
+
+"C++":
+`#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    cout << "Hello World";
+
+    return 0;
+}`,
+
+"C#":
+`using System;
+
+class Program {
+
+    static void Main() {
+
+        Console.WriteLine("Hello World");
+
+    }
+
+}`,
+
+AWS:
+`# AWS basic configuration example
+
+aws configure
+
+aws s3 ls
+
+aws ec2 describe-instances`,
+
+"W3.CSS":
+`<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet"
+href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body>
+
+<div class="w3-container">
+
+<h1 class="w3-green">
+    W3.CSS Website
+</h1>
+
+</div>
+
+</body>
+</html>`,
+
+"HOW TO":
+`# HOW TO
+
+1. Create your project.
+2. Add HTML.
+3. Add CSS.
+4. Add JavaScript.
+5. Test your website.
+6. Publish your project.`,
+
+BOOTSTRAP:
+`<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+<h1 class="display-4">
+    Bootstrap Website
+</h1>
+
+<button class="btn btn-primary">
+    Get Started
+</button>
+
+</div>
+
+</body>
+</html>`,
+
+REACT:
+`import React from "react";
+
+function App() {
+
+    return (
+        <div>
+            <h1>Hello React</h1>
+        </div>
+    );
+
+}
+
+export default App;`,
+
+MYSQL:
+`CREATE DATABASE portfolio;
+
+USE portfolio;
+
+CREATE TABLE projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200),
+    description TEXT
+);
+
+SELECT * FROM projects;`,
+
+JQUERY:
+`$(document).ready(function(){
+
+    $("#button").click(function(){
+
+        $("#message").text(
+            "Hello jQuery"
+        );
+
+    });
+
+});`,
+
+EXCEL:
+`=SUM(A1:A10)
+
+=AVERAGE(B1:B10)
+
+=COUNT(C1:C10)
+
+=IF(A1>50,"PASS","FAIL")`,
+
+XML:
+`<?xml version="1.0"?>
+
+<website>
+
+    <name>Designer 197</name>
+
+    <project>
+        <title>Luxury Watch</title>
+        <type>Website</type>
+    </project>
+
+</website>`,
+
+DJANGO:
+`from django.http import HttpResponse
+
+def home(request):
+
+    return HttpResponse(
+        "Hello Django"
+    )`
+
+};
+
+
+/* =============================================
+STORAGE
+============================================= */
+
+const STORAGE_KEY =
+    "designer197_web_projects_v3";
+
+let projects =
+    JSON.parse(
+        localStorage.getItem(STORAGE_KEY) || "[]"
+    );
+
+let editingId = null;
+let selectedTechnology = "HTML";
+let customFiles = [];
+let currentCodeProject = null;
+
+
+/* =============================================
+BUILD TECHNOLOGY BUTTONS
+============================================= */
+
+function buildTechnologyButtons(){
+
+    const grid =
+        document.getElementById("techGrid");
+
+    grid.innerHTML =
+        technologies.map(language => `
+
+            <button
+                class="tech-btn ${language === "HTML" ? "active" : ""}"
+                onclick="selectTechnology('${escapeJS(language)}')"
+            >
+                ${escapeHTML(language)}
+            </button>
+
+        `).join("");
+
+}
+
+
+/* =============================================
+SELECT TECHNOLOGY
+============================================= */
+
+function selectTechnology(language){
+
+    selectedTechnology =
+        language;
+
+    document
+        .querySelectorAll(".tech-btn")
+        .forEach(button => {
+
+            button.classList.remove("active");
+
+            if(
+                button.textContent.trim()
+                === language
+            ){
+
+                button.classList.add("active");
+
+            }
+
+        });
+
+
+    document.getElementById(
+        "selectedLanguage"
+    ).textContent =
+        language;
+
+
+    const editor =
+        document.getElementById("codeEditor");
+
+
+    if(
+        templates[language] !== undefined
+    ){
+
+        editor.value =
+            templates[language];
+
+    }else{
+
+        editor.value = "";
+
+    }
+
+}
+
+
+/* =============================================
+OPEN ADD
+============================================= */
+
+function openAddModal(){
+
+    editingId = null;
+
+    document.getElementById(
+        "formTitle"
+    ).textContent =
+        "ADD WEBSITE";
+
+
+    document.getElementById("siteName").value =
+        "";
+
+    document.getElementById(
+        "siteDescription"
+    ).value =
+        "";
+
+
+    selectedTechnology =
+        "HTML";
+
+
+    customFiles = [];
+
+
+    document.getElementById(
+        "filesList"
+    ).innerHTML =
+        "";
+
+
+    document.getElementById(
+        "previewHTML"
+    ).value =
+`<div class="hero">
+    <h1>My Website</h1>
+    <p>Welcome to my project.</p>
+    <button>Explore</button>
+</div>`;
+
+
+    document.getElementById(
+        "previewCSS"
+    ).value =
+`.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:#050505;
+    color:white;
+    text-align:center;
+}
+
+h1{
+    font-size:70px;
+    color:#c9ff3d;
+}
+
+button{
+    padding:14px 25px;
+    background:#c9ff3d;
+    border:0;
+    cursor:pointer;
+}`;
+
+
+    document.getElementById(
+        "previewJS"
+    ).value =
+`document.querySelector("button")
+.addEventListener("click", function(){
+
+    alert("Welcome to the website!");
+
+});`;
+
+
+    buildTechnologyButtons();
+
+    selectTechnology("HTML");
+
+
+    document
+        .getElementById("formModal")
+        .classList.add("active");
+
+}
+
+
+/* =============================================
+EDIT PROJECT
+============================================= */
+
+function editProject(id){
+
+    const project =
+        projects.find(
+            p => p.id === id
+        );
+
+    if(!project) return;
+
+
+    editingId =
+        id;
+
+
+    document.getElementById(
+        "formTitle"
+    ).textContent =
+        "EDIT WEBSITE";
+
+
+    document.getElementById(
+        "siteName"
+    ).value =
+        project.name;
+
+
+    document.getElementById(
+        "siteDescription"
+    ).value =
+        project.description;
+
+
+    document.getElementById(
+        "previewHTML"
+    ).value =
+        project.previewHTML || "";
+
+
+    document.getElementById(
+        "previewCSS"
+    ).value =
+        project.previewCSS || "";
+
+
+    document.getElementById(
+        "previewJS"
+    ).value =
+        project.previewJS || "";
+
+
+    customFiles =
+        project.customFiles || [];
+
+
+    renderFiles();
+
+
+    buildTechnologyButtons();
+
+
+    selectedTechnology =
+        project.technology || "HTML";
+
+
+    selectTechnology(
+        selectedTechnology
+    );
+
+
+    document.getElementById(
+        "codeEditor"
+    ).value =
+        project.code || "";
+
+
+    document
+        .getElementById("formModal")
+        .classList.add("active");
+
+}
+
+
+/* =============================================
+CUSTOM FILE UPLOAD
+============================================= */
+
+document.addEventListener(
+    "change",
+    function(e){
+
+        if(
+            e.target.id !== "customFiles"
+        ){
+
+            return;
+
+        }
+
+
+        const files =
+            Array.from(
+                e.target.files
+            );
+
+
+        files.forEach(file => {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(event){
+
+                    customFiles.push({
+
+                        name:file.name,
+
+                        type:file.type,
+
+                        size:file.size,
+
+                        content:event.target.result
+
+                    });
+
+
+                    renderFiles();
+
+                };
+
+
+            reader.readAsText(file);
+
+        });
+
+
+        e.target.value = "";
+
+    }
+);
+
+
+/* =============================================
+RENDER FILES
+============================================= */
+
+function renderFiles(){
+
+    const container =
+        document.getElementById(
+            "filesList"
+        );
+
+
+    if(
+        customFiles.length === 0
+    ){
+
+        container.innerHTML =
+            `<div style="color:#444;font-size:10px;">
+                No custom files uploaded.
+            </div>`;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        customFiles.map(
+            (file,index) => `
+
+                <div class="file-item">
+
+                    <span>
+                        ${escapeHTML(file.name)}
+                    </span>
+
+                    <button
+                        class="file-remove"
+                        onclick="removeFile(${index})"
+                    >
+                        REMOVE
+                    </button>
+
+                </div>
+
+            `
+        ).join("");
+
+}
+
+
+function removeFile(index){
+
+    customFiles.splice(
+        index,
+        1
+    );
+
+    renderFiles();
+
+}
+
+
+/* =============================================
+SAVE PROJECT
+============================================= */
+
+function saveProject(){
+
+    const name =
+        document
+        .getElementById("siteName")
+        .value
+        .trim();
+
+
+    const description =
+        document
+        .getElementById("siteDescription")
+        .value
+        .trim();
+
+
+    if(!name){
+
+        alert(
+            "Please enter website name."
+        );
+
+        return;
+
+    }
+
+
+    const projectData = {
+
+        name:name,
+
+        description:description,
+
+        technology:
+            selectedTechnology,
+
+        code:
+            document
+            .getElementById("codeEditor")
+            .value,
+
+        previewHTML:
+            document
+            .getElementById("previewHTML")
+            .value,
+
+        previewCSS:
+            document
+            .getElementById("previewCSS")
+            .value,
+
+        previewJS:
+            document
+            .getElementById("previewJS")
+            .value,
+
+        customFiles:
+            customFiles,
+
+        updatedAt:
+            new Date().toISOString()
+
+    };
+
+
+    if(editingId){
+
+        const index =
+            projects.findIndex(
+                p => p.id === editingId
+            );
+
+
+        if(index !== -1){
+
+            projects[index] = {
+
+                ...projects[index],
+
+                ...projectData
+
+            };
+
+        }
+
+    }else{
+
+        projects.push({
+
+            id:
+                Date.now().toString(),
+
+            ...projectData,
+
+            createdAt:
+                new Date().toISOString()
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(projects)
+    );
+
+
+    renderProjects();
+
+    closeModal(
+        "formModal"
+    );
+
+
+    showToast(
+        editingId
+        ? "WEBSITE UPDATED"
+        : "WEBSITE SAVED"
+    );
+
+
+    editingId = null;
+
+}
+
+
+/* =============================================
+BUILD LIVE DOCUMENT
+============================================= */
+
+function buildDocument(project){
+
+    return `
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<style>
+
+${project.previewCSS || ""}
+
+</style>
+
+</head>
+
+<body>
+
+${project.previewHTML || ""}
+
+<script>
+
+${project.previewJS || ""}
+
+<\/script>
+
+</body>
+
+</html>
+`;
+
+}
+
+
+/* =============================================
+RENDER PROJECTS
+============================================= */
+
+function renderProjects(){
+
+    const container =
+        document.getElementById(
+            "projects"
+        );
+
+
+    document.getElementById(
+        "projectCount"
+    ).textContent =
+        projects.length;
+
+
+    if(
+        projects.length === 0
+    ){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div>
+
+                    <strong>
+                        NO WEBSITE PROJECTS
+                    </strong>
+
+                    Click
+                    <b>+ ADD NEW WEBSITE</b>
+                    to create your first project.
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        projects.map(
+            (project,index) => `
+
+                <article class="project">
+
+                    <div class="preview">
+
+                        <div class="preview-label">
+                            LIVE PREVIEW
+                        </div>
+
+                        <iframe
+                            srcdoc="${escapeAttribute(
+                                buildDocument(project)
+                            )}"
+                            sandbox="allow-scripts"
+                        ></iframe>
+
+                    </div>
+
+
+                    <div class="project-info">
+
+                        <div class="project-number">
+
+                            PROJECT /
+                            ${String(index+1)
+                                .padStart(3,"0")}
+
+                        </div>
+
+
+                        <h2>
+                            ${escapeHTML(
+                                project.name
+                            )}
+                        </h2>
+
+
+                        <p class="project-description">
+
+                            ${escapeHTML(
+                                project.description
+                                || "Web project"
+                            )}
+
+                        </p>
+
+
+                        <div class="tech-list">
+
+                            <span class="tech">
+                                ${escapeHTML(
+                                    project.technology
+                                    || "HTML"
+                                )}
+                            </span>
+
+                            ${
+                                (project.customFiles || [])
+                                .slice(0,3)
+                                .map(file =>
+                                    `<span class="tech">
+                                        ${escapeHTML(file.name)}
+                                    </span>`
+                                )
+                                .join("")
+                            }
+
+                        </div>
+
+
+                        <div class="project-actions">
+
+                            <button
+                                class="primary-btn"
+                                onclick="openPreview('${project.id}')"
+                            >
+                                PREVIEW WEBSITE
+                            </button>
+
+
+                            <button
+                                class="secondary-btn"
+                                onclick="openCode('${project.id}')"
+                            >
+                                VIEW CODE
+                            </button>
+
+
+                            <button
+                                class="secondary-btn"
+                                onclick="editProject('${project.id}')"
+                            >
+                                EDIT
+                            </button>
+
+
+                            <button
+                                class="danger-btn"
+                                onclick="deleteProject('${project.id}')"
+                            >
+                                DELETE
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            `
+        ).join("");
+
+}
+
+
+/* =============================================
+OPEN PREVIEW
+============================================= */
+
+function openPreview(id){
+
+    const project =
+        projects.find(
+            p => p.id === id
+        );
+
+
+    if(!project) return;
+
+
+    document.getElementById(
+        "previewTitle"
+    ).textContent =
+        project.name +
+        " — LIVE PREVIEW";
+
+
+    document.getElementById(
+        "fullPreview"
+    ).srcdoc =
+        buildDocument(project);
+
+
+    document
+        .getElementById("previewModal")
+        .classList.add("active");
+
+}
+
+
+/* =============================================
+OPEN CODE
+============================================= */
+
+function openCode(id){
+
+    const project =
+        projects.find(
+            p => p.id === id
+        );
+
+
+    if(!project) return;
+
+
+    currentCodeProject =
+        project;
+
+
+    document.getElementById(
+        "codeTitle"
+    ).textContent =
+        project.name +
+        " — CODE";
+
+
+    buildCodeTabs(
+        project
+    );
+
+
+    showCode(
+        "main"
+    );
+
+
+    document
+        .getElementById("codeModal")
+        .classList.add("active");
+
+}
+
+
+/* =============================================
+CODE TABS
+============================================= */
+
+function buildCodeTabs(project){
+
+    const tabs =
+        document.getElementById(
+            "codeTabs"
+        );
+
+
+    let html = `
+
+        <button
+            class="code-tab active"
+            id="mainCodeTab"
+            onclick="showCode('main')"
+        >
+            ${escapeHTML(
+                project.technology || "CODE"
+            )}
+        </button>
+
+    `;
+
+
+    if(project.previewHTML){
+
+        html += `
+
+            <button
+                class="code-tab"
+                id="previewHTMLTab"
+                onclick="showCode('previewHTML')"
+            >
+                PREVIEW HTML
+            </button>
+
+        `;
+
+    }
+
+
+    if(project.previewCSS){
+
+        html += `
+
+            <button
+                class="code-tab"
+                id="previewCSSTab"
+                onclick="showCode('previewCSS')"
+            >
+                PREVIEW CSS
+            </button>
+
+        `;
+
+    }
+
+
+    if(project.previewJS){
+
+        html += `
+
+            <button
+                class="code-tab"
+                id="previewJSTab"
+                onclick="showCode('previewJS')"
+            >
+                PREVIEW JS
+            </button>
+
+        `;
+
+    }
+
+
+    (project.customFiles || [])
+    .forEach(
+        (file,index) => {
+
+            html += `
+
+                <button
+                    class="code-tab"
+                    id="fileTab${index}"
+                    onclick="showCode('file-${index}')"
+                >
+                    ${escapeHTML(
+                        file.name
+                    )}
+                </button>
+
+            `;
+
+        }
+    );
+
+
+    tabs.innerHTML =
+        html;
+
+}
+
+
+/* =============================================
+SHOW CODE
+============================================= */
+
+function showCode(type){
+
+    if(!currentCodeProject)
+        return;
+
+
+    document
+        .querySelectorAll(".code-tab")
+        .forEach(
+            tab =>
+                tab.classList.remove(
+                    "active"
+                )
+        );
+
+
+    const output =
+        document.getElementById(
+            "codeOutput"
+        );
+
+
+    let code = "";
+
+
+    if(type === "main"){
+
+        code =
+            currentCodeProject.code
+            || "";
+
+        document
+            .getElementById(
+                "mainCodeTab"
+            )
+            ?.classList.add(
+                "active"
+            );
+
+    }
+
+
+    if(type === "previewHTML"){
+
+        code =
+            currentCodeProject.previewHTML
+            || "";
+
+        document
+            .getElementById(
+                "previewHTMLTab"
+            )
+            ?.classList.add(
+                "active"
+            );
+
+    }
+
+
+    if(type === "previewCSS"){
+
+        code =
+            currentCodeProject.previewCSS
+            || "";
+
+        document
+            .getElementById(
+                "previewCSSTab"
+            )
+            ?.classList.add(
+                "active"
+            );
+
+    }
+
+
+    if(type === "previewJS"){
+
+        code =
+            currentCodeProject.previewJS
+            || "";
+
+        document
+            .getElementById(
+                "previewJSTab"
+            )
+            ?.classList.add(
+                "active"
+            );
+
+    }
+
+
+    if(type.startsWith("file-")){
+
+        const index =
+            Number(
+                type.replace(
+                    "file-",
+                    ""
+                )
+            );
+
+
+        const file =
+            currentCodeProject
+            .customFiles[index];
+
+
+        if(file){
+
+            code =
+                file.content || "";
+
+
+            document
+                .getElementById(
+                    "fileTab" + index
+                )
+                ?.classList.add(
+                    "active"
+                );
+
+        }
+
+    }
+
+
+    output.textContent =
+        code;
+
+}
+
+
+/* =============================================
+DELETE
+============================================= */
+
+function deleteProject(id){
+
+    const project =
+        projects.find(
+            p => p.id === id
+        );
+
+
+    if(!project) return;
+
+
+    if(
+        !confirm(
+            `Delete "${project.name}"?`
+        )
+    ){
+
+        return;
+
+    }
+
+
+    projects =
+        projects.filter(
+            p => p.id !== id
+        );
+
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(projects)
+    );
+
+
+    renderProjects();
+
+    showToast(
+        "PROJECT DELETED"
+    );
+
+}
+
+
+/* =============================================
+CLOSE MODAL
+============================================= */
+
+function closeModal(id){
+
+    document
+        .getElementById(id)
+        .classList.remove(
+            "active"
+        );
+
+}
+
+
+/* =============================================
+ESCAPE HTML
+============================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function escapeAttribute(value){
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        );
+
+}
+
+
+function escapeJS(value){
+
+    return String(value)
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
+
+/* =============================================
+TOAST
+============================================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        () => {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        2200
+    );
+
+}
+
+
+/* =============================================
+MODAL BACKGROUND CLOSE
+============================================= */
+
+document
+.querySelectorAll(".modal")
+.forEach(modal => {
+
+    modal.addEventListener(
+        "click",
+        function(e){
+
+            if(
+                e.target === modal
+            ){
+
+                modal.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =============================================
+CODE PROTECTION
+============================================= */
+
+document.addEventListener(
+    "contextmenu",
+    function(e){
+
+        if(
+            e.target.closest(
+                ".code-view"
+            )
+        ){
+
+            e.preventDefault();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        const codeViewer =
+            document.querySelector(
+                ".code-view"
+            );
+
+
+        if(
+            codeViewer &&
+            e.target === codeViewer
+        ){
+
+            if(
+                (e.ctrlKey || e.metaKey) &&
+                [
+                    "c",
+                    "a",
+                    "u",
+                    "s"
+                ].includes(
+                    e.key.toLowerCase()
+                )
+            ){
+
+                e.preventDefault();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =============================================
+INITIALIZE
+============================================= */
+
+buildTechnologyButtons();
+
+renderProjects();
+
+</script>
+
+</body>
+</html>
