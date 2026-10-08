@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>3D CAR RACING — 197 ARCADE</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+    --bg:#050505;
+    --lime:#c9ff3d;
+    --white:#f5f5f2;
+    --muted:rgba(245,245,242,.58);
+    --line:rgba(255,255,255,.14);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#050505;
+    color:var(--white);
+    font-family:"Space Grotesk",sans-serif;
+}
+
+body{
+    position:relative;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/* TOP UI */
+
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 25px;
+    pointer-events:none;
+}
+
+.brand{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:-.03em;
+    pointer-events:auto;
+}
+
+.brand span{
+    color:var(--lime);
+}
+
+.back{
+    pointer-events:auto;
+    color:var(--white);
+    text-decoration:none;
+    border:1px solid var(--line);
+    padding:10px 15px;
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    letter-spacing:.08em;
+    background:rgba(5,5,5,.55);
+    backdrop-filter:blur(12px);
+    transition:.2s;
+}
+
+.back:hover{
+    background:var(--lime);
+    color:#050505;
+    border-color:var(--lime);
+}
+
+/* HUD */
+
+.hud{
+    position:fixed;
+    top:82px;
+    left:25px;
+    z-index:20;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    min-width:115px;
+    padding:12px 15px;
+    border:1px solid var(--line);
+    background:rgba(5,5,5,.55);
+    backdrop-filter:blur(12px);
+}
+
+.label{
+    display:block;
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:.1em;
+    margin-bottom:4px;
+}
+
+.value{
+    font-size:20px;
+    font-weight:700;
+}
+
+#speedValue{
+    color:var(--lime);
+}
+
+/* TITLE */
+
+.title{
+    position:fixed;
+    right:25px;
+    top:85px;
+    z-index:20;
+    text-align:right;
+}
+
+.title small{
+    display:block;
+    color:var(--lime);
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:.15em;
+    margin-bottom:5px;
+}
+
+.title h1{
+    font-size:clamp(28px,4vw,55px);
+    line-height:.9;
+    letter-spacing:-.06em;
+}
+
+/* START SCREEN */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle at center,rgba(201,255,61,.09),transparent 35%),
+        rgba(5,5,5,.76);
+    backdrop-filter:blur(10px);
+}
+
+.panel{
+    width:min(520px,90%);
+    padding:38px;
+    border:1px solid var(--line);
+    background:rgba(10,10,10,.86);
+    box-shadow:0 30px 100px rgba(0,0,0,.6);
+    text-align:center;
+}
+
+.panel .mini{
+    color:var(--lime);
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    letter-spacing:.16em;
+    margin-bottom:15px;
+}
+
+.panel h2{
+    font-size:clamp(38px,8vw,72px);
+    line-height:.85;
+    letter-spacing:-.07em;
+    margin-bottom:20px;
+}
+
+.panel p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.start{
+    border:0;
+    background:var(--lime);
+    color:#050505;
+    padding:15px 25px;
+    font-family:"DM Mono",monospace;
+    font-weight:500;
+    letter-spacing:.08em;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.start:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(201,255,61,.2);
+}
+
+.controls{
+    margin-top:22px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    line-height:1.8;
+}
+
+/* GAME OVER */
+
+#gameOver{
+    display:none;
+}
+
+/* MOBILE CONTROLS */
+
+.mobile-controls{
+    position:fixed;
+    bottom:25px;
+    left:0;
+    width:100%;
+    z-index:30;
+    display:none;
+    justify-content:center;
+    gap:15px;
+}
+
+.control-btn{
+    width:70px;
+    height:58px;
+    border:1px solid var(--line);
+    background:rgba(5,5,5,.6);
+    color:var(--white);
+    font-size:20px;
+    backdrop-filter:blur(10px);
+    touch-action:none;
+}
+
+.control-btn:active{
+    background:var(--lime);
+    color:#050505;
+}
+
+@media(max-width:700px){
+
+    .topbar{
+        padding:15px;
+    }
+
+    .hud{
+        top:68px;
+        left:15px;
+    }
+
+    .stat{
+        min-width:90px;
+        padding:9px 11px;
+    }
+
+    .value{
+        font-size:16px;
+    }
+
+    .title{
+        right:15px;
+        top:70px;
+    }
+
+    .title h1{
+        font-size:25px;
+    }
+
+    .mobile-controls{
+        display:flex;
+    }
+
+    .controls{
+        display:none;
+    }
+
+}
+</style>
+
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+    <div class="brand">
+        DESIGNER <span>197</span>
+    </div>
+
+    <a href="../games.html" class="back">
+        ← ARCADE
+    </a>
+
+</div>
+
+
+<div class="hud">
+
+    <div class="stat">
+        <span class="label">SCORE</span>
+        <span class="value" id="score">000000</span>
+    </div>
+
+    <div class="stat">
+        <span class="label">SPEED</span>
+        <span class="value" id="speedValue">000</span>
+    </div>
+
+    <div class="stat">
+        <span class="label">DISTANCE</span>
+        <span class="value" id="distance">0000</span>
+    </div>
+
+</div>
+
+
+<div class="title">
+
+    <small>GAME / 001</small>
+
+    <h1>
+        3D CAR<br>
+        RACING
+    </h1>
+
+</div>
+
+
+<!-- START -->
+
+<div class="overlay" id="startScreen">
+
+    <div class="panel">
+
+        <div class="mini">
+            197 ARCADE / GAME 001
+        </div>
+
+        <h2>
+            RACE<br>
+            NOW
+        </h2>
+
+        <p>
+            Drive through the highway, avoid traffic and
+            survive as long as possible. Your speed increases
+            as you progress.
+        </p>
+
+        <button class="start" id="startButton">
+            START RACE →
+        </button>
+
+        <div class="controls">
+            DESKTOP<br>
+            ← → / A D &nbsp; STEER<br>
+            SPACE &nbsp; BOOST
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- GAME OVER -->
+
+<div class="overlay" id="gameOver">
+
+    <div class="panel">
+
+        <div class="mini">
+            RACE FINISHED
+        </div>
+
+        <h2>
+            GAME<br>
+            OVER
+        </h2>
+
+        <p>
+            Your final score:
+            <strong id="finalScore">000000</strong>
+        </p>
+
+        <button class="start" id="restartButton">
+            RACE AGAIN →
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="mobile-controls">
+
+    <button class="control-btn" id="leftBtn">
+        ←
+    </button>
+
+    <button class="control-btn" id="boostBtn">
+        ⚡
+    </button>
+
+    <button class="control-btn" id="rightBtn">
+        →
+    </button>
+
+</div>
+
+
+<script type="module">
+
+import * as THREE from "three";
+
+
+/* =========================
+   BASIC THREE.JS SETUP
+========================= */
+
+const scene = new THREE.Scene();
+
+scene.background = new THREE.Color(0x050505);
+
+scene.fog = new THREE.Fog(
+    0x050505,
+    45,
+    180
+);
+
+
+const camera = new THREE.PerspectiveCamera(
+    65,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    300
+);
+
+camera.position.set(
+    0,
+    5.2,
+    11
+);
+
+
+const renderer = new THREE.WebGLRenderer({
+    antialias:true
+});
+
+renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio,2)
+);
+
+renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+);
+
+renderer.shadowMap.enabled = true;
+
+renderer.shadowMap.type =
+    THREE.PCFSoftShadowMap;
+
+document.body.appendChild(
+    renderer.domElement
+);
+
+
+/* =========================
+   LIGHTING
+========================= */
+
+const ambient = new THREE.HemisphereLight(
+    0xffffff,
+    0x111111,
+    1.4
+);
+
+scene.add(ambient);
+
+
+const sun = new THREE.DirectionalLight(
+    0xffffff,
+    2.2
+);
+
+sun.position.set(
+    -8,
+    15,
+    10
+);
+
+sun.castShadow = true;
+
+scene.add(sun);
+
+
+/* =========================
+   ROAD
+========================= */
+
+const roadWidth = 13;
+
+const roadGeometry =
+    new THREE.PlaneGeometry(
+        roadWidth,
+        300
+    );
+
+const roadMaterial =
+    new THREE.MeshStandardMaterial({
+        color:0x151515,
+        roughness:.8,
+        metalness:.1
+    });
+
+const road =
+    new THREE.Mesh(
+        roadGeometry,
+        roadMaterial
+    );
+
+road.rotation.x =
+    -Math.PI / 2;
+
+road.position.z = -80;
+
+road.receiveShadow = true;
+
+scene.add(road);
+
+
+/* =========================
+   GRASS / SIDE GROUND
+========================= */
+
+const groundGeometry =
+    new THREE.PlaneGeometry(
+        180,
+        300
+    );
+
+const groundMaterial =
+    new THREE.MeshStandardMaterial({
+        color:0x080b08
+    });
+
+const ground =
+    new THREE.Mesh(
+        groundGeometry,
+        groundMaterial
+    );
+
+ground.rotation.x =
+    -Math.PI / 2;
+
+ground.position.y = -.03;
+
+ground.position.z = -80;
+
+scene.add(ground);
+
+
+/* =========================
+   ROAD LINES
+========================= */
+
+const laneLines = [];
+
+const lanePositions = [
+    -2.17,
+    2.17
+];
+
+for(let lane of lanePositions){
+
+    for(let i=0;i<30;i++){
+
+        const geo =
+            new THREE.BoxGeometry(
+                .12,
+                .025,
+                4
+            );
+
+        const mat =
+            new THREE.MeshBasicMaterial({
+                color:0xc9ff3d
+            });
+
+        const line =
+            new THREE.Mesh(
+                geo,
+                mat
+            );
+
+        line.position.set(
+            lane,
+            .03,
+            -i * 10
+        );
+
+        scene.add(line);
+
+        laneLines.push(line);
+
+    }
+
+}
+
+
+/* =========================
+   ROAD EDGES
+========================= */
+
+for(const x of [-6.4,6.4]){
+
+    const edgeGeo =
+        new THREE.BoxGeometry(
+            .18,
+            .08,
+            300
+        );
+
+    const edgeMat =
+        new THREE.MeshBasicMaterial({
+            color:0xc9ff3d
+        });
+
+    const edge =
+        new THREE.Mesh(
+            edgeGeo,
+            edgeMat
+        );
+
+    edge.position.set(
+        x,
+        .05,
+        -80
+    );
+
+    scene.add(edge);
+
+}
+
+
+/* =========================
+   CAR CREATOR
+========================= */
+
+function createCar(color){
+
+    const group =
+        new THREE.Group();
+
+
+    /* BODY */
+
+    const bodyGeo =
+        new THREE.BoxGeometry(
+            1.65,
+            .45,
+            3.4
+        );
+
+    const bodyMat =
+        new THREE.MeshStandardMaterial({
+            color:color,
+            metalness:.7,
+            roughness:.25
+        });
+
+    const body =
+        new THREE.Mesh(
+            bodyGeo,
+            bodyMat
+        );
+
+    body.position.y =
+        .62;
+
+    body.castShadow = true;
+
+    group.add(body);
+
+
+    /* CABIN */
+
+    const cabinGeo =
+        new THREE.BoxGeometry(
+            1.25,
+            .5,
+            1.55
+        );
+
+    const cabinMat =
+        new THREE.MeshStandardMaterial({
+            color:0x101010,
+            metalness:.8,
+            roughness:.15
+        });
+
+    const cabin =
+        new THREE.Mesh(
+            cabinGeo,
+            cabinMat
+        );
+
+    cabin.position.set(
+        0,
+        .98,
+        -.25
+    );
+
+    cabin.castShadow = true;
+
+    group.add(cabin);
+
+
+    /* WHEELS */
+
+    const wheelGeo =
+        new THREE.CylinderGeometry(
+            .32,
+            .32,
+            .22,
+            20
+        );
+
+    const wheelMat =
+        new THREE.MeshStandardMaterial({
+            color:0x050505,
+            roughness:.7
+        });
+
+    const wheelPositions = [
+
+        [-.92,.38,1.05],
+        [.92,.38,1.05],
+        [-.92,.38,-1.05],
+        [.92,.38,-1.05]
+
+    ];
+
+    for(const p of wheelPositions){
+
+        const wheel =
+            new THREE.Mesh(
+                wheelGeo,
+                wheelMat
+            );
+
+        wheel.rotation.z =
+            Math.PI / 2;
+
+        wheel.position.set(
+            p[0],
+            p[1],
+            p[2]
+        );
+
+        wheel.castShadow = true;
+
+        group.add(wheel);
+
+    }
+
+
+    /* HEADLIGHTS */
+
+    const lightGeo =
+        new THREE.BoxGeometry(
+            .35,
+            .12,
+            .08
+        );
+
+    const lightMat =
+        new THREE.MeshBasicMaterial({
+            color:0xffffff
+        });
+
+    for(const x of [-.48,.48]){
+
+        const light =
+            new THREE.Mesh(
+                lightGeo,
+                lightMat
+            );
+
+        light.position.set(
+            x,
+            .68,
+            -1.72
+        );
+
+        group.add(light);
+
+    }
+
+
+    return group;
+
+}
+
+
+/* =========================
+   PLAYER
+========================= */
+
+const player =
+    createCar(0xc9ff3d);
+
+player.position.set(
+    0,
+    0,
+    7
+);
+
+scene.add(player);
+
+
+/* =========================
+   TRAFFIC
+========================= */
+
+const traffic = [];
+
+const trafficColors = [
+    0xff3b30,
+    0x3d8bff,
+    0xffffff,
+    0xff8a00,
+    0xb35cff,
+    0x00d9ff
+];
+
+
+function spawnTraffic(z){
+
+    const lanes = [
+        -4.35,
+        0,
+        4.35
+    ];
+
+    const lane =
+        lanes[
+            Math.floor(
+                Math.random()*lanes.length
+            )
+        ];
+
+    const color =
+        trafficColors[
+            Math.floor(
+                Math.random()*trafficColors.length
+            )
+        ];
+
+    const car =
+        createCar(color);
+
+    car.position.set(
+        lane,
+        0,
+        z
+    );
+
+    car.rotation.y =
+        Math.PI;
+
+    scene.add(car);
+
+    traffic.push(car);
+
+}
+
+
+/* Initial traffic */
+
+for(let i=0;i<8;i++){
+
+    spawnTraffic(
+        -30 - i*25
+    );
+
+}
+
+
+/* =========================
+   GAME STATE
+========================= */
+
+let playing = false;
+
+let gameOver = false;
+
+let score = 0;
+
+let distance = 0;
+
+let speed = 0;
+
+let targetSpeed = 22;
+
+let boost = false;
+
+let playerVelocity = 0;
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+const keys = {
+    left:false,
+    right:false,
+    boost:false
+};
+
+
+window.addEventListener(
+    "keydown",
+    e => {
+
+        if(
+            e.key === "ArrowLeft" ||
+            e.key.toLowerCase() === "a"
+        ){
+            keys.left = true;
+        }
+
+        if(
+            e.key === "ArrowRight" ||
+            e.key.toLowerCase() === "d"
+        ){
+            keys.right = true;
+        }
+
+        if(e.code === "Space"){
+            keys.boost = true;
+            e.preventDefault();
+        }
+
+    }
+);
+
+
+window.addEventListener(
+    "keyup",
+    e => {
+
+        if(
+            e.key === "ArrowLeft" ||
+            e.key.toLowerCase() === "a"
+        ){
+            keys.left = false;
+        }
+
+        if(
+            e.key === "ArrowRight" ||
+            e.key.toLowerCase() === "d"
+        ){
+            keys.right = false;
+        }
+
+        if(e.code === "Space"){
+            keys.boost = false;
+        }
+
+    }
+);
+
+
+/* =========================
+   MOBILE CONTROLS
+========================= */
+
+function holdButton(
+    element,
+    property
+){
+
+    element.addEventListener(
+        "pointerdown",
+        e => {
+
+            e.preventDefault();
+
+            keys[property] = true;
+
+        }
+    );
+
+    element.addEventListener(
+        "pointerup",
+        () => {
+
+            keys[property] = false;
+
+        }
+    );
+
+    element.addEventListener(
+        "pointercancel",
+        () => {
+
+            keys[property] = false;
+
+        }
+    );
+
+    element.addEventListener(
+        "pointerleave",
+        () => {
+
+            keys[property] = false;
+
+        }
+    );
+
+}
+
+
+holdButton(
+    document.getElementById("leftBtn"),
+    "left"
+);
+
+holdButton(
+    document.getElementById("rightBtn"),
+    "right"
+);
+
+holdButton(
+    document.getElementById("boostBtn"),
+    "boost"
+);
+
+
+/* =========================
+   START
+========================= */
+
+document
+.getElementById("startButton")
+.addEventListener(
+    "click",
+    startGame
+);
+
+
+document
+.getElementById("restartButton")
+.addEventListener(
+    "click",
+    startGame
+);
+
+
+function startGame(){
+
+    playing = true;
+
+    gameOver = false;
+
+    score = 0;
+
+    distance = 0;
+
+    speed = 0;
+
+    targetSpeed = 22;
+
+    player.position.x = 0;
+
+    traffic.forEach(
+        (car,i) => {
+
+            car.position.z =
+                -30 - i*25;
+
+        }
+    );
+
+    document
+    .getElementById("startScreen")
+    .style.display = "none";
+
+    document
+    .getElementById("gameOver")
+    .style.display = "none";
+
+}
+
+
+/* =========================
+   END GAME
+========================= */
+
+function endGame(){
+
+    playing = false;
+
+    gameOver = true;
+
+    document
+    .getElementById("finalScore")
+    .textContent =
+        Math.floor(score)
+        .toString()
+        .padStart(6,"0");
+
+    document
+    .getElementById("gameOver")
+    .style.display = "flex";
+
+}
+
+
+/* =========================
+   COLLISION
+========================= */
+
+function checkCollision(){
+
+    for(const car of traffic){
+
+        const dx =
+            Math.abs(
+                player.position.x -
+                car.position.x
+            );
+
+        const dz =
+            Math.abs(
+                player.position.z -
+                car.position.z
+            );
+
+        if(
+            dx < 1.35 &&
+            dz < 2.2
+        ){
+
+            endGame();
+
+            return true;
+
+        }
+
+    }
+
+    return false;
+
+}
+
+
+/* =========================
+   GAME UPDATE
+========================= */
+
+function updateGame(delta){
+
+    if(!playing) return;
+
+
+    /* SPEED */
+
+    const desiredSpeed =
+        targetSpeed +
+        (keys.boost ? 13 : 0);
+
+    speed +=
+        (desiredSpeed-speed)
+        * Math.min(delta*2,1);
+
+
+    /* STEERING */
+
+    if(keys.left){
+
+        playerVelocity -=
+            14 * delta;
+
+    }
+
+    if(keys.right){
+
+        playerVelocity +=
+            14 * delta;
+
+    }
+
+    if(
+        !keys.left &&
+        !keys.right
+    ){
+
+        playerVelocity *=
+            Math.pow(.05,delta);
+
+    }
+
+    player.position.x +=
+        playerVelocity;
+
+
+    /* ROAD LIMIT */
+
+    player.position.x =
+        THREE.MathUtils.clamp(
+            player.position.x,
+            -5,
+            5
+        );
+
+
+    /* CAR MOVEMENT */
+
+    const movement =
+        speed * delta;
+
+
+    for(const car of traffic){
+
+        car.position.z +=
+            movement;
+
+
+        if(car.position.z > 15){
+
+            car.position.z =
+                -180 -
+                Math.random()*80;
+
+            const lanes = [
+                -4.35,
+                0,
+                4.35
+            ];
+
+            car.position.x =
+                lanes[
+                    Math.floor(
+                        Math.random()*lanes.length
+                    )
+                ];
+
+        }
+
+    }
+
+
+    /* ROAD LINES */
+
+    for(const line of laneLines){
+
+        line.position.z +=
+            movement;
+
+        if(line.position.z > 15){
+
+            line.position.z -= 300;
+
+        }
+
+    }
+
+
+    /* SCORE */
+
+    distance +=
+        movement;
+
+    score +=
+        movement * 8;
+
+
+    targetSpeed +=
+        delta * .35;
+
+
+    /* CAMERA */
+
+    camera.position.x +=
+        (
+            player.position.x*.35 -
+            camera.position.x
+        )
+        * delta * 4;
+
+    camera.lookAt(
+        player.position.x*.25,
+        .4,
+        -12
+    );
+
+
+    checkCollision();
+
+
+    /* UI */
+
+    document
+    .getElementById("score")
+    .textContent =
+        Math.floor(score)
+        .toString()
+        .padStart(6,"0");
+
+    document
+    .getElementById("speedValue")
+    .textContent =
+        Math.floor(speed*6)
+        .toString()
+        .padStart(3,"0");
+
+    document
+    .getElementById("distance")
+    .textContent =
+        Math.floor(distance)
+        .toString()
+        .padStart(4,"0");
+
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+let lastTime =
+    performance.now();
+
+
+function animate(time){
+
+    requestAnimationFrame(
+        animate
+    );
+
+
+    const delta =
+        Math.min(
+            (time-lastTime)/1000,
+            .05
+        );
+
+    lastTime = time;
+
+
+    updateGame(delta);
+
+
+    /* SUBTLE CAR MOTION */
+
+    if(playing){
+
+        player.rotation.z =
+            THREE.MathUtils.lerp(
+                player.rotation.z,
+                -playerVelocity*.035,
+                .12
+            );
+
+        player.rotation.y =
+            THREE.MathUtils.lerp(
+                player.rotation.y,
+                -playerVelocity*.02,
+                .12
+            );
+
+    }
+
+
+    renderer.render(
+        scene,
+        camera
+    );
+
+}
+
+
+animate(
+    performance.now()
+);
+
+
+/* =========================
+   RESIZE
+========================= */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
