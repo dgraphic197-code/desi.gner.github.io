@@ -1,747 +1,711 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#050505">
+<meta name="description" content="DESIGNER 197 — Logo design, brand identity, colour palettes, typography and complete brand guidelines by Harsh Chawla.">
 <title>Logo & Branding — DESIGNER 197</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+  --bg:#050505;
+  --panel:#0e0f0c;
+  --panel2:#141510;
+  --white:#f5f5f2;
+  --muted:#92948b;
+  --lime:#c9ff3d;
+  --line:rgba(255,255,255,.12);
+  --mono:"DM Mono",monospace;
+  --sans:"Space Grotesk",sans-serif;
 }
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:25px}
 body{
-    background:#0d0f0c;
-    color:#f4f4ed;
-    font-family:"Manrope",sans-serif;
-    overflow-x:hidden;
+  background:var(--bg);color:var(--white);
+  font-family:var(--sans);overflow-x:hidden;
 }
-
-a{
-    color:inherit;
-    text-decoration:none;
+body:before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,#000,transparent 80%);
 }
-
-:root{
-    --bg:#0d0f0c;
-    --panel:#181b16;
-    --white:#f4f4ed;
-    --muted:#969b8f;
-    --green:#d8ff55;
-    --line:rgba(255,255,255,.12);
-    --max:1250px;
-}
-
-.container{
-    width:min(var(--max),calc(100% - 80px));
-    margin:auto;
-}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1400px,calc(100% - 9vw));margin:auto}
 
 /* HEADER */
-
 header{
-    height:82px;
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:1000;
-    background:rgba(13,15,12,.78);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid var(--line);
+  height:78px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--line);
 }
-
-.nav{
-    height:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.logo{font-size:19px;font-weight:700;letter-spacing:-1px}
+.logo span{color:var(--lime)}
+nav{display:flex;align-items:center;gap:26px}
+nav a{
+  font:10px var(--mono);text-transform:uppercase;
+  color:#b9bbb3;transition:.25s;
 }
-
-.logo{
-    font-family:"Space Grotesk",sans-serif;
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:-1px;
-}
-
-.logo span{
-    color:var(--green);
-}
-
-.nav-links{
-    display:flex;
-    gap:35px;
-    align-items:center;
-}
-
-.nav-links a{
-    font-family:"DM Mono",monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:.1em;
-    color:#b8bbb1;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--green);
-}
-
-.nav-button{
-    border:1px solid var(--line);
-    padding:12px 18px;
-}
+nav a:hover,nav .active{color:var(--lime)}
+nav .contact-nav{border:1px solid var(--lime);padding:11px 14px;color:var(--lime)}
+nav .contact-nav:hover{background:var(--lime);color:#050505}
 
 /* HERO */
-
-.hero{
-    padding:170px 0 90px;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    right:-250px;
-    top:50px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(216,255,85,.12),
-        transparent 68%
-    );
-    pointer-events:none;
-}
-
+.hero{padding:78px 0 48px}
 .eyebrow{
-    font-family:"DM Mono",monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:.15em;
-    color:var(--green);
-    display:flex;
-    align-items:center;
-    gap:12px;
+  display:flex;align-items:center;gap:11px;
+  color:var(--lime);font:10px var(--mono);
+  text-transform:uppercase;letter-spacing:1.4px;
 }
-
-.eyebrow::before{
-    content:"";
-    width:28px;
-    height:1px;
-    background:var(--green);
+.eyebrow:before{content:"";width:25px;height:1px;background:var(--lime)}
+.hero-grid{
+  display:grid;grid-template-columns:1.3fr .7fr;
+  align-items:end;gap:35px;margin-top:30px;
 }
-
-.hero h1{
-    font-family:"Space Grotesk",sans-serif;
-    font-size:clamp(55px,8vw,110px);
-    line-height:.9;
-    letter-spacing:-.09em;
-    margin-top:25px;
-    max-width:900px;
+h1{
+  font-size:clamp(58px,10vw,130px);line-height:.82;
+  letter-spacing:-.09em;font-weight:700;
 }
-
-.hero h1 span{
-    color:var(--green);
+.outline{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(245,245,242,.7);
 }
-
-.hero-description{
-    max-width:620px;
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.9;
-    margin-top:30px;
+.lime{color:var(--lime)}
+.hero-copy{max-width:390px;justify-self:end;padding-bottom:8px}
+.hero-copy p{font-size:14px;line-height:1.9;color:var(--muted)}
+.hero-copy strong{color:var(--white);font-weight:500}
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:21px}
+.pill{
+  padding:8px 10px;border:1px solid var(--line);
+  color:#c3c5bc;font:9px var(--mono);text-transform:uppercase;
 }
+.hero-foot{
+  display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:16px 0;margin-top:55px;color:var(--muted);
+  font:9px var(--mono);text-transform:uppercase;
+}
+.hero-foot span:last-child{color:var(--lime)}
 
-/* PROJECTS */
+/* SECTION */
+.section-heading{
+  display:flex;justify-content:space-between;align-items:end;
+  gap:20px;margin:58px 0 25px;
+}
+.section-heading h2{
+  margin-top:14px;font-size:clamp(25px,4vw,43px);
+  letter-spacing:-2px;text-transform:uppercase;
+}
+.section-heading p{
+  max-width:350px;font-size:12px;line-height:1.8;color:var(--muted);
+}
+.count{color:var(--lime);font:10px var(--mono);white-space:nowrap}
 
+/* LOGO CARDS */
 .projects{
-    padding:40px 0 120px;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;
 }
-
-.project-heading{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin-bottom:35px;
+.card{
+  min-width:0;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(145deg,#12130f,#090a08);
+  transition:border-color .3s,transform .3s,box-shadow .3s;
 }
-
-.project-number{
-    font-family:"DM Mono",monospace;
-    font-size:10px;
-    color:var(--green);
-    text-transform:uppercase;
-    letter-spacing:.12em;
+.card:hover{
+  transform:translateY(-4px);border-color:rgba(201,255,61,.55);
+  box-shadow:0 18px 45px rgba(0,0,0,.3),0 0 28px rgba(201,255,61,.055);
 }
-
-.project-count{
-    font-family:"DM Mono",monospace;
-    font-size:10px;
-    color:#777d72;
+.art{
+  height:285px;position:relative;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;
+  border-bottom:1px solid var(--line);background:#0b0c0a;
 }
-
-/* GRID */
-
-.project-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+.art:before{
+  content:"";position:absolute;inset:15px;
+  border:1px solid rgba(255,255,255,.05);
 }
-
-/* CARD */
-
-.project-card{
-    display:block;
-    background:#121410;
-    border:1px solid var(--line);
-    overflow:hidden;
-    transition:.4s ease;
+.art:after{
+  content:"";position:absolute;width:190px;height:190px;border-radius:50%;
+  background:var(--brand-glow,rgba(201,255,61,.12));
+  filter:blur(65px);opacity:0;transition:opacity .35s;
 }
-
-.project-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(216,255,85,.6);
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
+.card:hover .art:after{opacity:1}
+.art svg{position:relative;z-index:1;width:80%;max-width:400px;max-height:205px;transition:transform .4s}
+.card:hover .art svg{transform:scale(1.04)}
+.art-label,.art-index{
+  position:absolute;top:25px;font:9px var(--mono);letter-spacing:.7px;z-index:2;
 }
-
-.project-image{
-    height:420px;
-    background:#181b16;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
-    overflow:hidden;
+.art-label{left:25px;color:#7d8075}
+.art-index{right:25px;color:var(--lime)}
+.card-body{padding:22px 24px 24px}
+.card-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.card h3{font-size:clamp(22px,3vw,31px);line-height:1.1;letter-spacing:-1px}
+.category{
+  color:var(--lime);font:9px var(--mono);
+  text-transform:uppercase;text-align:right;padding-top:5px;
 }
-
-.project-image img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    display:block;
-    transition:.5s ease;
+.description{margin-top:12px;color:var(--muted);font-size:12px;line-height:1.8}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.tag{border:1px solid var(--line);padding:7px 9px;color:#c2c4ba;font:9px var(--mono);text-transform:uppercase}
+.card-actions{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;margin-top:20px;
 }
-
-.project-card:hover .project-image img{
-    transform:scale(1.04);
+.project-number{font:9px var(--mono);color:#77796f}
+.kit-btn,.copy-btn{
+  border:1px solid var(--lime);background:transparent;color:var(--lime);
+  padding:11px 13px;font:10px var(--mono);text-transform:uppercase;
+  cursor:pointer;transition:.2s;
 }
+.kit-btn:hover,.copy-btn:hover{background:var(--lime);color:#050505}
+.kit-btn .arrow{margin-left:8px}
 
-.project-info{
-    padding:22px 25px 25px;
-    border-top:1px solid var(--line);
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    gap:20px;
+/* COMPLETE BRAND KIT */
+.brand-kit{
+  display:none;margin-top:22px;border-top:1px solid var(--line);padding-top:22px;
 }
-
-.project-info h2{
-    font-family:"Space Grotesk",sans-serif;
-    font-size:27px;
-    letter-spacing:-.05em;
+.card.open .brand-kit{display:block;animation:showKit .3s ease}
+@keyframes showKit{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.kit-heading{
+  display:flex;justify-content:space-between;gap:12px;align-items:start;
+  margin-bottom:20px;
 }
-
-.project-info p{
-    margin-top:7px;
-    color:var(--muted);
-    font-family:"DM Mono",monospace;
-    font-size:9px;
-    text-transform:uppercase;
+.kit-heading h4{font-size:20px;letter-spacing:-.6px}
+.kit-heading p{font:9px var(--mono);color:var(--lime);margin-top:6px}
+.kit-section{margin-top:24px}
+.kit-label{
+  font:10px var(--mono);letter-spacing:.8px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;
+  display:flex;justify-content:space-between;gap:10px;
 }
-
-.project-arrow{
-    color:var(--green);
-    font-size:22px;
+.kit-label span{color:var(--lime)}
+.palette{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;
 }
-
-/* FUTURE PROJECTS */
-
-.future-project{
-    border:1px dashed rgba(255,255,255,.16);
-    min-height:490px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#11130f;
-    transition:.3s;
+.swatch{min-width:0}
+.swatch-color{
+  width:100%;height:76px;border:1px solid rgba(255,255,255,.15);
+  border-radius:2px;cursor:pointer;transition:transform .2s;
 }
-
-.future-project:hover{
-    border-color:rgba(216,255,85,.4);
+.swatch-color:hover{transform:translateY(-3px)}
+.swatch-name{font-size:10px;font-weight:600;margin-top:9px;line-height:1.4}
+.swatch-code{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:3px;margin-top:5px;color:var(--muted);font:9px var(--mono);
 }
-
-.future-content{
-    text-align:center;
+.mini-copy{
+  border:0;background:none;color:var(--lime);cursor:pointer;font-size:12px;
 }
-
-.future-number{
-    color:var(--green);
-    font-family:"DM Mono",monospace;
-    font-size:11px;
-    margin-bottom:15px;
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.type-box{
+  padding:15px;border:1px solid var(--line);background:rgba(255,255,255,.02);
+  min-width:0;
 }
-
-.future-content h3{
-    font-family:"Space Grotesk",sans-serif;
-    font-size:25px;
+.type-role{font:9px var(--mono);color:var(--lime);text-transform:uppercase}
+.type-sample{font-size:25px;margin:12px 0 7px;overflow-wrap:anywhere;line-height:1.2}
+.type-name{font-size:11px;font-weight:600}
+.type-spec{font:9px var(--mono);color:var(--muted);margin-top:5px;line-height:1.7}
+.logo-variations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.logo-variation{
+  height:88px;border:1px solid var(--line);display:flex;flex-direction:column;
+  justify-content:center;align-items:center;gap:8px;overflow:hidden;
 }
-
-.future-content p{
-    color:var(--muted);
-    font-size:12px;
-    margin-top:8px;
+.variation-word{font-size:16px;font-weight:700;letter-spacing:-.7px}
+.variation-symbol{font-size:27px;font-weight:700}
+.variation-caption{font:8px var(--mono);color:var(--muted);text-transform:uppercase}
+.guidelines{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.guideline{
+  display:flex;gap:10px;align-items:start;
+  padding:12px;border:1px solid var(--line);
 }
-
-/* BUTTONS */
-
-.back-area{
-    padding-top:60px;
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+.guideline-number{color:var(--lime);font:10px var(--mono)}
+.guideline p{color:#c1c3ba;font-size:11px;line-height:1.65}
+.kit-note{
+  border-left:2px solid var(--lime);background:rgba(201,255,61,.045);
+  padding:14px;margin-top:20px;color:#c1c3ba;font-size:11px;line-height:1.8;
 }
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:15px 22px;
-    border:1px solid var(--green);
-    background:var(--green);
-    color:#111;
-    font-family:"DM Mono",monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    transition:.3s;
+.kit-note strong{color:var(--lime);font-weight:500}
+.kit-footer{
+  margin-top:18px;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;flex-wrap:wrap;
 }
+.kit-footer span{color:var(--muted);font:9px var(--mono)}
 
-.btn:hover{
-    background:transparent;
-    color:var(--green);
-    transform:translateY(-3px);
+/* PROCESS + CONTACT */
+.process{margin-top:85px;padding:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-title{font:10px var(--mono);color:var(--lime);margin-bottom:25px}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.process-item{padding:10px 18px 10px 0;border-right:1px solid var(--line)}
+.process-item:not(:first-child){padding-left:18px}
+.process-item:last-child{border:0}
+.process-item small{font:9px var(--mono);color:var(--lime)}
+.process-item h3{font-size:22px;margin:12px 0 8px}
+.process-item p{font-size:11px;line-height:1.8;color:var(--muted)}
+.contact{
+  padding:90px 0;display:flex;justify-content:space-between;
+  align-items:end;gap:25px;
 }
-
-.btn.secondary{
-    background:transparent;
-    color:white;
-    border-color:var(--line);
+.contact h2{font-size:clamp(44px,7vw,86px);line-height:.9;letter-spacing:-.08em}
+.contact h2 span{color:var(--lime)}
+.contact p{font-size:12px;line-height:1.8;color:var(--muted);margin-top:20px}
+.contact-link{
+  padding:16px 20px;border:1px solid var(--lime);color:var(--lime);
+  font:10px var(--mono);white-space:nowrap;transition:.2s;
 }
-
-.btn.secondary:hover{
-    border-color:var(--green);
-    color:var(--green);
-}
-
-/* FOOTER */
-
+.contact-link:hover{background:var(--lime);color:#050505}
 footer{
-    border-top:1px solid var(--line);
-    padding:30px 0;
-    color:#777d72;
-    font-family:"DM Mono",monospace;
-    font-size:9px;
-    text-transform:uppercase;
+  min-height:75px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  color:var(--muted);font:9px var(--mono);text-transform:uppercase;
 }
-
-.footer-inner{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
+footer b{color:var(--lime);font-weight:400}
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translate(-50%,15px);
+  padding:12px 17px;background:var(--lime);color:#050505;
+  font:10px var(--mono);opacity:0;pointer-events:none;transition:.25s;z-index:99;
 }
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-/* MOBILE */
-
-@media(max-width:800px){
-
-    .container{
-        width:min(100% - 35px,var(--max));
-    }
-
-    .nav-links{
-        display:none;
-    }
-
-    .hero{
-        padding-top:145px;
-    }
-
-    .hero h1{
-        font-size:58px;
-    }
-
-    .project-grid{
-        grid-template-columns:1fr;
-    }
-
-    .project-image{
-        height:380px;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-    }
+@media(max-width:760px){
+  .container{width:calc(100% - 34px)}
+  header{height:68px}
+  nav{gap:13px}
+  nav a:not(.contact-nav){display:none}
+  .hero{padding-top:55px}
+  .hero-grid{grid-template-columns:1fr;gap:27px}
+  h1{font-size:clamp(56px,14vw,90px)}
+  .hero-copy{justify-self:start}
+  .hero-foot{margin-top:36px}
+  .projects{grid-template-columns:1fr}
+  .art{height:255px}
+  .section-heading{align-items:start;flex-direction:column;margin-top:45px}
+  .process-grid{grid-template-columns:1fr 1fr;gap:22px 0}
+  .process-item:nth-child(2){border-right:0}
+  .process-item:nth-child(3){padding-left:0}
+  .contact{align-items:start;flex-direction:column;padding:70px 0}
 }
-
+@media(max-width:420px){
+  .card-body{padding:18px}
+  .art{height:225px}
+  .palette{gap:6px}
+  .swatch-color{height:57px}
+  .swatch-name{font-size:9px}
+  .swatch-code{font-size:8px}
+  .type-sample{font-size:20px}
+  .logo-variations{gap:5px}
+  .variation-word{font-size:13px}
+  .guidelines{grid-template-columns:1fr}
+  .hero-foot{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
 
 <body>
+<div class="container">
 
 <header>
-
-    <div class="container nav">
-
-        <a href="index.html" class="logo">
-            DESIGNER<span>197</span>
-        </a>
-
-        <nav class="nav-links">
-
-            <a href="index.html">Home</a>
-
-            <a href="index.html#services">
-                Services
-            </a>
-
-            <a href="index.html#work">
-                Work
-            </a>
-
-            <a href="index.html#about">
-                About
-            </a>
-
-            <a href="index.html#contact" class="nav-button">
-                Let's Talk
-            </a>
-
-        </nav>
-
-    </div>
-
+  <a class="logo" href="index.html">DESIGNER <span>197.</span></a>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a class="active" href="#projects">Logo Projects</a>
+    <a href="#process">Process</a>
+    <a class="contact-nav" href="#contact">Let's Talk ↗</a>
+  </nav>
 </header>
 
-
 <main>
-
 <section class="hero">
-
-    <div class="container">
-
-        <div class="eyebrow">
-            01 / IDENTITY
-        </div>
-
-        <h1>
-            Logo & <span>Branding</span>
-        </h1>
-
-        <p class="hero-description">
-            Distinctive logos and cohesive visual systems that give brands a recognisable voice.
-        </p>
-
+  <div class="eyebrow">01 / LOGO & BRANDING</div>
+  <div class="hero-grid">
+    <h1>LOGO<br><span class="outline">IDENTITY</span><br><span class="lime">SYSTEMS.</span></h1>
+    <div class="hero-copy">
+      <p>
+        Building distinctive brands through <strong>logo design, colour,
+        typography and visual guidelines.</strong> Every identity has its own
+        character, design language and system.
+      </p>
+      <div class="pills">
+        <span class="pill">Logo Design</span>
+        <span class="pill">Colour Systems</span>
+        <span class="pill">Typography</span>
+        <span class="pill">Brand Guidelines</span>
+      </div>
     </div>
-
+  </div>
+  <div class="hero-foot">
+    <span>Harsh Chawla / Graphic Designer</span>
+    <span>Logo · Identity · Guidelines</span>
+    <span>10 Brand Concepts ↓</span>
+  </div>
 </section>
 
-
-<section class="projects">
-
-    <div class="container">
-
-        <div class="project-heading">
-
-            <div class="project-number">
-                Selected Work
-            </div>
-
-            <div class="project-count">
-                01 — 10
-            </div>
-
-        </div>
-
-
-        <div class="project-grid">
-
-
-            <!-- PROJECT 01 : TIMEVERA -->
-
-            <a href="timevera.html" class="project-card">
-
-                <div class="project-image">
-
-                    <img
-                        src="2%20(16).png"
-                        alt="TIMEVERA Luxury Watch Brand Identity"
-                    >
-
-                </div>
-
-                <div class="project-info">
-
-                    <div>
-
-                        <h2>TIMEVERA</h2>
-
-                        <p>
-                            Brand Identity · 01
-                        </p>
-
-                    </div>
-
-                    <div class="project-arrow">
-                        ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- PROJECT 02 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        02 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 03 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        03 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 04 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        04 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 05 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        05 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 06 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        06 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 07 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        07 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 08 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        08 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 09 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        09 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECT 10 -->
-
-            <div class="future-project">
-
-                <div class="future-content">
-
-                    <div class="future-number">
-                        10 / 10
-                    </div>
-
-                    <h3>Next Logo Project</h3>
-
-                    <p>
-                        Coming soon
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="back-area">
-
-            <a href="index.html#work" class="btn secondary">
-                ← Back to Work
-            </a>
-
-            <a href="index.html#contact" class="btn">
-                Let's Work Together →
-            </a>
-
-        </div>
-
+<section id="projects">
+  <div class="section-heading reveal">
+    <div>
+      <div class="eyebrow">SELECTED BRAND CONCEPTS</div>
+      <h2>LOGO / IDENTITY / GUIDELINES</h2>
     </div>
+    <p>Explore each identity and open its brand kit to view the colour palette, exact HEX codes, typography, logo variations and usage guidelines.</p>
+    <div class="count">10 CONCEPTS / 01—10</div>
+  </div>
 
+  <div class="projects" id="projectGrid"></div>
 </section>
 
+<section class="process reveal" id="process">
+  <div class="process-title">THE BRAND DESIGN PROCESS / 04 STEPS</div>
+  <div class="process-grid">
+    <div class="process-item"><small>01 / DISCOVER</small><h3>Understand</h3><p>Explore the brand, audience, goals and market position.</p></div>
+    <div class="process-item"><small>02 / DIRECTION</small><h3>Define</h3><p>Establish visual direction, mood, personality and strategy.</p></div>
+    <div class="process-item"><small>03 / DESIGN</small><h3>Create</h3><p>Build the logo, colours, typography and supporting elements.</p></div>
+    <div class="process-item"><small>04 / DELIVER</small><h3>Launch</h3><p>Organise brand assets and create practical usage guidelines.</p></div>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <div>
+    <div class="eyebrow">HAVE A BRAND IN MIND?</div>
+    <h2>LET'S MAKE<br><span>IT ICONIC.</span></h2>
+    <p>Need a logo, a fresh identity or a complete brand system?<br>Let's create a brand people remember.</p>
+  </div>
+  <!-- Replace the email below with your real email address -->
+  <a class="contact-link" href="mailto:YOUR-EMAIL@example.com">START A PROJECT ↗</a>
+</section>
 </main>
 
-
 <footer>
+  <span>© <span id="year"></span> DESIGNER <b>197.</b></span>
+  <span>LOGO / IDENTITY / GUIDELINES</span>
+  <a href="index.html">BACK TO HOME ↑</a>
+</footer>
+</div>
 
-    <div class="container footer-inner">
+<div class="toast" id="toast" role="status" aria-live="polite">HEX CODE COPIED</div>
 
-        <span>
-            DESIGNER 197 — Harsh Chawla
-        </span>
+<script>
+const brands = [
+{
+ name:"NOVA Creative",category:"Creative Studio",number:"001",
+ description:"A bold, forward-looking identity for a creative studio built around ideas, experimentation and visual impact.",
+ tags:["Logo System","Typography","Brand Kit"],
+ logo:"<g fill='none' stroke='#c9ff3d' stroke-width='2'><path d='M55 30 L90 95 L125 30'/><path d='M90 95 L90 125'/><circle cx='90' cy='20' r='5' fill='#c9ff3d' stroke='none'/></g><text x='150' y='88' fill='#f5f5f2' font-size='52' font-family='Space Grotesk' font-weight='700' letter-spacing='-3'>NOVA</text><text x='154' y='112' fill='#c9ff3d' font-size='10' font-family='DM Mono' letter-spacing='4'>CREATIVE STUDIO</text>",
+ colors:[["Electric Lime","#C9FF3D"],["Deep Black","#050505"],["Off White","#F5F5F2"],["Graphite","#242620"]],
+ heading:"Space Grotesk",body:"DM Sans",headingSpec:"Bold 700 · Geometric",bodySpec:"Regular 400 · Clean",
+ personality:"Bold, innovative, confident and experimental.",
+ guidelines:["Use the geometric symbol with the wordmark for primary branding.","Use lime for emphasis, not for long blocks of text.","Use the white logo on dark backgrounds and black logo on light backgrounds.","Maintain clear space around the logo equal to the symbol's height."],
+ symbol:"N"
+},
+{
+ name:"Aurex Luxury",category:"Luxury Goods",number:"002",
+ description:"A refined luxury identity with elegant typography, restrained details and a premium visual language.",
+ tags:["Luxury Logo","Packaging","Guidelines"],
+ logo:"<g fill='none' stroke='#d7c18c' stroke-width='1.5'><path d='M65 112 L100 35 L135 112'/><path d='M79 82 H121'/><circle cx='100' cy='81' r='52' opacity='.5'/></g><text x='158' y='86' fill='#e8dfc8' font-size='43' font-family='Georgia,serif' letter-spacing='5'>AUREX</text><text x='174' y='111' fill='#bca778' font-size='9' font-family='DM Mono' letter-spacing='4'>LUXURY GOODS</text>",
+ colors:[["Champagne Gold","#D7C18C"],["Midnight","#11100D"],["Ivory","#E8DFC8"],["Antique Gold","#BCA778"]],
+ heading:"Playfair Display",body:"Manrope",headingSpec:"Regular 500 · Elegant Serif",bodySpec:"Regular 400 · Refined Sans",
+ personality:"Exclusive, elegant, timeless and sophisticated.",
+ guidelines:["Use the gold logo for premium packaging and special applications.","Use the ivory logo on dark backgrounds for strong contrast.","Avoid stretching the logo or adding decorative effects.","Keep generous whitespace around the wordmark."],
+ symbol:"A"
+},
+{
+ name:"Vertex Tech",category:"Technology",number:"003",
+ description:"A sharp, modular identity designed for a modern technology brand focused on precision and progress.",
+ tags:["Tech Logo","Digital Identity","UI Assets"],
+ logo:"<g fill='none' stroke='#c9ff3d' stroke-width='3' stroke-linejoin='round'><path d='M55 43 L88 108 L121 43 L88 63 Z'/><path d='M65 125 H111' opacity='.45'/></g><text x='146' y='87' fill='#f5f5f2' font-size='45' font-family='Space Grotesk' font-weight='700' letter-spacing='-2'>VERTEX</text><text x='150' y='111' fill='#c9ff3d' font-size='10' font-family='DM Mono' letter-spacing='4'>TECHNOLOGY</text>",
+ colors:[["Signal Lime","#C9FF3D"],["Carbon Black","#0B0D0B"],["Ice White","#F5F5F2"],["Dark Graphite","#282B22"]],
+ heading:"Space Grotesk",body:"DM Sans",headingSpec:"Bold 700 · Technical",bodySpec:"Regular 400 · Modern",
+ personality:"Precise, progressive, intelligent and digital-first.",
+ guidelines:["Use the symbol independently for app icons and avatars.","Use high contrast for digital interfaces and small text.","Keep the logo geometry crisp; do not add shadows to the master logo.","Reserve lime for highlights, calls to action and key indicators."],
+ symbol:"V"
+},
+{
+ name:"Flora Botanics",category:"Botanical Care",number:"004",
+ description:"A nature-inspired identity balancing organic forms with a clean, contemporary skincare aesthetic.",
+ tags:["Organic Logo","Packaging","Label Design"],
+ logo:"<g fill='none' stroke='#a9c89a' stroke-width='2'><path d='M92 116 C92 85 90 59 109 35'/><path d='M97 92 C63 91 54 68 56 55 C79 55 97 70 97 92Z' fill='#a9c89a' fill-opacity='.18'/><path d='M99 72 C119 68 136 48 132 36 C111 41 98 54 99 72Z' fill='#a9c89a' fill-opacity='.18'/><path d='M79 118 H120'/></g><text x='155' y='82' fill='#e6eddf' font-size='46' font-family='Georgia,serif' letter-spacing='1'>FLORA</text><text x='160' y='108' fill='#a9c89a' font-size='10' font-family='DM Mono' letter-spacing='3'>BOTANICAL CARE</text>",
+ colors:[["Sage Green","#A9C89A"],["Forest Green","#243629"],["Natural Ivory","#F3F0E7"],["Olive Grey","#6C8062"]],
+ heading:"Playfair Display",body:"DM Sans",headingSpec:"Regular 500 · Organic Serif",bodySpec:"Regular 400 · Soft Sans",
+ personality:"Natural, calm, caring and contemporary.",
+ guidelines:["Use the botanical symbol without extra decorative elements.","Use forest green for text on ivory packaging.","Keep product labels uncluttered and easy to read.","Prefer matte, recycled or natural-looking packaging materials."],
+ symbol:"F"
+},
+{
+ name:"Pulse Fitness",category:"Fitness",number:"005",
+ description:"An energetic identity for a fitness brand built around movement, momentum and a strong community.",
+ tags:["Fitness Logo","Merchandise","Social Media"],
+ logo:"<path d='M48 91 H72 L87 53 L108 119 L125 77 L137 91 H151' fill='none' stroke='#ff765c' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/><text x='168' y='87' fill='#f5f5f2' font-size='48' font-family='Space Grotesk' font-weight='700' letter-spacing='-2'>PULSE</text><text x='172' y='111' fill='#ff765c' font-size='10' font-family='DM Mono' letter-spacing='4'>FITNESS CLUB</text>",
+ colors:[["Pulse Orange","#FF765C"],["Night Black","#171717"],["Pure White","#F5F5F2"],["Deep Rust","#6E3026"]],
+ heading:"Space Grotesk",body:"Manrope",headingSpec:"Bold 700 · Athletic",bodySpec:"Medium 500 · Clear",
+ personality:"Energetic, motivating, powerful and social.",
+ guidelines:["Use the pulse symbol on apparel, equipment and social graphics.","Use orange as the main highlight against dark backgrounds.","Keep headlines bold and concise.","Ensure the logo remains legible at small sizes."],
+ symbol:"P"
+},
+{
+ name:"Morrow Coffee",category:"Coffee Roasters",number:"006",
+ description:"A warm, crafted identity for a specialty coffee label focused on ritual and everyday quality.",
+ tags:["Cafe Branding","Cup Design","Packaging"],
+ logo:"<g fill='none' stroke='#c99b70' stroke-width='2'><path d='M65 63 H119 V103 Q92 126 65 103Z'/><path d='M119 73 H131 Q148 73 143 91 Q140 101 119 99'/><path d='M79 47 Q70 35 81 26 M95 47 Q86 35 97 26 M110 47 Q101 35 112 26'/></g><text x='163' y='85' fill='#eee3d5' font-size='43' font-family='Georgia,serif' letter-spacing='1'>MORROW</text><text x='174' y='109' fill='#c99b70' font-size='10' font-family='DM Mono' letter-spacing='4'>COFFEE ROASTERS</text>",
+ colors:[["Roasted Caramel","#C99B70"],["Espresso","#2A211B"],["Cream","#F3E6D7"],["Coffee Brown","#77604E"]],
+ heading:"Playfair Display",body:"DM Sans",headingSpec:"Medium 500 · Editorial Serif",bodySpec:"Regular 400 · Friendly",
+ personality:"Warm, crafted, inviting and understated.",
+ guidelines:["Use the complete logo on coffee bags and takeaway cups.","Use cream as a background for menus and packaging.","Keep product information clearly separated from decorative elements.","Use brown and caramel for supporting graphics."],
+ symbol:"M"
+},
+{
+ name:"Orbit Digital",category:"Digital Studio",number:"007",
+ description:"A connected, motion-friendly identity for a digital studio working across online experiences.",
+ tags:["Digital Branding","Web Assets","Motion Ready"],
+ logo:"<g fill='none' stroke='#8bbdff' stroke-width='2'><circle cx='93' cy='82' r='34'/><ellipse cx='93' cy='82' rx='51' ry='17' transform='rotate(-35 93 82)'/><circle cx='132' cy='54' r='5' fill='#8bbdff'/></g><text x='163' y='84' fill='#f5f5f2' font-size='44' font-family='Space Grotesk' font-weight='700' letter-spacing='-2'>ORBIT</text><text x='166' y='109' fill='#8bbdff' font-size='10' font-family='DM Mono' letter-spacing='4'>DIGITAL STUDIO</text>",
+ colors:[["Orbit Blue","#8BBDFF"],["Space Navy","#101622"],["Cloud White","#F5F7FC"],["Steel Blue","#3B5277"]],
+ heading:"Space Grotesk",body:"DM Sans",headingSpec:"Bold 700 · Geometric",bodySpec:"Regular 400 · Digital",
+ personality:"Connected, innovative, fluid and future-focused.",
+ guidelines:["Use the orbital symbol for favicons and digital profile images.","Keep the logo crisp on screens and presentations.","Use blue highlights sparingly to maintain a clean hierarchy.","Motion applications should feel smooth, not distracting."],
+ symbol:"O"
+},
+{
+ name:"Pawfolk Pets",category:"Pet Care",number:"008",
+ description:"A friendly, approachable identity for a pet brand built around care, trust and companionship.",
+ tags:["Pet Branding","Packaging","Mascot Direction"],
+ logo:"<g fill='#e6b9d0'><circle cx='70' cy='58' r='11'/><circle cx='94' cy='45' r='11'/><circle cx='118' cy='58' r='11'/><circle cx='127' cy='82' r='10'/><path d='M75 83 Q94 63 113 83 Q124 103 94 119 Q64 103 75 83Z'/></g><text x='157' y='84' fill='#f5eaf0' font-size='42' font-family='Space Grotesk' font-weight='700' letter-spacing='-2'>PAWFOLK</text><text x='162' y='108' fill='#e6b9d0' font-size='10' font-family='DM Mono' letter-spacing='4'>PETS & CARE</text>",
+ colors:[["Petal Pink","#E6B9D0"],["Plum Charcoal","#30232B"],["Soft Blush","#FFF4F8"],["Dusty Rose","#9C6C83"]],
+ heading:"Manrope",body:"DM Sans",headingSpec:"Extra Bold 800 · Friendly",bodySpec:"Regular 400 · Approachable",
+ personality:"Friendly, caring, playful and trustworthy.",
+ guidelines:["Use the paw symbol as a standalone brand mark.","Use plum backgrounds for premium packaging and blush for softer layouts.","Keep illustrations friendly and simple.","Make care information readable and accessible."],
+ symbol:"P"
+},
+{
+ name:"Maison Mode",category:"Fashion",number:"009",
+ description:"A polished fashion identity combining editorial restraint with timeless typography and a premium feel.",
+ tags:["Fashion Logo","Brand Identity","Print"],
+ logo:"<g fill='none' stroke='#d8c7a8' stroke-width='1.5'><path d='M60 110 V54 L86 82 L112 54 V110'/><path d='M60 120 H112'/></g><text x='143' y='83' fill='#eee4d4' font-size='39' font-family='Georgia,serif' letter-spacing='2'>MAISON</text><text x='168' y='109' fill='#d8c7a8' font-size='10' font-family='DM Mono' letter-spacing='5'>MODE</text>",
+ colors:[["Champagne Beige","#D8C7A8"],["Ink Black","#191714"],["Silk Ivory","#F2E9D8"],["Taupe","#82735D"]],
+ heading:"Playfair Display",body:"Manrope",headingSpec:"Regular 500 · Fashion Serif",bodySpec:"Regular 400 · Minimal",
+ personality:"Elegant, timeless, editorial and premium.",
+ guidelines:["Use the wordmark with generous whitespace.","Use ink black for print and champagne beige as an accent.","Avoid decorative effects and unnecessary outlines.","Use the symbol on labels, tags and small brand applications."],
+ symbol:"M"
+},
+{
+ name:"Terra Living",category:"Home & Living",number:"010",
+ description:"A grounded, modern identity for a home and living label focused on simplicity and thoughtful spaces.",
+ tags:["Lifestyle Branding","Packaging","Print Collateral"],
+ logo:"<g fill='none' stroke='#c9ff3d' stroke-width='1.7'><path d='M54 105 L86 47 L118 105 Z'/><path d='M70 83 H102'/><path d='M86 47 V105'/></g><text x='148' y='83' fill='#f5f5f2' font-size='43' font-family='Space Grotesk' font-weight='500' letter-spacing='1'>TERRA</text><text x='151' y='109' fill='#c9ff3d' font-size='10' font-family='DM Mono' letter-spacing='4'>LIVING SPACES</text>",
+ colors:[["Terra Lime","#C9FF3D"],["Earth Black","#171A14"],["Warm Ivory","#F2F0E7"],["Moss Green","#5F6C51"]],
+ heading:"Manrope",body:"DM Sans",headingSpec:"Medium 500 · Modern",bodySpec:"Regular 400 · Natural",
+ personality:"Grounded, thoughtful, modern and balanced.",
+ guidelines:["Use the geometric symbol for small homeware labels.","Pair lime accents with neutral backgrounds for balance.","Use warm ivory for print materials and product cards.","Maintain consistent spacing across packaging and digital assets."],
+ symbol:"T"
+}
+];
 
-        <span>
-            Graphic Design · Branding · Visual Design
-        </span>
+const grid = document.getElementById("projectGrid");
 
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+
+brands.forEach((b,i) => {
+  const card = document.createElement("article");
+  card.className = "card reveal";
+  card.style.setProperty("--brand-glow", b.colors[0][1] + "33");
+
+  card.innerHTML = `
+    <div class="art">
+      <span class="art-label">BRAND IDENTITY / ${b.number}</span>
+      <span class="art-index">N° ${String(i+1).padStart(2,"0")}</span>
+      <svg viewBox="0 0 440 170" role="img" aria-label="${escapeHTML(b.name)} logo">
+        ${b.logo}
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <h3>${escapeHTML(b.name)}</h3>
+        <span class="category">${escapeHTML(b.category)}</span>
+      </div>
+      <p class="description">${escapeHTML(b.description)}</p>
+      <div class="tags">${b.tags.map(t=>`<span class="tag">${escapeHTML(t)}</span>`).join("")}</div>
+      <div class="card-actions">
+        <span class="project-number">PROJECT / ${b.number}</span>
+        <button class="kit-btn" type="button" aria-expanded="false">View Brand Kit <span class="arrow">↗</span></button>
+      </div>
+      <div class="brand-kit"></div>
+    </div>`;
+
+  grid.appendChild(card);
+  const button = card.querySelector(".kit-btn");
+  const kit = card.querySelector(".brand-kit");
+
+  button.addEventListener("click", () => {
+    const isOpen = card.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.innerHTML = isOpen
+      ? 'Close Brand Kit <span class="arrow">−</span>'
+      : 'View Brand Kit <span class="arrow">↗</span>';
+
+    if(isOpen && !kit.dataset.loaded){
+      kit.innerHTML = createBrandKit(b);
+      kit.dataset.loaded = "true";
+    }
+  });
+});
+
+function createBrandKit(b){
+  const palette = b.colors.map(c => `
+    <div class="swatch">
+      <button class="swatch-color" type="button" style="background:${c[1]}"
+        data-copy="${c[1]}" aria-label="Copy ${c[0]} colour ${c[1]}"
+        title="Click to copy ${c[1]}"></button>
+      <div class="swatch-name">${escapeHTML(c[0])}</div>
+      <div class="swatch-code">
+        <span>${c[1]}</span>
+        <button class="mini-copy" type="button" data-copy="${c[1]}" aria-label="Copy HEX code">⧉</button>
+      </div>
+    </div>`).join("");
+
+  const guidelines = b.guidelines.map((g,i)=>`
+    <div class="guideline">
+      <span class="guideline-number">0${i+1}</span>
+      <p>${escapeHTML(g)}</p>
+    </div>`).join("");
+
+  return `
+    <div class="kit-heading">
+      <div>
+        <h4>${escapeHTML(b.name)} — Brand Kit</h4>
+        <p>COLOUR · TYPE · LOGO · GUIDELINES</p>
+      </div>
+      <span class="project-number">KIT / ${b.number}</span>
     </div>
 
-</footer>
+    <div class="kit-section">
+      <div class="kit-label">01 / COLOUR PALETTE <span>HEX CODES</span></div>
+      <div class="palette">${palette}</div>
+    </div>
 
+    <div class="kit-section">
+      <div class="kit-label">02 / TYPOGRAPHY <span>FONT SYSTEM</span></div>
+      <div class="type-grid">
+        <div class="type-box">
+          <div class="type-role">Primary / Headings</div>
+          <div class="type-sample" style="font-family:'${escapeHTML(b.heading)}',serif">Aa Bb</div>
+          <div class="type-name">${escapeHTML(b.heading)}</div>
+          <div class="type-spec">${escapeHTML(b.headingSpec)}</div>
+        </div>
+        <div class="type-box">
+          <div class="type-role">Secondary / Body</div>
+          <div class="type-sample" style="font-family:'${escapeHTML(b.body)}',sans-serif">Aa Bb</div>
+          <div class="type-name">${escapeHTML(b.body)}</div>
+          <div class="type-spec">${escapeHTML(b.bodySpec)}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kit-section">
+      <div class="kit-label">03 / LOGO VARIATIONS <span>IDENTITY SET</span></div>
+      <div class="logo-variations">
+        <div class="logo-variation" style="background:#f5f5f2;color:#111">
+          <div class="variation-word">${escapeHTML(b.name.split(" ")[0].toUpperCase())}</div>
+          <span class="variation-caption" style="color:#555">Light Version</span>
+        </div>
+        <div class="logo-variation" style="background:#10110e;color:#f5f5f2">
+          <div class="variation-word">${escapeHTML(b.name.split(" ")[0].toUpperCase())}</div>
+          <span class="variation-caption">Dark Version</span>
+        </div>
+        <div class="logo-variation" style="background:#10110e;color:${b.colors[0][1]}">
+          <div class="variation-symbol">${escapeHTML(b.symbol)}</div>
+          <span class="variation-caption">Symbol Concept</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kit-section">
+      <div class="kit-label">04 / BRAND GUIDELINES <span>USAGE RULES</span></div>
+      <div class="guidelines">${guidelines}</div>
+    </div>
+
+    <div class="kit-note">
+      <strong>Brand personality:</strong> ${escapeHTML(b.personality)}
+      <br>Use the palette and typography consistently across logos, packaging, print, websites and social media. These are concept brand guidelines; adjust the system to the final approved logo artwork.
+    </div>
+
+    <div class="kit-footer">
+      <span>BRAND KIT / ${b.number} — ${escapeHTML(b.name.toUpperCase())}</span>
+      <button type="button" class="copy-btn copy-palette">Copy All HEX Codes ⧉</button>
+    </div>`;
+}
+
+/* Copy individual colour codes or complete palette */
+const toast = document.getElementById("toast");
+let toastTimer;
+
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toast.classList.remove("show"),1700);
+}
+
+async function copyText(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast("COPIED: " + text);
+  }catch(error){
+    const field = document.createElement("textarea");
+    field.value = text;
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.appendChild(field);
+    field.select();
+    const success = document.execCommand("copy");
+    field.remove();
+    showToast(success ? "COPIED TO CLIPBOARD" : "COPY NOT AVAILABLE");
+  }
+}
+
+grid.addEventListener("click", event => {
+  const copyButton = event.target.closest("[data-copy]");
+  if(copyButton){
+    copyText(copyButton.dataset.copy);
+    return;
+  }
+
+  const paletteButton = event.target.closest(".copy-palette");
+  if(paletteButton){
+    const card = paletteButton.closest(".card");
+    const index = [...grid.children].indexOf(card);
+    const codes = brands[index].colors.map(c=>c[1]).join(", ");
+    copyText(codes);
+  }
+});
+
+/* Scroll reveal */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.08});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+const gridObserver = new MutationObserver(()=>{
+  grid.querySelectorAll(".reveal:not(.visible)").forEach(el=>observer.observe(el));
+});
+gridObserver.observe(grid,{childList:true});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
