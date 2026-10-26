@@ -1,3493 +1,1063 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DISCOVER — DESIGNER 197 | Project Brief</title>
-
-<meta name="description"
-content="Start a project with DESIGNER 197. Choose graphic design or web development and tell us what you need.">
+<meta name="theme-color" content="#f7f7ff">
+<meta name="description" content="Discover your next creative project with DESIGNER 197. Graphic design, branding, website design and digital experiences by Harsh Chawla.">
+<title>Discover Your Direction — DESIGNER 197</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =====================================================
-   DESIGNER 197 — DISCOVER
-===================================================== */
-
 :root{
-    --black:#050505;
-    --black2:#090909;
-    --white:#f5f5f2;
-    --muted:rgba(245,245,242,.55);
-    --muted2:rgba(245,245,242,.32);
-
-    --lime:#c9ff3d;
-
-    --line:rgba(255,255,255,.10);
-    --line2:rgba(255,255,255,.18);
-
-    --mono:"DM Mono",monospace;
-    --display:"Space Grotesk",sans-serif;
-    --body:"Plus Jakarta Sans",sans-serif;
-
-    --ease:cubic-bezier(.2,.8,.2,1);
+  --bg:#f7f7ff;
+  --white:#ffffff;
+  --ink:#171727;
+  --muted:#77778d;
+  --purple:#6475f5;
+  --pink:#f5a8d2;
+  --blue:#9cbaff;
+  --lavender:#e7e8ff;
+  --line:rgba(40,40,80,.10);
+  --shadow:0 24px 70px rgba(82,83,160,.10);
+  --radius:26px;
 }
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{
-    background:
-        radial-gradient(
-            circle at 85% 10%,
-            rgba(201,255,61,.055),
-            transparent 27%
-        ),
-        radial-gradient(
-            circle at 5% 80%,
-            rgba(255,255,255,.025),
-            transparent 30%
-        ),
-        var(--black);
-
-    color:var(--white);
-    font-family:var(--body);
-    min-height:100vh;
-    overflow-x:hidden;
+  font-family:Manrope,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 8% 12%,rgba(204,194,255,.32),transparent 30%),
+    radial-gradient(ellipse at 95% 35%,rgba(255,205,231,.25),transparent 27%),
+    var(--bg);
+  overflow-x:hidden;
 }
-
-/* GRAIN */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    pointer-events:none;
-    opacity:.035;
-
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid #9ba5ff;outline-offset:4px
 }
-
-a{
-    text-decoration:none;
-    color:inherit;
+.container{width:min(1160px,calc(100% - 40px));margin:auto}
+.mono{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:2px;font-size:10px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--purple)}
+.eyebrow:before{content:"";width:23px;height:1px;background:currentColor}
+.section{padding:100px 0}
+.section-head{max-width:680px;margin-bottom:38px}
+.section-head h2{
+  font:600 clamp(34px,5vw,58px)/1.08 "Space Grotesk",sans-serif;
+  letter-spacing:-2px;margin:18px 0
 }
+.section-head p{color:var(--muted);font-size:15px;line-height:1.9;max-width:590px}
+.gradient-text{background:linear-gradient(100deg,#6475f5,#bd72cb,#ed92bd);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-button,
-input,
-textarea{
-    font:inherit;
+/* HEADER — existing DESIGNER 197 wordmark retained */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(249,249,255,.83);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--line)
 }
-
-button{
-    cursor:pointer;
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px Manrope,sans-serif;letter-spacing:-.8px;white-space:nowrap}
+.logo b{color:#6475f5}
+.logo-mark{
+  height:35px;width:35px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#fff,#dfe2ff);color:#6475f5;
+  border:1px solid white;box-shadow:0 7px 18px #7c8bf52b;
+  transform:rotate(-7deg);flex:0 0 auto;
+  animation:logoFloat 4s ease-in-out infinite
 }
-
-
-/* =====================================================
-   CUSTOM CURSOR
-===================================================== */
-
-.cursor{
-    position:fixed;
-    width:13px;
-    height:13px;
-
-    border:1px solid var(--lime);
-    border-radius:50%;
-
-    transform:translate(-50%,-50%);
-
-    pointer-events:none;
-    z-index:10000;
-
-    transition:
-        width .2s ease,
-        height .2s ease,
-        background .2s ease;
+@keyframes logoFloat{
+  0%,100%{transform:rotate(-7deg) translateY(0)}
+  50%{transform:rotate(-7deg) translateY(-3px)}
 }
-
-.cursor.active{
-    width:38px;
-    height:38px;
-    background:rgba(201,255,61,.12);
+.logo span:last-child{display:inline-block;animation:wordmarkGlow 3.5s ease-in-out infinite}
+@keyframes wordmarkGlow{
+  0%,100%{text-shadow:0 0 0 rgba(100,117,245,0)}
+  50%{text-shadow:0 0 16px rgba(100,117,245,.24)}
 }
-
-
-/* =====================================================
-   NAV
-===================================================== */
-
-.nav{
-    height:82px;
-    padding:0 5vw;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    border-bottom:1px solid var(--line);
-
-    position:relative;
-    z-index:20;
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:12px;font-weight:700;color:#69697f;transition:.2s}
+.nav-links a:hover{color:var(--purple)}
+.nav-cta,.btn{
+  border:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  border-radius:100px;padding:14px 21px;font-weight:800;font-size:12px;
+  transition:transform .25s,box-shadow .25s,background .25s
 }
+.nav-cta,.btn-primary{background:var(--ink);color:white;box-shadow:0 9px 22px #17172716}
+.nav-cta:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 15px 30px #17172718}
+.btn-secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.mobile-menu{display:none;border:1px solid var(--line);background:white;border-radius:12px;padding:10px}
 
-.logo{
-    font-family:var(--display);
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:-1px;
+/* HERO */
+.hero{padding:76px 0 70px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:42px}
+.hero-copy{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;padding:9px 13px;
+  background:#fff;border:1px solid var(--line);border-radius:100px;
+  box-shadow:0 8px 22px #6868a10a
 }
-
-.logo span{
-    color:var(--lime);
-}
-
-.back-link{
-    font-family:var(--mono);
-    font-size:10px;
-    letter-spacing:1.5px;
-    color:var(--muted);
-
-    transition:.3s;
-}
-
-.back-link:hover{
-    color:var(--lime);
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    min-height:46vh;
-
-    padding:
-        90px
-        7vw
-        65px;
-
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::after{
-    content:"197";
-
-    position:absolute;
-    right:-10px;
-    top:15px;
-
-    font-family:var(--display);
-    font-weight:700;
-    font-size:clamp(180px,30vw,500px);
-    line-height:1;
-
-    color:transparent;
-
-    -webkit-text-stroke:
-        1px rgba(255,255,255,.045);
-
-    pointer-events:none;
-}
-
-.eyebrow{
-    font-family:var(--mono);
-    color:var(--lime);
-    font-size:10px;
-    letter-spacing:3px;
-
-    margin-bottom:26px;
-
-    position:relative;
-    z-index:2;
-}
-
+.live-dot{width:7px;height:7px;border-radius:50%;background:#8fdbad;box-shadow:0 0 0 4px #8fdbad25}
 .hero h1{
-    font-family:var(--display);
-
-    font-size:
-        clamp(58px,10vw,145px);
-
-    line-height:.84;
-
-    letter-spacing:-6px;
-
-    position:relative;
-    z-index:2;
+  font:600 clamp(48px,7vw,82px)/.99 "Space Grotesk",sans-serif;
+  letter-spacing:-5px;margin:27px 0 22px
+}
+.hero-copy>p{color:var(--muted);line-height:1.95;font-size:15px;max-width:525px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:28px;color:var(--muted);font-size:11px}
+.avatar-stack{display:flex;padding-left:6px}
+.avatar-stack span{
+  width:28px;height:28px;border:2px solid white;border-radius:50%;
+  display:grid;place-items:center;background:#e2e4ff;color:#6475f5;font-size:10px;font-weight:800;
+  margin-left:-6px
 }
 
-.hero h1 span{
-    color:transparent;
-
-    -webkit-text-stroke:
-        1px var(--white);
+/* 3D VISUAL */
+.visual-wrap{min-height:460px;position:relative;display:grid;place-items:center;perspective:1000px}
+.orbit{
+  position:absolute;width:370px;height:370px;border:1px solid #c9cafa;
+  border-radius:50%;transform:rotateX(65deg) rotateZ(-22deg);
+  animation:orbitSpin 24s linear infinite
 }
-
-.hero p{
-    max-width:650px;
-
-    color:var(--muted);
-
-    font-size:14px;
-    line-height:1.8;
-
-    margin-top:36px;
-
-    position:relative;
-    z-index:2;
+.orbit.two{width:300px;height:300px;border-color:#f1bfdd;transform:rotateX(65deg) rotateZ(28deg);animation-duration:18s;animation-direction:reverse}
+@keyframes orbitSpin{to{rotate:360deg}}
+.orbit:after{
+  content:"";position:absolute;width:11px;height:11px;border-radius:50%;
+  background:#6475f5;top:12%;left:20%;box-shadow:0 0 20px #6475f588
 }
-
-
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-.progress-wrap{
-    padding:0 7vw 50px;
+.glass-stage{
+  width:min(365px,90%);height:365px;border-radius:42px;position:relative;
+  background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(229,229,255,.62));
+  border:1px solid #ffffff;box-shadow:0 35px 90px #6e70bc25,inset 0 0 35px #ffffffb0;
+  transform:rotateY(-9deg) rotateX(4deg);animation:stageFloat 6s ease-in-out infinite;
+  display:grid;place-items:center;overflow:hidden
 }
-
-.progress{
-    max-width:750px;
-
-    display:flex;
-    gap:7px;
+@keyframes stageFloat{0%,100%{transform:translateY(0) rotateY(-9deg) rotateX(4deg)}50%{transform:translateY(-12px) rotateY(-4deg) rotateX(2deg)}}
+.stage-glow{position:absolute;width:230px;height:230px;background:radial-gradient(circle,#d4c9ffb0,transparent 70%);filter:blur(8px)}
+.stage-ring{position:absolute;width:230px;height:230px;border:1px solid #aeb2ff80;border-radius:50%;transform:rotateX(65deg) rotateZ(25deg)}
+.stage-ring.r2{width:185px;height:185px;border-color:#edb4d5;transform:rotateX(65deg) rotateZ(-25deg)}
+.stage-core{
+  position:relative;width:145px;height:155px;border-radius:35px;
+  display:grid;place-items:center;font:700 100px/1 "Space Grotesk",sans-serif;
+  color:#fff;background:linear-gradient(145deg,#8994ff 5%,#6972d9 48%,#b78bd9);
+  box-shadow:inset 8px 8px 18px #ffffff50,inset -12px -12px 20px #4549a455,0 28px 45px #7774da52;
+  transform:rotate(-8deg);text-shadow:0 5px 12px #343a8a50
 }
-
-.progress-bar{
-    flex:1;
-    height:3px;
-
-    background:var(--line);
-
-    transition:.4s var(--ease);
+.stage-chip{
+  position:absolute;background:#fff;border:1px solid #ffffffd9;
+  box-shadow:0 12px 30px #6969a11b;border-radius:17px;padding:13px 15px;
+  display:flex;align-items:center;gap:10px;animation:chipFloat 5s ease-in-out infinite
 }
+@keyframes chipFloat{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.chip-one{top:56px;left:-5px}
+.chip-two{right:-7px;top:135px;animation-delay:-2s}
+.chip-three{bottom:43px;left:18px;animation-delay:-3s}
+.chip-icon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#ecebff;color:#6475f5;font-size:17px}
+.chip-text strong{display:block;font-size:11px}
+.chip-text small{font-size:9px;color:var(--muted)}
+.floating-dot{position:absolute;width:13px;height:13px;border-radius:50%;background:#f3a9d3;right:9%;top:17%;box-shadow:0 0 22px #f3a9d399}
 
-.progress-bar.active{
-    background:var(--lime);
+/* TRUST STRIP */
+.trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#ffffff75}
+.trust-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;flex-wrap:wrap}
+.trust-row>span{font-size:11px;color:var(--muted);font-weight:700}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800}
+.trust-item i{font-style:normal;color:var(--purple);font-size:16px}
 
-    box-shadow:
-        0 0 16px
-        rgba(201,255,61,.35);
+/* DIRECTION CARDS */
+.direction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.direction-card{
+  border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+  background:#ffffffc9;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer
 }
+.direction-card:hover{transform:translateY(-6px);box-shadow:0 30px 70px #6f70b71a}
+.direction-card.selected{border:2px solid var(--purple);background:linear-gradient(145deg,#fff,#f0f0ff)}
+.direction-card.selected:after{content:"✓";position:absolute;right:20px;top:20px;background:var(--purple);color:white;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font-size:13px}
+.card-top{display:flex;justify-content:space-between;align-items:center}
+.number{font:11px "DM Mono",monospace;color:var(--muted)}
+.direction-icon{height:58px;width:58px;border-radius:19px;display:grid;place-items:center;font-size:25px;background:#e9eaff}
+.direction-card.web .direction-icon{background:#ffe7f3}
+.direction-card h3{font:600 28px "Space Grotesk",sans-serif;margin:24px 0 12px;letter-spacing:-1px}
+.direction-card p{color:var(--muted);font-size:13px;line-height:1.85}
+.mini-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.mini-tags span{padding:8px 10px;background:#f5f5ff;border:1px solid var(--line);border-radius:100px;font-size:10px;color:#65657e;font-weight:700}
+.direction-card.web .mini-tags span{background:#fff6fb}
+.select-hint{display:flex;justify-content:space-between;align-items:center;margin-top:23px;font-size:11px;font-weight:800;color:var(--purple)}
 
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container{
-    width:min(1100px,86vw);
-    margin:auto;
-
-    padding-bottom:120px;
-}
-
-.step{
-    display:none;
-
-    animation:
-        stepIn .55s var(--ease);
-}
-
-.step.active{
-    display:block;
-}
-
-@keyframes stepIn{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-.question-number{
-    font-family:var(--mono);
-
-    color:var(--lime);
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    margin-bottom:15px;
-}
-
-.question-title{
-    font-family:var(--display);
-
-    font-size:
-        clamp(35px,5vw,60px);
-
-    line-height:.95;
-
-    letter-spacing:-3px;
-
-    margin-bottom:15px;
-}
-
-.question-sub{
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.7;
-
-    margin-bottom:38px;
-}
-
-
-/* =====================================================
-   SERVICE TYPE
-===================================================== */
-
-.service-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-}
-
+/* SERVICES */
+.services-section{background:linear-gradient(180deg,#f0f0ff75,#fff8fd8c);border-top:1px solid #fff}
+.services-head-row{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .service-card{
-
-    min-height:245px;
-
-    padding:30px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.035),
-            rgba(255,255,255,.008)
-        );
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:
-        transform .35s var(--ease),
-        border-color .35s,
-        box-shadow .35s;
+  padding:23px;border:1px solid var(--line);background:#ffffffc7;border-radius:21px;
+  min-height:195px;transition:.25s;cursor:pointer
 }
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.service-card.selected{border:2px solid var(--purple);background:#f2f2ff}
+.service-card .service-symbol{font-size:23px;display:block;margin-bottom:24px}
+.service-card h3{font:600 18px "Space Grotesk",sans-serif;margin-bottom:9px}
+.service-card p{font-size:11px;line-height:1.8;color:var(--muted)}
+.service-foot{display:flex;justify-content:space-between;align-items:center;margin-top:17px;font-size:10px;color:var(--purple);font-weight:800}
+.service-foot .check{width:20px;height:20px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
+.service-card.selected .check{background:var(--purple);color:white}
 
-.service-card::before{
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.process-card{padding:24px 20px;border:1px solid var(--line);border-radius:20px;background:#ffffffa8}
+.process-number{font:11px "DM Mono",monospace;color:var(--purple)}
+.process-card h3{font:600 19px "Space Grotesk",sans-serif;margin:24px 0 10px}
+.process-card p{font-size:12px;line-height:1.85;color:var(--muted)}
 
-    content:"";
-
-    width:150px;
-    height:150px;
-
-    position:absolute;
-
-    right:-80px;
-    bottom:-80px;
-
-    background:var(--lime);
-
-    filter:blur(70px);
-
-    opacity:0;
-
-    transition:.4s;
-
+/* QUESTIONNAIRE */
+.discover-panel{
+  border-radius:34px;background:linear-gradient(135deg,#fff,#f0efff 65%,#fff0f8);
+  border:1px solid white;box-shadow:0 28px 85px #7475b51a;padding:clamp(24px,5vw,55px);
+  position:relative;overflow:hidden
 }
-
-.service-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:
-        rgba(201,255,61,.45);
-
-}
-
-.service-card:hover::before{
-    opacity:.18;
-}
-
-.service-card.selected{
-
-    border-color:var(--lime);
-
-    box-shadow:
-        0 0 0 1px
-        rgba(201,255,61,.1),
-
-        0 0 45px
-        rgba(201,255,61,.08);
-}
-
-.service-icon{
-
-    font-size:34px;
-
-    margin-bottom:48px;
-
-    position:relative;
-    z-index:2;
-}
-
-.service-card h3{
-
-    font-family:var(--display);
-
-    font-size:25px;
-
-    margin-bottom:9px;
-
-    position:relative;
-    z-index:2;
-}
-
-.service-card p{
-
-    font-size:11px;
-
-    line-height:1.65;
-
-    color:var(--muted);
-
-    position:relative;
-    z-index:2;
-}
-
-
-/* =====================================================
-   OPTIONS
-===================================================== */
-
-.options{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:12px;
-}
-
+.discover-panel:before{content:"";position:absolute;width:290px;height:290px;right:-100px;top:-110px;border-radius:50%;background:#e0d9ff70;filter:blur(3px)}
+.discover-inner{position:relative;z-index:1}
+.progress-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px}
+.progress-head span{font:10px "DM Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.progress-track{height:5px;border-radius:99px;background:#e2e2f3;overflow:hidden;margin-bottom:34px}
+.progress-bar{height:100%;width:20%;background:linear-gradient(90deg,#6475f5,#d68bc8);border-radius:99px;transition:width .3s}
+.question{display:none;animation:fadeIn .3s ease}
+.question.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.question h3{font:600 clamp(25px,4vw,38px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-1px;margin-bottom:10px}
+.question>p{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .option{
-
-    min-height:70px;
-
-    padding:
-        18px
-        22px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.02);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    transition:
-        transform .3s var(--ease),
-        border-color .3s,
-        background .3s;
-
-    position:relative;
-
-    overflow:hidden;
+  text-align:left;padding:17px 18px;background:#ffffffc9;border:1px solid var(--line);
+  border-radius:16px;display:flex;align-items:center;gap:12px;min-height:65px;
+  transition:.2s;color:var(--ink)
 }
-
-.option:hover{
-
-    transform:translateX(4px);
-
-    border-color:
-        rgba(201,255,61,.45);
+.option:hover{border-color:#b7bbff;transform:translateY(-2px)}
+.option.selected{border:2px solid var(--purple);background:#eeeeff}
+.option .opt-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#f0efff;flex:0 0 auto}
+.option strong{display:block;font-size:12px}
+.option small{display:block;color:var(--muted);font-size:10px;margin-top:4px;line-height:1.5}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:15px}
+.field label{font-size:11px;font-weight:800}
+.field input,.field select,.field textarea{
+  border:1px solid var(--line);background:#ffffffd9;border-radius:13px;padding:14px;
+  color:var(--ink);outline:none;width:100%;font-size:12px
 }
+.field textarea{resize:vertical;min-height:105px;line-height:1.7}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#9da5ff;box-shadow:0 0 0 3px #6475f51a}
+.question-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line)}
+.question-nav .right{display:flex;gap:10px}
+.error-msg{font-size:11px;color:#c34b79;margin-top:12px;display:none}
+.error-msg.show{display:block}
 
-.option.selected{
-
-    border-color:var(--lime);
-
-    background:
-        rgba(201,255,61,.055);
-
+/* SUMMARY */
+.summary-box{display:none;margin-top:25px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}
+.summary-box.show{display:block;animation:fadeIn .3s}
+.summary-box h3{font:600 24px "Space Grotesk",sans-serif;margin:12px 0}
+.summary-box>p{font-size:12px;color:var(--muted);line-height:1.8}
+.summary-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0}
+.summary-item{padding:14px;background:#f8f8ff;border-radius:13px}
+.summary-item small{display:block;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.summary-item strong{font-size:12px;overflow-wrap:anywhere}
+.summary-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.contact-section{padding:35px 0 90px}
+.contact-card{
+  padding:clamp(28px,5vw,55px);border-radius:30px;background:#171727;color:white;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;overflow:hidden;position:relative
 }
-
-.option-text{
-    position:relative;
-    z-index:2;
+.contact-card:after{content:"";position:absolute;width:300px;height:300px;right:8%;top:-160px;border-radius:50%;background:#6475f555;filter:blur(50px)}
+.contact-copy,.contact-action{position:relative;z-index:1}
+.contact-copy h2{font:600 clamp(31px,5vw,51px)/1.1 "Space Grotesk",sans-serif;letter-spacing:-2px;margin:15px 0}
+.contact-copy p{color:#b9b9ce;font-size:13px;line-height:1.8;max-width:490px}
+.contact-card .btn-primary{background:white;color:#171727}
+.footer{border-top:1px solid var(--line);padding:27px 0}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.footer p{font-size:10px;color:var(--muted)}
+.footer-links{display:flex;gap:18px;font-size:10px;color:var(--muted)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:100;background:#171727;color:white;border-radius:100px;padding:13px 20px;font-size:12px;box-shadow:0 12px 40px #17172735;transition:.3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:850px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{text-align:center}
+  .hero-copy>p{margin:auto}
+  .hero .eyebrow,.hero-actions,.hero-note{justify-content:center}
+  .visual-wrap{min-height:410px}
+  .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nav-links{gap:14px}
+  .nav-links a{font-size:11px}
 }
-
-.option-title{
-
-    font-size:13px;
-
-    font-weight:700;
+@media(max-width:600px){
+  .container{width:min(100% - 28px,1160px)}
+  .nav{min-height:68px}
+  .nav-links{
+    display:none;position:absolute;top:68px;left:0;right:0;background:#fafaff;
+    padding:20px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:13px 5px;border-bottom:1px solid var(--line);font-size:13px}
+  .nav-cta{display:none}
+  .mobile-menu{display:block}
+  .hero{padding:55px 0 40px}
+  .hero h1{font-size:52px;letter-spacing:-3.5px}
+  .hero-copy>p{font-size:13px}
+  .visual-wrap{min-height:350px;transform:scale(.9);margin:-8px 0}
+  .glass-stage{height:300px;width:300px;border-radius:34px}
+  .stage-core{width:120px;height:130px;font-size:82px}
+  .orbit{width:310px;height:310px}
+  .orbit.two{width:260px;height:260px}
+  .chip-one{left:-10px;top:40px}
+  .chip-two{right:-15px;top:120px}
+  .chip-three{left:0;bottom:22px}
+  .section{padding:68px 0}
+  .section-head h2{letter-spacing:-1.5px}
+  .direction-grid,.services-grid,.option-grid,.field-grid,.summary-list{grid-template-columns:1fr}
+  .direction-card{padding:24px}
+  .services-head-row{display:block}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .process-card{padding:18px 15px}
+  .process-card h3{font-size:16px}
+  .discover-panel{padding:22px 17px;border-radius:24px}
+  .question-nav{align-items:stretch}
+  .question-nav .btn{padding:12px 14px}
+  .contact-card{align-items:flex-start;flex-direction:column}
+  .footer-row{align-items:flex-start;flex-direction:column}
 }
-
-.option-desc{
-
-    font-size:10px;
-
-    color:var(--muted2);
-
-    margin-top:5px;
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 }
-
-.option-price{
-
-    font-family:var(--mono);
-
-    font-size:11px;
-
-    color:var(--lime);
-
-    white-space:nowrap;
-
-    position:relative;
-    z-index:2;
-}
-
-.check{
-
-    width:20px;
-    height:20px;
-
-    border:
-        1px solid var(--line2);
-
-    border-radius:50%;
-
-    flex-shrink:0;
-
-    position:relative;
-    z-index:2;
-}
-
-.option.selected .check{
-
-    background:var(--lime);
-
-    border-color:var(--lime);
-
-}
-
-.option.selected .check::after{
-
-    content:"✓";
-
-    position:absolute;
-
-    left:4px;
-    top:1px;
-
-    color:#050505;
-
-    font-size:12px;
-
-    font-weight:700;
-
-}
-
-
-/* =====================================================
-   PRICE
-===================================================== */
-
-.price-box{
-
-    margin-top:32px;
-
-    padding:25px 28px;
-
-    border:
-        1px solid
-        rgba(201,255,61,.28);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(201,255,61,.07),
-            rgba(255,255,255,.012)
-        );
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-}
-
-.price-label{
-
-    font-family:var(--mono);
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    color:var(--muted);
-}
-
-.price{
-
-    font-family:var(--display);
-
-    font-size:
-        clamp(30px,5vw,52px);
-
-    font-weight:700;
-
-    color:var(--lime);
-
-    white-space:nowrap;
-}
-
-
-/* =====================================================
-   INPUTS
-===================================================== */
-
-.input-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:15px;
-}
-
-.input-group{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:9px;
-}
-
-.input-group.full{
-    grid-column:1/-1;
-}
-
-.input-group label{
-
-    font-family:var(--mono);
-
-    color:var(--muted);
-
-    font-size:9px;
-
-    letter-spacing:1.5px;
-}
-
-.input-group input,
-.input-group textarea{
-
-    width:100%;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.02);
-
-    color:var(--white);
-
-    padding:16px;
-
-    outline:none;
-
-    transition:.3s;
-}
-
-.input-group textarea{
-
-    min-height:150px;
-
-    resize:vertical;
-}
-
-.input-group input:focus,
-.input-group textarea:focus{
-
-    border-color:var(--lime);
-
-    box-shadow:
-        0 0 25px
-        rgba(201,255,61,.05);
-}
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-.actions{
-
-    margin-top:45px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:15px;
-}
-
-.btn{
-
-    padding:
-        16px
-        24px;
-
-    border:
-        1px solid var(--line2);
-
-    background:transparent;
-
-    color:var(--white);
-
-    font-family:var(--mono);
-
-    font-size:10px;
-
-    letter-spacing:1.2px;
-
-    transition:.3s;
-}
-
-.btn:hover{
-
-    border-color:var(--lime);
-
-    color:var(--lime);
-
-}
-
-.btn.next{
-
-    background:var(--lime);
-
-    color:#050505;
-
-    border-color:var(--lime);
-
-    font-weight:700;
-}
-
-.btn.next:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 0 30px
-        rgba(201,255,61,.22);
-
-}
-
-
-/* =====================================================
-   SUMMARY
-===================================================== */
-
-.summary{
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.018);
-
-    padding:28px;
-
-}
-
-.summary-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:25px;
-
-    padding:16px 0;
-
-    border-bottom:
-        1px solid var(--line);
-}
-
-.summary-row:last-child{
-    border-bottom:0;
-}
-
-.summary-label{
-
-    font-family:var(--mono);
-
-    color:var(--muted);
-
-    font-size:9px;
-
-    letter-spacing:1px;
-}
-
-.summary-value{
-
-    max-width:65%;
-
-    text-align:right;
-
-    font-size:12px;
-
-    line-height:1.6;
-}
-
-
-/* =====================================================
-   CONTACT CHOICE
-===================================================== */
-
-.contact-title{
-
-    font-family:var(--display);
-
-    font-size:20px;
-
-    margin-top:35px;
-
-    margin-bottom:15px;
-}
-
-.contact-buttons{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:15px;
-
-    margin-top:20px;
-}
-
-.contact-btn{
-
-    min-height:90px;
-
-    padding:22px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.02);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    gap:7px;
-
-    transition:.3s;
-}
-
-.contact-btn:hover{
-
-    transform:translateY(-5px);
-
-}
-
-.contact-btn.whatsapp:hover{
-
-    border-color:#25d366;
-
-}
-
-.contact-btn.email:hover{
-
-    border-color:var(--lime);
-
-}
-
-.contact-btn strong{
-
-    font-family:var(--display);
-
-    font-size:19px;
-}
-
-.contact-btn span{
-
-    color:var(--muted);
-
-    font-family:var(--mono);
-
-    font-size:9px;
-
-    letter-spacing:1px;
-}
-
-
-/* =====================================================
-   SUCCESS
-===================================================== */
-
-.success{
-
-    text-align:center;
-
-    padding:
-        70px
-        20px;
-}
-
-.success-icon{
-
-    width:80px;
-    height:80px;
-
-    margin:
-        0 auto
-        30px;
-
-    border:
-        1px solid var(--lime);
-
-    color:var(--lime);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:30px;
-
-    box-shadow:
-        0 0 45px
-        rgba(201,255,61,.12);
-}
-
-.success h2{
-
-    font-family:var(--display);
-
-    font-size:
-        clamp(42px,7vw,80px);
-
-    letter-spacing:-4px;
-
-    line-height:.9;
-}
-
-.success p{
-
-    max-width:560px;
-
-    margin:
-        25px auto 35px;
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.8;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-    border-top:
-        1px solid var(--line);
-
-    padding:
-        30px 7vw;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    color:var(--muted2);
-
-    font-family:var(--mono);
-
-    font-size:8px;
-
-    letter-spacing:1px;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:800px){
-
-    .cursor{
-        display:none;
-    }
-
-    .nav{
-        height:70px;
-
-        padding:
-            0 6vw;
-    }
-
-    .hero{
-
-        padding:
-            70px 6vw 60px;
-
-        min-height:42vh;
-    }
-
-    .hero h1{
-
-        letter-spacing:-3px;
-    }
-
-    .hero::after{
-
-        font-size:180px;
-
-        top:110px;
-
-        right:-20px;
-    }
-
-    .progress-wrap{
-
-        padding:
-            0 6vw 35px;
-    }
-
-    .container{
-
-        width:88vw;
-    }
-
-    .service-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .options{
-
-        grid-template-columns:1fr;
-    }
-
-    .input-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .input-group.full{
-
-        grid-column:auto;
-    }
-
-    .price-box{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-    }
-
-    .contact-buttons{
-
-        grid-template-columns:1fr;
-    }
-
-    .actions{
-
-        flex-direction:column-reverse;
-    }
-
-    .actions .btn{
-
-        width:100%;
-    }
-
-    footer{
-
-        flex-direction:column;
-    }
-
-    .summary-row{
-
-        flex-direction:column;
-    }
-
-    .summary-value{
-
-        max-width:100%;
-
-        text-align:left;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
-
-<div class="cursor"></div>
-
-
-<!-- =====================================================
-     NAV
-===================================================== -->
-
-<nav class="nav">
-
-    <a href="index.html" class="logo">
-        DESIGNER <span>197</span>
+<header class="header">
+  <div class="container nav">
+    <!-- Existing logo design retained -->
+    <a class="logo" href="index.html" aria-label="DESIGNER197 Home">
+      <span class="logo-mark">D</span>
+      <span>designer<b>197</b></span>
     </a>
 
-    <a href="index.html" class="back-link">
-        ← BACK TO HOME
-    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#discover">Discover</a>
+      <a href="#directions">Design Directions</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+    </nav>
 
-</nav>
+    <a class="nav-cta" href="#discover">Start Discovering ↗</a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
+<main>
 <section class="hero">
-
-    <div class="eyebrow">
-        01 / DISCOVER
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow mono"><span class="live-dot"></span> YOUR CREATIVE STARTING POINT</div>
+      <h1>Let's discover<br>your <span class="gradient-text">next idea.</span></h1>
+      <p>
+        From powerful brand identities to beautiful, functional websites —
+        discover the right creative direction for your project.
+        Choose your path, explore the possibilities and build a brief that makes sense for you.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#discover">Start Your Discover ↗</a>
+        <a class="btn btn-secondary" href="#directions">Explore Services ↓</a>
+      </div>
+      <div class="hero-note">
+        <div class="avatar-stack"><span>D</span><span>197</span><span>✦</span></div>
+        <span>Graphic design · Web design · Brand experiences</span>
+      </div>
     </div>
 
-    <h1>
-        LET'S BUILD<br>
-        <span>SOMETHING.</span>
-    </h1>
-
-    <p>
-        Tell us what you need. Select your project type,
-        choose the services or website features and share
-        your requirements.
-    </p>
-
+    <div class="visual-wrap" aria-label="Decorative 3D design illustration">
+      <div class="orbit"></div><div class="orbit two"></div>
+      <div class="floating-dot"></div>
+      <div class="glass-stage">
+        <div class="stage-glow"></div><div class="stage-ring"></div><div class="stage-ring r2"></div>
+        <div class="stage-core">D</div>
+      </div>
+      <div class="stage-chip chip-one">
+        <div class="chip-icon">✳</div><div class="chip-text"><strong>Brand identity</strong><small>Make it memorable</small></div>
+      </div>
+      <div class="stage-chip chip-two">
+        <div class="chip-icon">⌘</div><div class="chip-text"><strong>Web experience</strong><small>Designed to connect</small></div>
+      </div>
+      <div class="stage-chip chip-three">
+        <div class="chip-icon">✦</div><div class="chip-text"><strong>Your vision</strong><small>Turn ideas into design</small></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- =====================================================
-     PROGRESS
-===================================================== -->
-
-<div class="progress-wrap">
-
-    <div class="progress">
-
-        <div class="progress-bar active"></div>
-        <div class="progress-bar"></div>
-        <div class="progress-bar"></div>
-        <div class="progress-bar"></div>
-        <div class="progress-bar"></div>
-
-    </div>
-
+<div class="trust-strip">
+  <div class="container trust-row">
+    <span>ONE CREATIVE PARTNER</span>
+    <div class="trust-item"><i>✳</i> Graphic Design</div>
+    <div class="trust-item"><i>⌘</i> Web Design</div>
+    <div class="trust-item"><i>✦</i> Visual Identity</div>
+    <div class="trust-item"><i>↗</i> Digital Experiences</div>
+  </div>
 </div>
 
-
-<main class="container">
-
-
-<!-- =====================================================
-     STEP 1 — PROJECT TYPE
-===================================================== -->
-
-<section class="step active" id="stepProject">
-
-    <div class="question-number">
-        01 / PROJECT TYPE
+<section class="section" id="directions">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow mono">01 / CHOOSE YOUR DIRECTION</div>
+      <h2>What are we <span class="gradient-text">creating?</span></h2>
+      <p>Start with what you need today. You can choose graphic design, web design, or combine both into one creative project.</p>
     </div>
 
-    <h2 class="question-title">
-        What do you need?
-    </h2>
+    <div class="direction-grid">
+      <article class="direction-card graphic reveal" data-direction="Graphic Design" tabindex="0" role="checkbox" aria-checked="false">
+        <div class="card-top"><span class="number">DIRECTION / 01</span><span class="direction-icon">✳</span></div>
+        <h3>Graphic Design</h3>
+        <p>Build a distinctive visual identity and communicate your brand through thoughtful, consistent design.</p>
+        <div class="mini-tags"><span>Logo & Branding</span><span>Social Media</span><span>Packaging</span><span>Print Design</span></div>
+        <div class="select-hint"><span>SELECT DIRECTION</span><span>↗</span></div>
+      </article>
 
-    <p class="question-sub">
-        Choose the type of project you want to start.
-    </p>
-
-
-    <div class="service-grid">
-
-        <!-- GRAPHIC -->
-
-        <div
-            class="service-card"
-            data-service="graphic"
-        >
-
-            <div class="service-icon">
-                ✦
-            </div>
-
-            <h3>
-                Graphic Design
-            </h3>
-
-            <p>
-                Logo, branding, social media,
-                packaging, print, advertising
-                and visual design.
-            </p>
-
-        </div>
-
-
-        <!-- WEB -->
-
-        <div
-            class="service-card"
-            data-service="web"
-        >
-
-            <div class="service-icon">
-                ⌘
-            </div>
-
-            <h3>
-                Web Development
-            </h3>
-
-            <p>
-                Websites, responsive UI, animation,
-                3D experiences, e-commerce and
-                custom web applications.
-            </p>
-
-        </div>
-
-
-        <!-- BOTH -->
-
-        <div
-            class="service-card"
-            data-service="both"
-        >
-
-            <div class="service-icon">
-                ◈
-            </div>
-
-            <h3>
-                Design + Web
-            </h3>
-
-            <p>
-                Complete visual design combined
-                with a custom website experience.
-            </p>
-
-        </div>
-
+      <article class="direction-card web reveal" data-direction="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <div class="card-top"><span class="number">DIRECTION / 02</span><span class="direction-icon">⌘</span></div>
+        <h3>Web Design</h3>
+        <p>Create a responsive, user-friendly website that presents your business clearly and gives visitors a better experience.</p>
+        <div class="mini-tags"><span>Portfolio</span><span>Business Website</span><span>Landing Page</span><span>UI/UX</span></div>
+        <div class="select-hint"><span>SELECT DIRECTION</span><span>↗</span></div>
+      </article>
     </div>
-
-
-    <div class="actions">
-
-        <span></span>
-
-        <button
-            class="btn next"
-            onclick="nextStep()"
-        >
-            CONTINUE →
-        </button>
-
-    </div>
-
+    <p style="font-size:11px;color:var(--muted);margin-top:17px">You can select both directions if your project needs graphic design and a website.</p>
+  </div>
 </section>
 
-
-<!-- =====================================================
-     STEP 2 — GRAPHIC DESIGN
-===================================================== -->
-
-<section class="step" id="stepGraphic">
-
-    <div class="question-number">
-        02 / GRAPHIC DESIGN
+<section class="section" id="services">
+  <div class="container">
+    <div class="services-head-row">
+      <div class="section-head reveal">
+        <div class="eyebrow mono">02 / EXPLORE THE SERVICES</div>
+        <h2>Pick the pieces<br>you <span class="gradient-text">need.</span></h2>
+        <p>Select one or more services. The list updates to match the directions you choose above.</p>
+      </div>
+      <a href="#discover" class="btn btn-secondary" style="margin-bottom:40px">Build My Brief ↗</a>
     </div>
 
-    <h2 class="question-title">
-        What are we designing?
-    </h2>
-
-    <p class="question-sub">
-        Select everything you need for your design project.
-    </p>
-
-
-    <div class="options">
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Logo Design
-                </div>
-
-                <div class="option-desc">
-                    Professional logo & logo system
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Brand Identity
-                </div>
-
-                <div class="option-desc">
-                    Complete visual identity
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Social Media Design
-                </div>
-
-                <div class="option-desc">
-                    Posts, creatives & campaigns
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Packaging Design
-                </div>
-
-                <div class="option-desc">
-                    Product packaging & labels
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Poster / Banner
-                </div>
-
-                <div class="option-desc">
-                    Advertising & promotional graphics
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Catalogue / Brochure
-                </div>
-
-                <div class="option-desc">
-                    Multi-page print design
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Photo Editing
-                </div>
-
-                <div class="option-desc">
-                    Professional image editing
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option graphic-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Advertising Campaign
-                </div>
-
-                <div class="option-desc">
-                    Creative campaign design
-                </div>
-
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
+    <div class="services-grid" id="servicesGrid">
+      <article class="service-card" data-service="Logo & Branding" data-type="Graphic Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">✳</span><h3>Logo & Branding</h3>
+        <p>Logos, brand colours, typography, visual identity and brand guidelines.</p>
+        <div class="service-foot"><span>BRAND IDENTITY</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Social Media Design" data-type="Graphic Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">▧</span><h3>Social Media Design</h3>
+        <p>Promotional posts, campaigns, offers, product ads and branded social content.</p>
+        <div class="service-foot"><span>DIGITAL CREATIVE</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Packaging Design" data-type="Graphic Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">▱</span><h3>Packaging Design</h3>
+        <p>Product packaging, labels, boxes and shelf-ready brand presentation.</p>
+        <div class="service-foot"><span>PRODUCT DESIGN</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Catalogue & Print" data-type="Graphic Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">▤</span><h3>Catalogue & Print</h3>
+        <p>Catalogues, brochures, flyers, posters, business cards and print layouts.</p>
+        <div class="service-foot"><span>PRINT DESIGN</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Photo Editing" data-type="Graphic Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">◈</span><h3>Photo Editing</h3>
+        <p>Image clean-up, product image enhancement, colour correction and retouching.</p>
+        <div class="service-foot"><span>IMAGE CRAFT</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Website UI/UX Design" data-type="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">⌘</span><h3>Website UI/UX</h3>
+        <p>Website structure, page layouts, user journeys and visual interface design.</p>
+        <div class="service-foot"><span>USER EXPERIENCE</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Portfolio Website" data-type="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">▣</span><h3>Portfolio Website</h3>
+        <p>A personal portfolio to showcase projects, services, skills and contact details.</p>
+        <div class="service-foot"><span>PERSONAL BRAND</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Business Website" data-type="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">◫</span><h3>Business Website</h3>
+        <p>A professional online presence for your company, services and enquiries.</p>
+        <div class="service-foot"><span>BUSINESS ONLINE</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Landing Page" data-type="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">↗</span><h3>Landing Page</h3>
+        <p>A focused page for a campaign, launch, product, service or promotion.</p>
+        <div class="service-foot"><span>CONVERSION FOCUSED</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="E-commerce Website" data-type="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">▧</span><h3>E-commerce Website</h3>
+        <p>Product listings, shopping layouts and a customer-friendly buying journey.</p>
+        <div class="service-foot"><span>ONLINE STORE</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Responsive Website Development" data-type="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">▱</span><h3>Responsive Development</h3>
+        <p>Build or refine layouts to work across mobile, tablet and desktop screens.</p>
+        <div class="service-foot"><span>WEB BUILD</span><span class="check">+</span></div>
+      </article>
+      <article class="service-card" data-service="Website Refresh" data-type="Web Design" tabindex="0" role="checkbox" aria-checked="false">
+        <span class="service-symbol">⟳</span><h3>Website Refresh</h3>
+        <p>Improve an existing website's visual design, structure and usability.</p>
+        <div class="service-foot"><span>REDESIGN</span><span class="check">+</span></div>
+      </article>
     </div>
-
-
-    <!-- NO GRAPHIC PRICE -->
-
-
-    <div class="actions">
-
-        <button
-            class="btn"
-            onclick="prevStep()"
-        >
-            ← BACK
-        </button>
-
-        <button
-            class="btn next"
-            onclick="nextStep()"
-        >
-            CONTINUE →
-        </button>
-
-    </div>
-
+  </div>
 </section>
 
-
-<!-- =====================================================
-     STEP 3 — WEB DEVELOPMENT
-===================================================== -->
-
-<section class="step" id="stepWeb">
-
-    <div class="question-number">
-        02 / WEB DEVELOPMENT
+<section class="section" id="process" style="padding-top:35px">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow mono">03 / THE CREATIVE PROCESS</div>
+      <h2>From first thought<br>to <span class="gradient-text">final delivery.</span></h2>
+      <p>A clear process keeps your goals, visual direction and final deliverables aligned.</p>
     </div>
-
-    <h2 class="question-title">
-        What are we building?
-    </h2>
-
-    <p class="question-sub">
-        Select the website type and features you need.
-        Your estimated web project value updates automatically.
-    </p>
-
-
-    <div class="options">
-
-
-        <!-- 01 -->
-
-        <div
-            class="option web-option"
-            data-price="9999"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Landing Page
-                </div>
-
-                <div class="option-desc">
-                    Single high-conversion website
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹9,999
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 02 -->
-
-        <div
-            class="option web-option"
-            data-price="14999"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Business Website
-                </div>
-
-                <div class="option-desc">
-                    Professional multi-page website
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹14,999
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 03 -->
-
-        <div
-            class="option web-option"
-            data-price="11999"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Portfolio
-                </div>
-
-                <div class="option-desc">
-                    Creative personal / agency portfolio
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹11,999
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 04 -->
-
-        <div
-            class="option web-option"
-            data-price="25000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    E-commerce
-                </div>
-
-                <div class="option-desc">
-                    Products, cart & checkout
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹25,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 05 -->
-
-        <div
-            class="option web-option"
-            data-price="30000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Web Application
-                </div>
-
-                <div class="option-desc">
-                    Custom interactive web platform
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹30,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 06 -->
-
-        <div
-            class="option web-option"
-            data-price="5000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Extra Pages
-                </div>
-
-                <div class="option-desc">
-                    Additional custom pages
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹5,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 07 -->
-
-        <div
-            class="option web-option"
-            data-price="10000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Advanced Animation
-                </div>
-
-                <div class="option-desc">
-                    Scroll, hover & motion effects
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹10,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 08 -->
-
-        <div
-            class="option web-option"
-            data-price="15000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    3D Website
-                </div>
-
-                <div class="option-desc">
-                    3D visuals & interactive experience
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹15,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 09 -->
-
-        <div
-            class="option web-option"
-            data-price="5000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Responsive Design
-                </div>
-
-                <div class="option-desc">
-                    Desktop + tablet + mobile
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹5,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 10 -->
-
-        <div
-            class="option web-option"
-            data-price="4000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    WhatsApp / Contact
-                </div>
-
-                <div class="option-desc">
-                    Lead & enquiry integration
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹4,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 11 -->
-
-        <div
-            class="option web-option"
-            data-price="7000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Login / Signup
-                </div>
-
-                <div class="option-desc">
-                    User authentication system
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹7,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 12 -->
-
-        <div
-            class="option web-option"
-            data-price="5000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Payment
-                </div>
-
-                <div class="option-desc">
-                    Online payment integration
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹5,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
-        <!-- 13 -->
-
-        <div
-            class="option web-option"
-            data-price="3000"
-        >
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    SEO
-                </div>
-
-                <div class="option-desc">
-                    Basic technical SEO setup
-                </div>
-
-            </div>
-
-            <div class="option-price">
-                ₹3,000
-            </div>
-
-            <div class="check"></div>
-
-        </div>
-
-
+    <div class="process-grid">
+      <article class="process-card reveal"><span class="process-number">STEP / 01</span><h3>Discover</h3><p>Understand your project, audience, goals, requirements and expectations.</p></article>
+      <article class="process-card reveal"><span class="process-number">STEP / 02</span><h3>Direction</h3><p>Choose the creative style, visual references, priorities and project scope.</p></article>
+      <article class="process-card reveal"><span class="process-number">STEP / 03</span><h3>Design</h3><p>Develop the visual concept, layouts and design details around your brief.</p></article>
+      <article class="process-card reveal"><span class="process-number">STEP / 04</span><h3>Deliver</h3><p>Prepare the agreed final assets or website deliverables for your project.</p></article>
     </div>
-
-
-    <div class="price-box">
-
-        <div>
-
-            <div class="price-label">
-                ESTIMATED WEB PROJECT VALUE
-            </div>
-
-        </div>
-
-        <div
-            class="price"
-            id="webTotal"
-        >
-            ₹0
-        </div>
-
-    </div>
-
-
-    <div class="actions">
-
-        <button
-            class="btn"
-            onclick="prevStep()"
-        >
-            ← BACK
-        </button>
-
-        <button
-            class="btn next"
-            onclick="nextStep()"
-        >
-            CONTINUE →
-        </button>
-
-    </div>
-
+  </div>
 </section>
 
-
-<!-- =====================================================
-     STEP 4 — CREATIVE DIRECTION
-===================================================== -->
-
-<section class="step" id="stepDirection">
-
-    <div class="question-number">
-        03 / CREATIVE DIRECTION
+<section class="section" id="discover" style="padding-top:45px">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow mono">04 / YOUR PROJECT DISCOVERY</div>
+      <h2>Let's understand<br>your <span class="gradient-text">vision.</span></h2>
+      <p>Answer these quick questions to create a project brief. Your answers stay in this page until you choose to copy or share the summary.</p>
     </div>
 
-    <h2 class="question-title">
-        What's the direction?
-    </h2>
+    <div class="discover-panel reveal">
+      <div class="discover-inner">
+        <div class="progress-head"><span id="stepLabel">QUESTION 01 / 05</span><span id="progressPercent">20% COMPLETE</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
 
-    <p class="question-sub">
-        Select the visual direction that matches your idea.
-    </p>
-
-
-    <div class="options">
-
-
-        <div class="option direction-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Minimal
-                </div>
-
-                <div class="option-desc">
-                    Clean, simple & focused
-                </div>
-
+        <form id="discoverForm">
+          <!-- QUESTION 1 -->
+          <div class="question active" data-step="0">
+            <h3>What are you looking to create?</h3>
+            <p>Choose the main direction for your project. You can select more than one.</p>
+            <div class="option-grid">
+              <button type="button" class="option" data-group="kind" data-value="Graphic Design"><span class="opt-icon">✳</span><span><strong>Graphic Design</strong><small>Branding, graphics, packaging and print</small></span></button>
+              <button type="button" class="option" data-group="kind" data-value="Web Design"><span class="opt-icon">⌘</span><span><strong>Web Design</strong><small>Websites, landing pages and UI/UX</small></span></button>
+              <button type="button" class="option" data-group="kind" data-value="Graphic Design + Web Design"><span class="opt-icon">✦</span><span><strong>Design + Web</strong><small>A combined visual and digital project</small></span></button>
+              <button type="button" class="option" data-group="kind" data-value="Not sure yet"><span class="opt-icon">◎</span><span><strong>Not sure yet</strong><small>Help me find the right direction</small></span></button>
             </div>
+          </div>
 
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option direction-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Premium
-                </div>
-
-                <div class="option-desc">
-                    Luxury & high-end
-                </div>
-
+          <!-- QUESTION 2 -->
+          <div class="question" data-step="1">
+            <h3>Who is this project for?</h3>
+            <p>Knowing your audience helps determine the right style, tone and experience.</p>
+            <div class="option-grid">
+              <button type="button" class="option" data-group="audience" data-value="My personal brand"><span class="opt-icon">◉</span><span><strong>My personal brand</strong><small>Portfolio, creator or freelancer</small></span></button>
+              <button type="button" class="option" data-group="audience" data-value="A new business"><span class="opt-icon">✳</span><span><strong>A new business</strong><small>A new brand or startup</small></span></button>
+              <button type="button" class="option" data-group="audience" data-value="An existing business"><span class="opt-icon">▣</span><span><strong>An existing business</strong><small>Refresh or grow an established brand</small></span></button>
+              <button type="button" class="option" data-group="audience" data-value="A product or campaign"><span class="opt-icon">▱</span><span><strong>A product or campaign</strong><small>Promote a product, event or offer</small></span></button>
             </div>
+          </div>
 
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option direction-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Bold
-                </div>
-
-                <div class="option-desc">
-                    Strong typography & visuals
-                </div>
-
+          <!-- QUESTION 3 -->
+          <div class="question" data-step="2">
+            <h3>Which visual style feels right?</h3>
+            <p>Pick the look that best fits the experience you want to create.</p>
+            <div class="option-grid">
+              <button type="button" class="option" data-group="style" data-value="Minimal & Clean"><span class="opt-icon">◻</span><span><strong>Minimal & Clean</strong><small>Simple, clear and refined</small></span></button>
+              <button type="button" class="option" data-group="style" data-value="Bold & Modern"><span class="opt-icon">◈</span><span><strong>Bold & Modern</strong><small>Strong type and confident visuals</small></span></button>
+              <button type="button" class="option" data-group="style" data-value="Premium & Elegant"><span class="opt-icon">✧</span><span><strong>Premium & Elegant</strong><small>Polished, refined and sophisticated</small></span></button>
+              <button type="button" class="option" data-group="style" data-value="Creative & Experimental"><span class="opt-icon">✳</span><span><strong>Creative & Experimental</strong><small>Expressive layouts and visual ideas</small></span></button>
             </div>
+          </div>
 
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option direction-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Creative
-                </div>
-
-                <div class="option-desc">
-                    Experimental & unique
-                </div>
-
+          <!-- QUESTION 4 -->
+          <div class="question" data-step="3">
+            <h3>What matters most to you?</h3>
+            <p>Select the primary goal. This helps keep the project focused.</p>
+            <div class="option-grid">
+              <button type="button" class="option" data-group="goal" data-value="Build brand recognition"><span class="opt-icon">✳</span><span><strong>Brand recognition</strong><small>Look distinctive and memorable</small></span></button>
+              <button type="button" class="option" data-group="goal" data-value="Promote products or services"><span class="opt-icon">↗</span><span><strong>Promote products or services</strong><small>Communicate an offer clearly</small></span></button>
+              <button type="button" class="option" data-group="goal" data-value="Showcase my work or business"><span class="opt-icon">▣</span><span><strong>Showcase my work</strong><small>Present projects and capabilities</small></span></button>
+              <button type="button" class="option" data-group="goal" data-value="Improve customer experience"><span class="opt-icon">◎</span><span><strong>Improve customer experience</strong><small>Make information easier to use</small></span></button>
             </div>
+          </div>
 
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option direction-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    Dark / Tech
-                </div>
-
-                <div class="option-desc">
-                    Modern digital aesthetic
-                </div>
-
+          <!-- QUESTION 5 -->
+          <div class="question" data-step="4">
+            <h3>Tell us a little more.</h3>
+            <p>Add your project details. These fields are optional, so you can still create a summary without filling everything in.</p>
+            <div class="field-grid">
+              <div class="field"><label for="projectName">Project or brand name</label><input id="projectName" name="projectName" placeholder="e.g. My new brand"></div>
+              <div class="field"><label for="timeline">Expected timeline</label><select id="timeline" name="timeline"><option value="Flexible">Flexible</option><option value="As soon as possible">As soon as possible</option><option value="Within 2–4 weeks">Within 2–4 weeks</option><option value="Within 1–3 months">Within 1–3 months</option><option value="Planning for later">Planning for later</option></select></div>
             </div>
+            <div class="field"><label for="projectNotes">Project details or ideas</label><textarea id="projectNotes" name="projectNotes" placeholder="What are you planning? Any required pages, deliverables, references or special features?"></textarea></div>
+            <div class="field"><label for="contactEmail">Contact email (optional)</label><input id="contactEmail" name="contactEmail" type="email" placeholder="you@example.com"></div>
+          </div>
 
-            <div class="check"></div>
-
-        </div>
-
-
-        <div class="option direction-option">
-
-            <div class="option-text">
-
-                <div class="option-title">
-                    3D / Futuristic
-                </div>
-
-                <div class="option-desc">
-                    Depth, motion & technology
-                </div>
-
+          <div class="error-msg" id="errorMsg" role="alert">Please choose an option before continuing.</div>
+          <div class="question-nav">
+            <button type="button" class="btn btn-secondary" id="prevBtn" style="visibility:hidden">← Back</button>
+            <div class="right">
+              <button type="button" class="btn btn-primary" id="nextBtn">Next Question ↗</button>
+              <button type="submit" class="btn btn-primary" id="finishBtn" style="display:none">Create My Summary ✦</button>
             </div>
+          </div>
+        </form>
 
-            <div class="check"></div>
-
+        <div class="summary-box" id="summaryBox" aria-live="polite">
+          <div class="eyebrow mono">YOUR DISCOVER SUMMARY</div>
+          <h3>Your project, <span class="gradient-text">clearly outlined.</span></h3>
+          <p>Here's a draft brief based on your selections. Review it and copy it to keep or share with your designer.</p>
+          <div class="summary-list" id="summaryList"></div>
+          <div class="field"><label for="finalBrief">Your complete project brief</label><textarea id="finalBrief" rows="8" readonly></textarea></div>
+          <div class="summary-actions">
+            <button class="btn btn-primary" type="button" id="copyBrief">Copy Project Brief ↗</button>
+            <button class="btn btn-secondary" type="button" id="downloadBrief">Download TXT ↓</button>
+            <button class="btn btn-secondary" type="button" id="editBrief">Edit Answers</button>
+          </div>
+          <p style="margin-top:14px;font-size:10px">This summary is generated in your browser. It is not automatically sent to DESIGNER 197.</p>
         </div>
-
-
+      </div>
     </div>
-
-
-    <div class="actions">
-
-        <button
-            class="btn"
-            onclick="prevStep()"
-        >
-            ← BACK
-        </button>
-
-        <button
-            class="btn next"
-            onclick="nextStep()"
-        >
-            CONTINUE →
-        </button>
-
-    </div>
-
+  </div>
 </section>
 
-
-<!-- =====================================================
-     STEP 5 — DETAILS
-===================================================== -->
-
-<section class="step" id="stepDetails">
-
-    <div class="question-number">
-        04 / YOUR DETAILS
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-card reveal">
+      <div class="contact-copy">
+        <div class="mono" style="color:#aeb5ff">LET'S CREATE SOMETHING MEANINGFUL</div>
+        <h2>Have a project<br>in mind?</h2>
+        <p>Start with your ideas. Define the direction. Build a design experience that feels right for your brand.</p>
+      </div>
+      <div class="contact-action">
+        <a href="#discover" class="btn btn-primary">Build Your Project Brief ↗</a>
+      </div>
     </div>
-
-    <h2 class="question-title">
-        Tell us about you.
-    </h2>
-
-    <p class="question-sub">
-        Add your contact details and project requirements.
-    </p>
-
-
-    <div class="input-grid">
-
-
-        <div class="input-group">
-
-            <label>
-                YOUR NAME *
-            </label>
-
-            <input
-                id="clientName"
-                type="text"
-                placeholder="Your name"
-            >
-
-        </div>
-
-
-        <div class="input-group">
-
-            <label>
-                EMAIL *
-            </label>
-
-            <input
-                id="clientEmail"
-                type="email"
-                placeholder="your@email.com"
-            >
-
-        </div>
-
-
-        <div class="input-group">
-
-            <label>
-                WHATSAPP / PHONE *
-            </label>
-
-            <input
-                id="clientPhone"
-                type="tel"
-                placeholder="+91..."
-            >
-
-        </div>
-
-
-        <div class="input-group">
-
-            <label>
-                COMPANY / BRAND
-            </label>
-
-            <input
-                id="clientCompany"
-                type="text"
-                placeholder="Company / Brand"
-            >
-
-        </div>
-
-
-        <div class="input-group full">
-
-            <label>
-                PROJECT DETAILS
-            </label>
-
-            <textarea
-                id="clientMessage"
-                placeholder="Tell me about your idea, requirements, references, deadline etc."
-            ></textarea>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="actions">
-
-        <button
-            class="btn"
-            onclick="prevStep()"
-        >
-            ← BACK
-        </button>
-
-        <button
-            class="btn next"
-            onclick="reviewProject()"
-        >
-            REVIEW PROJECT →
-        </button>
-
-    </div>
-
+  </div>
 </section>
-
-
-<!-- =====================================================
-     STEP 6 — REVIEW
-===================================================== -->
-
-<section class="step" id="stepReview">
-
-    <div class="question-number">
-        05 / REVIEW
-    </div>
-
-    <h2 class="question-title">
-        READY TO START?
-    </h2>
-
-    <p class="question-sub">
-        Review your project information before contacting DESIGNER 197.
-    </p>
-
-
-    <div
-        class="summary"
-        id="summary"
-    ></div>
-
-
-    <div
-        class="price-box"
-        id="finalPriceBox"
-    >
-
-        <div>
-
-            <div class="price-label">
-                ESTIMATED WEB PROJECT VALUE
-            </div>
-
-        </div>
-
-        <div
-            class="price"
-            id="finalPrice"
-        >
-            ₹0
-        </div>
-
-    </div>
-
-
-    <h3
-        class="contact-title"
-    >
-        HOW DO YOU WANT TO CONTACT?
-    </h3>
-
-
-    <div class="contact-buttons">
-
-
-        <!-- WHATSAPP -->
-
-        <button
-            class="contact-btn whatsapp"
-            onclick="sendWhatsApp()"
-        >
-
-            <strong>
-                WhatsApp →
-            </strong>
-
-            <span>
-                SEND PROJECT BRIEF
-            </span>
-
-        </button>
-
-
-        <!-- EMAIL -->
-
-        <button
-            class="contact-btn email"
-            onclick="sendEmail()"
-        >
-
-            <strong>
-                Email →
-            </strong>
-
-            <span>
-                SEND PROJECT BRIEF
-            </span>
-
-        </button>
-
-
-    </div>
-
-
-    <div class="actions">
-
-        <button
-            class="btn"
-            onclick="prevStep()"
-        >
-            ← BACK
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SUCCESS
-===================================================== -->
-
-<section class="step" id="stepSuccess">
-
-    <div class="success">
-
-        <div class="success-icon">
-            ✓
-        </div>
-
-        <h2>
-            PROJECT<br>
-            <span style="color:var(--lime)">
-                READY.
-            </span>
-        </h2>
-
-        <p>
-            Your project brief has been prepared successfully.
-            We can now discuss the project, timeline and final quotation.
-        </p>
-
-        <a
-            href="index.html"
-            class="btn"
-        >
-            ← BACK TO DESIGNER 197
-        </a>
-
-    </div>
-
-</section>
-
-
 </main>
 
-
-<footer>
-
-    <span>
-        © 2026 HARSH CHAWLA
-    </span>
-
-    <span>
-        DESIGNER 197 / DISCOVER
-    </span>
-
-    <span>
-        GRAPHIC DESIGN × WEB DEVELOPMENT
-    </span>
-
+<footer class="footer">
+  <div class="container footer-row">
+    <a class="logo" href="index.html" aria-label="DESIGNER197 Home">
+      <span class="logo-mark">D</span>
+      <span>designer<b>197</b></span>
+    </a>
+    <p>© <span id="year"></span> DESIGNER 197 · Harsh Chawla · Creative design & digital experiences.</p>
+    <div class="footer-links"><a href="index.html">Home</a><a href="#discover">Discover</a><a href="#directions">Services</a></div>
+  </div>
 </footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
+(() => {
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-/* =====================================================
-   SETTINGS
-===================================================== */
+  const state = {
+    directions: new Set(),
+    services: new Set(),
+    answers: {
+      kind: new Set(),
+      audience: new Set(),
+      style: new Set(),
+      goal: new Set()
+    }
+  };
 
-/*
-    IMPORTANT:
-    Replace these two values with your real details.
-*/
+  const serviceCards = $$('.service-card');
+  const directionCards = $$('.direction-card');
+  const questions = $$('.question');
+  let currentStep = 0;
 
-const WHATSAPP_NUMBER = "YOUR_PHONE_NUMBER";
+  const progressBar = $('#progressBar');
+  const stepLabel = $('#stepLabel');
+  const progressPercent = $('#progressPercent');
+  const prevBtn = $('#prevBtn');
+  const nextBtn = $('#nextBtn');
+  const finishBtn = $('#finishBtn');
+  const errorMsg = $('#errorMsg');
+  const discoverForm = $('#discoverForm');
+  const summaryBox = $('#summaryBox');
+  const toast = $('#toast');
+  let toastTimer;
 
-const EMAIL_ADDRESS = "YOUR_EMAIL@gmail.com";
+  $('#year').textContent = new Date().getFullYear();
 
+  // Mobile navigation
+  $('#mobileMenu').addEventListener('click', () => {
+    const open = $('#navLinks').classList.toggle('open');
+    $('#mobileMenu').setAttribute('aria-expanded', String(open));
+    $('#mobileMenu').textContent = open ? '✕' : '☰';
+  });
 
-/* =====================================================
-   STATE
-===================================================== */
+  $$('#navLinks a').forEach(link => {
+    link.addEventListener('click', () => {
+      $('#navLinks').classList.remove('open');
+      $('#mobileMenu').setAttribute('aria-expanded', 'false');
+      $('#mobileMenu').textContent = '☰';
+    });
+  });
 
-let currentStep = 1;
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+  }
 
-let selectedService = "";
+  // Direction cards can be selected independently or together.
+  function toggleDirection(card) {
+    const direction = card.dataset.direction;
+    if (state.directions.has(direction)) {
+      state.directions.delete(direction);
+      card.classList.remove('selected');
+      card.setAttribute('aria-checked', 'false');
+    } else {
+      state.directions.add(direction);
+      card.classList.add('selected');
+      card.setAttribute('aria-checked', 'true');
+    }
 
-let webTotal = 0;
+    // Selecting a direction also selects its questionnaire equivalent.
+    if (state.directions.size === 2) {
+      state.answers.kind = new Set(['Graphic Design + Web Design']);
+    } else if (state.directions.size === 1) {
+      state.answers.kind = new Set([direction]);
+    } else {
+      state.answers.kind.clear();
+    }
 
-
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const steps =
-    document.querySelectorAll(".step");
-
-const progressBars =
-    document.querySelectorAll(".progress-bar");
-
-
-/* =====================================================
-   SERVICE SELECTION
-===================================================== */
-
-document
-    .querySelectorAll(".service-card")
-    .forEach(card => {
-
-        card.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(".service-card")
-                    .forEach(item => {
-
-                        item.classList.remove("selected");
-
-                    });
-
-
-                card.classList.add("selected");
-
-                selectedService =
-                    card.dataset.service;
-
-
-                updatePriceVisibility();
-
-            }
-        );
-
+    $$('[data-group="kind"]').forEach(button => {
+      button.classList.toggle('selected', state.answers.kind.has(button.dataset.value));
     });
 
+    filterServices();
+  }
 
-/* =====================================================
-   WEB OPTIONS
-===================================================== */
-
-document
-    .querySelectorAll(".web-option")
-    .forEach(option => {
-
-        option.addEventListener(
-            "click",
-            () => {
-
-                option.classList.toggle("selected");
-
-                calculateWebPrice();
-
-            }
-        );
-
+  directionCards.forEach(card => {
+    card.addEventListener('click', () => toggleDirection(card));
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleDirection(card);
+      }
     });
+  });
 
-
-/* =====================================================
-   GRAPHIC OPTIONS
-===================================================== */
-
-document
-    .querySelectorAll(".graphic-option")
-    .forEach(option => {
-
-        option.addEventListener(
-            "click",
-            () => {
-
-                option.classList.toggle("selected");
-
-            }
-        );
-
+  function filterServices() {
+    serviceCards.forEach(card => {
+      const type = card.dataset.type;
+      const visible = state.directions.size === 0 || state.directions.has(type);
+      card.hidden = !visible;
+      if (!visible) {
+        state.services.delete(card.dataset.service);
+        card.classList.remove('selected');
+        card.setAttribute('aria-checked', 'false');
+        $('.check', card).textContent = '+';
+      }
     });
+  }
 
+  function toggleService(card) {
+    const name = card.dataset.service;
+    if (state.services.has(name)) {
+      state.services.delete(name);
+      card.classList.remove('selected');
+      card.setAttribute('aria-checked', 'false');
+      $('.check', card).textContent = '+';
+    } else {
+      state.services.add(name);
+      card.classList.add('selected');
+      card.setAttribute('aria-checked', 'true');
+      $('.check', card).textContent = '✓';
 
-/* =====================================================
-   DIRECTION OPTIONS
-===================================================== */
-
-document
-    .querySelectorAll(".direction-option")
-    .forEach(option => {
-
-        option.addEventListener(
-            "click",
-            () => {
-
-                option.classList.toggle("selected");
-
-            }
-        );
-
-    });
-
-
-/* =====================================================
-   PRICE CALCULATION
-===================================================== */
-
-function calculateWebPrice(){
-
-    webTotal = 0;
-
-
-    document
-        .querySelectorAll(".web-option.selected")
-        .forEach(option => {
-
-            webTotal +=
-                Number(
-                    option.dataset.price || 0
-                );
-
+      if (card.dataset.type === 'Graphic Design' || card.dataset.type === 'Web Design') {
+        state.directions.add(card.dataset.type);
+        const matching = directionCards.find(item => item.dataset.direction === card.dataset.type);
+        if (matching) {
+          matching.classList.add('selected');
+          matching.setAttribute('aria-checked', 'true');
+        }
+        state.answers.kind = new Set(state.directions.size === 2
+          ? ['Graphic Design + Web Design']
+          : [card.dataset.type]);
+        $$('[data-group="kind"]').forEach(button => {
+          button.classList.toggle('selected', state.answers.kind.has(button.dataset.value));
         });
-
-
-    document
-        .getElementById("webTotal")
-        .textContent =
-            formatPrice(webTotal);
-
-}
-
-
-/* =====================================================
-   PRICE FORMAT
-===================================================== */
-
-function formatPrice(number){
-
-    return "₹" +
-        number.toLocaleString("en-IN");
-
-}
-
-
-/* =====================================================
-   UPDATE PRICE VISIBILITY
-===================================================== */
-
-function updatePriceVisibility(){
-
-    const priceBox =
-        document.getElementById(
-            "finalPriceBox"
-        );
-
-    if(
-        selectedService === "graphic"
-    ){
-
-        priceBox.style.display = "none";
-
-    }else{
-
-        priceBox.style.display = "flex";
-
+        filterServices();
+      }
     }
+  }
 
-}
-
-
-/* =====================================================
-   FLOW
-===================================================== */
-
-function getFlow(){
-
-    /*
-        Step indexes:
-
-        1 = Project
-        2 = Graphic
-        3 = Web
-        4 = Direction
-        5 = Details
-        6 = Review
-        7 = Success
-    */
-
-    let flow = [1];
-
-
-    if(selectedService === "graphic"){
-
-        flow.push(2);
-
-    }
-
-
-    if(selectedService === "web"){
-
-        flow.push(3);
-
-    }
-
-
-    if(selectedService === "both"){
-
-        flow.push(2);
-        flow.push(3);
-
-    }
-
-
-    flow.push(4);
-    flow.push(5);
-    flow.push(6);
-    flow.push(7);
-
-
-    return flow;
-
-}
-
-
-/* =====================================================
-   SHOW STEP
-===================================================== */
-
-function showStep(){
-
-    const flow =
-        getFlow();
-
-
-    const actualStep =
-        flow[currentStep - 1];
-
-
-    steps.forEach(step => {
-
-        step.classList.remove(
-            "active"
-        );
-
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => toggleService(card));
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleService(card);
+      }
     });
+  });
 
+  // Questionnaire options
+  $$('[data-group]').forEach(button => {
+    button.addEventListener('click', () => {
+      const group = button.dataset.group;
+      const value = button.dataset.value;
+      const answers = state.answers[group];
 
-    if(actualStep){
-
-        steps[
-            actualStep - 1
-        ].classList.add(
-            "active"
-        );
-
-    }
-
-
-    progressBars.forEach(
-        (bar,index) => {
-
-            bar.classList.toggle(
-                "active",
-                index <
-                currentStep
-            );
-
+      if (group === 'kind') {
+        if (value === 'Graphic Design + Web Design') {
+          answers.clear();
+          answers.add(value);
+        } else if (value === 'Not sure yet') {
+          answers.clear();
+          answers.add(value);
+        } else {
+          answers.delete('Graphic Design + Web Design');
+          answers.delete('Not sure yet');
+          if (answers.has(value)) answers.delete(value);
+          else answers.add(value);
         }
-    );
 
+        state.directions.clear();
+        if (answers.has('Graphic Design')) state.directions.add('Graphic Design');
+        if (answers.has('Web Design')) state.directions.add('Web Design');
+        if (answers.has('Graphic Design + Web Design')) {
+          state.directions.add('Graphic Design');
+          state.directions.add('Web Design');
+        }
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================================
-   NEXT
-===================================================== */
-
-function nextStep(){
-
-    if(
-        currentStep === 1 &&
-        !selectedService
-    ){
-
-        alert(
-            "Please select your project type."
-        );
-
-        return;
-
-    }
-
-
-    const flow =
-        getFlow();
-
-
-    if(
-        currentStep <
-        flow.length
-    ){
-
-        currentStep++;
-
-        showStep();
-
-    }
-
-}
-
-
-/* =====================================================
-   PREVIOUS
-===================================================== */
-
-function prevStep(){
-
-    if(currentStep > 1){
-
-        currentStep--;
-
-        showStep();
-
-    }
-
-}
-
-
-/* =====================================================
-   GET SELECTED ITEMS
-===================================================== */
-
-function getSelectedText(selector){
-
-    const items = [];
-
-    document
-        .querySelectorAll(
-            selector + ".selected"
-        )
-        .forEach(item => {
-
-            const title =
-                item.querySelector(
-                    ".option-title"
-                );
-
-            if(title){
-
-                items.push(
-                    title.textContent.trim()
-                );
-
-            }
-
+        directionCards.forEach(card => {
+          const selected = state.directions.has(card.dataset.direction);
+          card.classList.toggle('selected', selected);
+          card.setAttribute('aria-checked', String(selected));
         });
+        filterServices();
+      } else {
+        answers.clear();
+        answers.add(value);
+      }
 
+      $$('[data-group="' + group + '"]').forEach(option => {
+        option.classList.toggle('selected', answers.has(option.dataset.value));
+      });
+      errorMsg.classList.remove('show');
+    });
+  });
 
-    return items;
+  function updateStep() {
+    questions.forEach((question, index) => question.classList.toggle('active', index === currentStep));
+    const count = questions.length;
+    const percent = Math.round(((currentStep + 1) / count) * 100);
+    progressBar.style.width = percent + '%';
+    stepLabel.textContent = 'QUESTION ' + String(currentStep + 1).padStart(2, '0') + ' / ' + String(count).padStart(2, '0');
+    progressPercent.textContent = percent + '% COMPLETE';
+    prevBtn.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
+    nextBtn.style.display = currentStep === count - 1 ? 'none' : 'inline-flex';
+    finishBtn.style.display = currentStep === count - 1 ? 'inline-flex' : 'none';
+    errorMsg.classList.remove('show');
+  }
 
-}
+  function currentQuestionIsValid() {
+    if (currentStep === 0) return state.answers.kind.size > 0;
+    if (currentStep === 1) return state.answers.audience.size > 0;
+    if (currentStep === 2) return state.answers.style.size > 0;
+    if (currentStep === 3) return state.answers.goal.size > 0;
+    return true;
+  }
 
-
-/* =====================================================
-   SERVICE NAME
-===================================================== */
-
-function getServiceName(){
-
-    if(
-        selectedService ===
-        "graphic"
-    ){
-
-        return "Graphic Design";
-
+  nextBtn.addEventListener('click', () => {
+    if (!currentQuestionIsValid()) {
+      errorMsg.textContent = 'Please choose an option before continuing.';
+      errorMsg.classList.add('show');
+      return;
     }
-
-    if(
-        selectedService ===
-        "web"
-    ){
-
-        return "Web Development";
-
-    }
-
-    return "Design + Web Development";
-
-}
-
-
-/* =====================================================
-   REVIEW
-===================================================== */
-
-function reviewProject(){
-
-    const name =
-        document
-        .getElementById(
-            "clientName"
-        )
-        .value
-        .trim();
-
-
-    const email =
-        document
-        .getElementById(
-            "clientEmail"
-        )
-        .value
-        .trim();
-
-
-    const phone =
-        document
-        .getElementById(
-            "clientPhone"
-        )
-        .value
-        .trim();
-
-
-    if(
-        !name ||
-        !email ||
-        !phone
-    ){
-
-        alert(
-            "Please enter your name, email and WhatsApp/phone."
-        );
-
-        return;
-
-    }
-
-
-    const company =
-        document
-        .getElementById(
-            "clientCompany"
-        )
-        .value
-        .trim();
-
-
-    const message =
-        document
-        .getElementById(
-            "clientMessage"
-        )
-        .value
-        .trim();
-
-
-    const graphicItems =
-        getSelectedText(
-            ".graphic-option"
-        );
-
-
-    const webItems =
-        getSelectedText(
-            ".web-option"
-        );
-
-
-    const directionItems =
-        getSelectedText(
-            ".direction-option"
-        );
-
-
-    const summary =
-        document.getElementById(
-            "summary"
-        );
-
-
-    summary.innerHTML = `
-
-        <div class="summary-row">
-
-            <span class="summary-label">
-                PROJECT
-            </span>
-
-            <span class="summary-value">
-                ${escapeHTML(
-                    getServiceName()
-                )}
-            </span>
-
-        </div>
-
-
-        ${
-            graphicItems.length
-            ?
-
-            `
-            <div class="summary-row">
-
-                <span class="summary-label">
-                    DESIGN SERVICES
-                </span>
-
-                <span class="summary-value">
-                    ${escapeHTML(
-                        graphicItems.join(", ")
-                    )}
-                </span>
-
-            </div>
-            `
-
-            : ""
-
-        }
-
-
-        ${
-            webItems.length
-            ?
-
-            `
-            <div class="summary-row">
-
-                <span class="summary-label">
-                    WEB FEATURES
-                </span>
-
-                <span class="summary-value">
-                    ${escapeHTML(
-                        webItems.join(", ")
-                    )}
-                </span>
-
-            </div>
-            `
-
-            : ""
-
-        }
-
-
-        ${
-            directionItems.length
-            ?
-
-            `
-            <div class="summary-row">
-
-                <span class="summary-label">
-                    DIRECTION
-                </span>
-
-                <span class="summary-value">
-                    ${escapeHTML(
-                        directionItems.join(", ")
-                    )}
-                </span>
-
-            </div>
-            `
-
-            : ""
-
-        }
-
-
-        <div class="summary-row">
-
-            <span class="summary-label">
-                NAME
-            </span>
-
-            <span class="summary-value">
-                ${escapeHTML(name)}
-            </span>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span class="summary-label">
-                EMAIL
-            </span>
-
-            <span class="summary-value">
-                ${escapeHTML(email)}
-            </span>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span class="summary-label">
-                PHONE
-            </span>
-
-            <span class="summary-value">
-                ${escapeHTML(phone)}
-            </span>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span class="summary-label">
-                COMPANY
-            </span>
-
-            <span class="summary-value">
-                ${escapeHTML(
-                    company ||
-                    "Not provided"
-                )}
-            </span>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span class="summary-label">
-                REQUIREMENTS
-            </span>
-
-            <span class="summary-value">
-                ${escapeHTML(
-                    message ||
-                    "Not provided"
-                )}
-            </span>
-
-        </div>
-
-    `;
-
-
-    const finalPrice =
-        document.getElementById(
-            "finalPrice"
-        );
-
-
-    if(
-        selectedService ===
-        "graphic"
-    ){
-
-        finalPrice.textContent =
-            "Custom Quote";
-
-    }else{
-
-        finalPrice.textContent =
-            formatPrice(
-                webTotal
-            );
-
-    }
-
-
-    currentStep++;
-
-    showStep();
-
-}
-
-
-/* =====================================================
-   CREATE MESSAGE
-===================================================== */
-
-function createMessage(){
-
-    const name =
-        document
-        .getElementById(
-            "clientName"
-        )
-        .value
-        .trim();
-
-
-    const email =
-        document
-        .getElementById(
-            "clientEmail"
-        )
-        .value
-        .trim();
-
-
-    const phone =
-        document
-        .getElementById(
-            "clientPhone"
-        )
-        .value
-        .trim();
-
-
-    const company =
-        document
-        .getElementById(
-            "clientCompany"
-        )
-        .value
-        .trim();
-
-
-    const message =
-        document
-        .getElementById(
-            "clientMessage"
-        )
-        .value
-        .trim();
-
-
-    const graphicItems =
-        getSelectedText(
-            ".graphic-option"
-        );
-
-
-    const webItems =
-        getSelectedText(
-            ".web-option"
-        );
-
-
-    const directionItems =
-        getSelectedText(
-            ".direction-option"
-        );
-
-
-    let priceText =
-        selectedService ===
-        "graphic"
-
-        ? "Custom Quote"
-
-        : formatPrice(
-            webTotal
-        );
-
-
-    return `
-
-Hello Harsh,
-
-I want to start a project with DESIGNER 197.
-
-PROJECT TYPE:
-${getServiceName()}
-
-GRAPHIC DESIGN:
-${graphicItems.length
-    ? graphicItems.join(", ")
-    : "None"}
-
-WEB DEVELOPMENT:
-${webItems.length
-    ? webItems.join(", ")
-    : "None"}
-
-CREATIVE DIRECTION:
-${directionItems.length
-    ? directionItems.join(", ")
-    : "Not specified"}
-
-ESTIMATED WEB PROJECT VALUE:
-${priceText}
-
-CLIENT NAME:
+    if (currentStep < questions.length - 1) currentStep++;
+    updateStep();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) currentStep--;
+    updateStep();
+  });
+
+  function readField(id, fallback) {
+    const value = $('#' + id).value.trim();
+    return value || fallback;
+  }
+
+  function listOrFallback(set, fallback) {
+    return set.size ? [...set].join(', ') : fallback;
+  }
+
+  function createBrief() {
+    const name = readField('projectName', 'Not provided');
+    const timeline = $('#timeline').value || 'Flexible';
+    const notes = readField('projectNotes', 'No additional notes provided.');
+    const email = readField('contactEmail', 'Not provided');
+    const directions = state.directions.size
+      ? [...state.directions].join(' + ')
+      : listOrFallback(state.answers.kind, 'To be decided');
+    const selectedServices = [...state.services];
+    const services = selectedServices.length ? selectedServices.join(', ') : 'To be discussed';
+    const audience = listOrFallback(state.answers.audience, 'To be discussed');
+    const style = listOrFallback(state.answers.style, 'To be decided');
+    const goal = listOrFallback(state.answers.goal, 'To be discussed');
+
+    return {
+      name, timeline, notes, email, directions, services, audience, style, goal,
+      text:
+`DESIGNER 197 — PROJECT DISCOVERY BRIEF
+Prepared through the Discover page
+
+PROJECT / BRAND
 ${name}
 
-EMAIL:
+CREATIVE DIRECTION
+${directions}
+
+SERVICES
+${services}
+
+TARGET AUDIENCE
+${audience}
+
+PREFERRED VISUAL STYLE
+${style}
+
+PRIMARY PROJECT GOAL
+${goal}
+
+EXPECTED TIMELINE
+${timeline}
+
+ADDITIONAL DETAILS
+${notes}
+
+CONTACT EMAIL
 ${email}
 
-PHONE:
-${phone}
-
-COMPANY / BRAND:
-${company || "Not provided"}
-
-PROJECT DETAILS:
-${message || "Not provided"}
-
-Thank you.
-`.trim();
-
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-function sendWhatsApp(){
-
-    if(
-        WHATSAPP_NUMBER ===
-        "YOUR_PHONE_NUMBER"
-    ){
-
-        alert(
-            "Please add your WhatsApp number in the code first."
-        );
-
-        return;
-
-    }
-
-
-    const message =
-        createMessage();
-
-
-    const url =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        encodeURIComponent(
-            message
-        );
-
-
-    window.open(
-        url,
-        "_blank"
-    );
-
-
-    goSuccess();
-
-}
-
-
-/* =====================================================
-   EMAIL
-===================================================== */
-
-function sendEmail(){
-
-    if(
-        EMAIL_ADDRESS ===
-        "YOUR_EMAIL@gmail.com"
-    ){
-
-        alert(
-            "Please add your email address in the code first."
-        );
-
-        return;
-
-    }
-
-
-    const subject =
-        "New Project Request — DESIGNER 197";
-
-
-    const body =
-        createMessage();
-
-
-    const mailto =
-        "mailto:" +
-        EMAIL_ADDRESS +
-        "?subject=" +
-        encodeURIComponent(
-            subject
-        ) +
-        "&body=" +
-        encodeURIComponent(
-            body
-        );
-
-
-    window.location.href =
-        mailto;
-
-
-    goSuccess();
-
-}
-
-
-/* =====================================================
-   SUCCESS
-===================================================== */
-
-function goSuccess(){
-
-    const flow =
-        getFlow();
-
-
-    currentStep =
-        flow.length;
-
-
-    showStep();
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value){
-
-    return value
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/* =====================================================
-   CUSTOM CURSOR
-===================================================== */
-
-const cursor =
-    document.querySelector(
-        ".cursor"
-    );
-
-
-document.addEventListener(
-    "mousemove",
-    event => {
-
-        cursor.style.left =
-            event.clientX + "px";
-
-        cursor.style.top =
-            event.clientY + "px";
-
-    }
-);
-
-
-document
-    .querySelectorAll(
-        "a,button,.option,.service-card"
-    )
-    .forEach(element => {
-
-        element.addEventListener(
-            "mouseenter",
-            () => {
-
-                cursor.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-
-        element.addEventListener(
-            "mouseleave",
-            () => {
-
-                cursor.classList.remove(
-                    "active"
-                );
-
-            }
-        );
-
+NEXT STEPS
+1. Review the project goals and requirements.
+2. Confirm the scope, deliverables and timeline.
+3. Agree on the creative direction before design begins.
+
+This is a draft project brief created from the user's selections.`
+    };
+  }
+
+  function generateSummary() {
+    const brief = createBrief();
+    const items = [
+      ['Project / Brand', brief.name],
+      ['Creative Direction', brief.directions],
+      ['Services', brief.services],
+      ['Target Audience', brief.audience],
+      ['Visual Style', brief.style],
+      ['Main Goal', brief.goal],
+      ['Timeline', brief.timeline],
+      ['Contact', brief.email]
+    ];
+
+    $('#summaryList').innerHTML = '';
+    items.forEach(([label, value]) => {
+      const item = document.createElement('div');
+      item.className = 'summary-item';
+      const small = document.createElement('small');
+      small.textContent = label;
+      const strong = document.createElement('strong');
+      strong.textContent = value;
+      item.append(small, strong);
+      $('#summaryList').append(item);
     });
 
+    $('#finalBrief').value = brief.text;
+    discoverForm.style.display = 'none';
+    summaryBox.classList.add('show');
+    progressBar.style.width = '100%';
+    stepLabel.textContent = 'DISCOVER COMPLETE';
+    progressPercent.textContent = '100% COMPLETE';
+    summaryBox.scrollIntoView({behavior:'smooth',block:'start'});
+  }
 
-/* =====================================================
-   INITIAL
-===================================================== */
+  discoverForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!currentQuestionIsValid()) {
+      errorMsg.textContent = 'Please choose an option before continuing.';
+      errorMsg.classList.add('show');
+      return;
+    }
+    generateSummary();
+  });
 
-calculateWebPrice();
+  $('#editBrief').addEventListener('click', () => {
+    summaryBox.classList.remove('show');
+    discoverForm.style.display = 'block';
+    currentStep = 0;
+    updateStep();
+    $('#discover').scrollIntoView({behavior:'smooth'});
+  });
 
-updatePriceVisibility();
+  $('#copyBrief').addEventListener('click', async () => {
+    const text = $('#finalBrief').value;
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast('Project brief copied successfully.');
+    } catch (error) {
+      $('#finalBrief').focus();
+      $('#finalBrief').select();
+      const copied = document.execCommand('copy');
+      showToast(copied ? 'Project brief copied successfully.' : 'Select the text and copy it manually.');
+    }
+  });
 
+  $('#downloadBrief').addEventListener('click', () => {
+    const blob = new Blob([$('#finalBrief').value], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'designer197-project-discovery.txt';
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+    showToast('Your project brief download has started.');
+  });
+
+  // Reveal animation with fallback for browsers without IntersectionObserver.
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    $$('.reveal').forEach(element => observer.observe(element));
+  } else {
+    $$('.reveal').forEach(element => element.classList.add('visible'));
+  }
+
+  updateStep();
+})();
 </script>
-
 </body>
 </html>
+```
