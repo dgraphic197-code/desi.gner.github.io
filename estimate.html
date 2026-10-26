@@ -1,448 +1,639 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f4f2ff">
+<meta name="description" content="DESIGNER 197 Estimate Studio — create professional design project estimates.">
 <title>Estimate Studio — DESIGNER 197</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-:
 :root {
-  --bg: #f7f7ff;
-  --panel: #ffffff;
-  --panel2: #f1f0ff;
-  --text: #171727;
-  --muted: #74748c;
-  --line: rgba(100, 90, 180, .16);
-  --lime: #6475f5;
-  --shadow: 0 20px 60px rgba(72, 65, 150, .10);
-
-  --purple: #6475f5;
-  --pink: #f5a8d2;
-  --blue: #9cbaff;
-  --lavender: #e7e8ff;
+  --bg:#f4f2ff;
+  --panel:rgba(255,255,255,.78);
+  --purple:#7966e8;
+  --purple-dark:#5d49cb;
+  --pink:#efb7dc;
+  --text:#25213b;
+  --muted:#85809c;
+  --line:rgba(82,67,140,.14);
+  --shadow:0 18px 60px rgba(76,62,140,.09);
+  --radius:22px;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
   background:
-    radial-gradient(ellipse at 10% 0%, #e7e8ff 0%, transparent 38%),
-    radial-gradient(ellipse at 90% 10%, #fce8f5 0%, transparent 30%),
+    radial-gradient(ellipse at 10% 0%,rgba(203,189,255,.4),transparent 38%),
+    radial-gradient(ellipse at 95% 35%,rgba(255,205,235,.34),transparent 32%),
     var(--bg);
-  color: var(--text);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  transition: background .3s, color .3s;
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
 }
-
-/* Optional dark mode remains available */
-body.light {
-  --bg: #f7f7ff;
-  --panel: #ffffff;
-  --panel2: #f1f0ff;
-  --text: #171727;
-  --muted: #74748c;
-  --line: rgba(100, 90, 180, .16);
-  --lime: #6475f5;
-  --shadow: 0 15px 45px rgba(72, 65, 150, .10);
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:3px solid rgba(121,102,232,.28);outline-offset:2px
 }
-
-/* Brand mark */
-.mark {
-  width: 45px;
-  height: 45px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #6475f5, #a9b2ff 55%, #f5a8d2);
-  color: #ffffff;
-  font: 800 17px 'Space Grotesk', sans-serif;
-  box-shadow: 0 8px 24px #6475f540;
-  animation: logoFloat 4s ease-in-out infinite;
+a{color:inherit;text-decoration:none}
+.topbar{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:17px clamp(18px,5vw,72px);
+  border-bottom:1px solid var(--line);
+  background:rgba(244,242,255,.82);
+  backdrop-filter:blur(18px)
 }
-
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(-4deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(2deg);
-  }
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.7px}
+.logo{
+  width:39px;height:39px;display:grid;place-items:center;
+  border-radius:13px;color:white;font-family:'Space Grotesk',sans-serif;
+  font-size:22px;font-weight:700;
+  background:linear-gradient(145deg,#a99aff,#6f59df);
+  box-shadow:0 7px 18px #7966e844;
+  animation:float 3.5s ease-in-out infinite
 }
-
-.brandname {
-  font: 800 16px 'Space Grotesk', sans-serif;
-  letter-spacing: .07em;
-  color: #171727;
+.brand-name{font-family:'Space Grotesk',sans-serif;font-size:18px}
+.brand-name span{color:var(--purple)}
+.top-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--muted)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.btn{
+  border:1px solid var(--line);border-radius:12px;padding:11px 15px;
+  background:#fff;color:var(--text);font-weight:800;font-size:12px;
+  transition:.2s ease
 }
-
-.brandname::selection {
-  background: #e7e8ff;
+.btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px #5143a51c}
+.btn.primary{background:var(--purple);color:#fff;border-color:var(--purple)}
+.btn.primary:hover{background:var(--purple-dark)}
+.btn.soft{background:#eeeaff;color:var(--purple-dark)}
+main{width:min(1160px,92%);margin:0 auto;padding:52px 0 70px}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:25px;margin-bottom:30px}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--purple-dark)}
+h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(38px,6vw,70px);line-height:.99;letter-spacing:-3.5px;
+  margin:14px 0
 }
-
-.tag {
-  font: 10px 'DM Mono', monospace;
-  color: #8585a1;
-  letter-spacing: .1em;
-  margin-top: 4px;
+h1 span{color:var(--purple)}
+.hero p{max-width:560px;line-height:1.8;color:var(--muted);font-size:14px;margin:0}
+.status{
+  white-space:nowrap;border:1px solid #d8d0ff;border-radius:999px;
+  padding:10px 13px;color:var(--purple-dark);background:#fff9;font-size:11px;
+  font-family:'DM Mono',monospace
 }
-
-/* Buttons */
-.btn {
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  padding: 11px 14px;
-  background: rgba(255,255,255,.85);
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 700;
-  transition: .25s;
-  box-shadow: 0 4px 15px rgba(72,65,150,.04);
+.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(285px,.8fr);gap:22px;align-items:start}
+.left{display:grid;gap:18px}
+.panel{
+  background:var(--panel);border:1px solid rgba(255,255,255,.9);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:clamp(18px,3vw,28px);backdrop-filter:blur(15px)
 }
-
-.btn:hover {
-  transform: translateY(-2px);
-  border-color: var(--purple);
-  box-shadow: 0 8px 22px #6475f526;
+.panel-head{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.number{
+  width:34px;height:34px;border-radius:11px;display:grid;place-items:center;
+  color:var(--purple-dark);background:#ece7ff;font-family:'DM Mono',monospace;font-size:12px
 }
-
-.btn.primary {
-  background: linear-gradient(135deg, #6475f5, #8795ff);
-  border-color: transparent;
-  color: #ffffff;
-  box-shadow: 0 8px 22px #6475f533;
+h2{font-family:'Space Grotesk',sans-serif;font-size:19px;letter-spacing:-.5px;margin:0}
+.sub{font-size:12px;color:var(--muted);margin-top:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:11px;font-weight:800;color:#625b7d}
+input,textarea,select{
+  width:100%;min-width:0;border:1px solid var(--line);border-radius:12px;
+  padding:12px 13px;background:rgba(255,255,255,.8);color:var(--text);
+  font-size:13px;transition:border .2s
 }
-
-/* Hero */
-.eyebrow,
-.num,
-.mono {
-  font-family: 'DM Mono', monospace;
+input:focus,textarea:focus,select:focus{border-color:var(--purple);outline:none}
+textarea{min-height:94px;resize:vertical;line-height:1.6}
+input::placeholder,textarea::placeholder{color:#aaa5bc}
+.items-head,.item-row{
+  display:grid;grid-template-columns:minmax(0,1fr) 68px 105px 35px;
+  gap:9px;align-items:center
 }
-
-.eyebrow,
-.num {
-  color: var(--purple);
+.items-head{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.8px;color:var(--muted);margin-bottom:9px}
+.item-row{margin-bottom:10px}
+.item-row input{padding:11px 9px}
+.item-row .qty,.item-row .rate{text-align:right}
+.remove{
+  width:34px;height:34px;border-radius:10px;border:1px solid #f0d9e6;
+  background:#fff1f7;color:#c15c91;font-size:18px
 }
-
-h1 span {
-  background: linear-gradient(100deg, #6475f5, #9b78ee, #e28bc4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.add-btn{
+  margin-top:5px;border:1px dashed #b9adf6;background:#f4f0ff;color:var(--purple-dark);
+  padding:12px;border-radius:12px;width:100%;font-weight:800;font-size:12px
 }
-
-.live {
-  border: 1px solid var(--line);
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: rgba(255,255,255,.8);
-  font: 10px 'DM Mono', monospace;
-  color: var(--muted);
-  box-shadow: 0 6px 20px rgba(72,65,150,.05);
+.small-note{font-size:10px;color:var(--muted);line-height:1.6;margin-top:12px}
+.summary{position:sticky;top:92px}
+.summary-top{
+  padding:24px;border-radius:18px;color:white;
+  background:linear-gradient(145deg,#8e7bee,#6854d1);
+  position:relative;overflow:hidden
 }
-
-.live i {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  background: #6475f5;
-  border-radius: 50%;
-  margin-right: 8px;
-  box-shadow: 0 0 12px #6475f580;
+.summary-top:after{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  border:1px solid #ffffff35;right:-55px;top:-70px;
+  box-shadow:0 0 0 22px #ffffff0b,0 0 0 44px #ffffff08
 }
-
-/* Cards */
-.card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 21px;
-  background: linear-gradient(145deg, #ffffff, #f6f5ff);
-  box-shadow: var(--shadow);
-  animation: rise .6s both;
+.summary-top .eyebrow{color:#e7e1ff}
+.summary-top h2{font-size:22px;margin:13px 0 22px}
+.total-label{font-size:11px;color:#e5dfff}
+.total{
+  font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,43px);
+  letter-spacing:-2px;font-weight:700;overflow-wrap:anywhere;margin:5px 0
 }
-
-.card:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 21px;
-  width: 48px;
-  height: 3px;
-  border-radius: 0 0 5px 5px;
-  background: linear-gradient(90deg, #6475f5, #f5a8d2);
+.summary-top .sub{color:#e3dcff}
+.summary-body{padding:23px 4px 4px}
+.line{
+  display:flex;justify-content:space-between;gap:15px;align-items:center;
+  padding:12px 0;border-bottom:1px solid var(--line);font-size:12px
 }
-
-.head h2 {
-  font: 600 16px 'Space Grotesk', sans-serif;
-  margin: 0;
-  color: #24243e;
+.line span:first-child{color:var(--muted)}
+.line strong{font-weight:800;text-align:right;overflow-wrap:anywhere}
+.line.grand{border:0;padding-top:19px;font-size:14px}
+.line.grand strong{color:var(--purple-dark);font-size:17px}
+.summary-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.summary-fields .field{gap:6px}
+.summary-fields label{font-size:10px}
+.summary-fields input,.summary-fields select{padding:10px 9px}
+.action-stack{display:grid;gap:9px;margin-top:20px}
+.action-stack .btn{width:100%;padding:13px}
+.footer-note{text-align:center;color:var(--muted);font-size:10px;margin-top:30px;line-height:1.8}
+.footer-note b{color:var(--purple-dark)}
+.toast{
+  position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);
+  background:#292341;color:white;padding:12px 18px;border-radius:12px;
+  font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:50
 }
-
-/* Form controls */
-input,
-textarea,
-select {
-  width: 100%;
-  min-width: 0;
-  border: 1px solid rgba(100,90,180,.18);
-  border-radius: 10px;
-  padding: 11px 12px;
-  background: #fdfdff;
-  color: var(--text);
-  outline: none;
-  font-size: 12px;
-  transition: .2s;
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(-3deg)}}
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr}
+  .summary{position:static}
+  .hero{align-items:flex-start;flex-direction:column}
 }
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #6475f5;
-  box-shadow: 0 0 0 3px #6475f51c;
+@media(max-width:520px){
+  .topbar{padding:13px 4%;gap:8px}
+  .brand-name{font-size:15px}
+  .top-label{display:none}
+  .nav-actions .btn{padding:10px;font-size:11px}
+  main{padding-top:35px}
+  h1{letter-spacing:-2px}
+  .grid2{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .items-head,.item-row{grid-template-columns:minmax(0,1fr) 48px 78px 30px;gap:5px}
+  .items-head{font-size:8px}
+  .item-row input{padding:10px 6px;font-size:11px}
+  .remove{width:29px;height:32px}
 }
-
-input::placeholder,
-textarea::placeholder {
-  color: #aaaac0;
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff!important;color:#222}
+  .topbar,.hero,.left,.status,.nav-actions,.action-stack,.footer-note,.toast{display:none!important}
+  main{width:100%;padding:0;margin:0}
+  .layout{display:block}
+  .summary{position:static}
+  .panel{box-shadow:none;border:0;padding:0;background:white}
+  .summary-top{background:#7966e8!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .summary-body{padding:20px 5px}
+  .summary-fields{display:none}
+  .print-heading{display:block!important}
+  input,textarea,select{border:0;background:transparent;padding:0}
 }
+.print-heading{display:none}
+</style>
+</head>
 
-.field label {
-  font: 10px 'DM Mono', monospace;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="DESIGNER 197 home">
+    <span class="logo">D</span>
+    <span class="brand-name">designer<span>197</span></span>
+  </a>
+  <div class="top-label">ESTIMATE STUDIO / 001</div>
+  <div class="nav-actions">
+    <button class="btn" type="button" onclick="window.location.href='index.html'">← Home</button>
+    <button class="btn primary" type="button" onclick="window.print()">Save PDF ↗</button>
+  </div>
+</header>
 
-/* Services table */
-.tablewrap {
-  overflow-x: auto;
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  background: #ffffff;
-}
+<main>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">DESIGNER 197 / PROJECT PLANNING</div>
+      <h1>Estimate <span>Studio.</span></h1>
+      <p>Create a clear, professional project estimate for your next design project. Add services, set your rates and share the final quotation with your client.</p>
+    </div>
+    <div class="status">● AUTO-SAVE ENABLED</div>
+  </section>
 
-th {
-  background: #f0efff;
-  color: #777796;
-  font: 10px 'DM Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-}
+  <div class="layout">
+    <div class="left">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="number">01</div>
+          <div><h2>Estimate details</h2><div class="sub">Set up your quotation information.</div></div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="estimateNo">ESTIMATE NUMBER</label>
+            <input id="estimateNo" placeholder="D197-001">
+          </div>
+          <div class="field">
+            <label for="estimateDate">ISSUE DATE</label>
+            <input id="estimateDate" type="date">
+          </div>
+          <div class="field">
+            <label for="validUntil">VALID UNTIL</label>
+            <input id="validUntil" type="date">
+          </div>
+          <div class="field">
+            <label for="currency">CURRENCY</label>
+            <select id="currency">
+              <option value="INR">INR — ₹ Indian Rupee</option>
+              <option value="USD">USD — $ US Dollar</option>
+            </select>
+          </div>
+        </div>
+        <p class="small-note">Changing currency changes the displayed symbol and formatting only. It does not convert your rates between currencies.</p>
+      </section>
 
-th,
-td {
-  padding: 9px;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
-}
+      <section class="panel">
+        <div class="panel-head">
+          <div class="number">02</div>
+          <div><h2>Client details</h2><div class="sub">Who is this estimate prepared for?</div></div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="clientName">CLIENT NAME *</label>
+            <input id="clientName" placeholder="Client or company name">
+          </div>
+          <div class="field">
+            <label for="clientEmail">CLIENT EMAIL</label>
+            <input id="clientEmail" type="email" placeholder="client@example.com">
+          </div>
+          <div class="field full">
+            <label for="projectName">PROJECT TITLE *</label>
+            <input id="projectName" placeholder="e.g. Brand Identity & Social Media Design">
+          </div>
+          <div class="field full">
+            <label for="clientAddress">CLIENT ADDRESS (OPTIONAL)</label>
+            <textarea id="clientAddress" placeholder="Client address or billing details"></textarea>
+          </div>
+        </div>
+      </section>
 
-.add {
-  border: 1px dashed #6475f580;
-  background: #6475f50b;
-  color: #5868e8;
-  padding: 10px 12px;
-  border-radius: 9px;
-  font-size: 11px;
-  font-weight: 700;
-}
+      <section class="panel">
+        <div class="panel-head">
+          <div class="number">03</div>
+          <div><h2>Project items</h2><div class="sub">Add each service with its quantity and rate.</div></div>
+        </div>
+        <div class="items-head">
+          <span>SERVICE / DESCRIPTION</span><span>QTY</span><span style="text-align:right">RATE</span><span></span>
+        </div>
+        <div id="items"></div>
+        <button class="add-btn" type="button" id="addItem">＋ Add another service</button>
+        <p class="small-note">Example: Logo design, brand identity, social media creatives, packaging, catalogue design or website design.</p>
+      </section>
 
-.add:hover {
-  background: #6475f51a;
-}
+      <section class="panel">
+        <div class="panel-head">
+          <div class="number">04</div>
+          <div><h2>Notes & terms</h2><div class="sub">Clarify the scope and payment terms.</div></div>
+        </div>
+        <div class="grid2">
+          <div class="field full">
+            <label for="notes">PROJECT NOTES</label>
+            <textarea id="notes" placeholder="Describe deliverables, revisions, timeline or anything included in the project."></textarea>
+          </div>
+          <div class="field full">
+            <label for="terms">PAYMENT TERMS</label>
+            <textarea id="terms" placeholder="e.g. 50% advance and 50% on final delivery."></textarea>
+          </div>
+        </div>
+      </section>
+    </div>
 
-/* Live estimate summary */
-.summary {
-  border: 1px solid #6475f52e;
-  background: linear-gradient(135deg, #e7e8ff, #fff1f8);
-  border-radius: 13px;
-  padding: 16px;
-  margin-bottom: 17px;
-}
+    <aside class="panel summary">
+      <div class="print-heading">
+        <div class="brand"><span class="logo">D</span><span class="brand-name">designer<span>197</span></span></div>
+        <p>DESIGN ESTIMATE</p>
+      </div>
+      <div class="summary-top">
+        <div class="eyebrow">ESTIMATE SUMMARY</div>
+        <h2 id="summaryProject">Your project estimate</h2>
+        <div class="total-label">ESTIMATED TOTAL</div>
+        <div class="total" id="totalDisplay">₹0.00</div>
+        <div class="sub">Prepared by DESIGNER 197</div>
+      </div>
 
-.sumlabel {
-  font: 10px 'DM Mono', monospace;
-  letter-spacing: .12em;
-  color: #777796;
-}
+      <div class="summary-body">
+        <div class="line"><span>Subtotal</span><strong id="subtotalDisplay">₹0.00</strong></div>
+        <div class="line"><span>Discount</span><strong id="discountDisplay">− ₹0.00</strong></div>
+        <div class="line"><span>Tax</span><strong id="taxDisplay">₹0.00</strong></div>
+        <div class="line grand"><span>Grand total</span><strong id="grandDisplay">₹0.00</strong></div>
 
-.big {
-  font: 700 27px 'Space Grotesk', sans-serif;
-  background: linear-gradient(100deg, #6475f5, #a06fe5, #d77db8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin: 7px 0;
-  letter-spacing: -.04em;
-  overflow-wrap: anywhere;
-}
+        <div class="summary-fields">
+          <div class="field">
+            <label for="discount">DISCOUNT (%)</label>
+            <input id="discount" type="number" min="0" max="100" value="0">
+          </div>
+          <div class="field">
+            <label for="tax">TAX (%)</label>
+            <input id="tax" type="number" min="0" max="100" value="0">
+          </div>
+        </div>
 
-.totalrow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  color: var(--muted);
-}
+        <div class="action-stack">
+          <button class="btn primary" type="button" onclick="savePDF()">Print / Save as PDF ↗</button>
+          <button class="btn soft" type="button" id="downloadBtn">Download estimate (.txt)</button>
+          <button class="btn" type="button" id="copyBtn">Copy estimate summary</button>
+          <button class="btn" type="button" id="resetBtn">Reset estimate</button>
+        </div>
+      </div>
+    </aside>
+  </div>
 
-.totalrow strong {
-  color: var(--text);
-  font: 12px 'DM Mono', monospace;
-  white-space: nowrap;
-}
+  <div class="footer-note">
+    MADE WITH CARE BY <b>DESIGNER 197</b><br>
+    This estimate is a planning document. Confirm scope, tax treatment and payment terms with your client before invoicing.
+  </div>
+</main>
 
-.grand {
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-  margin-top: 2px;
-  color: var(--text);
-  font-weight: 700;
-}
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-.grand strong {
-  font: 700 23px 'Space Grotesk', sans-serif;
-  color: #6475f5;
-}
-
-/* Checklist and footer */
-.check input {
-  width: auto;
-  margin-top: 2px;
-  accent-color: #6475f5;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  padding: 22px 3px;
-  color: var(--muted);
-  font: 10px 'DM Mono', monospace;
-}
-
-.footer strong {
-  color: #6475f5;
-}
-
-.toast {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  background: #ffffff;
-  border: 1px solid #6475f5;
-  color: #171727;
-  border-radius: 11px;
-  padding: 13px 16px;
-  box-shadow: var(--shadow);
-  font-size: 12px;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: .25s;
-  pointer-events: none;
-  z-index: 20;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: none;
-}
-
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-  .side {
-    grid-template-columns: repeat(2, minmax(0,1fr));
-  }
-  .side .card:first-child {
-    grid-column: 1/-1;
-  }
-}
-
-@media (max-width: 600px) {
-  .shell {
-    padding: 16px 11px 30px;
-  }
-  .top {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .actions {
-    width: 100%;
-  }
-  .btn {
-    flex: 1;
-  }
-  .hero {
-    align-items: flex-start;
-    flex-direction: column;
-    margin-top: 26px;
-  }
-  .live {
-    white-space: normal;
-  }
-  .card {
-    padding: 16px;
-    border-radius: 14px;
-  }
-  .fields,
-  .fields.three {
-    grid-template-columns: 1fr;
-  }
-  .field.full {
-    grid-column: auto;
-  }
-  .side {
-    grid-template-columns: 1fr;
-  }
-  .side .card:first-child {
-    grid-column: auto;
-  }
-  .table-actions {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-@media print{@page{size:A4;margin:11mm}body,body.light{background:#fff!important;color:#111!important;--bg:#fff;--panel:#fff;--panel2:#fff;--text:#111;--muted:#555;--line:#ddd;--lime:#547000;--shadow:none}.shell{max-width:none;padding:0}.actions,.hide-print,.live{display:none!important}.hero{margin:8px 0 14px}.hero h1{font-size:36px}.layout{grid-template-columns:minmax(0,1fr) 245px;gap:9px}.main,.side{gap:9px}.card{box-shadow:none;padding:12px;border-radius:7px;break-inside:avoid;background:#fff!important;animation:none}.card:before{left:12px}.head{margin-bottom:10px}.head h2{font-size:13px}.fields{gap:7px}input,textarea,select{background:#fff!important;color:#111!important;border:0;border-bottom:1px solid #ddd;border-radius:0;padding:5px 2px;font-size:9px}textarea{min-height:36px}th,td{padding:5px}table{min-width:0}td input{padding:3px 1px}.remove,.add{display:none}.note,.check,.field label,th{font-size:8px}.totalrow{font-size:9px}.big{font-size:20px}.grand strong{font-size:17px}.footer{padding:10px 0}.signature{border-color:#aaa}}
-</style></head>
-<body><div class="shell">
-<header class="top"><div class="brand"><div class="mark">197</div><div><div class="brandname" contenteditable="true" title="Click to edit">DESIGNER 197</div><div class="tag">GRAPHIC DESIGN · DIGITAL EXPERIENCES</div></div></div><div class="actions hide-print"><button class="btn" id="theme">◐ Theme</button><button class="btn" id="save">Save draft</button><button class="btn" id="reset">New estimate</button><button class="btn primary" id="print">Print / Save PDF ↗</button></div></header>
-<section class="hero"><div><div class="eyebrow">ESTIMATE WORKSPACE / 001</div><h1>Make it clear.<br><span>Price it right.</span></h1><p>Create a polished quotation for graphic design and web projects. Add your own rates, edit the scope, and the totals update automatically.</p></div><div class="live"><i></i>LIVE CALCULATIONS · LOCAL DRAFT</div></section>
-<div class="layout"><main class="main">
-<section class="card"><div class="head"><h2>Estimate information</h2><span class="num">01 / SETUP</span></div><div class="fields three"><div class="field"><label>Estimate number</label><input id="estimateNo" value="EST-2026-001"></div><div class="field"><label>Issue date</label><input id="issueDate" type="date"></div><div class="field"><label>Valid until</label><input id="validDate" type="date"></div><div class="field full"><label>Project name</label><input id="projectName" placeholder="e.g. Brand identity & website"></div><div class="field full"><label>Project overview</label><textarea id="overview" placeholder="Client goals, project scope and expected outcome..."></textarea></div></div></section>
-<section class="card"><div class="head"><h2>Your business details</h2><span class="num">02 / FROM</span></div><div class="fields"><div class="field"><label>Name / Studio</label><input id="businessName" value="Harsh Chawla / DESIGNER 197"></div><div class="field"><label>Tagline</label><input id="tagline" value="Graphic Designer · Digital Creator"></div><div class="field"><label>Phone / WhatsApp</label><input id="businessPhone" placeholder="+91 ..."></div><div class="field"><label>Email</label><input id="businessEmail" type="email" placeholder="you@example.com"></div><div class="field"><label>Website / Portfolio</label><input id="website" placeholder="https://..."></div><div class="field full"><label>Business address</label><textarea id="businessAddress" placeholder="City, state, country"></textarea></div></div></section>
-<section class="card"><div class="head"><h2>Client details</h2><span class="num">03 / BILL TO</span></div><div class="fields"><div class="field"><label>Client / Company</label><input id="clientName" placeholder="Client or company name"></div><div class="field"><label>Contact person</label><input id="contactPerson" placeholder="Full name"></div><div class="field"><label>Email</label><input id="clientEmail" type="email" placeholder="client@example.com"></div><div class="field"><label>Phone</label><input id="clientPhone" placeholder="+91 ..."></div><div class="field full"><label>Client address</label><textarea id="clientAddress" placeholder="Billing address"></textarea></div></div></section>
-<section class="card"><div class="head"><h2>Services & line items</h2><span class="num">04 / PRICING</span></div><p class="note" style="margin-top:-7px;margin-bottom:14px">GST and tax fields are intentionally not included. Quantity × rate = amount. Edit all rates yourself.</p><div class="tablewrap"><table><thead><tr><th>#</th><th>Description / service</th><th>Qty</th><th>Rate</th><th>Amount</th><th class="hide-print"></th></tr></thead><tbody id="items"></tbody></table></div><div class="table-actions hide-print"><button class="add" id="add">＋ Add line item</button><span class="note">Logo · 3D logo · Branding · Packaging · Website · SEO</span></div></section>
-<section class="card"><div class="head"><h2>Project plan & delivery</h2><span class="num">05 / TIMELINE</span></div><div class="fields"><div class="field"><label>Estimated duration</label><input id="duration" placeholder="e.g. 7–10 working days"></div><div class="field"><label>Target delivery date</label><input id="deliveryDate" type="date"></div><div class="field full"><label>Milestones</label><textarea id="milestones" placeholder="1. Brief & discovery&#10;2. Design approval&#10;3. Development / revisions&#10;4. Testing and launch"></textarea></div><div class="field full"><label>Deliverables / goals</label><textarea id="deliverables" placeholder="Final files, formats, pages, sizes, platforms..."></textarea></div></div></section>
-<section class="card"><div class="head"><h2>Payment & terms</h2><span class="num">06 / AGREEMENT</span></div><div class="fields"><div class="field"><label>Advance payment (%)</label><input id="advancePercent" type="number" min="0" max="100" value="50"></div><div class="field"><label>Payment terms</label><select id="paymentTerms"><option>50% advance, 50% before final delivery</option><option>100% advance before work begins</option><option>Milestone-based payments</option><option>Net 7 days from invoice</option><option>Custom terms (write below)</option></select></div><div class="field"><label>UPI ID</label><input id="upi" placeholder="name@bank"></div><div class="field"><label>Bank / payment details</label><input id="bankDetails" placeholder="Bank / account details"></div><div class="field full"><label>Additional payment notes</label><textarea id="paymentNotes" placeholder="Payment due dates, milestone split..."></textarea></div><div class="field full"><label>Terms & conditions</label><textarea id="terms" rows="6">• Includes up to 2 rounds of revisions unless stated otherwise.
-• Extra revisions or out-of-scope requests may be charged separately after approval.
-• Client provides accurate copy, brand assets, images and required access on time.
-• Final source files and usage rights transfer after full payment, unless agreed otherwise in writing.
-• Work already completed may be chargeable if the project is cancelled.
-• Hosting, domain, stock assets, paid fonts, plugins and third-party costs are excluded unless listed above.
-• Timeline depends on timely feedback and approvals from the client.</textarea></div><div class="field full"><label>Scope exclusions / not included</label><textarea id="exclusions" placeholder="e.g. hosting, domain, paid stock images, copywriting, printing..."></textarea></div><div class="field full"><label>Optional extras / add-ons</label><textarea id="extras" placeholder="e.g. monthly maintenance, extra pages, SEO support..."></textarea></div></div></section>
-<section class="card"><div class="head"><h2>Client approval</h2><span class="num">07 / SIGN-OFF</span></div><p class="note">Signing below confirms acceptance of the scope, estimate and terms in this document.</p><div class="fields" style="margin-top:14px"><div class="field"><label>Accepted by (client name)</label><input id="acceptedBy" placeholder="Client full name"></div><div class="field"><label>Approval date</label><input id="approvalDate" type="date"></div><div class="field"><label>Signature / approval reference</label><input id="signature" placeholder="Signature or approval reference"></div><div class="field"><label>Estimate status</label><select id="estimateStatus"><option>Pending approval</option><option>Approved</option><option>Declined</option><option>Revised estimate</option></select></div></div><div class="signature"></div><span class="note">Client signature / authorised approval</span></section>
-</main><aside class="side">
-<section class="card"><div class="head"><h2>Estimate summary</h2><span class="num">LIVE</span></div><div class="summary"><div class="sumlabel">GRAND TOTAL</div><div class="big" id="grandDisplay">₹0.00</div><div class="note">Total after discount. No GST / tax calculation.</div></div><div class="totals"><div class="totalrow"><span>Subtotal</span><strong id="subtotalDisplay">₹0.00</strong></div><div class="totalrow"><span>Discount (%)</span><input id="discountPercent" type="number" min="0" max="100" value="0" aria-label="Discount percentage"></div><div class="totalrow"><span>Discount amount</span><strong id="discountDisplay">−₹0.00</strong></div><div class="totalrow grand"><span>Grand total</span><strong id="grandSmall">₹0.00</strong></div><div class="totalrow"><span>Advance due</span><strong id="advanceDisplay">₹0.00</strong></div><div class="totalrow"><span>Balance due</span><strong id="balanceDisplay">₹0.00</strong></div></div><p class="note" style="margin-top:15px">The total is calculated from your line items minus discount only.</p></section>
-<section class="card"><div class="head"><h2>Quick checklist</h2><span class="num">CHECK</span></div><div class="checks"><label class="check"><input type="checkbox"> Confirm client contact details</label><label class="check"><input type="checkbox"> Confirm scope and deliverables</label><label class="check"><input type="checkbox"> Review quantities and rates</label><label class="check"><input type="checkbox"> Confirm payment terms</label><label class="check"><input type="checkbox"> Save draft or export PDF</label></div></section>
-<section class="card"><div class="head"><h2>Payment snapshot</h2><span class="num">PAYMENT</span></div><div class="sumlabel">ADVANCE TO START</div><div class="big" id="advanceBig">₹0.00</div><p class="note" id="paymentSummary">50% advance payment.</p><div style="height:1px;background:var(--line);margin:15px 0"></div><div class="field"><label>Thank-you note</label><textarea id="thankYou" rows="3">Thank you for considering DESIGNER 197. I look forward to creating something great with you.</textarea></div></section>
-<section class="card"><div class="head"><h2>Social links</h2><span class="num">FOOTER</span></div><div class="fields"><div class="field full"><label>Social link 1</label><input id="social1" placeholder="Instagram / Behance / LinkedIn"></div><div class="field full"><label>Social link 2</label><input id="social2" placeholder="Portfolio / other link"></div></div><p class="note" style="margin-top:12px">Click Print / Save PDF and choose “Save as PDF” in the print dialog.</p></section>
-</aside></div><footer class="footer"><span>© <span id="year"></span> <strong>DESIGNER 197</strong> · ESTIMATE STUDIO</span><span id="footerThanks">MADE FOR GOOD WORK. BUILT TO BE EDITED.</span></footer></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-const $=id=>document.getElementById(id);const today=new Date();const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;$('issueDate').value=iso(today);let vd=new Date(today);vd.setDate(vd.getDate()+30);$('validDate').value=iso(vd);$('year').textContent=today.getFullYear();
-const starters=[{desc:'Logo design',qty:1,rate:330},{desc:'3D logo / mockup',qty:1,rate:50},{desc:'Social media post design',qty:1,rate:0}];let rowId=0;
-function addRow(item={desc:'',qty:1,rate:0}){rowId++;let tr=document.createElement('tr');tr.innerHTML=`<td class="mono row-num">${rowId}</td><td class="desc"><input class="descInput" aria-label="Service description" placeholder="Service / deliverable"></td><td class="qty"><input class="qtyInput" aria-label="Quantity or hours" type="number" min="0" step="0.25" value="1"></td><td class="rate"><input class="rateInput" aria-label="Rate per unit" type="number" min="0" step="0.01" value="0"></td><td class="amount"><span class="amountText">₹0.00</span></td><td class="hide-print"><button class="remove" type="button" aria-label="Remove item">×</button></td>`;$('items').appendChild(tr);tr.querySelector('.descInput').value=item.desc??'';tr.querySelector('.qtyInput').value=item.qty??1;tr.querySelector('.rateInput').value=item.rate??0;tr.querySelectorAll('input').forEach(x=>x.addEventListener('input',recalc));tr.querySelector('.remove').addEventListener('click',()=>{tr.remove();renumber();recalc()});recalc()}
-function renumber(){[...$('items').rows].forEach((r,i)=>r.querySelector('.row-num').textContent=i+1)}function money(n){let c=$('currency')?.value||'INR';try{return new Intl.NumberFormat('en-IN',{style:'currency',currency:c,maximumFractionDigits:2}).format(Number(n)||0)}catch{return '₹'+(Number(n)||0).toFixed(2)}}
-function recalc(){let subtotal=0;[...$('items').rows].forEach(r=>{let q=Math.max(0,Number(r.querySelector('.qtyInput').value)||0),rate=Math.max(0,Number(r.querySelector('.rateInput').value)||0),amt=q*rate;subtotal+=amt;r.querySelector('.amountText').textContent=money(amt)});let dp=Math.min(100,Math.max(0,Number($('discountPercent').value)||0)),discount=subtotal*dp/100,total=Math.max(0,subtotal-discount),ap=Math.min(100,Math.max(0,Number($('advancePercent').value)||0)),advance=total*ap/100;$('subtotalDisplay').textContent=money(subtotal);$('discountDisplay').textContent='−'+money(discount);$('grandDisplay').textContent=money(total);$('grandSmall').textContent=money(total);$('advanceDisplay').textContent=money(advance);$('advanceBig').textContent=money(advance);$('balanceDisplay').textContent=money(total-advance);$('paymentSummary').textContent=`${ap}% advance (${money(advance)}); remaining balance ${money(total-advance)}.`;document.title=($('estimateNo').value.trim()||'Estimate')+' — DESIGNER 197';scheduleSave()}
-$('add').addEventListener('click',()=>addRow());['discountPercent','advancePercent'].forEach(id=>$(id).addEventListener('input',recalc));const fields=[...document.querySelectorAll('input:not([type=checkbox]),textarea,select')];fields.forEach(el=>{el.addEventListener('input',scheduleSave);el.addEventListener('change',scheduleSave)});$('print').addEventListener('click',()=>{recalc();window.print()});$('theme').addEventListener('click',()=>{document.body.classList.toggle('light');try{localStorage.setItem('d197Theme',document.body.classList.contains('light')?'light':'dark')}catch(e){}});try{if(localStorage.getItem('d197Theme')==='light')document.body.classList.add('light')}catch(e){}
-function toast(msg){let t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),2300)}function data(){let f={};fields.forEach(el=>{if(el.id)f[el.id]=el.value});return{fields:f,items:[...$('items').rows].map(r=>({desc:r.querySelector('.descInput').value,qty:r.querySelector('.qtyInput').value,rate:r.querySelector('.rateInput').value}))}}let timer;function scheduleSave(){clearTimeout(timer);timer=setTimeout(()=>{try{localStorage.setItem('d197EstimateDraft',JSON.stringify(data()))}catch(e){}},300)}function save(){try{localStorage.setItem('d197EstimateDraft',JSON.stringify(data()));toast('Draft saved in this browser.')}catch(e){toast('Browser storage unavailable.')}}$('save').addEventListener('click',save);
-function load(){try{let d=JSON.parse(localStorage.getItem('d197EstimateDraft')||'null');if(!d)return false;Object.entries(d.fields||{}).forEach(([id,v])=>{if($(id))$(id).value=v});$('items').innerHTML='';rowId=0;(d.items||starters).forEach(addRow);recalc();return true}catch(e){return false}}
-$('reset').addEventListener('click',()=>{if(!confirm('Start a new estimate? Current saved draft will be replaced.'))return;try{localStorage.removeItem('d197EstimateDraft')}catch(e){}fields.forEach(el=>{if(el.id==='issueDate')el.value=iso(new Date());else if(el.id==='validDate'){let d=new Date();d.setDate(d.getDate()+30);el.value=iso(d)}else if(el.id==='estimateNo')el.value=`EST-${new Date().getFullYear()}-${Math.floor(100+Math.random()*900)}`;else if(el.id==='discountPercent')el.value='0';else if(el.id==='advancePercent')el.value='50';else if(el.tagName==='SELECT')el.selectedIndex=0;else el.value=''});$('businessName').value='Harsh Chawla / DESIGNER 197';$('tagline').value='Graphic Designer · Digital Creator';$('terms').value='• Includes up to 2 rounds of revisions unless stated otherwise.\n• Extra revisions or out-of-scope requests may be charged separately after approval.\n• Client provides accurate copy, brand assets, images and required access on time.\n• Final source files and usage rights transfer after full payment, unless agreed otherwise in writing.\n• Work already completed may be chargeable if the project is cancelled.\n• Hosting, domain, stock assets, paid fonts, plugins and third-party costs are excluded unless listed above.\n• Timeline depends on timely feedback and approvals from the client.';$('thankYou').value='Thank you for considering DESIGNER 197. I look forward to creating something great with you.';$('items').innerHTML='';rowId=0;starters.forEach(addRow);recalc();toast('New estimate created.')});if(!load())starters.forEach(addRow);recalc();
-</script></body></html>
+(() => {
+  const $ = id => document.getElementById(id);
+  const STORAGE_KEY = 'designer197_estimate_studio_v1';
+  const itemHost = $('items');
+
+  const fields = [
+    'estimateNo','estimateDate','validUntil','currency',
+    'clientName','clientEmail','projectName','clientAddress',
+    'notes','terms','discount','tax'
+  ];
+
+  const today = new Date();
+  const dateString = d => {
+    const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+    return local.toISOString().slice(0,10);
+  };
+
+  $('estimateDate').value = dateString(today);
+  const defaultValid = new Date(today);
+  defaultValid.setDate(defaultValid.getDate() + 14);
+  $('validUntil').value = dateString(defaultValid);
+  $('estimateNo').value = 'D197-' + dateString(today).replaceAll('-','');
+
+  function toast(message) {
+    const node = $('toast');
+    node.textContent = message;
+    node.classList.add('show');
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => node.classList.remove('show'), 2400);
+  }
+
+  function money(value) {
+    const currency = $('currency').value;
+    const locale = currency === 'INR' ? 'en-IN' : 'en-US';
+    try {
+      return new Intl.NumberFormat(locale, {
+        style:'currency',currency,minimumFractionDigits:2,maximumFractionDigits:2
+      }).format(Number(value) || 0);
+    } catch {
+      return (currency === 'INR' ? '₹' : '$') + (Number(value) || 0).toFixed(2);
+    }
+  }
+
+  function addItem(description = '', qty = 1, rate = 0) {
+    const row = document.createElement('div');
+    row.className = 'item-row';
+
+    const desc = document.createElement('input');
+    desc.className = 'description';
+    desc.placeholder = 'Service name';
+    desc.setAttribute('aria-label','Service description');
+    desc.value = description;
+
+    const quantity = document.createElement('input');
+    quantity.className = 'qty';
+    quantity.type = 'number';
+    quantity.min = '0';
+    quantity.step = '1';
+    quantity.value = qty;
+    quantity.setAttribute('aria-label','Quantity');
+
+    const price = document.createElement('input');
+    price.className = 'rate';
+    price.type = 'number';
+    price.min = '0';
+    price.step = '0.01';
+    price.value = rate;
+    price.setAttribute('aria-label','Rate');
+
+    const remove = document.createElement('button');
+    remove.className = 'remove';
+    remove.type = 'button';
+    remove.textContent = '×';
+    remove.title = 'Remove service';
+    remove.setAttribute('aria-label','Remove service');
+    remove.addEventListener('click', () => {
+      row.remove();
+      if (!itemHost.children.length) addItem();
+      update();
+    });
+
+    [desc, quantity, price].forEach(input => {
+      input.addEventListener('input', update);
+    });
+
+    row.append(desc, quantity, price, remove);
+    itemHost.appendChild(row);
+    update();
+  }
+
+  function getItems() {
+    return [...itemHost.querySelectorAll('.item-row')].map(row => ({
+      description: row.querySelector('.description').value.trim(),
+      qty: Math.max(0, Number(row.querySelector('.qty').value) || 0),
+      rate: Math.max(0, Number(row.querySelector('.rate').value) || 0)
+    }));
+  }
+
+  function calculate() {
+    const items = getItems();
+    const subtotal = items.reduce((sum, item) => sum + item.qty * item.rate, 0);
+    const discountPct = Math.min(100, Math.max(0, Number($('discount').value) || 0));
+    const taxPct = Math.min(100, Math.max(0, Number($('tax').value) || 0));
+    const discount = subtotal * discountPct / 100;
+    const taxable = Math.max(0, subtotal - discount);
+    const tax = taxable * taxPct / 100;
+    return {items,subtotal,discount,tax,grand:taxable + tax,discountPct,taxPct};
+  }
+
+  function update() {
+    const data = calculate();
+    $('summaryProject').textContent = $('projectName').value.trim() || 'Your project estimate';
+    $('subtotalDisplay').textContent = money(data.subtotal);
+    $('discountDisplay').textContent = '− ' + money(data.discount);
+    $('taxDisplay').textContent = money(data.tax);
+    $('grandDisplay').textContent = money(data.grand);
+    $('totalDisplay').textContent = money(data.grand);
+    save();
+  }
+
+  function snapshot() {
+    return {
+      fields: Object.fromEntries(fields.map(id => [id, $(id).value])),
+      items: getItems()
+    };
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot()));
+    } catch (error) {
+      // The estimate still works if browser storage is unavailable.
+    }
+  }
+
+  function restore() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      const data = JSON.parse(raw);
+      if (data.fields) {
+        fields.forEach(id => {
+          if (data.fields[id] !== undefined) $(id).value = data.fields[id];
+        });
+      }
+      itemHost.innerHTML = '';
+      (Array.isArray(data.items) && data.items.length ? data.items : [{}])
+        .forEach(item => addItem(item.description || '', item.qty ?? 1, item.rate ?? 0));
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function buildText() {
+    const data = calculate();
+    const currency = $('currency').value;
+    const rows = [
+      'DESIGNER 197 — PROJECT ESTIMATE',
+      '================================',
+      'Estimate No: ' + ($('estimateNo').value || '—'),
+      'Issue Date: ' + ($('estimateDate').value || '—'),
+      'Valid Until: ' + ($('validUntil').value || '—'),
+      '',
+      'CLIENT',
+      '------',
+      'Name: ' + ($('clientName').value || '—'),
+      'Email: ' + ($('clientEmail').value || '—'),
+      'Project: ' + ($('projectName').value || '—'),
+      'Address: ' + ($('clientAddress').value || '—'),
+      '',
+      'PROJECT ITEMS',
+      '-------------'
+    ];
+
+    data.items.forEach((item, index) => {
+      rows.push(
+        `${index + 1}. ${item.description || 'Service'} — ${item.qty} × ${money(item.rate)} = ${money(item.qty * item.rate)}`
+      );
+    });
+
+    rows.push(
+      '',
+      'Subtotal: ' + money(data.subtotal),
+      `Discount (${data.discountPct}%): -${money(data.discount)}`,
+      `Tax (${data.taxPct}%): ${money(data.tax)}`,
+      'GRAND TOTAL: ' + money(data.grand),
+      'Currency: ' + currency,
+      '',
+      'PROJECT NOTES',
+      '-------------',
+      $('notes').value || '—',
+      '',
+      'PAYMENT TERMS',
+      '-------------',
+      $('terms').value || '—',
+      '',
+      'Prepared by DESIGNER 197.'
+    );
+    return rows.join('\n');
+  }
+
+  function savePDF() {
+    if (!$('clientName').value.trim() || !$('projectName').value.trim()) {
+      toast('Please enter client name and project title first.');
+      return;
+    }
+    window.print();
+  }
+
+  $('addItem').addEventListener('click', () => addItem());
+  fields.forEach(id => $(id).addEventListener('input', update));
+  fields.forEach(id => $(id).addEventListener('change', update));
+
+  $('downloadBtn').addEventListener('click', () => {
+    const blob = new Blob([buildText()], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = ($('estimateNo').value.trim() || 'designer197-estimate') + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    toast('Estimate downloaded.');
+  });
+
+  $('copyBtn').addEventListener('click', async () => {
+    const text = buildText();
+    try {
+      await navigator.clipboard.writeText(text);
+      toast('Estimate summary copied.');
+    } catch {
+      const area = document.createElement('textarea');
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      const copied = document.execCommand('copy');
+      area.remove();
+      toast(copied ? 'Estimate summary copied.' : 'Copy failed. Please select and copy manually.');
+    }
+  });
+
+  $('resetBtn').addEventListener('click', () => {
+    if (!confirm('Reset this estimate? This clears the saved estimate from this browser.')) return;
+    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+    fields.forEach(id => $(id).value = '');
+    $('currency').value = 'INR';
+    $('discount').value = 0;
+    $('tax').value = 0;
+    $('estimateDate').value = dateString(new Date());
+    const valid = new Date();
+    valid.setDate(valid.getDate() + 14);
+    $('validUntil').value = dateString(valid);
+    $('estimateNo').value = 'D197-' + dateString(new Date()).replaceAll('-','');
+    itemHost.innerHTML = '';
+    addItem();
+    toast('Estimate reset.');
+  });
+
+  if (!restore()) {
+    addItem('Logo design', 1, 0);
+    addItem('Social media design', 5, 0);
+  }
+  update();
+})();
+</script>
+</body>
+</html>
