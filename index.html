@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,708 +9,176 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --ink:#171b35;
-  --muted:#737b98;
-  --blue:#6475f5;
-  --purple:#ad91ff;
-  --glass:rgba(255,255,255,.58);
-  --border:rgba(255,255,255,.92);
-  --shadow:0 18px 55px rgba(85,96,165,.12);
-}
+:root{--ink:#171b35;--muted:#737b98;--blue:#6475f5;--purple:#ad91ff;--glass:rgba(255,255,255,.58);--border:rgba(255,255,255,.92);--shadow:0 18px 55px rgba(85,96,165,.12)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{
-  font-family:"DM Sans",sans-serif;color:var(--ink);
-  background:radial-gradient(ellipse at 8% 4%,#fff 0,transparent 35%),
-  radial-gradient(ellipse at 90% 18%,#dfe2ff 0,transparent 36%),
-  linear-gradient(135deg,#f8f8fc,#eceefa 60%,#f9f9ff);
-  overflow-x:hidden
-}
-a{color:inherit;text-decoration:none}
-button,select,input,textarea{font:inherit}
-.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
-.glass{
-  background:var(--glass);border:1px solid var(--border);
-  box-shadow:var(--shadow);backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px)
-}
-.progress{
-  height:3px;width:0;position:fixed;top:0;left:0;z-index:1000;
-  background:linear-gradient(90deg,var(--blue),var(--purple))
-}
-.ambient{
-  position:fixed;z-index:-1;width:320px;height:320px;
-  border-radius:50%;filter:blur(55px);opacity:.25;
-  pointer-events:none;animation:ambient 13s ease-in-out infinite alternate
-}
-.ambient.one{background:#b3a4ff;top:12%;left:-150px}
-.ambient.two{background:#a6d8ff;right:-160px;top:55%;animation-delay:-5s}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:radial-gradient(ellipse at 8% 4%,#fff 0,transparent 35%),radial-gradient(ellipse at 90% 18%,#dfe2ff 0,transparent 36%),linear-gradient(135deg,#f8f8fc,#eceefa 60%,#f9f9ff);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}button,select,input,textarea{font:inherit}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+.glass{background:var(--glass);border:1px solid var(--border);box-shadow:var(--shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.progress{height:3px;width:0;position:fixed;top:0;left:0;z-index:1000;background:linear-gradient(90deg,var(--blue),var(--purple))}
+.ambient{position:fixed;z-index:-1;width:320px;height:320px;border-radius:50%;filter:blur(55px);opacity:.25;pointer-events:none;animation:ambient 13s ease-in-out infinite alternate}
+.ambient.one{background:#b3a4ff;top:12%;left:-150px}.ambient.two{background:#a6d8ff;right:-160px;top:55%;animation-delay:-5s}
 @keyframes ambient{to{transform:translate(100px,-50px) scale(1.2)}}
-header{
-  position:sticky;top:10px;z-index:100;
-  width:min(1160px,calc(100% - 24px));margin:10px auto 0;border-radius:19px
-}
-.nav{
-  min-height:65px;padding:10px 17px;display:flex;
-  align-items:center;justify-content:space-between;gap:18px
-}
-.logo{
-  display:flex;align-items:center;gap:10px;
-  font:800 18px Manrope,sans-serif;letter-spacing:-1px;white-space:nowrap
-}
-.logo b{color:var(--blue)}
-.logo-mark{
-  height:35px;width:35px;border-radius:12px;display:grid;
-  place-items:center;background:linear-gradient(145deg,#fff,#dfe2ff);
-  color:var(--blue);border:1px solid white;
-  box-shadow:0 7px 18px #7c8bf52b;transform:rotate(-7deg);
-  animation:logoBreathe 4s ease-in-out infinite
-}
-@keyframes logoBreathe{
-  50%{transform:rotate(7deg) translateY(-2px);box-shadow:0 9px 26px #7c8bf55a}
-}
-.nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{font-size:11px;color:#59617d;transition:.25s}
-.nav-links a:hover{color:var(--blue)}
-.lang-wrap{display:flex;align-items:center;gap:7px}
-.lang-wrap span{font-size:12px}
-#language{
-  max-width:160px;border:1px solid white;background:#ffffffad;
-  border-radius:20px;padding:10px 12px;font-size:11px;color:var(--ink);outline:none
-}
-.pill{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:12px 17px;border:1px solid white;border-radius:30px;
-  background:#ffffffa8;font-size:11px;font-weight:700;transition:.3s;cursor:pointer
-}
-.pill:hover{transform:translateY(-3px);box-shadow:0 12px 25px #7180ed26}
-.pill.primary{background:#151a32;color:white;border-color:#151a32}
-.pill.primary:hover{background:var(--blue)}
-.menu-toggle{
-  display:none;padding:9px 12px;background:#ffffffa8;
-  border:1px solid white;border-radius:10px
-}
-.hero{padding:45px 0 25px}
-.hero-panel{border-radius:28px;padding:43px 40px 25px;overflow:hidden;position:relative}
-.hero-panel:before{
-  content:"";position:absolute;width:260px;height:260px;border-radius:50%;
-  background:#b8bfff35;filter:blur(30px);top:-140px;left:38%;
-  animation:glow 7s ease-in-out infinite
-}
-.hero-grid{
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;
-  gap:20px;position:relative;z-index:2
-}
-.mono{
-  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--blue);font-weight:700
-}
-h1,h2,h3{font-family:Manrope,sans-serif}
-h1{
-  font-size:clamp(43px,6.2vw,76px);line-height:.99;letter-spacing:-4px;
-  font-weight:800;margin:12px 0 7px
-}
-.gradient{
-  background:linear-gradient(95deg,#a58bff,#5875f7);
-  background-clip:text;-webkit-background-clip:text;color:transparent
-}
-.hero h2{font-size:clamp(24px,3vw,37px);letter-spacing:-1.5px}
-.hero-copy{max-width:420px;margin:17px 0 22px;color:var(--muted);font-size:13px;line-height:1.9}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.focus{margin-top:26px}
-.focus small{display:block;font-size:9px;color:#8a91ad;margin-bottom:11px}
+header{position:sticky;top:10px;z-index:100;width:min(1160px,calc(100% - 24px));margin:10px auto 0;border-radius:19px}
+.nav{min-height:65px;padding:10px 17px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px Manrope,sans-serif;letter-spacing:-1px;white-space:nowrap}
+.logo b{color:var(--blue)}.logo-mark{height:35px;width:35px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#dfe2ff);color:var(--blue);border:1px solid white;box-shadow:0 7px 18px #7c8bf52b;transform:rotate(-7deg);animation:logoBreathe 4s ease-in-out infinite}
+@keyframes logoBreathe{50%{transform:rotate(7deg) translateY(-2px);box-shadow:0 9px 26px #7c8bf55a}}
+.nav-links{display:flex;gap:20px;align-items:center}.nav-links a{font-size:11px;color:#59617d;transition:.25s}.nav-links a:hover{color:var(--blue)}
+.lang-wrap{display:flex;align-items:center;gap:7px}.lang-wrap span{font-size:12px}
+#language{max-width:160px;border:1px solid white;background:#ffffffad;border-radius:20px;padding:10px 12px;font-size:11px;color:var(--ink);outline:none}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 17px;border:1px solid white;border-radius:30px;background:#ffffffa8;font-size:11px;font-weight:700;transition:.3s;cursor:pointer}
+.pill:hover{transform:translateY(-3px);box-shadow:0 12px 25px #7180ed26}.pill.primary{background:#151a32;color:white;border-color:#151a32}.pill.primary:hover{background:var(--blue)}
+.menu-toggle{display:none;padding:9px 12px;background:#ffffffa8;border:1px solid white;border-radius:10px}
+.hero{padding:45px 0 25px}.hero-panel{border-radius:28px;padding:43px 40px 25px;overflow:hidden;position:relative}
+.hero-panel:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#b8bfff35;filter:blur(30px);top:-140px;left:38%;animation:glow 7s ease-in-out infinite}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px;position:relative;z-index:2}
+.mono{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);font-weight:700}h1,h2,h3{font-family:Manrope,sans-serif}
+h1{font-size:clamp(43px,6.2vw,76px);line-height:.99;letter-spacing:-4px;font-weight:800;margin:12px 0 7px}
+.gradient{background:linear-gradient(95deg,#a58bff,#5875f7);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero h2{font-size:clamp(24px,3vw,37px);letter-spacing:-1.5px}.hero-copy{max-width:420px;margin:17px 0 22px;color:var(--muted);font-size:13px;line-height:1.9}
+.actions{display:flex;gap:10px;flex-wrap:wrap}.focus{margin-top:26px}.focus small{display:block;font-size:9px;color:#8a91ad;margin-bottom:11px}
 .focus-row{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:#737b98;font-weight:700}
 .hero-art{height:365px;display:grid;place-items:center;position:relative;perspective:900px}
-.art-glow{
-  position:absolute;width:320px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,#c5caffb8,#e9e7ff65 50%,transparent 73%);
-  filter:blur(7px);animation:glow 5s ease-in-out infinite
-}
-.orbit{
-  position:absolute;width:270px;height:270px;border-radius:50%;
-  border:1px solid #fff;box-shadow:0 0 20px #a6afff25;
-  transform:rotateX(65deg) rotateZ(-25deg);animation:orbit 16s linear infinite
-}
-.orbit.two{
-  width:225px;height:225px;border-color:#b4bcff;
-  transform:rotateX(66deg) rotateZ(40deg);animation-direction:reverse
-}
-.orbit.three{
-  width:315px;height:315px;border-style:dashed;border-color:#c4caff;
-  transform:rotateX(70deg) rotateZ(10deg);animation-duration:25s
-}
-.orbit:after{
-  content:"";position:absolute;top:8%;left:12%;width:10px;height:10px;
-  border-radius:50%;background:#8b91ff;box-shadow:0 0 18px #8b91ff
-}
-.orb{
-  height:205px;width:205px;z-index:2;position:relative;
-  border-radius:42% 58% 60% 40%/45% 42% 58% 55%;
-  background:radial-gradient(circle at 27% 18%,white 0 4%,#ffffffa3 12%,transparent 23%),
-  radial-gradient(circle at 70% 75%,#a6a5ff,transparent 30%),
-  linear-gradient(140deg,#fff,#d9dcff 26%,#f9f7ff 44%,#aeb8ff 65%,#fff 80%,#d9d5ff);
-  border:1px solid white;
-  box-shadow:inset -18px -19px 35px #8990dc40,inset 12px 12px 25px #fff,0 30px 60px #8c96db35;
-  animation:float 5s ease-in-out infinite,morph 9s ease-in-out infinite alternate;
-  transform-style:preserve-3d
-}
-.orb:after{
-  content:"D197";position:absolute;inset:0;display:grid;place-items:center;
-  font:800 40px Manrope;letter-spacing:-4px;color:#596cf4;text-shadow:0 3px 15px white
-}
-@keyframes morph{
-  to{border-radius:58% 42% 40% 60%/48% 60% 40% 52%;filter:hue-rotate(10deg)}
-}
+.art-glow{position:absolute;width:320px;height:300px;border-radius:50%;background:radial-gradient(circle,#c5caffb8,#e9e7ff65 50%,transparent 73%);filter:blur(7px);animation:glow 5s ease-in-out infinite}
+.orbit{position:absolute;width:270px;height:270px;border-radius:50%;border:1px solid #fff;box-shadow:0 0 20px #a6afff25;transform:rotateX(65deg) rotateZ(-25deg);animation:orbit 16s linear infinite}
+.orbit.two{width:225px;height:225px;border-color:#b4bcff;transform:rotateX(66deg) rotateZ(40deg);animation-direction:reverse}
+.orbit.three{width:315px;height:315px;border-style:dashed;border-color:#c4caff;transform:rotateX(70deg) rotateZ(10deg);animation-duration:25s}
+.orbit:after{content:"";position:absolute;top:8%;left:12%;width:10px;height:10px;border-radius:50%;background:#8b91ff;box-shadow:0 0 18px #8b91ff}
+.orb{height:205px;width:205px;z-index:2;position:relative;border-radius:42% 58% 60% 40%/45% 42% 58% 55%;background:radial-gradient(circle at 27% 18%,white 0 4%,#ffffffa3 12%,transparent 23%),radial-gradient(circle at 70% 75%,#a6a5ff,transparent 30%),linear-gradient(140deg,#fff,#d9dcff 26%,#f9f7ff 44%,#aeb8ff 65%,#fff 80%,#d9d5ff);border:1px solid white;box-shadow:inset -18px -19px 35px #8990dc40,inset 12px 12px 25px #fff,0 30px 60px #8c96db35;animation:float 5s ease-in-out infinite, morph 9s ease-in-out infinite alternate;transform-style:preserve-3d}
+.orb:after{content:"D197";position:absolute;inset:0;display:grid;place-items:center;font:800 40px Manrope;letter-spacing:-4px;color:#596cf4;text-shadow:0 3px 15px white}
+@keyframes morph{to{border-radius:58% 42% 40% 60%/48% 60% 40% 52%;filter:hue-rotate(10deg)}}
 .float-card{position:absolute;z-index:3;padding:14px 16px;border-radius:16px;animation:cardFloat 5s ease-in-out infinite}
-.float-card strong{display:block;color:var(--blue);font:800 24px Manrope}
-.float-card small{font-size:10px;line-height:1.5;color:var(--muted)}
-.float-a{right:0;top:8%}
-.float-b{right:0;bottom:8%;animation-delay:-2s}
-.float-c{left:0;bottom:18%;animation-delay:-3s}
-@keyframes float{
-  0%,100%{translate:0 0;rotate:-4deg}
-  50%{translate:0 -15px;rotate:4deg}
-}
+.float-card strong{display:block;color:var(--blue);font:800 24px Manrope}.float-card small{font-size:10px;line-height:1.5;color:var(--muted)}
+.float-a{right:0;top:8%}.float-b{right:0;bottom:8%;animation-delay:-2s}.float-c{left:0;bottom:18%;animation-delay:-3s}
+@keyframes float{0%,100%{translate:0 0;rotate:-4deg}50%{translate:0 -15px;rotate:4deg}}
 @keyframes cardFloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
-@keyframes orbit{to{rotate:360deg}}
-@keyframes glow{50%{transform:scale(1.12);opacity:.7}}
-.section{padding:36px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}
-.section-head h2{font-size:clamp(27px,3vw,37px);letter-spacing:-1.7px;margin-top:7px}
-.section-head p{max-width:350px;color:var(--muted);font-size:12px;line-height:1.8}
-.about{
-  padding:29px;border-radius:24px;display:grid;
-  grid-template-columns:1fr .9fr 1fr;gap:22px;align-items:center
-}
-.about h2{font-size:29px;letter-spacing:-1.5px;line-height:1.12;margin:10px 0 13px}
-.about p{font-size:12px;color:var(--muted);line-height:1.9}
-.stats{display:grid;gap:9px}
-.stat{
-  padding:12px 14px;border-radius:13px;background:#ffffff85;
-  border:1px solid white;transition:.3s
-}
-.stat:hover{transform:translateX(5px)}
-.stat strong{display:block;color:var(--blue);font:800 18px Manrope}
-.stat span{font-size:10px;color:var(--muted)}
-.about-art{
-  height:190px;border-radius:18px;display:grid;place-items:center;
-  position:relative;overflow:hidden;background:linear-gradient(140deg,#f9f8ff,#dfe2ff)
-}
-.about-art:before,.about-art:after{
-  content:"";position:absolute;width:150px;height:150px;border:1px solid white;
-  border-radius:50%;transform:rotateX(65deg) rotateZ(25deg);
-  animation:orbit 16s linear infinite
-}
-.about-art:after{
-  width:200px;height:200px;transform:rotateX(65deg) rotateZ(-35deg);
-  border-color:#b8c0ff;animation-direction:reverse
-}
-.about-art span{
-  font:800 70px Manrope;color:#6676f5;z-index:1;letter-spacing:-8px;
-  text-shadow:0 8px 20px #6676f538
-}
+@keyframes orbit{to{rotate:360deg}}@keyframes glow{50%{transform:scale(1.12);opacity:.7}}
+.section{padding:36px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.section-head h2{font-size:clamp(27px,3vw,37px);letter-spacing:-1.7px;margin-top:7px}.section-head p{max-width:350px;color:var(--muted);font-size:12px;line-height:1.8}
+.about{padding:29px;border-radius:24px;display:grid;grid-template-columns:1fr .9fr 1fr;gap:22px;align-items:center}
+.about h2{font-size:29px;letter-spacing:-1.5px;line-height:1.12;margin:10px 0 13px}.about p{font-size:12px;color:var(--muted);line-height:1.9}
+.stats{display:grid;gap:9px}.stat{padding:12px 14px;border-radius:13px;background:#ffffff85;border:1px solid white;transition:.3s}.stat:hover{transform:translateX(5px)}
+.stat strong{display:block;color:var(--blue);font:800 18px Manrope}.stat span{font-size:10px;color:var(--muted)}
+.about-art{height:190px;border-radius:18px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(140deg,#f9f8ff,#dfe2ff)}
+.about-art:before,.about-art:after{content:"";position:absolute;width:150px;height:150px;border:1px solid white;border-radius:50%;transform:rotateX(65deg) rotateZ(25deg);animation:orbit 16s linear infinite}
+.about-art:after{width:200px;height:200px;transform:rotateX(65deg) rotateZ(-35deg);border-color:#b8c0ff;animation-direction:reverse}
+.about-art span{font:800 70px Manrope;color:#6676f5;z-index:1;letter-spacing:-8px;text-shadow:0 8px 20px #6676f538}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
-.service{
-  padding:19px;border-radius:17px;min-height:176px;
-  transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden
-}
-.service:after{
-  content:"";position:absolute;inset:auto -35px -65px auto;width:110px;height:110px;
-  border-radius:50%;background:#c6cbff40;filter:blur(10px);transition:.3s
-}
-.service:hover,.project:hover,.tool:hover,.process-card:hover{
-  transform:translateY(-6px) scale(1.01);box-shadow:0 20px 45px #6573ce20
-}
-.service-icon{
-  width:39px;height:39px;border-radius:13px;display:grid;place-items:center;
-  background:linear-gradient(145deg,#fff,#e1e5ff);border:1px solid white;
-  color:var(--blue);font-size:19px;margin-bottom:17px
-}
-.service h3{font-size:14px;margin-bottom:8px;letter-spacing:-.4px}
-.service p{font-size:10px;color:var(--muted);line-height:1.8}
-.arrow{float:right;color:var(--blue)}
-.tools{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}
-.tool{padding:17px 10px;border-radius:15px;text-align:center;transition:.3s}
-.tool-icon{
-  width:39px;height:39px;margin:0 auto 10px;border-radius:12px;
-  display:grid;place-items:center;background:linear-gradient(135deg,#6277f5,#ae8dff);
-  color:white;font-weight:800;font-size:12px
-}
-.tool:nth-child(2) .tool-icon{background:linear-gradient(135deg,#ff9d43,#f35c28)}
-.tool:nth-child(3) .tool-icon{background:linear-gradient(135deg,#333d75,#151a32)}
-.tool:nth-child(4) .tool-icon{background:linear-gradient(135deg,#16ad9c,#8ad9c9)}
-.tool:nth-child(5) .tool-icon{background:linear-gradient(135deg,#4e8aff,#9b8cff)}
-.tool span{font-size:10px;color:#59617e}
-.projects{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.project{border-radius:16px;overflow:hidden;transition:.3s}
-.project-art{
-  height:150px;display:grid;place-items:center;position:relative;
-  overflow:hidden;background:linear-gradient(140deg,#171b35,#4b4eb5)
-}
-.project:nth-child(2) .project-art{background:linear-gradient(140deg,#47177a,#dd79f2)}
-.project:nth-child(3) .project-art{background:linear-gradient(140deg,#f5f0e5,#bad3c0)}
-.project:nth-child(4) .project-art{background:linear-gradient(140deg,#252839,#858ba8)}
-.project:nth-child(5) .project-art{background:linear-gradient(140deg,#dceeff,#888df5)}
-.project-art:before{
-  content:"";position:absolute;width:115px;height:115px;border:1px solid #ffffff9c;
-  transform:rotate(30deg);border-radius:24px;transition:.6s
-}
+.service{padding:19px;border-radius:17px;min-height:176px;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden}
+.service:after{content:"";position:absolute;inset:auto -35px -65px auto;width:110px;height:110px;border-radius:50%;background:#c6cbff40;filter:blur(10px);transition:.3s}
+.service:hover,.project:hover,.tool:hover,.process-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 20px 45px #6573ce20}
+.service-icon{width:39px;height:39px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#e1e5ff);border:1px solid white;color:var(--blue);font-size:19px;margin-bottom:17px}
+.service h3{font-size:14px;margin-bottom:8px;letter-spacing:-.4px}.service p{font-size:10px;color:var(--muted);line-height:1.8}.arrow{float:right;color:var(--blue)}
+.tools{display:grid;grid-template-columns:repeat(6,1fr);gap:11px}.tool{padding:17px 10px;border-radius:15px;text-align:center;transition:.3s}
+.tool-icon{width:39px;height:39px;margin:0 auto 10px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#6277f5,#ae8dff);color:white;font-weight:800;font-size:12px}
+.tool:nth-child(2) .tool-icon{background:linear-gradient(135deg,#ff9d43,#f35c28)}.tool:nth-child(3) .tool-icon{background:linear-gradient(135deg,#333d75,#151a32)}.tool:nth-child(4) .tool-icon{background:linear-gradient(135deg,#16ad9c,#8ad9c9)}.tool:nth-child(5) .tool-icon{background:linear-gradient(135deg,#4e8aff,#9b8cff)}.tool span{font-size:10px;color:#59617e}
+.projects{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.project{border-radius:16px;overflow:hidden;transition:.3s}
+.project-art{height:150px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(140deg,#171b35,#4b4eb5)}
+.project:nth-child(2) .project-art{background:linear-gradient(140deg,#47177a,#dd79f2)}.project:nth-child(3) .project-art{background:linear-gradient(140deg,#f5f0e5,#bad3c0)}.project:nth-child(4) .project-art{background:linear-gradient(140deg,#252839,#858ba8)}.project:nth-child(5) .project-art{background:linear-gradient(140deg,#dceeff,#888df5)}
+.project-art:before{content:"";position:absolute;width:115px;height:115px;border:1px solid #ffffff9c;transform:rotate(30deg);border-radius:24px;transition:.6s}
 .project:hover .project-art:before{transform:rotate(120deg) scale(1.25)}
-.project-art strong{
-  font:800 25px Manrope;letter-spacing:-1px;color:white;
-  text-align:center;z-index:1;text-shadow:0 5px 20px #0002
-}
-.project:nth-child(3) .project-art strong{color:#334338}
-.project-info{padding:13px;background:#ffffffa8}
-.project-info h3{font-size:11px;margin-bottom:5px}
-.project-info p{font-size:9px;color:var(--muted)}
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.process-card{padding:19px;border-radius:16px;min-height:150px;transition:.3s}
-.step{display:flex;align-items:center;gap:9px;color:var(--blue);font-size:10px;font-weight:700}
-.step b{height:29px;width:29px;display:grid;place-items:center;background:#e8eaff;border-radius:10px}
-.process-card h3{font-size:14px;margin:18px 0 8px}
-.process-card p{font-size:10px;color:var(--muted);line-height:1.8}
-.contact{
-  padding:30px;border-radius:24px;display:grid;
-  grid-template-columns:.85fr 1.15fr;gap:30px;align-items:center
-}
-.contact h2{font-size:clamp(29px,3.4vw,41px);letter-spacing:-2px;line-height:1.08;margin:10px 0 13px}
-.contact p{font-size:12px;color:var(--muted);line-height:1.9}
-.contact-list{display:grid;gap:12px;margin-top:22px}
-.contact-list a{display:flex;gap:10px;align-items:center;font-size:11px;color:#535b7b;overflow-wrap:anywhere}
-.contact-list b{
-  height:29px;width:29px;border-radius:10px;background:white;
-  display:grid;place-items:center;color:var(--blue);flex-shrink:0
-}
-form{display:grid;gap:11px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-input,select,textarea{
-  width:100%;min-width:0;padding:13px;border:1px solid white;border-radius:11px;
-  background:#ffffffad;color:var(--ink);font-size:11px;outline:none
-}
-textarea{min-height:100px;resize:vertical}
-input:focus,select:focus,textarea:focus{border-color:#9faaff;box-shadow:0 0 0 3px #aeb8ff30}
-form button{
-  padding:14px;border:0;border-radius:11px;background:#151a32;color:white;
-  font-weight:700;font-size:11px;cursor:pointer;transition:.25s
-}
-form button:hover{background:var(--blue);transform:translateY(-2px)}
-.form-note{font-size:10px;color:var(--muted);line-height:1.6}
-footer{padding:25px 0 30px}
-.footer-inner{
-  border-top:1px solid white;padding-top:20px;display:flex;
-  align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap
-}
-.footer-links{display:flex;gap:13px;flex-wrap:wrap}
-.footer-links a{font-size:10px;color:var(--muted)}
-.footer-links a:hover{color:var(--blue)}
-.copyright{font-size:9px;color:#8c93ac}
+.project-art strong{font:800 25px Manrope;letter-spacing:-1px;color:white;text-align:center;z-index:1;text-shadow:0 5px 20px #0002}.project:nth-child(3) .project-art strong{color:#334338}
+.project-info{padding:13px;background:#ffffffa8}.project-info h3{font-size:11px;margin-bottom:5px}.project-info p{font-size:9px;color:var(--muted)}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.process-card{padding:19px;border-radius:16px;min-height:150px;transition:.3s}
+.step{display:flex;align-items:center;gap:9px;color:var(--blue);font-size:10px;font-weight:700}.step b{height:29px;width:29px;display:grid;place-items:center;background:#e8eaff;border-radius:10px}
+.process-card h3{font-size:14px;margin:18px 0 8px}.process-card p{font-size:10px;color:var(--muted);line-height:1.8}
+.contact{padding:30px;border-radius:24px;display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:center}
+.contact h2{font-size:clamp(29px,3.4vw,41px);letter-spacing:-2px;line-height:1.08;margin:10px 0 13px}.contact p{font-size:12px;color:var(--muted);line-height:1.9}
+.contact-list{display:grid;gap:12px;margin-top:22px}.contact-list a,.contact-list span,.contact-list button{display:flex;gap:10px;align-items:center;font-size:11px;color:#535b7b;overflow-wrap:anywhere}.contact-list button{border:0;background:transparent;padding:0;text-align:left;cursor:pointer;font-family:inherit}.contact-list button:hover{color:var(--blue)}.contact-reveal-detail{padding:8px 10px;margin:0 0 0 39px;border-radius:10px;background:#ffffffa8;border:1px solid #ffffff;overflow-wrap:anywhere}.contact-reveal-detail[hidden]{display:none}
+.contact-list b{height:29px;width:29px;border-radius:10px;background:white;display:grid;place-items:center;color:var(--blue);flex-shrink:0}
+form{display:grid;gap:11px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+input,select,textarea{width:100%;min-width:0;padding:13px;border:1px solid white;border-radius:11px;background:#ffffffad;color:var(--ink);font-size:11px;outline:none}
+textarea{min-height:100px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:#9faaff;box-shadow:0 0 0 3px #aeb8ff30}
+form button{padding:14px;border:0;border-radius:11px;background:#151a32;color:white;font-weight:700;font-size:11px;cursor:pointer;transition:.25s}
+form button:hover{background:var(--blue);transform:translateY(-2px)}.form-note{font-size:10px;color:var(--muted);line-height:1.6}
+footer{padding:25px 0 30px}.footer-inner{border-top:1px solid white;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:13px;flex-wrap:wrap}.footer-links a{font-size:10px;color:var(--muted)}.footer-links a:hover{color:var(--blue)}.copyright{font-size:9px;color:#8c93ac}
 .reveal{opacity:0;transform:translateY(22px) scale(.99);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0) scale(1)}
-@media(max-width:900px){
-  .nav-links{gap:12px}.nav-links a{font-size:10px}
-  .hero-panel{padding:32px 26px}
-  .about{grid-template-columns:1fr 1fr}.about-art{display:none}
-  .services{grid-template-columns:repeat(2,1fr)}
-  .projects{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:700px){
-  .wrap{width:calc(100% - 26px)}
-  header{width:calc(100% - 18px)}
-  .nav{gap:9px;min-height:59px}
-  .logo{font-size:15px}.logo-mark{width:31px;height:31px}
-  .menu-toggle{display:block}
-  .nav-cta{display:none}
-  .nav-links{
-    display:none;position:absolute;top:65px;left:0;right:0;padding:12px 20px;
-    flex-direction:column;align-items:stretch;gap:0;background:#f5f5ffef;
-    border:1px solid white;border-radius:16px;box-shadow:var(--shadow)
-  }
-  .nav-links.open{display:flex}
-  .nav-links a{padding:12px 0;border-bottom:1px solid #ffffff}
-  #language{max-width:116px;padding:9px 7px;font-size:10px}
-  .hero{padding-top:30px}.hero-panel{padding:28px 20px 12px}
-  .hero-grid{grid-template-columns:1fr}.hero-art{height:305px}
-  .orb{height:175px;width:175px}
-  .orbit{width:230px;height:230px}
-  .orbit.two{width:190px;height:190px}
-  .orbit.three{width:270px;height:270px}
-  .float-card{padding:10px 12px}
-  .float-card strong{font-size:20px}
-  .section{padding:29px 0}
-  .section-head{align-items:flex-start;flex-direction:column;gap:10px}
-  .about{grid-template-columns:1fr;padding:22px}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .stat{padding:10px}.stat strong{font-size:14px}.stat span{font-size:9px}
-  .services{gap:9px}.service{padding:14px;min-height:165px}
-  .service h3{font-size:12px}
-  .tools{grid-template-columns:repeat(3,1fr)}
-  .projects{grid-template-columns:repeat(2,1fr)}
-  .project-art{height:125px}
-  .process{grid-template-columns:repeat(2,1fr)}
-  .contact{grid-template-columns:1fr;padding:22px}
-  .footer-inner{align-items:flex-start;flex-direction:column}
-}
-@media(max-width:390px){
-  h1{font-size:41px;letter-spacing:-2px}
-  .services,.projects{grid-template-columns:1fr}
-  .service{min-height:140px}
-  .tools{grid-template-columns:repeat(2,1fr)}
-  .form-row,.stats{grid-template-columns:1fr}
-  .project-art{height:155px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .reveal{opacity:1;transform:none}
-}
+@media(max-width:900px){.nav-links{gap:12px}.nav-links a{font-size:10px}.hero-panel{padding:32px 26px}.about{grid-template-columns:1fr 1fr}.about-art{display:none}.services{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.wrap{width:calc(100% - 26px)}header{width:calc(100% - 18px)}.nav{gap:9px;min-height:59px}.logo{font-size:15px}.logo-mark{width:31px;height:31px}.menu-toggle{display:block}.nav-cta{display:none}.nav-links{display:none;position:absolute;top:65px;left:0;right:0;padding:12px 20px;flex-direction:column;align-items:stretch;gap:0;background:#f5f5ffef;border:1px solid white;border-radius:16px;box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid #ffffff}#language{max-width:116px;padding:9px 7px;font-size:10px}.hero{padding-top:30px}.hero-panel{padding:28px 20px 12px}.hero-grid{grid-template-columns:1fr}.hero-art{height:305px}.orb{height:175px;width:175px}.orbit{width:230px;height:230px}.orbit.two{width:190px;height:190px}.orbit.three{width:270px;height:270px}.float-card{padding:10px 12px}.float-card strong{font-size:20px}.section{padding:29px 0}.section-head{align-items:flex-start;flex-direction:column;gap:10px}.about{grid-template-columns:1fr;padding:22px}.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:10px}.stat strong{font-size:14px}.stat span{font-size:9px}.services{gap:9px}.service{padding:14px;min-height:165px}.service h3{font-size:12px}.tools{grid-template-columns:repeat(3,1fr)}.projects{grid-template-columns:repeat(2,1fr)}.project-art{height:125px}.process{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr;padding:22px}.footer-inner{align-items:flex-start;flex-direction:column}}
+@media(max-width:390px){h1{font-size:41px;letter-spacing:-2px}.services,.projects{grid-template-columns:1fr}.service{min-height:140px}.tools{grid-template-columns:repeat(2,1fr)}.form-row,.stats{grid-template-columns:1fr}.project-art{height:155px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
-
 <body>
-<div class="ambient one"></div>
-<div class="ambient two"></div>
-<div class="progress" id="progress"></div>
-
-<header class="glass">
-  <div class="nav">
-    <a class="logo" href="index.html" aria-label="DESIGNER197 Home">
-      <span class="logo-mark">D</span><span>designer<b>197</b></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a><a href="#about">About</a>
-      <a href="#services">Services</a><a href="#work">Work</a>
-      <a href="#process">Process</a><a href="#contact">Contact</a>
-    </nav>
-    <div class="lang-wrap">
-      <span>🌐</span>
-      <select id="language" aria-label="Select website language">
-        <option value="en">🇬🇧 English</option>
-        <option value="hi">🇮🇳 हिन्दी</option>
-        <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="zh">🇨🇳 简体中文</option>
-        <option value="en-CA">🇨🇦 English (Canada)</option>
-        <option value="fr-CA">🇨🇦 Français (Canada)</option>
-      </select>
-    </div>
-  </div>
-</header>
-
+<div class="ambient one"></div><div class="ambient two"></div><div class="progress" id="progress"></div>
+<header class="glass"><div class="nav">
+<a class="logo" href="index.html" aria-label="DESIGNER197 Home"><span class="logo-mark">D</span><span>designer<b>197</b></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+<nav class="nav-links" id="navLinks">
+<a href="#home" data-i18n="navHome">Home</a><a href="#about" data-i18n="navAbout">About</a><a href="#services" data-i18n="navServices">Services</a><a href="#work" data-i18n="navWork">Work</a><a href="#process" data-i18n="navProcess">Process</a><a href="#contact" data-i18n="navContact">Contact</a>
+</nav>
+<div class="lang-wrap"><span>🌐</span><select id="language" aria-label="Select website language">
+<option value="en">🇬🇧 English</option><option value="hi">🇮🇳 हिन्दी</option><option value="pa">🇮🇳 ਪੰਜਾਬੀ</option><option value="fr">🇫🇷 Français</option><option value="zh">🇨🇳 简体中文</option><option value="en-CA">🇨🇦 English (Canada)</option><option value="fr-CA">🇨🇦 Français (Canada)</option>
+</select></div>
+</div></header>
 <main>
-<section class="hero" id="home">
-  <div class="wrap hero-panel glass">
-    <div class="hero-grid">
-      <div>
-        <div class="mono">HELLO, I'M</div>
-        <h1>Harsh Chawla</h1>
-        <h2 class="gradient">Graphic Designer</h2>
-        <p class="hero-copy">I create bold visual identities, memorable campaigns and thoughtful graphic design that helps brands stand out with purpose.</p>
-        <div class="actions">
-          <a class="pill primary" href="#work">View My Work ↗</a>
-          <a class="pill" href="https://www.behance.net/harshchawla8" target="_blank" rel="noopener noreferrer">Explore Portfolio ↗</a>
-        </div>
-        <div class="focus">
-          <small class="mono">CREATIVE FOCUS</small>
-          <div class="focus-row"><span>Branding</span><span>Social Media</span><span>Packaging</span><span>Print Design</span></div>
-        </div>
-      </div>
-      <div class="hero-art" aria-label="Animated 3D DESIGNER197 orb">
-        <div class="art-glow"></div><div class="orbit"></div>
-        <div class="orbit two"></div><div class="orbit three"></div><div class="orb"></div>
-        <div class="float-card glass float-a"><strong>197</strong><small>Creative<br>Identity</small></div>
-        <div class="float-card glass float-b"><strong>∞</strong><small>Ideas into<br>visuals</small></div>
-        <div class="float-card glass float-c"><strong>01</strong><small>Design with<br>purpose</small></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="wrap about glass reveal">
-    <div>
-      <div class="mono">ABOUT ME</div>
-      <h2>Designing visuals<br>with <span class="gradient">purpose.</span></h2>
-      <p>I'm Harsh Chawla, a graphic designer behind DESIGNER197. I focus on brand identity, social media creatives, packaging, print design and visual storytelling.</p>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong>Branding</strong><span>Identity & guidelines</span></div>
-      <div class="stat"><strong>Campaigns</strong><span>Promotional visuals</span></div>
-      <div class="stat"><strong>Print + Digital</strong><span>Designed for every format</span></div>
-    </div>
-    <div class="about-art"><span>H.</span></div>
-  </div>
-</section>
-
-<section class="section" id="services">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="mono">WHAT I DO</div><h2>Creative Services</h2></div>
-      <p>Visual solutions for every stage of your brand journey.</p>
-    </div>
-    <div class="services">
-      <a class="service glass reveal" href="logo-branding.html">
-        <div class="service-icon">◇</div><span class="arrow">↗</span>
-        <h3>Logo & Branding</h3><p>Distinctive logos, visual identities, brand systems and guidelines.</p>
-      </a>
-      <a class="service glass reveal" href="Social%20Media%20Design.html">
-        <div class="service-icon">▧</div><span class="arrow">↗</span>
-        <h3>Social Media Design</h3><p>Campaign creatives, promotional posts, launches and sale graphics.</p>
-      </a>
-      <div class="service glass reveal">
-        <div class="service-icon">⬡</div><h3>Packaging Design</h3>
-        <p>Product packaging concepts, labels and shelf-ready visuals.</p>
-      </div>
-      <div class="service glass reveal">
-        <div class="service-icon">▤</div><h3>Catalogue & Print</h3>
-        <p>Catalogues, brochures, business cards and print assets.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="tools">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="mono">TOOLS & SKILLS</div><h2>Creative Tools I Use</h2></div>
-      <p>Tools that help turn ideas into polished visual work.</p>
-    </div>
-    <div class="tools">
-      <div class="tool glass reveal"><div class="tool-icon">Ps</div><span>Photoshop</span></div>
-      <div class="tool glass reveal"><div class="tool-icon">Ai</div><span>Illustrator</span></div>
-      <div class="tool glass reveal"><div class="tool-icon">Id</div><span>InDesign</span></div>
-      <div class="tool glass reveal"><div class="tool-icon">C</div><span>Canva</span></div>
-      <div class="tool glass reveal"><div class="tool-icon">&lt;/&gt;</div><span>Web Design</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="work">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="mono">FEATURED PROJECTS</div><h2>Selected Work</h2></div>
-      <a class="pill" href="https://www.behance.net/harshchawla8" target="_blank" rel="noopener noreferrer">View Portfolio ↗</a>
-    </div>
-    <div class="projects">
-      <a class="project glass reveal" href="logo-branding.html">
-        <div class="project-art"><strong>BRAND<br>IDENTITY</strong></div>
-        <div class="project-info"><h3>Brand Identity</h3><p>Logo & Branding</p></div>
-      </a>
-      <a class="project glass reveal" href="Social%20Media%20Design.html">
-        <div class="project-art"><strong>BIG<br>SALE!</strong></div>
-        <div class="project-info"><h3>Social Campaign</h3><p>Social Media Design</p></div>
-      </a>
-      <div class="project glass reveal">
-        <div class="project-art"><strong>PURE<br>FORM</strong></div>
-        <div class="project-info"><h3>Packaging Concept</h3><p>Packaging Design</p></div>
-      </div>
-      <div class="project glass reveal">
-        <div class="project-art"><strong>PRINT<br>STUDIO</strong></div>
-        <div class="project-info"><h3>Print Layout</h3><p>Catalogue & Print</p></div>
-      </div>
-      <a class="project glass reveal" href="project-preview.html">
-        <div class="project-art"><strong>DIGITAL<br>WORLD</strong></div>
-        <div class="project-info"><h3>Website Concept</h3><p>Web Projects</p></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="process">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="mono">MY PROCESS</div><h2>From Idea to Impact</h2></div>
-      <p>A clear process to turn your vision into something memorable.</p>
-    </div>
-    <div class="process">
-      <a class="process-card glass reveal" href="discover.html">
-        <div class="step"><b>01</b><span>DISCOVER</span></div>
-        <h3>Discover</h3><p>Understand your goals, audience and needs.</p>
-      </a>
-      <a class="process-card glass reveal" href="direction.html">
-        <div class="step"><b>02</b><span>DIRECTION</span></div>
-        <h3>Direction</h3><p>Set the visual direction, mood and concept.</p>
-      </a>
-      <a class="process-card glass reveal" href="estimate.html">
-        <div class="step"><b>03</b><span>ESTIMATE</span></div>
-        <h3>Project Estimate</h3>
-        <p>Get a project estimate based on your design requirements.</p>
-      </a>
-      <a class="process-card glass reveal" href="deliver.html">
-        <div class="step"><b>04</b><span>DELIVER</span></div>
-        <h3>Deliver</h3><p>Prepare final files for a smooth handover.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <div class="wrap contact glass reveal">
-    <div>
-      <div class="mono">LET'S CONNECT</div>
-      <h2>Have a project<br>in mind?</h2>
-      <p>Tell me what you're creating. Let's discuss your graphic design, branding or campaign requirements.</p>
-      <div class="contact-list">
-        <a href="https://wa.me/919810851024" target="_blank" rel="noopener noreferrer"><b>◔</b>WhatsApp</a>
-        <a href="https://www.instagram.com/harshchawa614/" target="_blank" rel="noopener noreferrer"><b>◎</b>Instagram</a>
-        <a href="mailto:dgraphic197@gmail.com"><b>✉</b>Email</a>
-      </div>
-    </div>
-    <div>
-      <form id="contactForm">
-        <div class="form-row">
-          <input id="name" name="name" placeholder="Your name" required>
-          <input id="email" name="email" type="email" placeholder="Your email" required>
-        </div>
-        <select id="project" name="project" required>
-          <option value="">Choose a service</option>
-          <option>Logo & Branding</option>
-          <option>Social Media Design</option>
-          <option>Packaging Design</option>
-          <option>Catalogue & Print</option>
-          <option>Photo Editing</option>
-          <option>Web Projects</option>
-          <option>Other</option>
-        </select>
-        <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-        <button type="submit">Send Project Inquiry via WhatsApp ↗</button>
-        <div class="form-note">WhatsApp opens with your inquiry prepared. Press Send in WhatsApp to deliver it.</div>
-      </form>
-    </div>
-  </div>
-</section>
+<section class="hero" id="home"><div class="wrap hero-panel glass"><div class="hero-grid"><div>
+<div class="mono" data-i18n="hello">HELLO, I'M</div><h1>Harsh Chawla</h1><h2 class="gradient" data-i18n="role">Graphic Designer</h2>
+<p class="hero-copy" data-i18n="heroCopy">I create bold visual identities, memorable campaigns and thoughtful graphic design that helps brands stand out with purpose.</p>
+<div class="actions"><a class="pill primary" href="#work"><span data-i18n="viewWork">View My Work</span> ↗</a><a class="pill" href="https://www.behance.net/harshchawla8" target="_blank" rel="noopener noreferrer"><span data-i18n="portfolio">Explore Portfolio</span> ↗</a></div>
+<div class="focus"><small class="mono" data-i18n="focus">CREATIVE FOCUS</small><div class="focus-row"><span data-i18n="branding">Branding</span><span data-i18n="social">Social Media</span><span data-i18n="packaging">Packaging</span><span data-i18n="print">Print Design</span></div></div>
+</div><div class="hero-art" aria-label="Animated 3D DESIGNER197 orb"><div class="art-glow"></div><div class="orbit"></div><div class="orbit two"></div><div class="orbit three"></div><div class="orb"></div>
+<div class="float-card glass float-a"><strong>197</strong><small data-i18n="creativeIdentity">Creative<br>Identity</small></div><div class="float-card glass float-b"><strong>∞</strong><small data-i18n="ideasVisuals">Ideas into<br>visuals</small></div><div class="float-card glass float-c"><strong>01</strong><small data-i18n="designPurpose">Design with<br>purpose</small></div></div></div></div></section>
+<section class="section" id="about"><div class="wrap about glass reveal"><div><div class="mono" data-i18n="aboutLabel">ABOUT ME</div><h2 data-i18n="aboutTitle">Designing visuals<br>with <span class="gradient">purpose.</span></h2><p data-i18n="aboutCopy">I'm Harsh Chawla, a graphic designer behind DESIGNER197. I focus on brand identity, social media creatives, packaging, print design and visual storytelling.</p></div>
+<div class="stats"><div class="stat"><strong data-i18n="brandIdentity">Branding</strong><span data-i18n="brandSub">Identity & guidelines</span></div><div class="stat"><strong data-i18n="campaigns">Campaigns</strong><span data-i18n="campaignSub">Promotional visuals</span></div><div class="stat"><strong data-i18n="digitalPrint">Print + Digital</strong><span data-i18n="digitalSub">Designed for every format</span></div></div><div class="about-art"><span>H.</span></div></div></section>
+<section class="section" id="services"><div class="wrap"><div class="section-head reveal"><div><div class="mono" data-i18n="servicesLabel">WHAT I DO</div><h2 data-i18n="servicesTitle">Creative Services</h2></div><p data-i18n="servicesIntro">Visual solutions for every stage of your brand journey.</p></div>
+<div class="services"><a class="service glass reveal" href="logo-branding.html"><div class="service-icon">◇</div><span class="arrow">↗</span><h3 data-i18n="logoService">Logo & Branding</h3><p data-i18n="logoDesc">Distinctive logos, visual identities, brand systems and guidelines.</p></a>
+<a class="service glass reveal" href="Social%20Media%20Design.html"><div class="service-icon">▧</div><span class="arrow">↗</span><h3 data-i18n="socialService">Social Media Design</h3><p data-i18n="socialDesc">Campaign creatives, promotional posts, launches and sale graphics.</p></a>
+<div class="service glass reveal"><div class="service-icon">⬡</div><h3 data-i18n="packService">Packaging Design</h3><p data-i18n="packDesc">Product packaging concepts, labels and shelf-ready visuals.</p></div>
+<div class="service glass reveal"><div class="service-icon">▤</div><h3 data-i18n="printService">Catalogue & Print</h3><p data-i18n="printDesc">Catalogues, brochures, business cards and print assets.</p></div></div></div></section>
+<section class="section" id="tools"><div class="wrap"><div class="section-head reveal"><div><div class="mono" data-i18n="toolsLabel">TOOLS & SKILLS</div><h2 data-i18n="toolsTitle">Creative Tools I Use</h2></div><p data-i18n="toolsIntro">Tools that help turn ideas into polished visual work.</p></div>
+<div class="tools"><div class="tool glass reveal"><div class="tool-icon">Ps</div><span>Photoshop</span></div><div class="tool glass reveal"><div class="tool-icon">Ai</div><span>Illustrator</span></div><div class="tool glass reveal"><div class="tool-icon">Id</div><span>InDesign</span></div><div class="tool glass reveal"><div class="tool-icon">C</div><span>Canva</span></div><div class="tool glass reveal"><div class="tool-icon">&lt;/&gt;</div><span data-i18n="webDesign">Web Design</span></div><div class="tool glass reveal"><div class="tool-icon">CDR</div><span>CorelDRAW</span></div></div></div></section>
+<section class="section" id="work"><div class="wrap"><div class="section-head reveal"><div><div class="mono" data-i18n="workLabel">FEATURED PROJECTS</div><h2 data-i18n="workTitle">Selected Work</h2></div><a class="pill" href="https://www.behance.net/harshchawla8" target="_blank" rel="noopener noreferrer"><span data-i18n="allProjects">View Portfolio</span> ↗</a></div>
+<div class="projects"><a class="project glass reveal" href="logo-branding.html"><div class="project-art"><strong>BRAND<br>IDENTITY</strong></div><div class="project-info"><h3 data-i18n="brandProject">Brand Identity</h3><p data-i18n="logoService">Logo & Branding</p></div></a>
+<a class="project glass reveal" href="Social%20Media%20Design.html"><div class="project-art"><strong>BIG<br>SALE!</strong></div><div class="project-info"><h3 data-i18n="socialProject">Social Campaign</h3><p data-i18n="socialService">Social Media Design</p></div></a>
+<div class="project glass reveal"><div class="project-art"><strong>PURE<br>FORM</strong></div><div class="project-info"><h3 data-i18n="packProject">Packaging Concept</h3><p data-i18n="packService">Packaging Design</p></div></div>
+<div class="project glass reveal"><div class="project-art"><strong>PRINT<br>STUDIO</strong></div><div class="project-info"><h3 data-i18n="printProject">Print Layout</h3><p data-i18n="printService">Catalogue & Print</p></div></div>
+<a class="project glass reveal" href="project-preview.html"><div class="project-art"><strong>DIGITAL<br>WORLD</strong></div><div class="project-info"><h3 data-i18n="webProject">Website Concept</h3><p data-i18n="webProjects">Web Projects</p></div></a></div></div></section>
+<section class="section" id="process"><div class="wrap"><div class="section-head reveal"><div><div class="mono" data-i18n="processLabel">MY PROCESS</div><h2 data-i18n="processTitle">From Idea to Impact</h2></div><p data-i18n="processIntro">A clear process to turn your vision into something memorable.</p></div>
+<div class="process"><a class="process-card glass reveal" href="discover.html"><div class="step"><b>01</b><span data-i18n="stepOne">DISCOVER</span></div><h3 data-i18n="discoverTitle">Discover</h3><p data-i18n="discoverDesc">Understand your goals, audience and needs.</p></a>
+<a class="process-card glass reveal" href="direction.html"><div class="step"><b>02</b><span data-i18n="stepTwo">DIRECTION</span></div><h3 data-i18n="directionTitle">Direction</h3><p data-i18n="directionDesc">Set the visual direction, mood and concept.</p></a>
+<a class="process-card glass reveal" href="design-tool.html"><div class="step"><b>03</b><span data-i18n="stepThree">DESIGN</span></div><h3 data-i18n="designTitle">Design</h3><p data-i18n="designDesc">Create the design and refine important details.</p></a>
+<a class="process-card glass reveal" href="project-preview.html"><div class="step"><b>04</b><span>WEBSITE</span></div><h3>Website</h3><p>Explore website projects and live previews.</p></a></div></div></section>
+<section class="section" id="contact"><div class="wrap contact glass reveal"><div><div class="mono" data-i18n="contactLabel">LET'S CONNECT</div><h2 data-i18n="contactTitle">Have a project<br>in mind?</h2><p data-i18n="contactIntro">Tell me what you're creating. Let's discuss your graphic design, branding or campaign requirements.</p>
+<div class="contact-list"><button type="button" class="contact-choice" data-reveal-contact="phone" aria-expanded="false"><b>☎</b><span>Show Phone Number</span></button><p class="contact-reveal-detail" id="contact-phone" hidden><a href="tel:+919810851024">+91 98108 51024 ↗</a></p><a href="https://wa.me/919810851024" target="_blank" rel="noopener noreferrer"><b>◔</b>WhatsApp</a><button type="button" data-reveal-contact="instagram" aria-expanded="false"><b>◎</b><span>Show Instagram</span></button><p class="contact-reveal-detail" id="contact-instagram" hidden><a href="https://www.instagram.com/harshchawa614/" target="_blank" rel="noopener noreferrer">@harshchawa614 ↗</a></p><button type="button" data-reveal-contact="email" aria-expanded="false"><b>✉</b><span>Show Gmail</span></button><p class="contact-reveal-detail" id="contact-email" hidden><a href="mailto:dgraphic197@gmail.com">dgraphic197@gmail.com ↗</a></p></div></div>
+<div><form id="contactForm"><div class="form-row"><input id="name" name="name" placeholder="Your name" data-placeholder="namePlaceholder" required><input id="email" name="email" type="email" placeholder="Your email" data-placeholder="emailPlaceholder" required></div>
+<select id="project" name="project" required><option value="" data-i18n="chooseService">Choose a service</option><option>Logo & Branding</option><option>Social Media Design</option><option>Packaging Design</option><option>Catalogue & Print</option><option>Photo Editing</option><option>Web Projects</option><option>Other</option></select>
+<textarea id="message" name="message" placeholder="Tell me about your project..." data-placeholder="messagePlaceholder" required></textarea><button type="submit" data-i18n="sendInquiry">Send Project Inquiry via WhatsApp ↗</button><div class="form-note" data-i18n="formNote">WhatsApp opens with your inquiry prepared. Press Send in WhatsApp to deliver it.</div></form></div></div></section>
 </main>
-
-<footer>
-  <div class="wrap footer-inner">
-    <a class="logo" href="index.html"><span class="logo-mark">D</span><span>designer<b>197</b></span></a>
-    <nav class="footer-links">
-      <a href="deliver.html">Deliver</a>
-      <a href="design-tool.html">Design Tool</a>
-      <a href="Social%20Media%20Design.html">Social Media Design</a>
-      <a href="direction.html">Direction</a>
-      <a href="discover.html">Discover</a>
-      <a href="estimate.html">Project Estimate</a>
-      <a href="logo-branding.html">Logo & Branding</a>
-      <a href="project-preview.html">Web Projects</a>
-    </nav>
-    <div class="copyright">© <span id="year"></span> designer197 · Harsh Chawla</div>
-  </div>
-</footer>
-
+<footer><div class="wrap footer-inner"><a class="logo" href="index.html"><span class="logo-mark">D</span><span>designer<b>197</b></span></a><nav class="footer-links"><a href="deliver.html" data-i18n="deliverTitle">Deliver</a><a href="design-tool.html" data-i18n="designTool">Design Tool</a><a href="Social%20Media%20Design.html" data-i18n="socialService">Social Media Design</a><a href="direction.html" data-i18n="directionTitle">Direction</a><a href="discover.html" data-i18n="discoverTitle">Discover</a><a href="estimate.html" data-i18n="estimate">Project Estimate</a><a href="logo-branding.html" data-i18n="logoService">Logo & Branding</a><a href="project-preview.html" data-i18n="webProjects">Web Projects</a></nav><div class="copyright">© <span id="year"></span> designer197 · Harsh Chawla</div></div></footer>
 <script>
-const languageSelect = document.getElementById("language");
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-menuToggle.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.textContent = open ? "✕" : "☰";
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.textContent = "☰";
-  });
-});
-
-const progress = document.getElementById("progress");
-function updateProgress() {
-  const max = document.documentElement.scrollHeight - innerHeight;
-  progress.style.width = (max > 0 ? scrollY / max * 100 : 0) + "%";
-}
-addEventListener("scroll", updateProgress, {passive:true});
-updateProgress();
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.12});
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-} else {
-  document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
-}
-
-document.getElementById("contactForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const project = document.getElementById("project").value;
-  const message = document.getElementById("message").value.trim();
-
-  const body = `Hello Harsh! I have a project inquiry for DESIGNER197.
-
-Name: ${name}
-Email: ${email}
-Project: ${project}
-
-Message:
-${message}`;
-
-  const url = "https://wa.me/919810851024?text=" + encodeURIComponent(body);
-  window.open(url, "_blank", "noopener,noreferrer");
-});
-
-const translations = {
-  en: {
-    stepThree:"ESTIMATE",
-    estimateTitle:"Project Estimate",
-    estimateDesc:"Get a project estimate based on your design requirements."
-  },
-  hi: {
-    stepThree:"अनुमान",
-    estimateTitle:"प्रोजेक्ट का अनुमान",
-    estimateDesc:"अपनी डिज़ाइन की ज़रूरतों के अनुसार प्रोजेक्ट का अनुमान पाएँ।"
-  },
-  pa: {
-    stepThree:"ਅੰਦਾਜ਼ਾ",
-    estimateTitle:"ਪ੍ਰੋਜੈਕਟ ਦਾ ਅੰਦਾਜ਼ਾ",
-    estimateDesc:"ਆਪਣੀਆਂ ਡਿਜ਼ਾਈਨ ਲੋੜਾਂ ਅਨੁਸਾਰ ਪ੍ਰੋਜੈਕਟ ਦਾ ਅੰਦਾਜ਼ਾ ਲਵੋ।"
-  },
-  fr: {
-    stepThree:"ESTIMATION",
-    estimateTitle:"Estimation du projet",
-    estimateDesc:"Obtenez une estimation selon vos besoins en design."
-  },
-  zh: {
-    stepThree:"项目估价",
-    estimateTitle:"项目估价",
-    estimateDesc:"根据您的设计需求获取项目估价。"
-  }
+const translations={
+en:{navHome:"Home",navAbout:"About",navServices:"Services",navWork:"Work",navProcess:"Process",navContact:"Contact",hello:"HELLO, I'M",role:"Graphic Designer",heroCopy:"I create bold visual identities, memorable campaigns and thoughtful graphic design that helps brands stand out with purpose.",viewWork:"View My Work",portfolio:"Explore Portfolio",focus:"CREATIVE FOCUS",branding:"Branding",social:"Social Media",packaging:"Packaging",print:"Print Design",creativeIdentity:"Creative<br>Identity",ideasVisuals:"Ideas into<br>visuals",designPurpose:"Design with<br>purpose",aboutLabel:"ABOUT ME",aboutTitle:'Designing visuals<br>with <span class="gradient">purpose.</span>',aboutCopy:"I'm Harsh Chawla, a graphic designer behind DESIGNER197. I focus on brand identity, social media creatives, packaging, print design and visual storytelling.",brandIdentity:"Branding",brandSub:"Identity & guidelines",campaigns:"Campaigns",campaignSub:"Promotional visuals",digitalPrint:"Print + Digital",digitalSub:"Designed for every format",servicesLabel:"WHAT I DO",servicesTitle:"Creative Services",servicesIntro:"Visual solutions for every stage of your brand journey.",logoService:"Logo & Branding",logoDesc:"Distinctive logos, visual identities, brand systems and guidelines.",socialService:"Social Media Design",socialDesc:"Campaign creatives, promotional posts, launches and sale graphics.",packService:"Packaging Design",packDesc:"Product packaging concepts, labels and shelf-ready visuals.",printService:"Catalogue & Print",printDesc:"Catalogues, brochures, business cards and print assets.",toolsLabel:"TOOLS & SKILLS",toolsTitle:"Creative Tools I Use",toolsIntro:"Tools that help turn ideas into polished visual work.",webDesign:"Web Design",workLabel:"FEATURED PROJECTS",workTitle:"Selected Work",allProjects:"View Portfolio",brandProject:"Brand Identity",socialProject:"Social Campaign",packProject:"Packaging Concept",printProject:"Print Layout",webProject:"Website Concept",webProjects:"Web Projects",processLabel:"MY PROCESS",processTitle:"From Idea to Impact",processIntro:"A clear process to turn your vision into something memorable.",stepOne:"DISCOVER",stepTwo:"DIRECTION",stepThree:"DESIGN",stepFour:"DELIVER",discoverTitle:"Discover",discoverDesc:"Understand your goals, audience and needs.",directionTitle:"Direction",directionDesc:"Set the visual direction, mood and concept.",designTitle:"Design",designDesc:"Create the design and refine important details.",deliverTitle:"Deliver",deliverDesc:"Prepare final files for a smooth handover.",contactLabel:"LET'S CONNECT",contactTitle:"Have a project<br>in mind?",contactIntro:"Tell me what you're creating. Let's discuss your graphic design, branding or campaign requirements.",location:"India",namePlaceholder:"Your name",emailPlaceholder:"Your email",messagePlaceholder:"Tell me about your project...",chooseService:"Choose a service",sendInquiry:"Send Project Inquiry via WhatsApp ↗",formNote:"WhatsApp opens with your inquiry prepared. Press Send in WhatsApp to deliver it.",designTool:"Design Tool",estimate:"Project Estimate",callOption:"Call me"},
+hi:{navHome:"होम",navAbout:"मेरे बारे में",navServices:"सेवाएँ",navWork:"काम",navProcess:"प्रक्रिया",navContact:"संपर्क",hello:"नमस्ते, मैं हूँ",role:"ग्राफ़िक डिज़ाइनर",heroCopy:"मैं ऐसे आकर्षक लोगो, ब्रांड पहचान, प्रचार अभियान और ग्राफ़िक डिज़ाइन बनाता हूँ जो आपके ब्रांड को अलग पहचान देते हैं।",viewWork:"मेरा काम देखें",portfolio:"पोर्टफोलियो देखें",focus:"मेरी रचनात्मक सेवाएँ",branding:"ब्रांडिंग",social:"सोशल मीडिया",packaging:"पैकेजिंग",print:"प्रिंट डिज़ाइन",creativeIdentity:"रचनात्मक<br>पहचान",ideasVisuals:"विचारों से<br>डिज़ाइन",designPurpose:"उद्देश्यपूर्ण<br>डिज़ाइन",aboutLabel:"मेरे बारे में",aboutTitle:'उद्देश्यपूर्ण<br><span class="gradient">डिज़ाइन।</span>',aboutCopy:"मैं हर्ष चावला हूँ और DESIGNER197 के पीछे ग्राफ़िक डिज़ाइनर हूँ। मेरा काम ब्रांड पहचान, सोशल मीडिया क्रिएटिव, पैकेजिंग और प्रिंट डिज़ाइन पर केंद्रित है।",brandIdentity:"ब्रांडिंग",brandSub:"पहचान और दिशानिर्देश",campaigns:"अभियान",campaignSub:"प्रचार सामग्री",digitalPrint:"प्रिंट + डिजिटल",digitalSub:"हर फ़ॉर्मेट के लिए डिज़ाइन",servicesLabel:"मैं क्या करता हूँ",servicesTitle:"रचनात्मक सेवाएँ",servicesIntro:"आपके ब्रांड की ज़रूरतों के लिए दृश्य समाधान।",logoService:"लोगो और ब्रांडिंग",logoDesc:"अलग पहचान वाले लोगो, ब्रांड सिस्टम और दिशानिर्देश।",socialService:"सोशल मीडिया डिज़ाइन",socialDesc:"प्रचार पोस्ट, बिक्री ऑफ़र और अभियान क्रिएटिव।",packService:"पैकेजिंग डिज़ाइन",packDesc:"उत्पाद पैकेजिंग, लेबल और आकर्षक उत्पाद डिज़ाइन।",printService:"कैटलॉग और प्रिंट",printDesc:"कैटलॉग, ब्रोशर, बिज़नेस कार्ड और प्रिंट सामग्री।",toolsLabel:"टूल्स और कौशल",toolsTitle:"मेरे डिज़ाइन टूल्स",toolsIntro:"विचारों को बेहतर डिज़ाइन में बदलने वाले टूल्स।",webDesign:"वेब डिज़ाइन",workLabel:"प्रमुख प्रोजेक्ट",workTitle:"चुना हुआ काम",allProjects:"पोर्टफोलियो देखें",brandProject:"ब्रांड पहचान",socialProject:"सोशल अभियान",packProject:"पैकेजिंग कॉन्सेप्ट",printProject:"प्रिंट लेआउट",webProject:"वेबसाइट कॉन्सेप्ट",webProjects:"वेब प्रोजेक्ट",processLabel:"मेरी प्रक्रिया",processTitle:"विचार से परिणाम तक",processIntro:"आपके विचार को प्रभावशाली डिज़ाइन में बदलने की स्पष्ट प्रक्रिया।",stepOne:"खोज",stepTwo:"दिशा",stepThree:"डिज़ाइन",stepFour:"डिलीवरी",discoverTitle:"खोज",discoverDesc:"आपके लक्ष्य, दर्शक और ज़रूरतें समझना।",directionTitle:"दिशा",directionDesc:"डिज़ाइन की शैली और अवधारणा तय करना।",designTitle:"डिज़ाइन",designDesc:"डिज़ाइन बनाना और विवरण बेहतर करना।",deliverTitle:"डिलीवरी",deliverDesc:"अंतिम फ़ाइलें तैयार करके देना।",contactLabel:"संपर्क करें",contactTitle:"क्या आपके पास<br>कोई प्रोजेक्ट है?",contactIntro:"अपने प्रोजेक्ट के बारे में बताएँ। हम ग्राफ़िक डिज़ाइन, ब्रांडिंग और प्रचार पर चर्चा कर सकते हैं।",location:"भारत",namePlaceholder:"आपका नाम",emailPlaceholder:"आपका ईमेल",messagePlaceholder:"अपने प्रोजेक्ट के बारे में बताएँ...",chooseService:"सेवा चुनें",sendInquiry:"WhatsApp पर पूछताछ भेजें ↗",formNote:"WhatsApp में संदेश तैयार होगा। भेजने के लिए WhatsApp में Send दबाएँ।",designTool:"डिज़ाइन टूल",estimate:"प्रोजेक्ट अनुमान",callOption:"मुझे कॉल करें"},
+pa:{navHome:"ਮੁੱਖ ਪੰਨਾ",navAbout:"ਮੇਰੇ ਬਾਰੇ",navServices:"ਸੇਵਾਵਾਂ",navWork:"ਕੰਮ",navProcess:"ਪ੍ਰਕਿਰਿਆ",navContact:"ਸੰਪਰਕ",hello:"ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ ਹਾਂ",role:"ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨਰ",heroCopy:"ਮੈਂ ਅਜਿਹੀ ਬ੍ਰਾਂਡ ਪਛਾਣ, ਪ੍ਰਚਾਰ ਮੁਹਿੰਮਾਂ ਅਤੇ ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨ ਬਣਾਉਂਦਾ ਹਾਂ ਜੋ ਤੁਹਾਡੇ ਬ੍ਰਾਂਡ ਨੂੰ ਵੱਖਰੀ ਪਛਾਣ ਦਿੰਦੇ ਹਨ।",viewWork:"ਮੇਰਾ ਕੰਮ ਵੇਖੋ",portfolio:"ਪੋਰਟਫੋਲੀਓ ਵੇਖੋ",focus:"ਰਚਨਾਤਮਕ ਖੇਤਰ",branding:"ਬ੍ਰਾਂਡਿੰਗ",social:"ਸੋਸ਼ਲ ਮੀਡੀਆ",packaging:"ਪੈਕੇਜਿੰਗ",print:"ਪ੍ਰਿੰਟ ਡਿਜ਼ਾਈਨ",creativeIdentity:"ਰਚਨਾਤਮਕ<br>ਪਛਾਣ",ideasVisuals:"ਵਿਚਾਰਾਂ ਤੋਂ<br>ਡਿਜ਼ਾਈਨ",designPurpose:"ਮਕਸਦ ਵਾਲਾ<br>ਡਿਜ਼ਾਈਨ",aboutLabel:"ਮੇਰੇ ਬਾਰੇ",aboutTitle:'ਮਕਸਦ ਨਾਲ<br><span class="gradient">ਡਿਜ਼ਾਈਨ।</span>',aboutCopy:"ਮੈਂ ਹਰਸ਼ ਚਾਵਲਾ ਹਾਂ ਅਤੇ DESIGNER197 ਦੇ ਪਿੱਛੇ ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨਰ ਹਾਂ। ਮੇਰਾ ਕੰਮ ਬ੍ਰਾਂਡ ਪਛਾਣ, ਸੋਸ਼ਲ ਮੀਡੀਆ, ਪੈਕੇਜਿੰਗ ਅਤੇ ਪ੍ਰਿੰਟ ਡਿਜ਼ਾਈਨ 'ਤੇ ਕੇਂਦਰਿਤ ਹੈ।",brandIdentity:"ਬ੍ਰਾਂਡਿੰਗ",brandSub:"ਪਛਾਣ ਅਤੇ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼",campaigns:"ਮੁਹਿੰਮਾਂ",campaignSub:"ਪ੍ਰਚਾਰਕ ਡਿਜ਼ਾਈਨ",digitalPrint:"ਪ੍ਰਿੰਟ + ਡਿਜੀਟਲ",digitalSub:"ਹਰ ਫਾਰਮੈਟ ਲਈ ਡਿਜ਼ਾਈਨ",servicesLabel:"ਮੈਂ ਕੀ ਕਰਦਾ ਹਾਂ",servicesTitle:"ਰਚਨਾਤਮਕ ਸੇਵਾਵਾਂ",servicesIntro:"ਤੁਹਾਡੇ ਬ੍ਰਾਂਡ ਲਈ ਦਿੱਖ ਵਾਲੇ ਹੱਲ।",logoService:"ਲੋਗੋ ਅਤੇ ਬ੍ਰਾਂਡਿੰਗ",logoDesc:"ਵੱਖਰੇ ਲੋਗੋ, ਬ੍ਰਾਂਡ ਪਛਾਣ ਅਤੇ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼।",socialService:"ਸੋਸ਼ਲ ਮੀਡੀਆ ਡਿਜ਼ਾਈਨ",socialDesc:"ਪ੍ਰਚਾਰ ਪੋਸਟਾਂ, ਸੇਲ ਗ੍ਰਾਫਿਕਸ ਅਤੇ ਮੁਹਿੰਮਾਂ।",packService:"ਪੈਕੇਜਿੰਗ ਡਿਜ਼ਾਈਨ",packDesc:"ਉਤਪਾਦ ਪੈਕੇਜਿੰਗ, ਲੇਬਲ ਅਤੇ ਉਤਪਾਦ ਡਿਜ਼ਾਈਨ।",printService:"ਕੈਟਾਲਾਗ ਅਤੇ ਪ੍ਰਿੰਟ",printDesc:"ਕੈਟਾਲਾਗ, ਬਰੋਸ਼ਰ, ਬਿਜ਼ਨਸ ਕਾਰਡ ਅਤੇ ਪ੍ਰਿੰਟ ਸਮੱਗਰੀ।",toolsLabel:"ਟੂਲ ਅਤੇ ਹੁਨਰ",toolsTitle:"ਮੇਰੇ ਡਿਜ਼ਾਈਨ ਟੂਲ",toolsIntro:"ਵਿਚਾਰਾਂ ਨੂੰ ਵਧੀਆ ਡਿਜ਼ਾਈਨ ਵਿੱਚ ਬਦਲਣ ਲਈ ਟੂਲ।",webDesign:"ਵੈੱਬ ਡਿਜ਼ਾਈਨ",workLabel:"ਚੁਣੇ ਹੋਏ ਪ੍ਰੋਜੈਕਟ",workTitle:"ਚੁਣਿਆ ਹੋਇਆ ਕੰਮ",allProjects:"ਪੋਰਟਫੋਲੀਓ ਵੇਖੋ",brandProject:"ਬ੍ਰਾਂਡ ਪਛਾਣ",socialProject:"ਸੋਸ਼ਲ ਮੁਹਿੰਮ",packProject:"ਪੈਕੇਜਿੰਗ ਵਿਚਾਰ",printProject:"ਪ੍ਰਿੰਟ ਲੇਆਉਟ",webProject:"ਵੈੱਬਸਾਈਟ ਵਿਚਾਰ",webProjects:"ਵੈੱਬ ਪ੍ਰੋਜੈਕਟ",processLabel:"ਮੇਰੀ ਪ੍ਰਕਿਰਿਆ",processTitle:"ਵਿਚਾਰ ਤੋਂ ਨਤੀਜੇ ਤੱਕ",processIntro:"ਤੁਹਾਡੇ ਵਿਚਾਰ ਨੂੰ ਯਾਦਗਾਰ ਡਿਜ਼ਾਈਨ ਬਣਾਉਣ ਦੀ ਪ੍ਰਕਿਰਿਆ।",stepOne:"ਖੋਜ",stepTwo:"ਦਿਸ਼ਾ",stepThree:"ਡਿਜ਼ਾਈਨ",stepFour:"ਡਿਲਿਵਰੀ",discoverTitle:"ਖੋਜ",discoverDesc:"ਤੁਹਾਡੇ ਟੀਚੇ ਅਤੇ ਲੋੜਾਂ ਨੂੰ ਸਮਝਣਾ।",directionTitle:"ਦਿਸ਼ਾ",directionDesc:"ਡਿਜ਼ਾਈਨ ਦੀ ਸ਼ੈਲੀ ਅਤੇ ਵਿਚਾਰ ਤੈਅ ਕਰਨਾ।",designTitle:"ਡਿਜ਼ਾਈਨ",designDesc:"ਡਿਜ਼ਾਈਨ ਬਣਾਉਣਾ ਅਤੇ ਵੇਰਵਿਆਂ ਨੂੰ ਸੁਧਾਰਨਾ।",deliverTitle:"ਡਿਲਿਵਰੀ",deliverDesc:"ਅੰਤਿਮ ਫਾਈਲਾਂ ਤਿਆਰ ਕਰਕੇ ਦੇਣਾ।",contactLabel:"ਸੰਪਰਕ ਕਰੋ",contactTitle:"ਕੀ ਤੁਹਾਡੇ ਕੋਲ<br>ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਹੈ?",contactIntro:"ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਬਾਰੇ ਦੱਸੋ। ਆਓ ਡਿਜ਼ਾਈਨ ਅਤੇ ਬ੍ਰਾਂਡਿੰਗ ਬਾਰੇ ਗੱਲ ਕਰੀਏ।",location:"ਭਾਰਤ",namePlaceholder:"ਤੁਹਾਡਾ ਨਾਮ",emailPlaceholder:"ਤੁਹਾਡੀ ਈਮੇਲ",messagePlaceholder:"ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਬਾਰੇ ਦੱਸੋ...",chooseService:"ਸੇਵਾ ਚੁਣੋ",sendInquiry:"WhatsApp 'ਤੇ ਪੁੱਛਗਿੱਛ ਭੇਜੋ ↗",formNote:"WhatsApp ਵਿੱਚ ਸੁਨੇਹਾ ਤਿਆਰ ਹੋਵੇਗਾ। ਭੇਜਣ ਲਈ Send ਦਬਾਓ।",designTool:"ਡਿਜ਼ਾਈਨ ਟੂਲ",estimate:"ਪ੍ਰੋਜੈਕਟ ਅੰਦਾਜ਼ਾ",callOption:"ਮੈਨੂੰ ਕਾਲ ਕਰੋ"},
+fr:{navHome:"Accueil",navAbout:"À propos",navServices:"Services",navWork:"Projets",navProcess:"Processus",navContact:"Contact",hello:"BONJOUR, JE SUIS",role:"Graphiste",heroCopy:"Je crée des identités visuelles fortes, des campagnes mémorables et des créations graphiques qui aident les marques à se démarquer.",viewWork:"Voir mes projets",portfolio:"Explorer le portfolio",focus:"DOMAINES CRÉATIFS",branding:"Identité de marque",social:"Réseaux sociaux",packaging:"Emballage",print:"Impression",creativeIdentity:"Identité<br>créative",ideasVisuals:"Des idées<br>en images",designPurpose:"Créer avec<br>un objectif",aboutLabel:"À PROPOS",aboutTitle:'Créer des visuels<br>avec <span class="gradient">intention.</span>',aboutCopy:"Je suis Harsh Chawla, graphiste derrière DESIGNER197. Je me concentre sur l'identité de marque, les créations pour les réseaux sociaux, l'emballage et l'impression.",brandIdentity:"Identité de marque",brandSub:"Identité et directives",campaigns:"Campagnes",campaignSub:"Visuels promotionnels",digitalPrint:"Impression + numérique",digitalSub:"Créations multi-formats",servicesLabel:"MES SERVICES",servicesTitle:"Services créatifs",servicesIntro:"Des solutions visuelles pour chaque étape de votre marque.",logoService:"Logo et identité",logoDesc:"Logos distinctifs, identités visuelles et systèmes de marque.",socialService:"Design pour réseaux sociaux",socialDesc:"Publications promotionnelles, lancements et campagnes.",packService:"Design d'emballage",packDesc:"Concepts d'emballage, étiquettes et visuels produits.",printService:"Catalogue et impression",printDesc:"Catalogues, brochures, cartes de visite et supports imprimés.",toolsLabel:"OUTILS ET COMPÉTENCES",toolsTitle:"Mes outils créatifs",toolsIntro:"Des outils pour transformer les idées en créations abouties.",webDesign:"Design web",workLabel:"PROJETS À LA UNE",workTitle:"Projets sélectionnés",allProjects:"Voir le portfolio",brandProject:"Identité de marque",socialProject:"Campagne sociale",packProject:"Concept d'emballage",printProject:"Mise en page",webProject:"Concept de site",webProjects:"Projets web",processLabel:"MON PROCESSUS",processTitle:"De l'idée à l'impact",processIntro:"Une méthode claire pour transformer votre vision en création mémorable.",stepOne:"DÉCOUVRIR",stepTwo:"DIRECTION",stepThree:"CRÉER",stepFour:"LIVRER",discoverTitle:"Découvrir",discoverDesc:"Comprendre vos objectifs et votre public.",directionTitle:"Direction",directionDesc:"Définir le style visuel et le concept.",designTitle:"Créer",designDesc:"Concevoir et affiner chaque détail.",deliverTitle:"Livrer",deliverDesc:"Préparer les fichiers finaux.",contactLabel:"PRENONS CONTACT",contactTitle:"Un projet<br>en tête ?",contactIntro:"Parlez-moi de votre projet. Discutons de vos besoins en design graphique, identité de marque ou campagne.",location:"Inde",namePlaceholder:"Votre nom",emailPlaceholder:"Votre e-mail",messagePlaceholder:"Parlez-moi de votre projet...",chooseService:"Choisir un service",sendInquiry:"Envoyer la demande sur WhatsApp ↗",formNote:"WhatsApp s'ouvre avec le message préparé. Appuyez sur Envoyer pour le transmettre.",designTool:"Outil de design",estimate:"Estimation du projet",callOption:"M'appeler"},
+zh:{navHome:"首页",navAbout:"关于我",navServices:"服务",navWork:"作品",navProcess:"流程",navContact:"联系",hello:"你好，我是",role:"平面设计师",heroCopy:"我创作鲜明的品牌视觉、令人印象深刻的营销活动和专业的平面设计，帮助品牌脱颖而出。",viewWork:"查看作品",portfolio:"浏览作品集",focus:"创意领域",branding:"品牌设计",social:"社交媒体",packaging:"包装设计",print:"印刷设计",creativeIdentity:"创意<br>品牌形象",ideasVisuals:"让想法<br>变成视觉",designPurpose:"有目标的<br>设计",aboutLabel:"关于我",aboutTitle:'用设计表达<br><span class="gradient">品牌理念。</span>',aboutCopy:"我是 Harsh Chawla，DESIGNER197 的平面设计师。我专注于品牌形象、社交媒体创意、包装设计、印刷设计和视觉叙事。",brandIdentity:"品牌设计",brandSub:"品牌形象与规范",campaigns:"营销活动",campaignSub:"推广视觉内容",digitalPrint:"印刷 + 数字",digitalSub:"适用于多种格式",servicesLabel:"我的服务",servicesTitle:"创意设计服务",servicesIntro:"为品牌发展各阶段提供视觉设计方案。",logoService:"标志与品牌设计",logoDesc:"独特标志、视觉识别系统和品牌规范。",socialService:"社交媒体设计",socialDesc:"推广帖子、促销活动和营销视觉内容。",packService:"包装设计",packDesc:"产品包装概念、标签和产品视觉。",printService:"目录与印刷",printDesc:"产品目录、宣传册、名片和印刷材料。",toolsLabel:"工具与技能",toolsTitle:"我的创意工具",toolsIntro:"将创意想法转化为精致视觉作品的工具。",webDesign:"网页设计",workLabel:"精选项目",workTitle:"精选作品",allProjects:"查看作品集",brandProject:"品牌形象",socialProject:"社交媒体活动",packProject:"包装概念",printProject:"印刷版式",webProject:"网站概念",webProjects:"网页项目",processLabel:"设计流程",processTitle:"从想法到成果",processIntro:"通过清晰的流程，将你的想法转化为令人难忘的设计。",stepOne:"探索",stepTwo:"方向",stepThree:"设计",stepFour:"交付",discoverTitle:"探索",discoverDesc:"了解目标、受众和需求。",directionTitle:"设计方向",directionDesc:"确定视觉风格、氛围和概念。",designTitle:"设计",designDesc:"创建设计并完善细节。",deliverTitle:"交付",deliverDesc:"准备最终文件并完成交付。",contactLabel:"联系我",contactTitle:"有项目<br>想法吗？",contactIntro:"告诉我你的项目需求。我们可以讨论平面设计、品牌形象或营销活动。",location:"印度",namePlaceholder:"你的姓名",emailPlaceholder:"你的电子邮箱",messagePlaceholder:"请介绍你的项目...",chooseService:"选择服务",sendInquiry:"通过 WhatsApp 发送咨询 ↗",formNote:"WhatsApp 会打开已准备好的消息。点击发送后才会传出。",designTool:"设计工具",estimate:"项目报价",callOption:"给我打电话"}
 };
-
-function setLanguage(language) {
-  const lang = language.startsWith("fr") ? "fr" :
-               language.startsWith("en") ? "en" : language;
-  const dictionary = translations[lang] || translations.en;
-
-  document.documentElement.lang = language;
-
-  document.querySelectorAll("[data-i18n]").forEach(element => {
-    const key = element.dataset.i18n;
-    if (dictionary[key] !== undefined) {
-      element.textContent = dictionary[key];
-    }
-  });
+translations["en-CA"]={...translations.en};translations["fr-CA"]={...translations.fr};
+const languageSelect=document.getElementById("language");
+function setLanguage(language){const dictionary=translations[language]||translations.en;document.documentElement.lang=language;
+document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(dictionary[key]!==undefined)el.innerHTML=dictionary[key]});
+document.querySelectorAll("[data-placeholder]").forEach(el=>{const key=el.dataset.placeholder;if(dictionary[key]!==undefined)el.placeholder=dictionary[key]});
+const base=language.startsWith("fr")?"fr":language==="en-CA"?"en":language;
+const opts={en:["Logo & Branding","Social Media Design","Packaging Design","Catalogue & Print","Photo Editing","Web Projects","Other"],hi:["लोगो और ब्रांडिंग","सोशल मीडिया डिज़ाइन","पैकेजिंग डिज़ाइन","कैटलॉग और प्रिंट","फोटो एडिटिंग","वेब प्रोजेक्ट","अन्य"],pa:["ਲੋਗੋ ਅਤੇ ਬ੍ਰਾਂਡਿੰਗ","ਸੋਸ਼ਲ ਮੀਡੀਆ ਡਿਜ਼ਾਈਨ","ਪੈਕੇਜਿੰਗ ਡਿਜ਼ਾਈਨ","ਕੈਟਾਲਾਗ ਅਤੇ ਪ੍ਰਿੰਟ","ਫੋਟੋ ਐਡਿਟਿੰਗ","ਵੈੱਬ ਪ੍ਰੋਜੈਕਟ","ਹੋਰ"],fr:["Logo et identité","Design pour réseaux sociaux","Design d'emballage","Catalogue et impression","Retouche photo","Projets web","Autre"],zh:["标志与品牌设计","社交媒体设计","包装设计","目录与印刷","照片编辑","网页项目","其他"]}[base]||null;
+if(opts)document.querySelectorAll("#project option").forEach((o,i)=>{if(i>0)o.textContent=opts[i-1]});
+try{localStorage.setItem("designer197-language",language)}catch(e){}
 }
-
-languageSelect.addEventListener("change", () => {
-  setLanguage(languageSelect.value);
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();
+languageSelect.addEventListener("change",()=>setLanguage(languageSelect.value));
+try{const saved=localStorage.getItem("designer197-language");if(saved&&translations[saved])languageSelect.value=saved}catch(e){}setLanguage(languageSelect.value);
+const menuToggle=document.getElementById("menuToggle"),navLinks=document.getElementById("navLinks");
+menuToggle.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(open));menuToggle.textContent=open?"✕":"☰"});
+navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰"}));
+const progress=document.getElementById("progress");function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+"%"}addEventListener("scroll",updateProgress,{passive:true});updateProgress();
+if("IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el))}else document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));
+document.getElementById("contactForm").addEventListener("submit",event=>{event.preventDefault();const name=document.getElementById("name").value.trim(),email=document.getElementById("email").value.trim(),project=document.getElementById("project").selectedOptions[0].text,message=document.getElementById("message").value.trim();const body=`Hello Harsh! I have a project inquiry for DESIGNER197.\n\nName: ${name}\nEmail: ${email}\nProject: ${project}\n\nMessage:\n${message}`;window.open("https://wa.me/919810851024?text="+encodeURIComponent(body),"_blank","noopener,noreferrer")});
+document.querySelectorAll("[data-reveal-contact]").forEach(button=>button.addEventListener("click",()=>{const type=button.dataset.revealContact;const detail=document.getElementById("contact-"+type);const show=detail.hidden;detail.hidden=!show;button.setAttribute("aria-expanded",String(show));const label=button.querySelector("span");if(label){const labels={phone:show?"Phone Number":"Show Phone Number",instagram:show?"Instagram Link":"Show Instagram",email:show?"Gmail Address":"Show Gmail"};label.textContent=labels[type]}}));
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
