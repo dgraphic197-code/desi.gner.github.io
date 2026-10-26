@@ -1,2966 +1,2182 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DIRECTION — DESIGNER 197 | Creative Direction</title>
-
-<meta
-name="description"
-content="Direction — DESIGNER 197. Define the visual language, typography, layout, mood and creative direction of your project."
->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-rel="stylesheet">
-
-
-<style>
-
-/* =========================================================
-   DESIGNER 197 — DIRECTION
-========================================================= */
-
-:root{
-
-    --black:#050505;
-    --black2:#090909;
-
-    --white:#f5f5f2;
-
-    --muted:rgba(245,245,242,.58);
-    --muted2:rgba(245,245,242,.30);
-
-    --lime:#c9ff3d;
-
-    --line:rgba(255,255,255,.10);
-    --line2:rgba(255,255,255,.18);
-
-    --mono:"DM Mono",monospace;
-    --display:"Space Grotesk",sans-serif;
-    --body:"Plus Jakarta Sans",sans-serif;
-
-    --ease:cubic-bezier(.2,.8,.2,1);
-}
-
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-
-html{
-    scroll-behavior:smooth;
-}
-
-
-body{
-
-    background:
-
-        radial-gradient(
-            circle at 80% 10%,
-            rgba(201,255,61,.055),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 10% 70%,
-            rgba(255,255,255,.025),
-            transparent 30%
-        ),
-
-        var(--black);
-
-    color:var(--white);
-
-    font-family:var(--body);
-
-    overflow-x:hidden;
-}
-
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:9999;
-
-    opacity:.035;
-
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-
-}
-
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-button{
-    font:inherit;
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   CURSOR
-========================================================= */
-
-.cursor{
-
-    width:12px;
-    height:12px;
-
-    position:fixed;
-
-    border:
-        1px solid var(--lime);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:10000;
-
-    transform:translate(-50%,-50%);
-
-    transition:
-        width .25s,
-        height .25s,
-        background .25s;
-}
-
-
-.cursor.active{
-
-    width:38px;
-    height:38px;
-
-    background:
-        rgba(201,255,61,.10);
-}
-
-
-/* =========================================================
-   NAV
-========================================================= */
-
-.nav{
-
-    height:82px;
-
-    padding:
-        0 5vw;
-
-    border-bottom:
-        1px solid var(--line);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    position:relative;
-
-    z-index:20;
-}
-
-
-.logo{
-
-    font-family:var(--display);
-
-    font-size:22px;
-
-    font-weight:700;
-
-    letter-spacing:-1px;
-}
-
-
-.logo span{
-    color:var(--lime);
-}
-
-
-.back{
-
-    font-family:var(--mono);
-
-    font-size:10px;
-
-    letter-spacing:1.5px;
-
-    color:var(--muted);
-
-    transition:.3s;
-}
-
-
-.back:hover{
-    color:var(--lime);
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    min-height:58vh;
-
-    padding:
-        95px 7vw 75px;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-.hero::after{
-
-    content:"02";
-
-    position:absolute;
-
-    right:-25px;
-
-    top:-30px;
-
-    font-family:var(--display);
-
-    font-size:
-        clamp(260px,38vw,600px);
-
-    line-height:1;
-
-    font-weight:700;
-
-    color:transparent;
-
-    -webkit-text-stroke:
-        1px rgba(255,255,255,.045);
-
-    pointer-events:none;
-}
-
-
-.eyebrow{
-
-    color:var(--lime);
-
-    font-family:var(--mono);
-
-    font-size:10px;
-
-    letter-spacing:3px;
-
-    margin-bottom:28px;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-.hero h1{
-
-    font-family:var(--display);
-
-    font-size:
-        clamp(65px,12vw,170px);
-
-    line-height:.80;
-
-    letter-spacing:-8px;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-.hero h1 span{
-
-    color:transparent;
-
-    -webkit-text-stroke:
-        1px var(--white);
-}
-
-
-.hero p{
-
-    max-width:620px;
-
-    margin-top:38px;
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    line-height:1.85;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-/* =========================================================
-   INTRO LINE
-========================================================= */
-
-.intro{
-
-    width:86vw;
-
-    margin:auto;
-
-    padding:
-        0 0 80px;
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 2fr;
-
-    gap:60px;
-
-    border-bottom:
-        1px solid var(--line);
-}
-
-
-.intro-number{
-
-    font-family:var(--mono);
-
-    font-size:11px;
-
-    color:var(--lime);
-
-    letter-spacing:2px;
-}
-
-
-.intro-text{
-
-    font-family:var(--display);
-
-    font-size:
-        clamp(25px,4vw,52px);
-
-    line-height:1.05;
-
-    letter-spacing:-2px;
-}
-
-
-.intro-text span{
-    color:var(--muted2);
-}
-
-
-/* =========================================================
-   SECTION
-========================================================= */
-
-.section{
-
-    width:86vw;
-
-    margin:auto;
-
-    padding:
-        100px 0;
-}
-
-
-.section-head{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    gap:30px;
-
-    margin-bottom:42px;
-}
-
-
-.section-number{
-
-    font-family:var(--mono);
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    color:var(--lime);
-
-    margin-bottom:13px;
-}
-
-
-.section-title{
-
-    font-family:var(--display);
-
-    font-size:
-        clamp(38px,6vw,75px);
-
-    line-height:.9;
-
-    letter-spacing:-4px;
-}
-
-
-.section-description{
-
-    max-width:380px;
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.7;
-}
-
-
-/* =========================================================
-   DIRECTION CARDS
-========================================================= */
-
-.direction-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:14px;
-}
-
-
-.direction-card{
-
-    min-height:310px;
-
-    padding:28px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.018);
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:
-        transform .5s var(--ease),
-        border-color .4s,
-        box-shadow .4s;
-}
-
-
-.direction-card:hover{
-
-    transform:
-        translateY(-10px)
-        rotateX(2deg)
-        rotateY(-2deg);
-
-    border-color:
-        rgba(201,255,61,.45);
-
-    box-shadow:
-        0 30px 70px
-        rgba(0,0,0,.35);
-}
-
-
-.direction-card.selected{
-
-    border-color:var(--lime);
-
-    box-shadow:
-        0 0 0 1px
-        rgba(201,255,61,.08),
-
-        0 25px 70px
-        rgba(201,255,61,.06);
-}
-
-
-.card-number{
-
-    font-family:var(--mono);
-
-    font-size:9px;
-
-    color:var(--muted2);
-
-    letter-spacing:1px;
-}
-
-
-.card-preview{
-
-    height:135px;
-
-    margin:
-        25px 0 28px;
-
-    border:
-        1px solid var(--line);
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:#080808;
-}
-
-
-/* MINIMAL */
-
-.preview-minimal{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-}
-
-
-.preview-minimal::after{
-
-    content:"FORM";
-
-    font-family:var(--display);
-
-    font-size:30px;
-
-    letter-spacing:-2px;
-
-    color:var(--white);
-}
-
-
-/* PREMIUM */
-
-.preview-premium{
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(255,255,255,.16),
-            transparent 32%
-        );
-}
-
-
-.preview-premium::after{
-
-    content:"LUXE";
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-family:serif;
-
-    font-size:32px;
-
-    letter-spacing:7px;
-
-    color:#eee;
-}
-
-
-/* BOLD */
-
-.preview-bold{
-
-    background:
-        linear-gradient(
-            135deg,
-            #111 0%,
-            #111 50%,
-            #c9ff3d 50%
-        );
-}
-
-
-.preview-bold::after{
-
-    content:"BOLD";
-
-    position:absolute;
-
-    left:15px;
-
-    bottom:5px;
-
-    font-family:var(--display);
-
-    font-weight:700;
-
-    font-size:40px;
-
-    letter-spacing:-4px;
-
-    color:white;
-}
-
-
-/* CREATIVE */
-
-.preview-creative{
-
-    background:
-
-        radial-gradient(
-            circle at 25% 35%,
-            rgba(201,255,61,.8),
-            transparent 18%
-        ),
-
-        radial-gradient(
-            circle at 75% 65%,
-            rgba(255,255,255,.5),
-            transparent 20%
-        ),
-
-        #090909;
-}
-
-
-.preview-creative::after{
-
-    content:"✦";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(20deg);
-
-    font-size:70px;
-
-    color:white;
-}
-
-
-/* DARK */
-
-.preview-dark{
-
-    background:
-        linear-gradient(
-            120deg,
-            #020202,
-            #151515
-        );
-}
-
-
-.preview-dark::before{
-
-    content:"";
-
-    width:80px;
-    height:80px;
-
-    border:
-        1px solid var(--lime);
-
-    border-radius:50%;
-
-    position:absolute;
-
-    left:25px;
-    top:25px;
-
-    box-shadow:
-        0 0 35px
-        rgba(201,255,61,.2);
-}
-
-
-.preview-dark::after{
-
-    content:"SYSTEM";
-
-    position:absolute;
-
-    right:15px;
-    bottom:15px;
-
-    font-family:var(--mono);
-
-    font-size:9px;
-
-    color:var(--lime);
-}
-
-
-/* FUTURE */
-
-.preview-future{
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent 49%,
-            rgba(201,255,61,.3) 50%,
-            transparent 51%
-        ),
-
-        linear-gradient(
-            0deg,
-            transparent 49%,
-            rgba(201,255,61,.3) 50%,
-            transparent 51%
-        );
-
-    background-size:
-        35px 35px;
-}
-
-
-.preview-future::after{
-
-    content:"03D";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        perspective(300px)
-        rotateX(35deg);
-
-    font-family:var(--display);
-
-    font-size:42px;
-
-    font-weight:700;
-
-    color:var(--lime);
-
-    text-shadow:
-        0 0 25px
-        rgba(201,255,61,.3);
-}
-
-
-.direction-card h3{
-
-    font-family:var(--display);
-
-    font-size:22px;
-
-    margin-bottom:9px;
-}
-
-
-.direction-card p{
-
-    color:var(--muted);
-
-    font-size:11px;
-
-    line-height:1.65;
-}
-
-
-.select-mark{
-
-    position:absolute;
-
-    right:20px;
-
-    top:20px;
-
-    width:21px;
-    height:21px;
-
-    border:
-        1px solid var(--line2);
-
-    border-radius:50%;
-}
-
-
-.direction-card.selected
-.select-mark{
-
-    background:var(--lime);
-
-    border-color:var(--lime);
-}
-
-
-.direction-card.selected
-.select-mark::after{
-
-    content:"✓";
-
-    color:#050505;
-
-    position:absolute;
-
-    left:4px;
-
-    top:1px;
-
-    font-size:12px;
-
-    font-weight:700;
-}
-
-
-/* =========================================================
-   TYPOGRAPHY
-========================================================= */
-
-.type-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:12px;
-}
-
-
-.type-card{
-
-    min-height:180px;
-
-    padding:25px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.018);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    transition:.35s;
-}
-
-
-.type-card:hover{
-
-    border-color:
-        rgba(201,255,61,.4);
-
-    transform:
-        translateY(-7px);
-}
-
-
-.type-card.selected{
-
-    background:
-        rgba(201,255,61,.045);
-
-    border-color:var(--lime);
-}
-
-
-.type-demo{
-
-    font-size:42px;
-
-    line-height:1;
-}
-
-
-.type-card:nth-child(1)
-.type-demo{
-
-    font-family:Arial,sans-serif;
-
-    font-weight:700;
-}
-
-
-.type-card:nth-child(2)
-.type-demo{
-
-    font-family:Georgia,serif;
-
-    font-style:italic;
-}
-
-
-.type-card:nth-child(3)
-.type-demo{
-
-    font-family:var(--mono);
-
-    font-size:28px;
-}
-
-
-.type-card:nth-child(4)
-.type-demo{
-
-    font-family:var(--display);
-
-    font-weight:700;
-
-    letter-spacing:-3px;
-}
-
-
-.type-name{
-
-    font-family:var(--mono);
-
-    font-size:9px;
-
-    letter-spacing:1px;
-
-    color:var(--muted);
-}
-
-
-/* =========================================================
-   LAYOUT
-========================================================= */
-
-.layout-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:14px;
-}
-
-
-.layout-card{
-
-    min-height:240px;
-
-    border:
-        1px solid var(--line);
-
-    padding:28px;
-
-    background:
-        rgba(255,255,255,.018);
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:.4s;
-}
-
-
-.layout-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:
-        rgba(201,255,61,.4);
-}
-
-
-.layout-card.selected{
-
-    border-color:var(--lime);
-
-    background:
-        rgba(201,255,61,.045);
-}
-
-
-.layout-visual{
-
-    height:135px;
-
-    border:
-        1px solid var(--line);
-
-    margin-bottom:20px;
-
-    position:relative;
-
-    padding:12px;
-}
-
-
-/* GRID VISUAL */
-
-.grid-visual{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:5px;
-}
-
-
-.grid-visual span{
-
-    border:
-        1px solid rgba(255,255,255,.15);
-
-    background:
-        rgba(255,255,255,.03);
-}
-
-
-.grid-visual span:first-child{
-
-    grid-column:
-        span 2;
-
-    background:
-        rgba(201,255,61,.16);
-}
-
-
-/* EDITORIAL */
-
-.editorial-visual{
-
-    display:grid;
-
-    grid-template-columns:
-        1.5fr 1fr;
-
-    gap:8px;
-}
-
-
-.editorial-visual::before{
-
-    content:"";
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid var(--line);
-}
-
-
-.editorial-visual::after{
-
-    content:"";
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(201,255,61,.25),
-            transparent
-        );
-
-    border:
-        1px solid var(--line);
-}
-
-
-/* BIG TYPE */
-
-.type-layout{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-family:var(--display);
-
-    font-size:58px;
-
-    font-weight:700;
-
-    letter-spacing:-7px;
-}
-
-
-/* IMAGE */
-
-.image-layout{
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(201,255,61,.18),
-            transparent
-        ),
-
-        #0a0a0a;
-}
-
-
-.image-layout::after{
-
-    content:"IMAGE";
-
-    position:absolute;
-
-    left:20px;
-
-    bottom:15px;
-
-    font-family:var(--mono);
-
-    font-size:9px;
-
-    color:var(--muted);
-}
-
-
-.layout-card h3{
-
-    font-family:var(--display);
-
-    font-size:21px;
-}
-
-
-.layout-card p{
-
-    color:var(--muted);
-
-    font-size:11px;
-
-    line-height:1.6;
-
-    margin-top:7px;
-}
-
-
-/* =========================================================
-   COLOR MOOD
-========================================================= */
-
-.color-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    gap:10px;
-}
-
-
-.color-card{
-
-    height:180px;
-
-    border:
-        1px solid var(--line);
-
-    padding:16px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:flex-end;
-
-    transition:.4s;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-.color-card:hover{
-
-    transform:
-        translateY(-8px)
-        scale(1.02);
-}
-
-
-.color-card.selected{
-
-    border:
-        2px solid var(--lime);
-}
-
-
-.color-dark{
-    background:#050505;
-}
-
-
-.color-lime{
-    background:#c9ff3d;
-    color:#050505;
-}
-
-
-.color-white{
-    background:#f5f5f2;
-    color:#050505;
-}
-
-
-.color-metal{
-    background:
-        linear-gradient(
-            135deg,
-            #111,
-            #777,
-            #1a1a1a
-        );
-}
-
-
-.color-gradient{
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #c9ff3d,
-            #4dffcf,
-            #9d72ff
-        );
-}
-
-
-.color-name{
-
-    font-family:var(--mono);
-
-    font-size:9px;
-
-    letter-spacing:1px;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-/* =========================================================
-   MOTION
-========================================================= */
-
-.motion-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:12px;
-}
-
-
-.motion-card{
-
-    min-height:170px;
-
-    padding:25px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-        rgba(255,255,255,.018);
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:.35s;
-}
-
-
-.motion-card:hover{
-
-    border-color:
-        rgba(201,255,61,.4);
-
-    transform:translateY(-7px);
-}
-
-
-.motion-card.selected{
-
-    border-color:var(--lime);
-
-    background:
-        rgba(201,255,61,.04);
-}
-
-
-.motion-demo{
-
-    height:65px;
-
-    position:relative;
-
-    margin-bottom:20px;
-}
-
-
-.motion-ball{
-
-    width:35px;
-    height:35px;
-
-    border-radius:50%;
-
-    background:var(--lime);
-
-    position:absolute;
-
-    top:15px;
-    left:10px;
-
-    animation:
-        floatBall 2.5s infinite ease-in-out;
-}
-
-
-@keyframes floatBall{
-
-    0%,100%{
-        transform:translateX(0);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7ff">
+  <meta name="description" content="Choose your creative direction with DESIGNER 197 by Harsh Chawla. Explore graphic design, branding, web design and digital experiences.">
+  <title>Direction — DESIGNER 197 | Harsh Chawla</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f7ff;
+      --surface: rgba(255,255,255,.76);
+      --ink: #171727;
+      --muted: #77778b;
+      --purple: #6475f5;
+      --pink: #f5a8d2;
+      --blue: #9cbaff;
+      --lavender: #e7e8ff;
+      --line: rgba(39,39,78,.11);
+      --shadow: 0 24px 80px rgba(83,78,160,.12);
+      --radius: 26px;
     }
 
-    50%{
-        transform:translateX(100px);
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
 
-}
-
-
-.motion-pulse{
-
-    width:40px;
-    height:40px;
-
-    border:
-        1px solid var(--lime);
-
-    position:absolute;
-
-    left:10px;
-    top:10px;
-
-    animation:
-        pulse 2s infinite;
-}
-
-
-@keyframes pulse{
-
-    0%{
-        transform:scale(.7);
-        opacity:.3;
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 8% 8%, rgba(245,168,210,.20), transparent 34%),
+        radial-gradient(ellipse at 92% 22%, rgba(156,186,255,.23), transparent 35%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      overflow-x: hidden;
     }
 
-    50%{
-        transform:scale(1.4);
-        opacity:1;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .24;
+      background-image: radial-gradient(#a5a4ce 0.7px, transparent .7px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
 
-    100%{
-        transform:scale(.7);
-        opacity:.3;
+    button, input, textarea, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; }
+    ::selection { background: #d9dcff; color: #171727; }
+
+    .progress {
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1001;
     }
 
-}
-
-
-.motion-scroll{
-
-    position:absolute;
-
-    width:130px;
-
-    height:2px;
-
-    background:
-        var(--line2);
-
-    top:30px;
-
-    left:10px;
-
-    overflow:hidden;
-}
-
-
-.motion-scroll::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:45px;
-
-    height:100%;
-
-    background:var(--lime);
-
-    animation:
-        scrollLine 2s infinite;
-}
-
-
-@keyframes scrollLine{
-
-    from{
-        transform:translateX(-50px);
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: rgba(247,247,255,.78);
+      backdrop-filter: blur(22px);
+      border-bottom: 1px solid var(--line);
     }
 
-    to{
-        transform:translateX(130px);
+    /* SAME REUSABLE DESIGNER 197 LOGO */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -1.1px;
+      animation: wordmarkGlow 4s ease-in-out infinite;
     }
 
-}
-
-
-.motion-card h3{
-
-    font-family:var(--display);
-
-    font-size:18px;
-
-    margin-bottom:6px;
-}
-
-
-.motion-card p{
-
-    color:var(--muted);
-
-    font-size:10px;
-
-    line-height:1.6;
-}
-
-
-/* =========================================================
-   NOTES
-========================================================= */
-
-.notes{
-
-    width:100%;
-
-    min-height:180px;
-
-    padding:20px;
-
-    background:
-        rgba(255,255,255,.018);
-
-    border:
-        1px solid var(--line);
-
-    color:var(--white);
-
-    resize:vertical;
-
-    outline:none;
-
-    font-size:13px;
-
-    line-height:1.7;
-
-    transition:.3s;
-}
-
-
-.notes:focus{
-
-    border-color:var(--lime);
-
-    box-shadow:
-        0 0 30px
-        rgba(201,255,61,.05);
-}
-
-
-/* =========================================================
-   FINAL PANEL
-========================================================= */
-
-.final-panel{
-
-    width:86vw;
-
-    margin:
-        30px auto 120px;
-
-    padding:
-        70px;
-
-    border:
-        1px solid var(--line);
-
-    background:
-
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(201,255,61,.08),
-            transparent 35%
-        ),
-
-        rgba(255,255,255,.018);
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-.final-panel::after{
-
-    content:"DIRECTION";
-
-    position:absolute;
-
-    right:-20px;
-
-    bottom:-50px;
-
-    font-family:var(--display);
-
-    font-size:160px;
-
-    font-weight:700;
-
-    color:transparent;
-
-    -webkit-text-stroke:
-        1px rgba(255,255,255,.035);
-}
-
-
-.final-number{
-
-    font-family:var(--mono);
-
-    color:var(--lime);
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    margin-bottom:20px;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-.final-panel h2{
-
-    font-family:var(--display);
-
-    font-size:
-        clamp(45px,7vw,90px);
-
-    line-height:.88;
-
-    letter-spacing:-5px;
-
-    max-width:700px;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-.final-panel p{
-
-    max-width:570px;
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.8;
-
-    margin:
-        25px 0 35px;
-
-    position:relative;
-
-    z-index:2;
-}
-
-
-.final-actions{
-
-    display:flex;
-
-    gap:12px;
-
-    position:relative;
-
-    z-index:3;
-}
-
-
-.btn{
-
-    padding:
-        16px 24px;
-
-    border:
-        1px solid var(--line2);
-
-    background:transparent;
-
-    color:var(--white);
-
-    font-family:var(--mono);
-
-    font-size:10px;
-
-    letter-spacing:1px;
-
-    transition:.3s;
-}
-
-
-.btn:hover{
-
-    border-color:var(--lime);
-
-    color:var(--lime);
-}
-
-
-.btn.primary{
-
-    background:var(--lime);
-
-    border-color:var(--lime);
-
-    color:#050505;
-
-    font-weight:700;
-}
-
-
-.btn.primary:hover{
-
-    box-shadow:
-        0 0 35px
-        rgba(201,255,61,.22);
-
-    transform:translateY(-3px);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-
-    border-top:
-        1px solid var(--line);
-
-    padding:
-        30px 7vw;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:var(--muted2);
-
-    font-family:var(--mono);
-
-    font-size:8px;
-
-    letter-spacing:1px;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:900px){
-
-    .direction-grid{
-
-        grid-template-columns:
-            1fr 1fr;
+    .logo > span:last-child { color: #171727; }
+    .logo b { color: #6475f5; }
+
+    .logo-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #6475f5;
+      font-size: 21px;
+      font-weight: 800;
+      background: linear-gradient(145deg, #fff, #dfe2ff);
+      border: 1px solid rgba(255,255,255,.95);
+      box-shadow: 0 5px 18px rgba(100,117,245,.20);
+      transform: rotate(-7deg);
+      animation: logoFloat 4s ease-in-out infinite;
     }
 
-
-    .type-grid{
-
-        grid-template-columns:
-            1fr 1fr;
+    @keyframes logoFloat {
+      0%,100% { transform: translateY(0) rotate(-7deg); }
+      50% { transform: translateY(-4px) rotate(2deg); }
     }
 
-
-    .color-grid{
-
-        grid-template-columns:
-            repeat(3,1fr);
+    @keyframes wordmarkGlow {
+      0%,100% { filter: drop-shadow(0 0 0 rgba(100,117,245,0)); }
+      50% { filter: drop-shadow(0 3px 12px rgba(100,117,245,.13)); }
     }
 
-
-    .motion-grid{
-
-        grid-template-columns:
-            1fr 1fr;
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-}
-
-
-@media(max-width:650px){
-
-    .cursor{
-        display:none;
+    .language {
+      max-width: 155px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255,255,255,.8);
+      outline: none;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-
-    .nav{
-
-        height:70px;
-
-        padding:
-            0 6vw;
+    .nav-link {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
     }
 
+    .nav-link:hover { color: var(--purple); }
 
-    .hero{
-
-        padding:
-            75px 6vw 65px;
+    .pill {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 13px 19px;
+      background: rgba(255,255,255,.8);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      transition: transform .25s, box-shadow .25s, background .25s;
     }
 
-
-    .hero h1{
-
-        letter-spacing:-4px;
+    .pill:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(100,117,245,.15);
     }
 
-
-    .hero::after{
-
-        font-size:220px;
-
-        top:130px;
+    .pill.primary {
+      color: white;
+      background: linear-gradient(135deg, #6878f7, #8d71e9);
+      border-color: transparent;
+      box-shadow: 0 10px 28px rgba(100,117,245,.22);
     }
 
-
-    .intro{
-
-        width:88vw;
-
-        grid-template-columns:
-            1fr;
-
-        gap:20px;
-
-        padding-bottom:55px;
+    .pill.dark {
+      color: white;
+      background: #202039;
+      border-color: #202039;
     }
 
-
-    .section{
-
-        width:88vw;
-
-        padding:
-            70px 0;
+    .wrap {
+      width: min(1160px, 90%);
+      margin: auto;
     }
 
-
-    .section-head{
-
-        flex-direction:column;
-
-        align-items:flex-start;
+    .mono {
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      line-height: 1.6;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--purple);
     }
 
-
-    .direction-grid{
-
-        grid-template-columns:
-            1fr;
+    .hero {
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      align-items: center;
+      gap: 35px;
+      padding-top: 65px;
+      padding-bottom: 70px;
     }
 
+    .hero-copy { position: relative; z-index: 2; }
 
-    .type-grid{
-
-        grid-template-columns:
-            1fr 1fr;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.63);
+      border-radius: 999px;
+      margin-bottom: 24px;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
     }
 
-
-    .layout-grid{
-
-        grid-template-columns:
-            1fr;
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #7ccaa4;
+      box-shadow: 0 0 0 5px rgba(124,202,164,.14);
     }
 
+    h1, h2, h3, p { margin-top: 0; }
 
-    .color-grid{
-
-        grid-template-columns:
-            1fr 1fr;
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 6.6vw, 86px);
+      letter-spacing: -5px;
+      line-height: .98;
+      margin-bottom: 24px;
     }
 
-
-    .motion-grid{
-
-        grid-template-columns:
-            1fr;
+    .gradient-text {
+      color: var(--purple);
+      background: linear-gradient(100deg, #6273f4, #a36fe2 65%, #ec8fc1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-
-    .final-panel{
-
-        width:88vw;
-
-        padding:40px 25px;
-
-        margin-bottom:70px;
+    .hero-copy > p {
+      max-width: 490px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
     }
 
-
-    .final-panel h2{
-
-        letter-spacing:-3px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-
-    .final-actions{
-
-        flex-direction:column;
+    .hero-note {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 11px;
     }
 
+    .hero-note strong { color: var(--ink); }
 
-    .final-actions .btn{
-
-        width:100%;
-
-        text-align:center;
+    .visual-stage {
+      position: relative;
+      min-height: 445px;
+      display: grid;
+      place-items: center;
+      perspective: 900px;
+      isolation: isolate;
     }
 
-
-    footer{
-
-        flex-direction:column;
-
-        gap:12px;
+    .visual-stage::before {
+      content: "";
+      width: 310px;
+      height: 310px;
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(156,186,255,.52), rgba(245,168,210,.5));
+      filter: blur(34px);
+      animation: glowPulse 6s ease-in-out infinite;
     }
 
-}
+    @keyframes glowPulse {
+      0%,100% { transform: scale(.9); opacity: .65; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
 
-</style>
+    .orbit {
+      position: absolute;
+      width: 355px;
+      height: 355px;
+      border: 1px solid rgba(100,117,245,.25);
+      border-radius: 50%;
+      transform: rotateX(65deg) rotate(-20deg);
+      animation: orbitSpin 22s linear infinite;
+    }
+
+    .orbit.two {
+      width: 275px;
+      height: 390px;
+      transform: rotateX(68deg) rotate(50deg);
+      border-color: rgba(236,143,193,.34);
+      animation-duration: 27s;
+      animation-direction: reverse;
+    }
+
+    @keyframes orbitSpin {
+      from { rotate: 0deg; }
+      to { rotate: 360deg; }
+    }
+
+    .orb-core {
+      position: relative;
+      width: 225px;
+      height: 225px;
+      display: grid;
+      place-items: center;
+      border-radius: 43% 57% 58% 42% / 44% 40% 60% 56%;
+      background:
+        radial-gradient(circle at 30% 22%, #fff 0, rgba(255,255,255,.7) 8%, transparent 30%),
+        linear-gradient(145deg, #cbd6ff 3%, #9ca6ff 34%, #dcb4ef 66%, #f5bddb);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow:
+        inset -20px -25px 45px rgba(92,73,177,.18),
+        inset 10px 10px 28px rgba(255,255,255,.75),
+        0 40px 80px rgba(100,117,245,.23);
+      animation: orbMorph 9s ease-in-out infinite, orbFloat 5s ease-in-out infinite;
+      transform-style: preserve-3d;
+    }
+
+    .orb-core::before {
+      content: "";
+      position: absolute;
+      inset: 17px;
+      border: 1px solid rgba(255,255,255,.68);
+      border-radius: inherit;
+      transform: translateZ(25px);
+    }
+
+    .orb-core span {
+      position: relative;
+      z-index: 2;
+      color: white;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      text-shadow: 0 6px 24px rgba(79,68,160,.22);
+      transform: translateZ(45px);
+    }
+
+    @keyframes orbMorph {
+      0%,100% { border-radius: 43% 57% 58% 42% / 44% 40% 60% 56%; }
+      50% { border-radius: 58% 42% 39% 61% / 51% 60% 40% 49%; }
+    }
+
+    @keyframes orbFloat {
+      0%,100% { translate: 0 0; }
+      50% { translate: 0 -13px; }
+    }
+
+    .float-card {
+      position: absolute;
+      z-index: 4;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,.95);
+      background: rgba(255,255,255,.76);
+      backdrop-filter: blur(18px);
+      border-radius: 17px;
+      box-shadow: 0 16px 45px rgba(57,55,115,.12);
+      animation: cardFloat 5s ease-in-out infinite;
+    }
+
+    .float-card strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .float-card small { font-size: 10px; color: var(--muted); }
+    .float-card.one { top: 60px; left: 1%; }
+    .float-card.two { bottom: 68px; right: 0; animation-delay: -2s; }
+    .float-card.three { top: 45%; right: -2%; animation-delay: -1s; }
+
+    @keyframes cardFloat {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    .section { padding: 82px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(32px, 4.2vw, 51px);
+      letter-spacing: -2.5px;
+      line-height: 1.05;
+      margin: 12px 0 0;
+    }
+
+    .section-head p {
+      max-width: 390px;
+      margin-bottom: 3px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .choice-card {
+      position: relative;
+      min-height: 300px;
+      padding: 27px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 12px 40px rgba(80,77,142,.045);
+      text-align: left;
+      color: var(--ink);
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+
+    .choice-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .choice-card.selected {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(100,117,245,.10), var(--shadow);
+      background: linear-gradient(140deg, rgba(255,255,255,.96), rgba(231,232,255,.78));
+    }
+
+    .choice-card::after {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -65px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: var(--glow, rgba(156,186,255,.27));
+      filter: blur(8px);
+      transition: transform .4s;
+      pointer-events: none;
+    }
+
+    .choice-card:hover::after { transform: scale(1.4); }
+
+    .choice-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 27px;
+    }
+
+    .number {
+      font-family: "DM Mono", monospace;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .checkmark {
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 13px;
+      color: transparent;
+      background: white;
+    }
+
+    .selected .checkmark {
+      color: white;
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+
+    .choice-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 22px;
+      border-radius: 19px;
+      background: linear-gradient(145deg, white, var(--lavender));
+      box-shadow: 0 9px 24px rgba(100,117,245,.13);
+      font-size: 27px;
+    }
+
+    .choice-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      letter-spacing: -.8px;
+      margin-bottom: 10px;
+    }
+
+    .choice-card p {
+      position: relative;
+      z-index: 1;
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .tag-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 10px;
+      background: rgba(231,232,255,.65);
+      border: 1px solid rgba(100,117,245,.10);
+      border-radius: 999px;
+      color: #555a9b;
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .service-panel {
+      margin-top: 24px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.57);
+    }
+
+    .service-panel[hidden] { display: none; }
+
+    .service-panel h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 23px;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .subtext {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .service-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 82px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255,255,255,.85);
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+
+    .service-option:hover { transform: translateY(-2px); }
+
+    .service-option:has(input:checked) {
+      border-color: var(--purple);
+      background: #f0f0ff;
+    }
+
+    .service-option input {
+      accent-color: var(--purple);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .service-option strong {
+      display: block;
+      font-size: 11px;
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+
+    .service-option small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .builder {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 25px;
+      align-items: start;
+    }
+
+    .builder-aside {
+      position: sticky;
+      top: 105px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, #252442, #424276 75%, #7774bb);
+      color: white;
+      box-shadow: 0 22px 55px rgba(49,47,105,.19);
+      overflow: hidden;
+    }
+
+    .builder-aside .mono { color: #c8caff; }
+
+    .builder-aside h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 31px;
+      line-height: 1.1;
+      letter-spacing: -1.3px;
+      margin: 17px 0;
+    }
+
+    .builder-aside p {
+      color: rgba(255,255,255,.72);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .steps {
+      display: grid;
+      gap: 15px;
+      margin-top: 28px;
+    }
+
+    .step-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,.7);
+      font-size: 11px;
+    }
+
+    .step-line span {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+    }
+
+    .step-line.active { color: white; }
+    .step-line.active span {
+      color: #34335f;
+      background: #d9dcff;
+      border-color: #d9dcff;
+    }
+
+    .form-panel {
+      padding: 29px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 15px 45px rgba(80,77,142,.05);
+    }
+
+    .form-panel h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .field { margin-top: 22px; }
+
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .field label span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      display: block;
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(255,255,255,.88);
+      color: var(--ink);
+      outline: none;
+      font-size: 12px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.8;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(100,117,245,.10);
+    }
+
+    .two-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .radio-chip {
+      position: relative;
+    }
+
+    .radio-chip input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .radio-chip span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 39px;
+      padding: 10px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .radio-chip input:checked + span {
+      border-color: var(--purple);
+      background: #eceeff;
+      color: #4f5ed2;
+    }
+
+    .radio-chip input:focus-visible + span {
+      outline: 2px solid var(--purple);
+      outline-offset: 3px;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 27px;
+    }
+
+    .summary {
+      display: none;
+      margin-top: 24px;
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(100,117,245,.24);
+      background: linear-gradient(145deg, #fff, #f0f0ff);
+    }
+
+    .summary.visible { display: block; animation: reveal .45s ease both; }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      margin: 12px 0;
+    }
+
+    .summary-content {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 12px;
+      line-height: 1.95;
+      color: #4f4f69;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .process-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.65);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .process-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .process-card .number { display: block; margin-bottom: 28px; }
+
+    .process-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 25px;
+      padding: clamp(27px, 5vw, 55px);
+      border: 1px solid rgba(100,117,245,.14);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(245,168,210,.38), transparent 30%),
+        linear-gradient(130deg, #e7e8ff, #fff 65%, #f9e7f2);
+    }
+
+    .contact-box h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(31px, 4.5vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -2.3px;
+      margin: 12px 0;
+    }
+
+    .contact-box p {
+      max-width: 510px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 170px;
+    }
+
+    footer {
+      padding: 28px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover { color: var(--purple); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      z-index: 200;
+      transform: translate(-50%, 20px);
+      padding: 13px 18px;
+      border-radius: 999px;
+      color: white;
+      background: #252442;
+      box-shadow: 0 12px 35px rgba(30,30,60,.2);
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+      text-align: center;
+      max-width: calc(100% - 30px);
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 60px; }
+      .hero-copy { max-width: 690px; }
+      .visual-stage { min-height: 400px; }
+      .builder { grid-template-columns: 1fr; }
+      .builder-aside { position: relative; top: auto; }
+      .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 12px 5%; gap: 8px; }
+      .logo { font-size: 17px; gap: 8px; }
+      .logo-mark { width: 32px; height: 32px; }
+      .nav-right { gap: 7px; }
+      .language { max-width: 115px; padding: 10px 8px; font-size: 10px; }
+      .nav-link { display: none; }
+      .nav .pill { padding: 11px 13px; font-size: 10px; }
+      .hero { padding-top: 46px; padding-bottom: 35px; gap: 12px; }
+      h1 { letter-spacing: -3px; }
+      .hero-copy > p { font-size: 13px; }
+      .visual-stage { min-height: 340px; }
+      .orb-core { width: 180px; height: 180px; }
+      .orb-core span { font-size: 59px; }
+      .orbit { width: 275px; height: 275px; }
+      .orbit.two { width: 235px; height: 315px; }
+      .float-card { padding: 11px; }
+      .float-card.one { top: 24px; left: 0; }
+      .float-card.two { bottom: 25px; right: 0; }
+      .float-card.three { right: -2%; top: 43%; }
+      .section { padding: 55px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 14px; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .choice-card { min-height: 270px; padding: 23px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-panel, .form-panel { padding: 20px; }
+      .two-fields { grid-template-columns: 1fr; gap: 0; }
+      .process-grid { gap: 10px; }
+      .process-card { padding: 17px; }
+      .process-card h3 { font-size: 17px; }
+      .contact-box { grid-template-columns: 1fr; }
+      .contact-actions { flex-direction: row; flex-wrap: wrap; }
+      .contact-actions .pill { flex: 1; }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 
-
 <body>
+  <div class="progress" id="progress"></div>
 
-
-<div class="cursor"></div>
-
-
-<!-- =========================================================
-     NAV
-========================================================= -->
-
-<nav class="nav">
-
-    <a
-        href="index.html"
-        class="logo"
-    >
-        DESIGNER <span>197</span>
+  <header class="nav">
+    <a class="logo" href="index.html" aria-label="DESIGNER 197 Home">
+      <span class="logo-mark">D</span>
+      <span>designer<b>197</b></span>
     </a>
 
+    <div class="nav-right">
+      <a class="nav-link" href="#directions" data-i18n="navDirection">Direction</a>
+      <a class="nav-link" href="#builder" data-i18n="navBuilder">Project Builder</a>
 
-    <a
-        href="discover.html"
-        class="back"
-    >
-        ← BACK TO DISCOVER
-    </a>
+      <select class="language" id="language" aria-label="Choose language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="pa">ਪੰਜਾਬੀ</option>
+        <option value="fr">Français</option>
+        <option value="fr-CA">Français (Canada)</option>
+        <option value="zh">中文</option>
+      </select>
 
-</nav>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-    <div class="eyebrow">
-        02 / DIRECTION
+      <a class="pill primary" href="#builder" data-i18n="startBtn">Start a project ↗</a>
     </div>
+  </header>
 
-
-    <h1>
-
-        BUILD THE<br>
-
-        <span>VISUAL LANGUAGE.</span>
-
-    </h1>
-
-
-    <p>
-
-        Direction is where the idea starts becoming visual.
-        Choose the mood, typography, layout, colour and
-        motion that should define your project.
-
-    </p>
-
-</section>
-
-
-<!-- =========================================================
-     INTRO
-========================================================= -->
-
-<section class="intro">
-
-    <div class="intro-number">
-        02 — CREATIVE DIRECTION
-    </div>
-
-
-    <div class="intro-text">
-
-        We don't just make things look good.
-        <span>
-            We create a visual system that makes
-            the brand feel right.
-        </span>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     VISUAL MOOD
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div>
-
-            <div class="section-number">
-                01 / MOOD
-            </div>
-
-            <h2 class="section-title">
-                What should<br>it feel like?
-            </h2>
-
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="live-dot"></span>
+          <span data-i18n="eyebrow">DESIGNER 197 · CREATIVE DIRECTION</span>
         </div>
 
+        <h1 data-i18n="heroTitle">
+          Let's find your<br>
+          <span class="gradient-text">creative direction.</span>
+        </h1>
 
-        <p class="section-description">
-
-            Choose one or more visual directions.
-            These choices help establish the personality
-            of your design.
-
+        <p data-i18n="heroDesc">
+          Every great project starts with a clear direction. Choose the kind of design you need, tell me about your idea, and let's turn it into something memorable.
         </p>
 
-    </div>
-
-
-    <div class="direction-grid">
-
-
-        <!-- MINIMAL -->
-
-        <div
-            class="direction-card"
-            data-value="Minimal"
-        >
-
-            <div class="card-number">
-                01
-            </div>
-
-            <div class="card-preview preview-minimal"></div>
-
-            <h3>
-                Minimal
-            </h3>
-
-            <p>
-                Clean, balanced and focused.
-                Less noise, stronger communication.
-            </p>
-
-            <div class="select-mark"></div>
-
+        <div class="hero-actions">
+          <a href="#directions" class="pill primary" data-i18n="exploreBtn">Explore directions ↓</a>
+          <a href="#process" class="pill" data-i18n="processBtn">How it works</a>
         </div>
 
+        <div class="hero-note">
+          <strong data-i18n="heroNoteStrong">Discover → Direction → Design → Deliver</strong><br>
+          <span data-i18n="heroNote">A simple process. A thoughtful result.</span>
+        </div>
+      </div>
 
-        <!-- PREMIUM -->
+      <div class="visual-stage" aria-label="Animated 3D creative design artwork">
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
 
-        <div
-            class="direction-card"
-            data-value="Premium"
-        >
-
-            <div class="card-number">
-                02
-            </div>
-
-            <div class="card-preview preview-premium"></div>
-
-            <h3>
-                Premium
-            </h3>
-
-            <p>
-                Elegant, sophisticated and
-                high-end visual language.
-            </p>
-
-            <div class="select-mark"></div>
-
+        <div class="float-card one">
+          <strong>✳ Brand identity</strong>
+          <small data-i18n="floatBrand">Make it recognizable</small>
         </div>
 
-
-        <!-- BOLD -->
-
-        <div
-            class="direction-card"
-            data-value="Bold"
-        >
-
-            <div class="card-number">
-                03
-            </div>
-
-            <div class="card-preview preview-bold"></div>
-
-            <h3>
-                Bold
-            </h3>
-
-            <p>
-                Strong typography, contrast and
-                confident visual statements.
-            </p>
-
-            <div class="select-mark"></div>
-
+        <div class="float-card three">
+          <strong>⌘ Digital design</strong>
+          <small data-i18n="floatDigital">Built for people</small>
         </div>
 
+        <div class="orb-core"><span>D.</span></div>
 
-        <!-- CREATIVE -->
-
-        <div
-            class="direction-card"
-            data-value="Creative"
-        >
-
-            <div class="card-number">
-                04
-            </div>
-
-            <div class="card-preview preview-creative"></div>
-
-            <h3>
-                Creative
-            </h3>
-
-            <p>
-                Experimental, expressive and
-                visually unexpected.
-            </p>
-
-            <div class="select-mark"></div>
-
+        <div class="float-card two">
+          <strong>↗ Your next idea</strong>
+          <small data-i18n="floatIdea">Starts right here</small>
         </div>
+      </div>
+    </section>
 
-
-        <!-- DARK -->
-
-        <div
-            class="direction-card"
-            data-value="Dark / Tech"
-        >
-
-            <div class="card-number">
-                05
-            </div>
-
-            <div class="card-preview preview-dark"></div>
-
-            <h3>
-                Dark / Tech
-            </h3>
-
-            <p>
-                Digital, futuristic and
-                technology-driven.
-            </p>
-
-            <div class="select-mark"></div>
-
-        </div>
-
-
-        <!-- FUTURE -->
-
-        <div
-            class="direction-card"
-            data-value="3D / Futuristic"
-        >
-
-            <div class="card-number">
-                06
-            </div>
-
-            <div class="card-preview preview-future"></div>
-
-            <h3>
-                3D / Futuristic
-            </h3>
-
-            <p>
-                Depth, dimension, lighting
-                and immersive visuals.
-            </p>
-
-            <div class="select-mark"></div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     TYPOGRAPHY
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-head">
-
+    <section class="section wrap" id="directions">
+      <div class="section-head reveal">
         <div>
-
-            <div class="section-number">
-                02 / TYPOGRAPHY
-            </div>
-
-            <h2 class="section-title">
-                Type has<br>a voice.
-            </h2>
-
+          <div class="mono" data-i18n="directionLabel">01 / CHOOSE YOUR DIRECTION</div>
+          <h2 data-i18n="directionTitle">What are we creating?</h2>
         </div>
-
-
-        <p class="section-description">
-
-            Typography controls the personality
-            and rhythm of a visual identity.
-
-        </p>
-
-    </div>
-
-
-    <div class="type-grid">
-
-
-        <div
-            class="type-card"
-            data-value="Clean Sans"
-        >
-
-            <div class="type-demo">
-                Aa
-            </div>
-
-            <div class="type-name">
-                CLEAN / SANS
-            </div>
-
-        </div>
-
-
-        <div
-            class="type-card"
-            data-value="Elegant Serif"
-        >
-
-            <div class="type-demo">
-                Aa
-            </div>
-
-            <div class="type-name">
-                ELEGANT / SERIF
-            </div>
-
-        </div>
-
-
-        <div
-            class="type-card"
-            data-value="Technical Mono"
-        >
-
-            <div class="type-demo">
-                01
-            </div>
-
-            <div class="type-name">
-                TECHNICAL / MONO
-            </div>
-
-        </div>
-
-
-        <div
-            class="type-card"
-            data-value="Experimental Display"
-        >
-
-            <div class="type-demo">
-                Aa
-            </div>
-
-            <div class="type-name">
-                DISPLAY / EXPERIMENTAL
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     LAYOUT
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div>
-
-            <div class="section-number">
-                03 / LAYOUT
-            </div>
-
-            <h2 class="section-title">
-                How should<br>it move?
-            </h2>
-
-        </div>
-
-
-        <p class="section-description">
-
-            Choose the layout language that best
-            matches your brand and content.
-
-        </p>
-
-    </div>
-
-
-    <div class="layout-grid">
-
-
-        <div
-            class="layout-card"
-            data-value="Structured Grid"
-        >
-
-            <div class="layout-visual grid-visual">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
-            <h3>
-                Structured Grid
-            </h3>
-
-            <p>
-                Organised, modular and systematic.
-            </p>
-
-        </div>
-
-
-        <div
-            class="layout-card"
-            data-value="Editorial"
-        >
-
-            <div
-                class="layout-visual editorial-visual"
-            ></div>
-
-            <h3>
-                Editorial
-            </h3>
-
-            <p>
-                Premium magazine-inspired composition.
-            </p>
-
-        </div>
-
-
-        <div
-            class="layout-card"
-            data-value="Big Typography"
-        >
-
-            <div
-                class="layout-visual type-layout"
-            >
-                TYPE
-            </div>
-
-            <h3>
-                Big Typography
-            </h3>
-
-            <p>
-                Typography becomes the main visual.
-            </p>
-
-        </div>
-
-
-        <div
-            class="layout-card"
-            data-value="Image Led"
-        >
-
-            <div
-                class="layout-visual image-layout"
-            ></div>
-
-            <h3>
-                Image Led
-            </h3>
-
-            <p>
-                Visual storytelling through imagery.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     COLOUR
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div>
-
-            <div class="section-number">
-                04 / COLOUR
-            </div>
-
-            <h2 class="section-title">
-                Choose<br>the mood.
-            </h2>
-
-        </div>
-
-
-        <p class="section-description">
-
-            Colour creates emotion before
-            the viewer reads a single word.
-
-        </p>
-
-    </div>
-
-
-    <div class="color-grid">
-
-
-        <div
-            class="color-card color-dark"
-            data-value="Dark"
-        >
-
-            <div class="color-name">
-                DARK
-            </div>
-
-        </div>
-
-
-        <div
-            class="color-card color-lime"
-            data-value="Neon Lime"
-        >
-
-            <div class="color-name">
-                NEON LIME
-            </div>
-
-        </div>
-
-
-        <div
-            class="color-card color-white"
-            data-value="Light / White"
-        >
-
-            <div class="color-name">
-                LIGHT
-            </div>
-
-        </div>
-
-
-        <div
-            class="color-card color-metal"
-            data-value="Metallic"
-        >
-
-            <div class="color-name">
-                METALLIC
-            </div>
-
-        </div>
-
-
-        <div
-            class="color-card color-gradient"
-            data-value="Gradient"
-        >
-
-            <div class="color-name">
-                GRADIENT
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     MOTION
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div>
-
-            <div class="section-number">
-                05 / MOTION
-            </div>
-
-            <h2 class="section-title">
-                Give it<br>some life.
-            </h2>
-
-        </div>
-
-
-        <p class="section-description">
-
-            Select the motion language you prefer.
-            This is a creative direction choice,
-            not an additional price.
-
-        </p>
-
-    </div>
-
-
-    <div class="motion-grid">
-
-
-        <div
-            class="motion-card"
-            data-value="Smooth Motion"
-        >
-
-            <div class="motion-demo">
-
-                <div class="motion-ball"></div>
-
-            </div>
-
-            <h3>
-                Smooth Motion
-            </h3>
-
-            <p>
-                Soft transitions and fluid movement.
-            </p>
-
-        </div>
-
-
-        <div
-            class="motion-card"
-            data-value="Interactive Motion"
-        >
-
-            <div class="motion-demo">
-
-                <div class="motion-pulse"></div>
-
-            </div>
-
-            <h3>
-                Interactive
-            </h3>
-
-            <p>
-                Elements react to user interaction.
-            </p>
-
-        </div>
-
-
-        <div
-            class="motion-card"
-            data-value="Scroll Motion"
-        >
-
-            <div class="motion-demo">
-
-                <div class="motion-scroll"></div>
-
-            </div>
-
-            <h3>
-                Scroll Motion
-            </h3>
-
-            <p>
-                Visual storytelling through scrolling.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     NOTES
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div>
-
-            <div class="section-number">
-                06 / YOUR IDEA
-            </div>
-
-            <h2 class="section-title">
-                Anything<br>else?
-            </h2>
-
-        </div>
-
-
-        <p class="section-description">
-
-            Share references, ideas, competitors,
-            links or anything that can help us
-            understand the direction.
-
-        </p>
-
-    </div>
-
-
-    <textarea
-        id="directionNotes"
-        class="notes"
-        placeholder="Example: I want the brand to feel premium but not too luxurious. I like bold typography, dark backgrounds and subtle 3D effects..."
-    ></textarea>
-
-</section>
-
-
-<!-- =========================================================
-     FINAL
-========================================================= -->
-
-<section class="final-panel">
-
-    <div class="final-number">
-        02 / DIRECTION COMPLETE
-    </div>
-
-
-    <h2>
-        NOW WE KNOW<br>
-        <span style="color:var(--lime)">
-            THE DIRECTION.
-        </span>
-    </h2>
-
-
-    <p>
-
-        Your creative direction is ready.
-        Continue to the Design stage and turn
-        this visual language into the final design.
-
-    </p>
-
-
-    <div class="final-actions">
-
-        <a
-            href="discover.html"
-            class="btn"
-        >
-            ← DISCOVER
-        </a>
-
-
-        <button
-            class="btn primary"
-            onclick="continueToDesign()"
-        >
-            CONTINUE TO DESIGN →
+        <p data-i18n="directionDesc">Choose one direction or combine both. You can select the exact services in the next step.</p>
+      </div>
+
+      <div class="choice-grid">
+        <button class="choice-card reveal" type="button" data-direction="graphic" aria-pressed="false" style="--glow:rgba(245,168,210,.35)">
+          <div class="choice-top">
+            <span class="number">DIRECTION / 01</span>
+            <span class="checkmark">✓</span>
+          </div>
+          <div class="choice-icon">✳</div>
+          <h3 data-i18n="graphicTitle">Graphic Design</h3>
+          <p data-i18n="graphicDesc">Build a distinctive visual identity with thoughtful branding, campaign graphics, packaging and print design.</p>
+          <div class="tag-row">
+            <span class="tag" data-i18n="tagBranding">BRANDING</span>
+            <span class="tag" data-i18n="tagSocial">SOCIAL MEDIA</span>
+            <span class="tag" data-i18n="tagPackaging">PACKAGING</span>
+            <span class="tag" data-i18n="tagPrint">PRINT</span>
+          </div>
         </button>
 
+        <button class="choice-card reveal" type="button" data-direction="web" aria-pressed="false" style="--glow:rgba(156,186,255,.40)">
+          <div class="choice-top">
+            <span class="number">DIRECTION / 02</span>
+            <span class="checkmark">✓</span>
+          </div>
+          <div class="choice-icon">⌘</div>
+          <h3 data-i18n="webTitle">Web Design</h3>
+          <p data-i18n="webDesc">Create a polished digital experience with responsive layouts, clear navigation and a consistent visual system.</p>
+          <div class="tag-row">
+            <span class="tag" data-i18n="tagLanding">LANDING PAGE</span>
+            <span class="tag" data-i18n="tagPortfolio">PORTFOLIO</span>
+            <span class="tag" data-i18n="tagBusiness">BUSINESS SITE</span>
+            <span class="tag" data-i18n="tagUI">UI / UX</span>
+          </div>
+        </button>
+      </div>
+
+      <div class="service-panel" id="graphicPanel" hidden>
+        <h3 data-i18n="graphicServicesTitle">Graphic design services</h3>
+        <p class="subtext" data-i18n="graphicServicesDesc">Select all the graphic design services you need.</p>
+
+        <div class="service-grid">
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Logo & Brand Identity" data-group="graphic">
+            <span><strong data-i18n="serviceLogo">Logo & Brand Identity</strong><small data-i18n="serviceLogoDesc">Logo, colours, typography and identity</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Social Media Design" data-group="graphic">
+            <span><strong data-i18n="serviceSocial">Social Media Design</strong><small data-i18n="serviceSocialDesc">Campaigns, ads and promotional posts</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Packaging Design" data-group="graphic">
+            <span><strong data-i18n="servicePackaging">Packaging Design</strong><small data-i18n="servicePackagingDesc">Product labels and packaging visuals</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Catalogue & Print" data-group="graphic">
+            <span><strong data-i18n="servicePrint">Catalogue & Print</strong><small data-i18n="servicePrintDesc">Brochures, catalogues and print layouts</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Photo Editing" data-group="graphic">
+            <span><strong data-i18n="servicePhoto">Photo Editing</strong><small data-i18n="servicePhotoDesc">Retouching and creative image editing</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Advertising Campaign" data-group="graphic">
+            <span><strong data-i18n="serviceAds">Advertising Campaign</strong><small data-i18n="serviceAdsDesc">Promotional artwork and ad creatives</small></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="service-panel" id="webPanel" hidden>
+        <h3 data-i18n="webServicesTitle">Web design services</h3>
+        <p class="subtext" data-i18n="webServicesDesc">Select the website type and features you have in mind.</p>
+
+        <div class="service-grid">
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Landing Page Website" data-group="web">
+            <span><strong data-i18n="serviceLanding">Landing Page</strong><small data-i18n="serviceLandingDesc">A focused page for a product or campaign</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Portfolio Website" data-group="web">
+            <span><strong data-i18n="servicePortfolio">Portfolio Website</strong><small data-i18n="servicePortfolioDesc">Showcase your work and creative skills</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Business Website" data-group="web">
+            <span><strong data-i18n="serviceBusiness">Business Website</strong><small data-i18n="serviceBusinessDesc">Services, company information and contact</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="E-commerce Website" data-group="web">
+            <span><strong data-i18n="serviceShop">E-commerce Website</strong><small data-i18n="serviceShopDesc">Product listings and shopping experience</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Responsive UI/UX" data-group="web">
+            <span><strong data-i18n="serviceUI">Responsive UI / UX</strong><small data-i18n="serviceUIDesc">Layouts designed for mobile and desktop</small></span>
+          </label>
+
+          <label class="service-option">
+            <input type="checkbox" name="service" value="Website Redesign" data-group="web">
+            <span><strong data-i18n="serviceRedesign">Website Redesign</strong><small data-i18n="serviceRedesignDesc">Refresh an existing website's design</small></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="builder">
+      <div class="section-head reveal">
+        <div>
+          <div class="mono" data-i18n="builderLabel">02 / PROJECT BUILDER</div>
+          <h2 data-i18n="builderTitle">Let's shape your idea.</h2>
+        </div>
+        <p data-i18n="builderDesc">Share a few details so your creative brief has a clear starting point. You can leave optional fields blank.</p>
+      </div>
+
+      <div class="builder">
+        <aside class="builder-aside reveal">
+          <div class="mono" data-i18n="asideLabel">YOUR CREATIVE JOURNEY</div>
+          <h3 data-i18n="asideTitle">From a rough idea to a clear plan.</h3>
+          <p data-i18n="asideDesc">Your answers help outline the project, priorities and next steps before we discuss the details together.</p>
+
+          <div class="steps">
+            <div class="step-line active"><span>01</span><b data-i18n="stepOne">Choose a direction</b></div>
+            <div class="step-line"><span>02</span><b data-i18n="stepTwo">Share your details</b></div>
+            <div class="step-line"><span>03</span><b data-i18n="stepThree">Review your brief</b></div>
+            <div class="step-line"><span>04</span><b data-i18n="stepFour">Send via WhatsApp</b></div>
+          </div>
+        </aside>
+
+        <div class="form-panel reveal">
+          <div class="mono" data-i18n="formLabel">PROJECT DISCOVERY</div>
+          <h3 data-i18n="formTitle">Tell me about your project</h3>
+          <p class="subtext" data-i18n="formDesc">Start with the basics. The more context you share, the easier it is to understand your vision.</p>
+
+          <form id="projectForm">
+            <div class="two-fields">
+              <div class="field">
+                <label for="clientName" data-i18n="nameLabel">Your name *</label>
+                <input id="clientName" name="clientName" type="text" autocomplete="name" required maxlength="100" placeholder="e.g. Alex Sharma" data-i18n-placeholder="namePlaceholder">
+              </div>
+
+              <div class="field">
+                <label for="clientEmail" data-i18n="emailLabel">Email address <span>(optional)</span></label>
+                <input id="clientEmail" name="clientEmail" type="email" autocomplete="email" maxlength="150" placeholder="you@example.com" data-i18n-placeholder="emailPlaceholder">
+              </div>
+            </div>
+
+            <div class="field">
+              <label data-i18n="typeLabel">What do you need? *</label>
+              <div class="radio-row">
+                <label class="radio-chip">
+                  <input type="radio" name="projectType" value="Graphic Design" required>
+                  <span data-i18n="typeGraphic">Graphic Design</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="projectType" value="Web Design">
+                  <span data-i18n="typeWeb">Web Design</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="projectType" value="Graphic Design + Web Design">
+                  <span data-i18n="typeBoth">Both</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="brandName" data-i18n="brandLabel">Brand or business name <span>(optional)</span></label>
+              <input id="brandName" name="brandName" type="text" maxlength="150" placeholder="What is your brand called?" data-i18n-placeholder="brandPlaceholder">
+            </div>
+
+            <div class="field">
+              <label for="projectGoal" data-i18n="goalLabel">What is the main goal? *</label>
+              <select id="projectGoal" name="projectGoal" required>
+                <option value="" data-i18n="goalPlaceholder">Select your main goal</option>
+                <option value="Launch a new brand" data-i18n="goal1">Launch a new brand</option>
+                <option value="Promote products or services" data-i18n="goal2">Promote products or services</option>
+                <option value="Improve an existing brand" data-i18n="goal3">Improve an existing brand</option>
+                <option value="Build a new website" data-i18n="goal4">Build a new website</option>
+                <option value="Redesign an existing website" data-i18n="goal5">Redesign an existing website</option>
+                <option value="Other creative project" data-i18n="goal6">Other creative project</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label data-i18n="styleLabel">Which visual direction do you prefer?</label>
+              <div class="radio-row">
+                <label class="radio-chip">
+                  <input type="radio" name="style" value="Minimal & clean">
+                  <span data-i18n="style1">Minimal & clean</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="style" value="Bold & expressive">
+                  <span data-i18n="style2">Bold & expressive</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="style" value="Luxury & premium">
+                  <span data-i18n="style3">Luxury & premium</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="style" value="Playful & colourful">
+                  <span data-i18n="style4">Playful & colourful</span>
+                </label>
+                <label class="radio-chip">
+                  <input type="radio" name="style" value="Need guidance">
+                  <span data-i18n="style5">Need guidance</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="two-fields">
+              <div class="field">
+                <label for="budget" data-i18n="budgetLabel">Estimated budget <span>(optional)</span></label>
+                <select id="budget" name="budget">
+                  <option value="" data-i18n="budgetPlaceholder">Choose a range</option>
+                  <option value="Under ₹5,000">Under ₹5,000</option>
+                  <option value="₹5,000–₹15,000">₹5,000–₹15,000</option>
+                  <option value="₹15,000–₹30,000">₹15,000–₹30,000</option>
+                  <option value="₹30,000+">₹30,000+</option>
+                  <option value="Need a recommendation" data-i18n="budgetFlexible">Need a recommendation</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="timeline" data-i18n="timelineLabel">Desired timeline <span>(optional)</span></label>
+                <select id="timeline" name="timeline">
+                  <option value="" data-i18n="timelinePlaceholder">Choose a timeline</option>
+                  <option value="As soon as possible" data-i18n="timeline1">As soon as possible</option>
+                  <option value="Within 1–2 weeks" data-i18n="timeline2">Within 1–2 weeks</option>
+                  <option value="Within a month" data-i18n="timeline3">Within a month</option>
+                  <option value="Flexible" data-i18n="timeline4">Flexible</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="details" data-i18n="detailsLabel">Describe your idea <span>(optional)</span></label>
+              <textarea id="details" name="details" maxlength="2500" placeholder="What do you want to create? Any references, colours, features or ideas?" data-i18n-placeholder="detailsPlaceholder"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="reference" data-i18n="referenceLabel">Reference website or inspiration link <span>(optional)</span></label>
+              <input id="reference" name="reference" type="url" maxlength="500" placeholder="https://example.com" data-i18n-placeholder="referencePlaceholder">
+            </div>
+
+            <div class="form-actions">
+              <button class="pill primary" type="submit" data-i18n="summaryBtn">Generate my project brief ↗</button>
+              <button class="pill" type="reset" data-i18n="resetBtn">Reset form</button>
+            </div>
+          </form>
+
+          <div class="summary" id="summary" aria-live="polite">
+            <div class="mono" data-i18n="summaryLabel">YOUR PROJECT BRIEF</div>
+            <h3 data-i18n="summaryTitle">Your direction is taking shape.</h3>
+            <div class="summary-content" id="summaryContent"></div>
+
+            <div class="form-actions">
+              <button class="pill primary" type="button" id="whatsappBtn" data-i18n="whatsappBtn">Send brief on WhatsApp ↗</button>
+              <button class="pill" type="button" id="copyBtn" data-i18n="copyBtn">Copy brief</button>
+              <button class="pill" type="button" id="downloadBtn" data-i18n="downloadBtn">Download TXT ↓</button>
+            </div>
+            <p class="subtext" style="margin:15px 0 0" data-i18n="summaryNote">Review your brief before sharing. WhatsApp opens with your message prepared; you choose whether to send it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="process">
+      <div class="section-head reveal">
+        <div>
+          <div class="mono" data-i18n="processLabel">03 / THE PROCESS</div>
+          <h2 data-i18n="processTitle">Clear steps. Better work.</h2>
+        </div>
+        <p data-i18n="processDesc">A collaborative process helps keep the project focused, organised and aligned with your goals.</p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card reveal">
+          <span class="number">STEP / 01</span>
+          <h3 data-i18n="process1Title">Discover</h3>
+          <p data-i18n="process1Desc">Understand your business, audience, needs and project goals.</p>
+        </article>
+
+        <article class="process-card reveal">
+          <span class="number">STEP / 02</span>
+          <h3 data-i18n="process2Title">Direction</h3>
+          <p data-i18n="process2Desc">Set the creative direction, visual style and project priorities.</p>
+        </article>
+
+        <article class="process-card reveal">
+          <span class="number">STEP / 03</span>
+          <h3 data-i18n="process3Title">Design</h3>
+          <p data-i18n="process3Desc">Develop the design concept and refine it with feedback.</p>
+        </article>
+
+        <article class="process-card reveal">
+          <span class="number">STEP / 04</span>
+          <h3 data-i18n="process4Title">Deliver</h3>
+          <p data-i18n="process4Desc">Prepare the agreed final files or website deliverables.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="contact-box reveal">
+        <div>
+          <div class="mono" data-i18n="contactLabel">LET'S CONNECT</div>
+          <h2 data-i18n="contactTitle">Have a project in mind?</h2>
+          <p data-i18n="contactDesc">Let's create something memorable together. Share your brief or get in touch to discuss your next idea.</p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="pill primary" href="https://wa.me/919810851024" target="_blank" rel="noopener noreferrer" data-i18n="contactWhatsapp">WhatsApp Harsh ↗</a>
+          <a class="pill" href="mailto:dgraphic197@gmail.com" data-i18n="contactEmail">Send an email ↗</a>
+          <a class="pill" href="https://www.instagram.com/harshchawa614/" target="_blank" rel="noopener noreferrer" data-i18n="contactInstagram">Instagram ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="index.html" aria-label="DESIGNER 197 Home">
+      <span class="logo-mark">D</span>
+      <span>designer<b>197</b></span>
+    </a>
+
+    <span>© <span id="year"></span> DESIGNER 197 · <span data-i18n="footerText">Designed by Harsh Chawla</span></span>
+
+    <div class="footer-links">
+      <a href="index.html" data-i18n="footerHome">Home</a>
+      <a href="discover.html" data-i18n="footerDiscover">Discover</a>
+      <a href="design.html" data-i18n="footerDesign">Design</a>
+      <a href="mailto:dgraphic197@gmail.com" data-i18n="footerContact">Contact</a>
     </div>
+  </footer>
 
-</section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <span>
-        © 2026 HARSH CHAWLA
-    </span>
-
-    <span>
-        DESIGNER 197
-    </span>
-
-    <span>
-        DISCOVER / DIRECTION / DESIGN / DELIVER
-    </span>
-
-</footer>
-
-
-<script>
-
-/* =========================================================
-   SELECTABLE CARDS
-========================================================= */
-
-const selectableCards =
-    document.querySelectorAll(
-        ".direction-card, .type-card, .layout-card, .color-card, .motion-card"
-    );
-
-
-selectableCards.forEach(card => {
-
-    card.addEventListener(
-        "click",
-        () => {
-
-            card.classList.toggle(
-                "selected"
-            );
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   SAVE DIRECTION
-========================================================= */
-
-function getSelected(selector){
-
-    return [
-        ...document.querySelectorAll(
-            selector + ".selected"
-        )
-    ].map(
-        item =>
-            item.dataset.value
-    );
-
-}
-
-
-function getDirectionData(){
-
-    return {
-
-        mood:getSelected(
-            ".direction-card"
-        ),
-
-        typography:getSelected(
-            ".type-card"
-        ),
-
-        layout:getSelected(
-            ".layout-card"
-        ),
-
-        colour:getSelected(
-            ".color-card"
-        ),
-
-        motion:getSelected(
-            ".motion-card"
-        ),
-
-        notes:
-            document
-            .getElementById(
-                "directionNotes"
-            )
-            .value
-            .trim()
-
+  <script>
+    const translations = {
+      en: {
+        navDirection:"Direction", navBuilder:"Project Builder", startBtn:"Start a project ↗",
+        eyebrow:"DESIGNER 197 · CREATIVE DIRECTION",
+        heroTitle:'Let’s find your<br><span class="gradient-text">creative direction.</span>',
+        heroDesc:"Every great project starts with a clear direction. Choose the kind of design you need, tell me about your idea, and let's turn it into something memorable.",
+        exploreBtn:"Explore directions ↓", processBtn:"How it works",
+        heroNoteStrong:"Discover → Direction → Design → Deliver", heroNote:"A simple process. A thoughtful result.",
+        floatBrand:"Make it recognizable", floatDigital:"Built for people", floatIdea:"Starts right here",
+        directionLabel:"01 / CHOOSE YOUR DIRECTION", directionTitle:"What are we creating?",
+        directionDesc:"Choose one direction or combine both. You can select the exact services in the next step.",
+        graphicTitle:"Graphic Design", graphicDesc:"Build a distinctive visual identity with thoughtful branding, campaign graphics, packaging and print design.",
+        webTitle:"Web Design", webDesc:"Create a polished digital experience with responsive layouts, clear navigation and a consistent visual system.",
+        tagBranding:"BRANDING", tagSocial:"SOCIAL MEDIA", tagPackaging:"PACKAGING", tagPrint:"PRINT",
+        tagLanding:"LANDING PAGE", tagPortfolio:"PORTFOLIO", tagBusiness:"BUSINESS SITE", tagUI:"UI / UX",
+        graphicServicesTitle:"Graphic design services", graphicServicesDesc:"Select all the graphic design services you need.",
+        webServicesTitle:"Web design services", webServicesDesc:"Select the website type and features you have in mind.",
+        serviceLogo:"Logo & Brand Identity", serviceLogoDesc:"Logo, colours, typography and identity",
+        serviceSocial:"Social Media Design", serviceSocialDesc:"Campaigns, ads and promotional posts",
+        servicePackaging:"Packaging Design", servicePackagingDesc:"Product labels and packaging visuals",
+        servicePrint:"Catalogue & Print", servicePrintDesc:"Brochures, catalogues and print layouts",
+        servicePhoto:"Photo Editing", servicePhotoDesc:"Retouching and creative image editing",
+        serviceAds:"Advertising Campaign", serviceAdsDesc:"Promotional artwork and ad creatives",
+        serviceLanding:"Landing Page", serviceLandingDesc:"A focused page for a product or campaign",
+        servicePortfolio:"Portfolio Website", servicePortfolioDesc:"Showcase your work and creative skills",
+        serviceBusiness:"Business Website", serviceBusinessDesc:"Services, company information and contact",
+        serviceShop:"E-commerce Website", serviceShopDesc:"Product listings and shopping experience",
+        serviceUI:"Responsive UI / UX", serviceUIDesc:"Layouts designed for mobile and desktop",
+        serviceRedesign:"Website Redesign", serviceRedesignDesc:"Refresh an existing website's design",
+        builderLabel:"02 / PROJECT BUILDER", builderTitle:"Let's shape your idea.",
+        builderDesc:"Share a few details so your creative brief has a clear starting point. You can leave optional fields blank.",
+        asideLabel:"YOUR CREATIVE JOURNEY", asideTitle:"From a rough idea to a clear plan.",
+        asideDesc:"Your answers help outline the project, priorities and next steps before we discuss the details together.",
+        stepOne:"Choose a direction", stepTwo:"Share your details", stepThree:"Review your brief", stepFour:"Send via WhatsApp",
+        formLabel:"PROJECT DISCOVERY", formTitle:"Tell me about your project",
+        formDesc:"Start with the basics. The more context you share, the easier it is to understand your vision.",
+        nameLabel:"Your name *", namePlaceholder:"e.g. Alex Sharma",
+        emailLabel:"Email address (optional)", emailPlaceholder:"you@example.com",
+        typeLabel:"What do you need? *", typeGraphic:"Graphic Design", typeWeb:"Web Design", typeBoth:"Both",
+        brandLabel:"Brand or business name (optional)", brandPlaceholder:"What is your brand called?",
+        goalLabel:"What is the main goal? *", goalPlaceholder:"Select your main goal",
+        goal1:"Launch a new brand", goal2:"Promote products or services", goal3:"Improve an existing brand",
+        goal4:"Build a new website", goal5:"Redesign an existing website", goal6:"Other creative project",
+        styleLabel:"Which visual direction do you prefer?", style1:"Minimal & clean", style2:"Bold & expressive",
+        style3:"Luxury & premium", style4:"Playful & colourful", style5:"Need guidance",
+        budgetLabel:"Estimated budget (optional)", budgetPlaceholder:"Choose a range", budgetFlexible:"Need a recommendation",
+        timelineLabel:"Desired timeline (optional)", timelinePlaceholder:"Choose a timeline",
+        timeline1:"As soon as possible", timeline2:"Within 1–2 weeks", timeline3:"Within a month", timeline4:"Flexible",
+        detailsLabel:"Describe your idea (optional)",
+        detailsPlaceholder:"What do you want to create? Any references, colours, features or ideas?",
+        referenceLabel:"Reference website or inspiration link (optional)", referencePlaceholder:"https://example.com",
+        summaryBtn:"Generate my project brief ↗", resetBtn:"Reset form", summaryLabel:"YOUR PROJECT BRIEF",
+        summaryTitle:"Your direction is taking shape.", whatsappBtn:"Send brief on WhatsApp ↗",
+        copyBtn:"Copy brief", downloadBtn:"Download TXT ↓",
+        summaryNote:"Review your brief before sharing. WhatsApp opens with your message prepared; you choose whether to send it.",
+        processLabel:"03 / THE PROCESS", processTitle:"Clear steps. Better work.",
+        processDesc:"A collaborative process helps keep the project focused, organised and aligned with your goals.",
+        process1Title:"Discover", process1Desc:"Understand your business, audience, needs and project goals.",
+        process2Title:"Direction", process2Desc:"Set the creative direction, visual style and project priorities.",
+        process3Title:"Design", process3Desc:"Develop the design concept and refine it with feedback.",
+        process4Title:"Deliver", process4Desc:"Prepare the agreed final files or website deliverables.",
+        contactLabel:"LET'S CONNECT", contactTitle:"Have a project in mind?",
+        contactDesc:"Let's create something memorable together. Share your brief or get in touch to discuss your next idea.",
+        contactWhatsapp:"WhatsApp Harsh ↗", contactEmail:"Send an email ↗", contactInstagram:"Instagram ↗",
+        footerText:"Designed by Harsh Chawla", footerHome:"Home", footerDiscover:"Discover", footerDesign:"Design", footerContact:"Contact",
+        briefHeading:"DESIGNER 197 — PROJECT BRIEF", briefName:"Name", briefEmail:"Email", briefDirection:"Direction",
+        briefServices:"Selected services", briefBrand:"Brand / Business", briefGoal:"Main goal", briefStyle:"Visual direction",
+        briefBudget:"Estimated budget", briefTimeline:"Timeline", briefDetails:"Project details", briefReference:"Reference link",
+        none:"Not specified", chooseDirection:"Please select Graphic Design, Web Design or Both in the project form.",
+        selectService:"Please select at least one service for your chosen direction.",
+        formSuccess:"Your project brief is ready.", copySuccess:"Brief copied.", copyFallback:"Copy is not available here. You can download the brief instead.",
+        resetSuccess:"Form reset.", validationError:"Please complete the required fields.", downloadName:"designer197-project-brief.txt"
+      },
+      hi: {
+        navDirection:"डिज़ाइन दिशा", navBuilder:"प्रोजेक्ट बिल्डर", startBtn:"प्रोजेक्ट शुरू करें ↗",
+        eyebrow:"DESIGNER 197 · क्रिएटिव दिशा",
+        heroTitle:'अपनी सही<br><span class="gradient-text">डिज़ाइन दिशा चुनें।</span>',
+        heroDesc:"हर अच्छे प्रोजेक्ट की शुरुआत एक स्पष्ट दिशा से होती है। अपनी ज़रूरत का डिज़ाइन चुनें, अपना आइडिया बताएं और उसे यादगार बनाएं।",
+        exploreBtn:"डिज़ाइन दिशा देखें ↓", processBtn:"कैसे काम करता है",
+        heroNoteStrong:"खोजें → दिशा → डिज़ाइन → डिलीवरी", heroNote:"आसान प्रक्रिया, सोच-समझकर बनाया गया काम।",
+        floatBrand:"अपनी पहचान बनाएं", floatDigital:"लोगों के लिए बनाया गया", floatIdea:"शुरुआत यहीं से",
+        directionLabel:"01 / अपनी दिशा चुनें", directionTitle:"हम क्या बनाएँगे?",
+        directionDesc:"एक दिशा चुनें या दोनों चुनें। अगले चरण में आप अपनी सेवाएँ चुन सकते हैं।",
+        graphicTitle:"ग्राफिक डिज़ाइन", graphicDesc:"ब्रांडिंग, विज्ञापन, पैकेजिंग और प्रिंट डिज़ाइन के साथ अपनी अलग विज़ुअल पहचान बनाएं।",
+        webTitle:"वेब डिज़ाइन", webDesc:"मोबाइल-फ्रेंडली लेआउट, आसान नेविगेशन और एक जैसी विज़ुअल शैली वाली वेबसाइट बनाएं।",
+        tagBranding:"ब्रांडिंग", tagSocial:"सोशल मीडिया", tagPackaging:"पैकेजिंग", tagPrint:"प्रिंट",
+        tagLanding:"लैंडिंग पेज", tagPortfolio:"पोर्टफोलियो", tagBusiness:"बिज़नेस वेबसाइट", tagUI:"UI / UX",
+        graphicServicesTitle:"ग्राफिक डिज़ाइन सेवाएँ", graphicServicesDesc:"अपनी ज़रूरत की सभी ग्राफिक डिज़ाइन सेवाएँ चुनें।",
+        webServicesTitle:"वेब डिज़ाइन सेवाएँ", webServicesDesc:"अपनी वेबसाइट का प्रकार और ज़रूरी सुविधाएँ चुनें।",
+        serviceLogo:"लोगो और ब्रांड पहचान", serviceLogoDesc:"लोगो, रंग, टाइपोग्राफी और पहचान",
+        serviceSocial:"सोशल मीडिया डिज़ाइन", serviceSocialDesc:"कैंपेन, विज्ञापन और प्रमोशनल पोस्ट",
+        servicePackaging:"पैकेजिंग डिज़ाइन", servicePackagingDesc:"प्रोडक्ट लेबल और पैकेजिंग",
+        servicePrint:"कैटलॉग और प्रिंट", servicePrintDesc:"ब्रोशर, कैटलॉग और प्रिंट लेआउट",
+        servicePhoto:"फोटो एडिटिंग", servicePhotoDesc:"फोटो रीटचिंग और क्रिएटिव एडिटिंग",
+        serviceAds:"विज्ञापन कैंपेन", serviceAdsDesc:"प्रमोशनल आर्टवर्क और विज्ञापन डिज़ाइन",
+        serviceLanding:"लैंडिंग पेज", serviceLandingDesc:"प्रोडक्ट या कैंपेन के लिए पेज",
+        servicePortfolio:"पोर्टफोलियो वेबसाइट", servicePortfolioDesc:"अपना काम और स्किल्स दिखाएँ",
+        serviceBusiness:"बिज़नेस वेबसाइट", serviceBusinessDesc:"सेवाएँ, कंपनी जानकारी और संपर्क",
+        serviceShop:"ई-कॉमर्स वेबसाइट", serviceShopDesc:"प्रोडक्ट लिस्टिंग और ऑनलाइन शॉपिंग",
+        serviceUI:"रेस्पॉन्सिव UI / UX", serviceUIDesc:"मोबाइल और डेस्कटॉप के लिए लेआउट",
+        serviceRedesign:"वेबसाइट रीडिज़ाइन", serviceRedesignDesc:"मौजूदा वेबसाइट का नया डिज़ाइन",
+        builderLabel:"02 / प्रोजेक्ट बिल्डर", builderTitle:"अपने आइडिया को आकार दें।",
+        builderDesc:"अपनी ज़रूरतें बताएं ताकि प्रोजेक्ट की स्पष्ट शुरुआत हो सके। वैकल्पिक जानकारी खाली छोड़ सकते हैं।",
+        asideLabel:"आपकी क्रिएटिव यात्रा", asideTitle:"आइडिया से स्पष्ट योजना तक।",
+        asideDesc:"आपके जवाब प्रोजेक्ट की ज़रूरतों और अगले कदम समझने में मदद करते हैं।",
+        stepOne:"दिशा चुनें", stepTwo:"जानकारी भरें", stepThree:"ब्रीफ़ देखें", stepFour:"WhatsApp से भेजें",
+        formLabel:"प्रोजेक्ट की जानकारी", formTitle:"अपने प्रोजेक्ट के बारे में बताएं",
+        formDesc:"बुनियादी जानकारी से शुरू करें। इससे आपका विज़न समझने में मदद मिलेगी।",
+        nameLabel:"आपका नाम *", namePlaceholder:"जैसे: राहुल शर्मा",
+        emailLabel:"ईमेल (वैकल्पिक)", emailPlaceholder:"you@example.com",
+        typeLabel:"आपको क्या चाहिए? *", typeGraphic:"ग्राफिक डिज़ाइन", typeWeb:"वेब डिज़ाइन", typeBoth:"दोनों",
+        brandLabel:"ब्रांड या बिज़नेस का नाम (वैकल्पिक)", brandPlaceholder:"आपके ब्रांड का नाम",
+        goalLabel:"मुख्य उद्देश्य क्या है? *", goalPlaceholder:"मुख्य उद्देश्य चुनें",
+        goal1:"नया ब्रांड शुरू करना", goal2:"प्रोडक्ट या सेवाओं का प्रचार", goal3:"मौजूदा ब्रांड बेहतर करना",
+        goal4:"नई वेबसाइट बनाना", goal5:"मौजूदा वेबसाइट का नया डिज़ाइन", goal6:"अन्य क्रिएटिव प्रोजेक्ट",
+        styleLabel:"आपको कौन-सी विज़ुअल शैली पसंद है?", style1:"मिनिमल और साफ़", style2:"बोल्ड और प्रभावशाली",
+        style3:"लग्ज़री और प्रीमियम", style4:"रंगीन और मज़ेदार", style5:"सलाह चाहिए",
+        budgetLabel:"अनुमानित बजट (वैकल्पिक)", budgetPlaceholder:"बजट चुनें", budgetFlexible:"सलाह चाहिए",
+        timelineLabel:"समय सीमा (वैकल्पिक)", timelinePlaceholder:"समय चुनें",
+        timeline1:"जितनी जल्दी हो सके", timeline2:"1–2 हफ्तों में", timeline3:"एक महीने में", timeline4:"लचीला",
+        detailsLabel:"अपने आइडिया के बारे में बताएं (वैकल्पिक)",
+        detailsPlaceholder:"आप क्या बनवाना चाहते हैं? रंग, उदाहरण, सुविधाएँ या अन्य आइडिया लिखें।",
+        referenceLabel:"रेफरेंस वेबसाइट या लिंक (वैकल्पिक)", referencePlaceholder:"https://example.com",
+        summaryBtn:"मेरा प्रोजेक्ट ब्रीफ़ बनाएं ↗", resetBtn:"फ़ॉर्म रीसेट करें", summaryLabel:"आपका प्रोजेक्ट ब्रीफ़",
+        summaryTitle:"आपकी डिज़ाइन दिशा तैयार हो रही है।", whatsappBtn:"WhatsApp पर ब्रीफ़ भेजें ↗",
+        copyBtn:"ब्रीफ़ कॉपी करें", downloadBtn:"TXT डाउनलोड करें ↓",
+        summaryNote:"भेजने से पहले ब्रीफ़ जाँच लें। WhatsApp में संदेश तैयार होगा; भेजने के लिए आपको Send दबाना होगा।",
+        processLabel:"03 / प्रक्रिया", processTitle:"स्पष्ट कदम। बेहतर काम।",
+        processDesc:"साथ मिलकर काम करने से प्रोजेक्ट व्यवस्थित और आपके लक्ष्यों के अनुरूप रहता है।",
+        process1Title:"खोजें", process1Desc:"आपके बिज़नेस, दर्शकों और उद्देश्यों को समझना।",
+        process2Title:"दिशा", process2Desc:"क्रिएटिव दिशा, विज़ुअल शैली और प्राथमिकताएँ तय करना।",
+        process3Title:"डिज़ाइन", process3Desc:"डिज़ाइन बनाना और आपके सुझावों से सुधार करना।",
+        process4Title:"डिलीवर", process4Desc:"तय की गई अंतिम फ़ाइलें या वेबसाइट तैयार करना।",
+        contactLabel:"संपर्क करें", contactTitle:"क्या आपके पास कोई प्रोजेक्ट है?",
+        contactDesc:"आइए कुछ यादगार बनाते हैं। अपना ब्रीफ़ साझा करें या अपने आइडिया पर बात करें।",
+        contactWhatsapp:"Harsh को WhatsApp करें ↗", contactEmail:"ईमेल भेजें ↗", contactInstagram:"Instagram ↗",
+        footerText:"Harsh Chawla द्वारा डिज़ाइन", footerHome:"होम", footerDiscover:"डिस्कवर", footerDesign:"डिज़ाइन", footerContact:"संपर्क",
+        briefHeading:"DESIGNER 197 — प्रोजेक्ट ब्रीफ़", briefName:"नाम", briefEmail:"ईमेल", briefDirection:"डिज़ाइन दिशा",
+        briefServices:"चुनी गई सेवाएँ", briefBrand:"ब्रांड / बिज़नेस", briefGoal:"मुख्य उद्देश्य", briefStyle:"विज़ुअल शैली",
+        briefBudget:"अनुमानित बजट", briefTimeline:"समय सीमा", briefDetails:"प्रोजेक्ट जानकारी", briefReference:"रेफरेंस लिंक",
+        none:"जानकारी नहीं दी गई", chooseDirection:"कृपया फ़ॉर्म में ग्राफिक डिज़ाइन, वेब डिज़ाइन या दोनों चुनें।",
+        selectService:"कृपया चुनी गई दिशा के लिए कम से कम एक सेवा चुनें।",
+        formSuccess:"आपका प्रोजेक्ट ब्रीफ़ तैयार है।", copySuccess:"ब्रीफ़ कॉपी हो गया।",
+        copyFallback:"यहाँ कॉपी उपलब्ध नहीं है। ब्रीफ़ डाउनलोड कर सकते हैं।",
+        resetSuccess:"फ़ॉर्म रीसेट हो गया।", validationError:"कृपया ज़रूरी जानकारी भरें.",
+        downloadName:"designer197-project-brief.txt"
+      },
+      pa: {
+        navDirection:"ਡਿਜ਼ਾਈਨ ਦਿਸ਼ਾ", navBuilder:"ਪ੍ਰੋਜੈਕਟ ਬਿਲਡਰ", startBtn:"ਪ੍ਰੋਜੈਕਟ ਸ਼ੁਰੂ ਕਰੋ ↗",
+        eyebrow:"DESIGNER 197 · ਕ੍ਰੀਏਟਿਵ ਦਿਸ਼ਾ",
+        heroTitle:'ਆਪਣੀ ਸਹੀ<br><span class="gradient-text">ਡਿਜ਼ਾਈਨ ਦਿਸ਼ਾ ਚੁਣੋ।</span>',
+        heroDesc:"ਹਰ ਵਧੀਆ ਪ੍ਰੋਜੈਕਟ ਦੀ ਸ਼ੁਰੂਆਤ ਸਪਸ਼ਟ ਦਿਸ਼ਾ ਨਾਲ ਹੁੰਦੀ ਹੈ। ਆਪਣੀ ਲੋੜ ਦਾ ਡਿਜ਼ਾਈਨ ਚੁਣੋ ਅਤੇ ਆਪਣਾ ਵਿਚਾਰ ਸਾਂਝਾ ਕਰੋ।",
+        exploreBtn:"ਦਿਸ਼ਾਵਾਂ ਵੇਖੋ ↓", processBtn:"ਕੰਮ ਕਿਵੇਂ ਹੁੰਦਾ ਹੈ",
+        heroNoteStrong:"ਖੋਜ → ਦਿਸ਼ਾ → ਡਿਜ਼ਾਈਨ → ਡਿਲਿਵਰੀ", heroNote:"ਸੌਖੀ ਪ੍ਰਕਿਰਿਆ, ਸੋਚ-ਸਮਝ ਕੇ ਕੀਤਾ ਕੰਮ।",
+        floatBrand:"ਆਪਣੀ ਪਛਾਣ ਬਣਾਓ", floatDigital:"ਲੋਕਾਂ ਲਈ ਬਣਾਇਆ", floatIdea:"ਸ਼ੁਰੂਆਤ ਇੱਥੋਂ",
+        directionLabel:"01 / ਆਪਣੀ ਦਿਸ਼ਾ ਚੁਣੋ", directionTitle:"ਅਸੀਂ ਕੀ ਬਣਾਉਣਾ ਹੈ?",
+        directionDesc:"ਇੱਕ ਦਿਸ਼ਾ ਚੁਣੋ ਜਾਂ ਦੋਵੇਂ ਚੁਣੋ। ਅਗਲੇ ਕਦਮ ਵਿੱਚ ਸੇਵਾਵਾਂ ਚੁਣ ਸਕਦੇ ਹੋ।",
+        graphicTitle:"ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨ", graphicDesc:"ਬ੍ਰਾਂਡਿੰਗ, ਇਸ਼ਤਿਹਾਰ, ਪੈਕੇਜਿੰਗ ਅਤੇ ਪ੍ਰਿੰਟ ਡਿਜ਼ਾਈਨ ਨਾਲ ਆਪਣੀ ਵਿਲੱਖਣ ਪਛਾਣ ਬਣਾਓ।",
+        webTitle:"ਵੈੱਬ ਡਿਜ਼ਾਈਨ", webDesc:"ਮੋਬਾਈਲ-ਅਨੁਕੂਲ ਲੇਆਉਟ ਅਤੇ ਸਾਫ਼ ਨੈਵੀਗੇਸ਼ਨ ਨਾਲ ਵਧੀਆ ਵੈੱਬਸਾਈਟ ਬਣਾਓ।",
+        tagBranding:"ਬ੍ਰਾਂਡਿੰਗ", tagSocial:"ਸੋਸ਼ਲ ਮੀਡੀਆ", tagPackaging:"ਪੈਕੇਜਿੰਗ", tagPrint:"ਪ੍ਰਿੰਟ",
+        tagLanding:"ਲੈਂਡਿੰਗ ਪੇਜ", tagPortfolio:"ਪੋਰਟਫੋਲੀਓ", tagBusiness:"ਬਿਜ਼ਨਸ ਸਾਈਟ", tagUI:"UI / UX",
+        graphicServicesTitle:"ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨ ਸੇਵਾਵਾਂ", graphicServicesDesc:"ਆਪਣੀ ਲੋੜ ਦੀਆਂ ਸਾਰੀਆਂ ਸੇਵਾਵਾਂ ਚੁਣੋ।",
+        webServicesTitle:"ਵੈੱਬ ਡਿਜ਼ਾਈਨ ਸੇਵਾਵਾਂ", webServicesDesc:"ਆਪਣੀ ਵੈੱਬਸਾਈਟ ਦੀ ਕਿਸਮ ਅਤੇ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਚੁਣੋ।",
+        serviceLogo:"ਲੋਗੋ ਅਤੇ ਬ੍ਰਾਂਡ ਪਛਾਣ", serviceLogoDesc:"ਲੋਗੋ, ਰੰਗ ਅਤੇ ਟਾਈਪੋਗ੍ਰਾਫੀ",
+        serviceSocial:"ਸੋਸ਼ਲ ਮੀਡੀਆ ਡਿਜ਼ਾਈਨ", serviceSocialDesc:"ਕੈਂਪੇਨ ਅਤੇ ਪ੍ਰਮੋਸ਼ਨਲ ਪੋਸਟਾਂ",
+        servicePackaging:"ਪੈਕੇਜਿੰਗ ਡਿਜ਼ਾਈਨ", servicePackagingDesc:"ਪ੍ਰੋਡਕਟ ਲੇਬਲ ਅਤੇ ਪੈਕੇਜਿੰਗ",
+        servicePrint:"ਕੈਟਾਲਾਗ ਅਤੇ ਪ੍ਰਿੰਟ", servicePrintDesc:"ਬਰੋਸ਼ਰ ਅਤੇ ਪ੍ਰਿੰਟ ਲੇਆਉਟ",
+        servicePhoto:"ਫੋਟੋ ਐਡਿਟਿੰਗ", servicePhotoDesc:"ਫੋਟੋ ਰੀਟਚਿੰਗ ਅਤੇ ਐਡਿਟਿੰਗ",
+        serviceAds:"ਇਸ਼ਤਿਹਾਰ ਕੈਂਪੇਨ", serviceAdsDesc:"ਪ੍ਰਮੋਸ਼ਨਲ ਡਿਜ਼ਾਈਨ",
+        serviceLanding:"ਲੈਂਡਿੰਗ ਪੇਜ", serviceLandingDesc:"ਪ੍ਰੋਡਕਟ ਜਾਂ ਕੈਂਪੇਨ ਲਈ ਪੇਜ",
+        servicePortfolio:"ਪੋਰਟਫੋਲੀਓ ਵੈੱਬਸਾਈਟ", servicePortfolioDesc:"ਆਪਣਾ ਕੰਮ ਦਿਖਾਓ",
+        serviceBusiness:"ਬਿਜ਼ਨਸ ਵੈੱਬਸਾਈਟ", serviceBusinessDesc:"ਸੇਵਾਵਾਂ ਅਤੇ ਸੰਪਰਕ ਜਾਣਕਾਰੀ",
+        serviceShop:"ਈ-ਕਾਮਰਸ ਵੈੱਬਸਾਈਟ", serviceShopDesc:"ਪ੍ਰੋਡਕਟ ਅਤੇ ਆਨਲਾਈਨ ਖਰੀਦਦਾਰੀ",
+        serviceUI:"ਰਿਸਪਾਂਸਿਵ UI / UX", serviceUIDesc:"ਮੋਬਾਈਲ ਅਤੇ ਡੈਸਕਟਾਪ ਲੇਆਉਟ",
+        serviceRedesign:"ਵੈੱਬਸਾਈਟ ਰੀਡਿਜ਼ਾਈਨ", serviceRedesignDesc:"ਮੌਜੂਦਾ ਵੈੱਬਸਾਈਟ ਦਾ ਨਵਾਂ ਡਿਜ਼ਾਈਨ",
+        builderLabel:"02 / ਪ੍ਰੋਜੈਕਟ ਬਿਲਡਰ", builderTitle:"ਆਪਣੇ ਵਿਚਾਰ ਨੂੰ ਰੂਪ ਦਿਓ।",
+        builderDesc:"ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਬਾਰੇ ਕੁਝ ਜਾਣਕਾਰੀ ਦਿਓ। ਵਿਕਲਪਿਕ ਜਾਣਕਾਰੀ ਖਾਲੀ ਛੱਡ ਸਕਦੇ ਹੋ।",
+        asideLabel:"ਤੁਹਾਡਾ ਕ੍ਰੀਏਟਿਵ ਸਫ਼ਰ", asideTitle:"ਵਿਚਾਰ ਤੋਂ ਸਪਸ਼ਟ ਯੋਜਨਾ ਤੱਕ।",
+        asideDesc:"ਤੁਹਾਡੇ ਜਵਾਬ ਪ੍ਰੋਜੈਕਟ ਦੀਆਂ ਲੋੜਾਂ ਅਤੇ ਅਗਲੇ ਕਦਮ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਨਗੇ।",
+        stepOne:"ਦਿਸ਼ਾ ਚੁਣੋ", stepTwo:"ਵੇਰਵੇ ਦਿਓ", stepThree:"ਬ੍ਰੀਫ਼ ਵੇਖੋ", stepFour:"WhatsApp ਰਾਹੀਂ ਭੇਜੋ",
+        formLabel:"ਪ੍ਰੋਜੈਕਟ ਜਾਣਕਾਰੀ", formTitle:"ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਬਾਰੇ ਦੱਸੋ",
+        formDesc:"ਮੁੱਢਲੀ ਜਾਣਕਾਰੀ ਨਾਲ ਸ਼ੁਰੂ ਕਰੋ ਤਾਂ ਜੋ ਤੁਹਾਡਾ ਵਿਚਾਰ ਸਮਝਿਆ ਜਾ ਸਕੇ।",
+        nameLabel:"ਤੁਹਾਡਾ ਨਾਮ *", namePlaceholder:"ਜਿਵੇਂ: ਅਮਨ ਸਿੰਘ",
+        emailLabel:"ਈਮੇਲ (ਵਿਕਲਪਿਕ)", emailPlaceholder:"you@example.com",
+        typeLabel:"ਤੁਹਾਨੂੰ ਕੀ ਚਾਹੀਦਾ ਹੈ? *", typeGraphic:"ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨ", typeWeb:"ਵੈੱਬ ਡਿਜ਼ਾਈਨ", typeBoth:"ਦੋਵੇਂ",
+        brandLabel:"ਬ੍ਰਾਂਡ ਜਾਂ ਬਿਜ਼ਨਸ ਦਾ ਨਾਮ (ਵਿਕਲਪਿਕ)", brandPlaceholder:"ਤੁਹਾਡੇ ਬ੍ਰਾਂਡ ਦਾ ਨਾਮ",
+        goalLabel:"ਮੁੱਖ ਟੀਚਾ ਕੀ ਹੈ? *", goalPlaceholder:"ਮੁੱਖ ਟੀਚਾ ਚੁਣੋ",
+        goal1:"ਨਵਾਂ ਬ੍ਰਾਂਡ ਸ਼ੁਰੂ ਕਰਨਾ", goal2:"ਪ੍ਰੋਡਕਟ ਜਾਂ ਸੇਵਾਵਾਂ ਦਾ ਪ੍ਰਚਾਰ", goal3:"ਮੌਜੂਦਾ ਬ੍ਰਾਂਡ ਸੁਧਾਰਨਾ",
+        goal4:"ਨਵੀਂ ਵੈੱਬਸਾਈਟ ਬਣਾਉਣਾ", goal5:"ਮੌਜੂਦਾ ਵੈੱਬਸਾਈਟ ਦਾ ਨਵਾਂ ਡਿਜ਼ਾਈਨ", goal6:"ਹੋਰ ਕ੍ਰੀਏਟਿਵ ਪ੍ਰੋਜੈਕਟ",
+        styleLabel:"ਤੁਹਾਨੂੰ ਕਿਹੜੀ ਵਿਜ਼ੂਅਲ ਸ਼ੈਲੀ ਪਸੰਦ ਹੈ?", style1:"ਸਾਫ਼ ਅਤੇ ਸਧਾਰਨ", style2:"ਬੋਲਡ ਅਤੇ ਪ੍ਰਭਾਵਸ਼ਾਲੀ",
+        style3:"ਲਗਜ਼ਰੀ ਅਤੇ ਪ੍ਰੀਮੀਅਮ", style4:"ਰੰਗੀਨ ਅਤੇ ਮਜ਼ੇਦਾਰ", style5:"ਸਲਾਹ ਚਾਹੀਦੀ ਹੈ",
+        budgetLabel:"ਅੰਦਾਜ਼ਨ ਬਜਟ (ਵਿਕਲਪਿਕ)", budgetPlaceholder:"ਬਜਟ ਚੁਣੋ", budgetFlexible:"ਸਲਾਹ ਚਾਹੀਦੀ ਹੈ",
+        timelineLabel:"ਸਮਾਂ ਸੀਮਾ (ਵਿਕਲਪਿਕ)", timelinePlaceholder:"ਸਮਾਂ ਚੁਣੋ",
+        timeline1:"ਜਿੰਨੀ ਜਲਦੀ ਹੋ ਸਕੇ", timeline2:"1–2 ਹਫ਼ਤਿਆਂ ਵਿੱਚ", timeline3:"ਇੱਕ ਮਹੀਨੇ ਵਿੱਚ", timeline4:"ਲਚਕਦਾਰ",
+        detailsLabel:"ਆਪਣਾ ਵਿਚਾਰ ਦੱਸੋ (ਵਿਕਲਪਿਕ)",
+        detailsPlaceholder:"ਤੁਸੀਂ ਕੀ ਬਣਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਰੰਗ, ਉਦਾਹਰਨਾਂ ਜਾਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੱਸੋ।",
+        referenceLabel:"ਹਵਾਲਾ ਵੈੱਬਸਾਈਟ ਜਾਂ ਲਿੰਕ (ਵਿਕਲਪਿਕ)", referencePlaceholder:"https://example.com",
+        summaryBtn:"ਮੇਰਾ ਪ੍ਰੋਜੈਕਟ ਬ੍ਰੀਫ਼ ਬਣਾਓ ↗", resetBtn:"ਫਾਰਮ ਰੀਸੈੱਟ ਕਰੋ", summaryLabel:"ਤੁਹਾਡਾ ਪ੍ਰੋਜੈਕਟ ਬ੍ਰੀਫ਼",
+        summaryTitle:"ਤੁਹਾਡੀ ਡਿਜ਼ਾਈਨ ਦਿਸ਼ਾ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ।", whatsappBtn:"WhatsApp ਤੇ ਬ੍ਰੀਫ਼ ਭੇਜੋ ↗",
+        copyBtn:"ਬ੍ਰੀਫ਼ ਕਾਪੀ ਕਰੋ", downloadBtn:"TXT ਡਾਊਨਲੋਡ ਕਰੋ ↓",
+        summaryNote:"ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ ਬ੍ਰੀਫ਼ ਵੇਖੋ। WhatsApp ਵਿੱਚ ਸੁਨੇਹਾ ਤਿਆਰ ਹੋਵੇਗਾ; ਭੇਜਣ ਲਈ Send ਦਬਾਓ।",
+        processLabel:"03 / ਪ੍ਰਕਿਰਿਆ", processTitle:"ਸਪਸ਼ਟ ਕਦਮ। ਵਧੀਆ ਕੰਮ।",
+        processDesc:"ਮਿਲ ਕੇ ਕੰਮ ਕਰਨ ਨਾਲ ਪ੍ਰੋਜੈਕਟ ਤੁਹਾਡੇ ਟੀਚਿਆਂ ਦੇ ਅਨੁਸਾਰ ਰਹਿੰਦਾ ਹੈ।",
+        process1Title:"ਖੋਜ", process1Desc:"ਤੁਹਾਡੇ ਕਾਰੋਬਾਰ ਅਤੇ ਟੀਚਿਆਂ ਨੂੰ ਸਮਝਣਾ।",
+        process2Title:"ਦਿਸ਼ਾ", process2Desc:"ਕ੍ਰੀਏਟਿਵ ਸ਼ੈਲੀ ਅਤੇ ਤਰਜੀਹਾਂ ਤੈਅ ਕਰਨਾ।",
+        process3Title:"ਡਿਜ਼ਾਈਨ", process3Desc:"ਡਿਜ਼ਾਈਨ ਬਣਾਉਣਾ ਅਤੇ ਫੀਡਬੈਕ ਨਾਲ ਸੁਧਾਰਨਾ।",
+        process4Title:"ਡਿਲਿਵਰੀ", process4Desc:"ਤੈਅ ਕੀਤੀਆਂ ਫਾਈਲਾਂ ਜਾਂ ਵੈੱਬਸਾਈਟ ਦੇਣਾ।",
+        contactLabel:"ਸੰਪਰਕ ਕਰੋ", contactTitle:"ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਹੈ?",
+        contactDesc:"ਆਓ ਕੁਝ ਯਾਦਗਾਰ ਬਣਾਈਏ। ਆਪਣਾ ਬ੍ਰੀਫ਼ ਭੇਜੋ ਜਾਂ ਆਪਣੇ ਵਿਚਾਰ ਬਾਰੇ ਗੱਲ ਕਰੋ।",
+        contactWhatsapp:"Harsh ਨੂੰ WhatsApp ਕਰੋ ↗", contactEmail:"ਈਮੇਲ ਭੇਜੋ ↗", contactInstagram:"Instagram ↗",
+        footerText:"Harsh Chawla ਵੱਲੋਂ ਡਿਜ਼ਾਈਨ", footerHome:"ਹੋਮ", footerDiscover:"ਡਿਸਕਵਰ", footerDesign:"ਡਿਜ਼ਾਈਨ", footerContact:"ਸੰਪਰਕ",
+        briefHeading:"DESIGNER 197 — ਪ੍ਰੋਜੈਕਟ ਬ੍ਰੀਫ਼", briefName:"ਨਾਮ", briefEmail:"ਈਮੇਲ", briefDirection:"ਦਿਸ਼ਾ",
+        briefServices:"ਚੁਣੀਆਂ ਸੇਵਾਵਾਂ", briefBrand:"ਬ੍ਰਾਂਡ / ਬਿਜ਼ਨਸ", briefGoal:"ਮੁੱਖ ਟੀਚਾ", briefStyle:"ਵਿਜ਼ੂਅਲ ਸ਼ੈਲੀ",
+        briefBudget:"ਅੰਦਾਜ਼ਨ ਬਜਟ", briefTimeline:"ਸਮਾਂ ਸੀਮਾ", briefDetails:"ਪ੍ਰੋਜੈਕਟ ਵੇਰਵੇ", briefReference:"ਹਵਾਲਾ ਲਿੰਕ",
+        none:"ਨਹੀਂ ਦਿੱਤਾ", chooseDirection:"ਫਾਰਮ ਵਿੱਚ ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨ, ਵੈੱਬ ਡਿਜ਼ਾਈਨ ਜਾਂ ਦੋਵੇਂ ਚੁਣੋ।",
+        selectService:"ਘੱਟੋ-ਘੱਟ ਇੱਕ ਸੇਵਾ ਚੁਣੋ।", formSuccess:"ਤੁਹਾਡਾ ਪ੍ਰੋਜੈਕਟ ਬ੍ਰੀਫ਼ ਤਿਆਰ ਹੈ।",
+        copySuccess:"ਬ੍ਰੀਫ਼ ਕਾਪੀ ਹੋ ਗਿਆ।", copyFallback:"ਕਾਪੀ ਉਪਲਬਧ ਨਹੀਂ। ਬ੍ਰੀਫ਼ ਡਾਊਨਲੋਡ ਕਰੋ।",
+        resetSuccess:"ਫਾਰਮ ਰੀਸੈੱਟ ਹੋ ਗਿਆ।", validationError:"ਕਿਰਪਾ ਕਰਕੇ ਲੋੜੀਂਦੀ ਜਾਣਕਾਰੀ ਭਰੋ।",
+        downloadName:"designer197-project-brief.txt"
+      },
+      fr: {
+        navDirection:"Direction", navBuilder:"Projet", startBtn:"Démarrer un projet ↗",
+        eyebrow:"DESIGNER 197 · DIRECTION CRÉATIVE",
+        heroTitle:'Trouvons votre<br><span class="gradient-text">direction créative.</span>',
+        heroDesc:"Chaque bon projet commence par une direction claire. Choisissez le type de design dont vous avez besoin et partagez votre idée.",
+        exploreBtn:"Explorer les directions ↓", processBtn:"Comment ça marche",
+        heroNoteStrong:"Découvrir → Orienter → Concevoir → Livrer", heroNote:"Un processus simple, un résultat réfléchi.",
+        floatBrand:"Soyez reconnaissable", floatDigital:"Conçu pour les gens", floatIdea:"Tout commence ici",
+        directionLabel:"01 / CHOISISSEZ VOTRE DIRECTION", directionTitle:"Que créons-nous?",
+        directionDesc:"Choisissez une direction ou combinez les deux. Sélectionnez ensuite les services précis.",
+        graphicTitle:"Design graphique", graphicDesc:"Créez une identité visuelle distinctive grâce à l’image de marque, aux campagnes, à l’emballage et à l’impression.",
+        webTitle:"Design Web", webDesc:"Créez une expérience numérique soignée avec une mise en page adaptative et une navigation claire.",
+        tagBranding:"MARQUE", tagSocial:"RÉSEAUX SOCIAUX", tagPackaging:"EMBALLAGE", tagPrint:"IMPRESSION",
+        tagLanding:"PAGE D’ACCUEIL", tagPortfolio:"PORTFOLIO", tagBusiness:"SITE D’AFFAIRES", tagUI:"UI / UX",
+        graphicServicesTitle:"Services de design graphique", graphicServicesDesc:"Sélectionnez tous les services graphiques nécessaires.",
+        webServicesTitle:"Services de design Web", webServicesDesc:"Sélectionnez le type de site et les fonctions souhaitées.",
+        serviceLogo:"Logo et identité de marque", serviceLogoDesc:"Logo, couleurs, typographie et identité",
+        serviceSocial:"Design pour réseaux sociaux", serviceSocialDesc:"Campagnes, publicités et publications",
+        servicePackaging:"Design d’emballage", servicePackagingDesc:"Étiquettes et visuels de produits",
+        servicePrint:"Catalogue et impression", servicePrintDesc:"Brochures, catalogues et mises en page",
+        servicePhoto:"Retouche photo", servicePhotoDesc:"Retouche et édition créative",
+        serviceAds:"Campagne publicitaire", serviceAdsDesc:"Visuels promotionnels et publicités",
+        serviceLanding:"Page d’atterrissage", serviceLandingDesc:"Page dédiée à un produit ou une campagne",
+        servicePortfolio:"Site portfolio", servicePortfolioDesc:"Présentez vos travaux et vos compétences",
+        serviceBusiness:"Site Web d’entreprise", serviceBusinessDesc:"Services, renseignements et contact",
+        serviceShop:"Site de commerce en ligne", serviceShopDesc:"Produits et expérience d’achat",
+        serviceUI:"UI / UX adaptatif", serviceUIDesc:"Mise en page mobile et ordinateur",
+        serviceRedesign:"Refonte de site Web", serviceRedesignDesc:"Modernisez un site existant",
+        builderLabel:"02 / CRÉATEUR DE PROJET", builderTitle:"Donnons forme à votre idée.",
+        builderDesc:"Partagez quelques détails pour définir votre projet. Les champs facultatifs peuvent rester vides.",
+        asideLabel:"VOTRE PARCOURS CRÉATIF", asideTitle:"De l’idée à un plan clair.",
+        asideDesc:"Vos réponses aident à préciser les besoins et les prochaines étapes.",
+        stepOne:"Choisir une direction", stepTwo:"Fournir les détails", stepThree:"Examiner le brief", stepFour:"Envoyer par WhatsApp",
+        formLabel:"DÉCOUVERTE DU PROJET", formTitle:"Parlez-moi de votre projet",
+        formDesc:"Commencez par les bases pour nous aider à comprendre votre vision.",
+        nameLabel:"Votre nom *", namePlaceholder:"Ex. : Alex Sharma",
+        emailLabel:"Courriel (facultatif)", emailPlaceholder:"vous@example.com",
+        typeLabel:"De quoi avez-vous besoin? *", typeGraphic:"Design graphique", typeWeb:"Design Web", typeBoth:"Les deux",
+        brandLabel:"Nom de marque ou d’entreprise (facultatif)", brandPlaceholder:"Nom de votre marque",
+        goalLabel:"Quel est l’objectif principal? *", goalPlaceholder:"Choisissez un objectif",
+        goal1:"Lancer une nouvelle marque", goal2:"Promouvoir des produits ou services", goal3:"Améliorer une marque existante",
+        goal4:"Créer un nouveau site Web", goal5:"Refondre un site existant", goal6:"Autre projet créatif",
+        styleLabel:"Quel style visuel préférez-vous?", style1:"Minimaliste et épuré", style2:"Audacieux et expressif",
+        style3:"Luxe et haut de gamme", style4:"Ludique et coloré", style5:"Besoin de conseils",
+        budgetLabel:"Budget estimé (facultatif)", budgetPlaceholder:"Choisir une fourchette", budgetFlexible:"Besoin de conseils",
+        timelineLabel:"Échéancier souhaité (facultatif)", timelinePlaceholder:"Choisir un échéancier",
+        timeline1:"Dès que possible", timeline2:"Dans 1 à 2 semaines", timeline3:"Dans un mois", timeline4:"Flexible",
+        detailsLabel:"Décrivez votre idée (facultatif)",
+        detailsPlaceholder:"Que souhaitez-vous créer? Ajoutez vos références, couleurs ou idées.",
+        referenceLabel:"Site de référence ou lien d’inspiration (facultatif)", referencePlaceholder:"https://example.com",
+        summaryBtn:"Créer mon brief de projet ↗", resetBtn:"Réinitialiser", summaryLabel:"VOTRE BRIEF DE PROJET",
+        summaryTitle:"Votre direction prend forme.", whatsappBtn:"Envoyer le brief par WhatsApp ↗",
+        copyBtn:"Copier le brief", downloadBtn:"Télécharger TXT ↓",
+        summaryNote:"Vérifiez votre brief. WhatsApp ouvrira un message préparé que vous pourrez envoyer.",
+        processLabel:"03 / LE PROCESSUS", processTitle:"Des étapes claires. Un meilleur résultat.",
+        processDesc:"Une collaboration structurée garde le projet aligné sur vos objectifs.",
+        process1Title:"Découvrir", process1Desc:"Comprendre votre entreprise, votre public et vos objectifs.",
+        process2Title:"Orienter", process2Desc:"Définir le style créatif et les priorités.",
+        process3Title:"Concevoir", process3Desc:"Créer le concept et l’améliorer grâce aux commentaires.",
+        process4Title:"Livrer", process4Desc:"Préparer les fichiers finaux ou les livrables convenus.",
+        contactLabel:"RESTONS EN CONTACT", contactTitle:"Vous avez un projet en tête?",
+        contactDesc:"Créons quelque chose de mémorable. Partagez votre brief ou discutons de votre idée.",
+        contactWhatsapp:"WhatsApp Harsh ↗", contactEmail:"Envoyer un courriel ↗", contactInstagram:"Instagram ↗",
+        footerText:"Conçu par Harsh Chawla", footerHome:"Accueil", footerDiscover:"Découvrir", footerDesign:"Design", footerContact:"Contact",
+        briefHeading:"DESIGNER 197 — BRIEF DE PROJET", briefName:"Nom", briefEmail:"Courriel", briefDirection:"Direction",
+        briefServices:"Services sélectionnés", briefBrand:"Marque / entreprise", briefGoal:"Objectif", briefStyle:"Style visuel",
+        briefBudget:"Budget estimé", briefTimeline:"Échéancier", briefDetails:"Détails du projet", briefReference:"Lien de référence",
+        none:"Non précisé", chooseDirection:"Choisissez le design graphique, le design Web ou les deux dans le formulaire.",
+        selectService:"Sélectionnez au moins un service.", formSuccess:"Votre brief de projet est prêt.",
+        copySuccess:"Brief copié.", copyFallback:"La copie n’est pas disponible. Téléchargez le brief.",
+        resetSuccess:"Formulaire réinitialisé.", validationError:"Veuillez remplir les champs obligatoires.",
+        downloadName:"designer197-project-brief.txt"
+      },
+      "fr-CA": {
+        navDirection:"Direction", navBuilder:"Projet", startBtn:"Démarrer un projet ↗",
+        eyebrow:"DESIGNER 197 · DIRECTION CRÉATIVE",
+        heroTitle:'Trouvons votre<br><span class="gradient-text">direction créative.</span>',
+        heroDesc:"Tout bon projet commence par une direction claire. Choisissez le type de design dont vous avez besoin et parlez-moi de votre idée.",
+        exploreBtn:"Explorer les directions ↓", processBtn:"Comment ça fonctionne",
+        heroNoteStrong:"Découvrir → Orienter → Concevoir → Livrer", heroNote:"Un processus simple, un résultat réfléchi.",
+        floatBrand:"Une marque reconnaissable", floatDigital:"Conçu pour les gens", floatIdea:"Tout commence ici",
+        directionLabel:"01 / CHOISISSEZ VOTRE DIRECTION", directionTitle:"Qu’est-ce qu’on crée?",
+        directionDesc:"Choisissez une direction ou combinez les deux. Vous pourrez ensuite sélectionner les services précis.",
+        graphicTitle:"Design graphique", graphicDesc:"Créez une identité visuelle distinctive avec l’image de marque, les campagnes, l’emballage et l’impression.",
+        webTitle:"Design Web", webDesc:"Créez une expérience numérique soignée avec une mise en page adaptative et une navigation simple.",
+        tagBranding:"IMAGE DE MARQUE", tagSocial:"RÉSEAUX SOCIAUX", tagPackaging:"EMBALLAGE", tagPrint:"IMPRESSION",
+        tagLanding:"PAGE D’ACCUEIL", tagPortfolio:"PORTFOLIO", tagBusiness:"SITE D’AFFAIRES", tagUI:"UI / UX",
+        graphicServicesTitle:"Services de design graphique", graphicServicesDesc:"Sélectionnez tous les services graphiques dont vous avez besoin.",
+        webServicesTitle:"Services de design Web", webServicesDesc:"Choisissez le type de site et les fonctionnalités souhaitées.",
+        serviceLogo:"Logo et identité de marque", serviceLogoDesc:"Logo, couleurs, typographie et identité",
+        serviceSocial:"Design pour réseaux sociaux", serviceSocialDesc:"Campagnes, publicités et publications promotionnelles",
+        servicePackaging:"Design d’emballage", servicePackagingDesc:"Étiquettes et visuels de produits",
+        servicePrint:"Catalogue et impression", servicePrintDesc:"Brochures, catalogues et mises en page",
+        servicePhoto:"Retouche photo", servicePhotoDesc:"Retouche et édition créative",
+        serviceAds:"Campagne publicitaire", serviceAdsDesc:"Visuels promotionnels et publicités",
+        serviceLanding:"Page d’atterrissage", serviceLandingDesc:"Page pour un produit ou une campagne",
+        servicePortfolio:"Site portfolio", servicePortfolioDesc:"Présentez votre travail et vos compétences",
+        serviceBusiness:"Site Web d’entreprise", serviceBusinessDesc:"Services, renseignements et coordonnées",
+        serviceShop:"Boutique en ligne", serviceShopDesc:"Produits et expérience d’achat",
+        serviceUI:"UI / UX adaptatif", serviceUIDesc:"Mise en page pour mobile et ordinateur",
+        serviceRedesign:"Refonte de site Web", serviceRedesignDesc:"Modernisez un site existant",
+        builderLabel:"02 / CRÉATEUR DE PROJET", builderTitle:"Donnons forme à votre idée.",
+        builderDesc:"Partagez quelques détails pour définir votre projet. Les champs facultatifs peuvent rester vides.",
+        asideLabel:"VOTRE PARCOURS CRÉATIF", asideTitle:"De l’idée à un plan clair.",
+        asideDesc:"Vos réponses aident à définir les besoins et les prochaines étapes.",
+        stepOne:"Choisir une direction", stepTwo:"Ajouter les détails", stepThree:"Vérifier le brief", stepFour:"Envoyer par WhatsApp",
+        formLabel:"DÉCOUVERTE DU PROJET", formTitle:"Parlez-moi de votre projet",
+        formDesc:"Commencez par les bases pour nous aider à comprendre votre vision.",
+        nameLabel:"Votre nom *", namePlaceholder:"Ex. : Alex Sharma",
+        emailLabel:"Courriel (facultatif)", emailPlaceholder:"vous@example.com",
+        typeLabel:"De quoi avez-vous besoin? *", typeGraphic:"Design graphique", typeWeb:"Design Web", typeBoth:"Les deux",
+        brandLabel:"Nom de marque ou d’entreprise (facultatif)", brandPlaceholder:"Nom de votre marque",
+        goalLabel:"Quel est l’objectif principal? *", goalPlaceholder:"Choisissez un objectif",
+        goal1:"Lancer une nouvelle marque", goal2:"Promouvoir des produits ou services", goal3:"Améliorer une marque existante",
+        goal4:"Créer un nouveau site Web", goal5:"Refondre un site existant", goal6:"Autre projet créatif",
+        styleLabel:"Quel style visuel préférez-vous?", style1:"Minimaliste et épuré", style2:"Audacieux et expressif",
+        style3:"Luxe et haut de gamme", style4:"Ludique et coloré", style5:"J’aimerais des conseils",
+        budgetLabel:"Budget estimé (facultatif)", budgetPlaceholder:"Choisir une fourchette", budgetFlexible:"J’aimerais des conseils",
+        timelineLabel:"Échéancier souhaité (facultatif)", timelinePlaceholder:"Choisir un échéancier",
+        timeline1:"Dès que possible", timeline2:"Dans 1 à 2 semaines", timeline3:"Dans un mois", timeline4:"Flexible",
+        detailsLabel:"Décrivez votre idée (facultatif)",
+        detailsPlaceholder:"Que souhaitez-vous créer? Ajoutez vos références, couleurs ou idées.",
+        referenceLabel:"Site de référence ou lien d’inspiration (facultatif)", referencePlaceholder:"https://example.com",
+        summaryBtn:"Créer mon brief de projet ↗", resetBtn:"Réinitialiser", summaryLabel:"VOTRE BRIEF DE PROJET",
+        summaryTitle:"Votre direction prend forme.", whatsappBtn:"Envoyer le brief par WhatsApp ↗",
+        copyBtn:"Copier le brief", downloadBtn:"Télécharger TXT ↓",
+        summaryNote:"Vérifiez votre brief. WhatsApp ouvrira un message préparé; vous pourrez ensuite l’envoyer.",
+        processLabel:"03 / LE PROCESSUS", processTitle:"Des étapes claires. Un meilleur résultat.",
+        processDesc:"Une bonne collaboration garde le projet organisé et aligné sur vos objectifs.",
+        process1Title:"Découvrir", process1Desc:"Comprendre votre entreprise, votre public et vos objectifs.",
+        process2Title:"Orienter", process2Desc:"Définir le style créatif et les priorités.",
+        process3Title:"Concevoir", process3Desc:"Créer le concept et l’améliorer avec vos commentaires.",
+        process4Title:"Livrer", process4Desc:"Préparer les fichiers finaux ou les livrables convenus.",
+        contactLabel:"RESTONS EN CONTACT", contactTitle:"Vous avez un projet en tête?",
+        contactDesc:"Créons quelque chose de mémorable. Partagez votre brief ou discutons de votre idée.",
+        contactWhatsapp:"WhatsApp Harsh ↗", contactEmail:"Envoyer un courriel ↗", contactInstagram:"Instagram ↗",
+        footerText:"Conçu par Harsh Chawla", footerHome:"Accueil", footerDiscover:"Découvrir", footerDesign:"Design", footerContact:"Contact",
+        briefHeading:"DESIGNER 197 — BRIEF DE PROJET", briefName:"Nom", briefEmail:"Courriel", briefDirection:"Direction",
+        briefServices:"Services sélectionnés", briefBrand:"Marque / entreprise", briefGoal:"Objectif", briefStyle:"Style visuel",
+        briefBudget:"Budget estimé", briefTimeline:"Échéancier", briefDetails:"Détails du projet", briefReference:"Lien de référence",
+        none:"Non précisé", chooseDirection:"Choisissez le design graphique, le design Web ou les deux.",
+        selectService:"Sélectionnez au moins un service.", formSuccess:"Votre brief de projet est prêt.",
+        copySuccess:"Brief copié.", copyFallback:"La copie n’est pas disponible. Téléchargez le brief.",
+        resetSuccess:"Formulaire réinitialisé.", validationError:"Veuillez remplir les champs obligatoires.",
+        downloadName:"designer197-project-brief.txt"
+      },
+      zh: {
+        navDirection:"设计方向", navBuilder:"项目创建器", startBtn:"开始项目 ↗",
+        eyebrow:"DESIGNER 197 · 创意方向",
+        heroTitle:'找到你的<br><span class="gradient-text">创意方向。</span>',
+        heroDesc:"每个优秀项目都始于清晰的方向。选择你需要的设计类型，分享你的想法，一起打造令人难忘的作品。",
+        exploreBtn:"探索设计方向 ↓", processBtn:"了解流程",
+        heroNoteStrong:"探索 → 定向 → 设计 → 交付", heroNote:"流程清晰，设计用心。",
+        floatBrand:"建立鲜明品牌", floatDigital:"为用户而设计", floatIdea:"从这里开始",
+        directionLabel:"01 / 选择设计方向", directionTitle:"我们要创作什么？",
+        directionDesc:"可以选择一个方向，也可以同时选择两个。下一步可选择具体服务。",
+        graphicTitle:"平面设计", graphicDesc:"通过品牌设计、广告活动、包装和印刷设计，打造独特的视觉形象。",
+        webTitle:"网页设计", webDesc:"通过响应式布局、清晰导航和统一视觉风格，打造精致的数字体验。",
+        tagBranding:"品牌设计", tagSocial:"社交媒体", tagPackaging:"包装", tagPrint:"印刷",
+        tagLanding:"落地页", tagPortfolio:"作品集", tagBusiness:"企业网站", tagUI:"UI / UX",
+        graphicServicesTitle:"平面设计服务", graphicServicesDesc:"选择你需要的所有平面设计服务。",
+        webServicesTitle:"网页设计服务", webServicesDesc:"选择网站类型和所需功能。",
+        serviceLogo:"标志与品牌形象", serviceLogoDesc:"标志、配色、字体和品牌形象",
+        serviceSocial:"社交媒体设计", serviceSocialDesc:"营销活动、广告和推广帖子",
+        servicePackaging:"包装设计", servicePackagingDesc:"产品标签和包装视觉",
+        servicePrint:"目录与印刷设计", servicePrintDesc:"宣传册、目录和印刷版式",
+        servicePhoto:"照片编辑", servicePhotoDesc:"照片修饰和创意编辑",
+        serviceAds:"广告活动设计", serviceAdsDesc:"推广视觉和广告创意",
+        serviceLanding:"落地页", serviceLandingDesc:"产品或营销活动专用页面",
+        servicePortfolio:"作品集网站", servicePortfolioDesc:"展示你的作品与创意能力",
+        serviceBusiness:"企业网站", serviceBusinessDesc:"服务、公司介绍和联系方式",
+        serviceShop:"电子商务网站", serviceShopDesc:"产品展示和在线购物体验",
+        serviceUI:"响应式 UI / UX", serviceUIDesc:"适配手机和电脑的布局",
+        serviceRedesign:"网站改版", serviceRedesignDesc:"更新现有网站的设计",
+        builderLabel:"02 / 项目创建器", builderTitle:"让想法逐渐成形。",
+        builderDesc:"填写一些信息，为项目简报建立清晰的起点。选填项目可以留空。",
+        asideLabel:"你的创意旅程", asideTitle:"从想法到清晰计划。",
+        asideDesc:"你的回答有助于明确项目需求、优先事项和后续步骤。",
+        stepOne:"选择方向", stepTwo:"填写详情", stepThree:"检查简报", stepFour:"通过 WhatsApp 发送",
+        formLabel:"项目需求", formTitle:"介绍一下你的项目",
+        formDesc:"先填写基本信息，帮助我们理解你的想法。",
+        nameLabel:"你的姓名 *", namePlaceholder:"例如：Alex Sharma",
+        emailLabel:"电子邮箱（选填）", emailPlaceholder:"you@example.com",
+        typeLabel:"你需要什么？*", typeGraphic:"平面设计", typeWeb:"网页设计", typeBoth:"两者都需要",
+        brandLabel:"品牌或企业名称（选填）", brandPlaceholder:"你的品牌名称",
+        goalLabel:"主要目标是什么？*", goalPlaceholder:"选择主要目标",
+        goal1:"创立新品牌", goal2:"推广产品或服务", goal3:"改善现有品牌",
+        goal4:"建立新网站", goal5:"改版现有网站", goal6:"其他创意项目",
+        styleLabel:"你喜欢哪种视觉风格？", style1:"简约清晰", style2:"大胆鲜明",
+        style3:"奢华高端", style4:"活泼多彩", style5:"需要建议",
+        budgetLabel:"预计预算（选填）", budgetPlaceholder:"选择预算范围", budgetFlexible:"需要建议",
+        timelineLabel:"期望时间（选填）", timelinePlaceholder:"选择时间",
+        timeline1:"越快越好", timeline2:"1–2 周内", timeline3:"一个月内", timeline4:"时间灵活",
+        detailsLabel:"描述你的想法（选填）",
+        detailsPlaceholder:"你想创作什么？可以填写参考、颜色、功能或其他想法。",
+        referenceLabel:"参考网站或灵感链接（选填）", referencePlaceholder:"https://example.com",
+        summaryBtn:"生成我的项目简报 ↗", resetBtn:"重置表单", summaryLabel:"你的项目简报",
+        summaryTitle:"你的设计方向正在成形。", whatsappBtn:"通过 WhatsApp 发送简报 ↗",
+        copyBtn:"复制简报", downloadBtn:"下载 TXT ↓",
+        summaryNote:"发送前请检查简报。WhatsApp 会打开预填消息，你可以确认后发送。",
+        processLabel:"03 / 工作流程", processTitle:"步骤清晰，成果更好。",
+        processDesc:"协作流程让项目保持有序，并与目标一致。",
+        process1Title:"探索", process1Desc:"了解业务、受众、需求和项目目标。",
+        process2Title:"定向", process2Desc:"确定创意方向、视觉风格和优先事项。",
+        process3Title:"设计", process3Desc:"制作设计概念，并根据反馈进行优化。",
+        process4Title:"交付", process4Desc:"准备约定的最终文件或网站成果。",
+        contactLabel:"保持联系", contactTitle:"你有项目想法吗？",
+        contactDesc:"一起创作令人难忘的作品。分享项目简报，或联系我们讨论你的想法。",
+        contactWhatsapp:"WhatsApp 联系 Harsh ↗", contactEmail:"发送邮件 ↗", contactInstagram:"Instagram ↗",
+        footerText:"由 Harsh Chawla 设计", footerHome:"首页", footerDiscover:"探索", footerDesign:"设计", footerContact:"联系",
+        briefHeading:"DESIGNER 197 — 项目简报", briefName:"姓名", briefEmail:"邮箱", briefDirection:"设计方向",
+        briefServices:"所选服务", briefBrand:"品牌 / 企业", briefGoal:"主要目标", briefStyle:"视觉风格",
+        briefBudget:"预计预算", briefTimeline:"时间安排", briefDetails:"项目详情", briefReference:"参考链接",
+        none:"未填写", chooseDirection:"请在表单中选择平面设计、网页设计或两者。",
+        selectService:"请至少选择一项服务。", formSuccess:"项目简报已生成。",
+        copySuccess:"简报已复制。", copyFallback:"当前无法复制，请下载简报。",
+        resetSuccess:"表单已重置。", validationError:"请填写必填信息。",
+        downloadName:"designer197-project-brief.txt"
+      }
     };
 
-}
+    const languageSelect = document.getElementById("language");
+    const projectForm = document.getElementById("projectForm");
+    const summary = document.getElementById("summary");
+    const summaryContent = document.getElementById("summaryContent");
+    const toast = document.getElementById("toast");
 
+    let currentLanguage = "en";
+    let latestBrief = "";
+    let toastTimer;
 
-/* =========================================================
-   CONTINUE
-========================================================= */
-
-function continueToDesign(){
-
-    const data =
-        getDirectionData();
-
-
-    /*
-       Save direction locally so
-       design.html can use it later.
-    */
-
-    localStorage.setItem(
-        "designer197_direction",
-        JSON.stringify(data)
-    );
-
-
-    window.location.href =
-        "design.html";
-
-}
-
-
-/* =========================================================
-   CURSOR
-========================================================= */
-
-const cursor =
-    document.querySelector(
-        ".cursor"
-    );
-
-
-document.addEventListener(
-    "mousemove",
-    event => {
-
-        cursor.style.left =
-            event.clientX + "px";
-
-        cursor.style.top =
-            event.clientY + "px";
-
+    function t(key) {
+      return translations[currentLanguage]?.[key] ??
+        translations.en[key] ??
+        key;
     }
-);
 
-
-document
-.querySelectorAll(
-    "a,button,.direction-card,.type-card,.layout-card,.color-card,.motion-card"
-)
-.forEach(element => {
-
-    element.addEventListener(
-        "mouseenter",
-        () => {
-
-            cursor.classList.add(
-                "active"
-            );
-
-        }
-    );
-
-
-    element.addEventListener(
-        "mouseleave",
-        () => {
-
-            cursor.classList.remove(
-                "active"
-            );
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   PARALLAX HERO
-========================================================= */
-
-const hero =
-    document.querySelector(
-        ".hero"
-    );
-
-
-document.addEventListener(
-    "mousemove",
-    event => {
-
-        if(!hero) return;
-
-
-        const x =
-            (event.clientX /
-            window.innerWidth - .5) * 8;
-
-
-        const y =
-            (event.clientY /
-            window.innerHeight - .5) * 8;
-
-
-        hero.style.transform =
-            `translate(${x}px,${y}px)`;
-
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
     }
-);
 
-</script>
+    function applyLanguage(language) {
+      currentLanguage = translations[language] ? language : "en";
+      document.documentElement.lang =
+        currentLanguage === "zh" ? "zh-CN" :
+        currentLanguage === "pa" ? "pa" :
+        currentLanguage;
 
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        const translated = translations[currentLanguage][key];
+        if (translated !== undefined) element.innerHTML = translated;
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+        const key = element.dataset.i18nPlaceholder;
+        const translated = translations[currentLanguage][key];
+        if (translated !== undefined) element.placeholder = translated;
+      });
+
+      if (latestBrief) renderBrief();
+    }
+
+    languageSelect.addEventListener("change", event => {
+      applyLanguage(event.target.value);
+    });
+
+    const directionCards = [...document.querySelectorAll("[data-direction]")];
+    const graphicPanel = document.getElementById("graphicPanel");
+    const webPanel = document.getElementById("webPanel");
+
+    function selectedDirections() {
+      return directionCards
+        .filter(card => card.classList.contains("selected"))
+        .map(card => card.dataset.direction);
+    }
+
+    function updateDirectionUI() {
+      const selected = selectedDirections();
+
+      graphicPanel.hidden = !selected.includes("graphic");
+      webPanel.hidden = !selected.includes("web");
+
+      directionCards.forEach(card => {
+        const isSelected = selected.includes(card.dataset.direction);
+        card.classList.toggle("selected", isSelected);
+        card.setAttribute("aria-pressed", String(isSelected));
+      });
+
+      document.querySelectorAll('input[name="service"]').forEach(input => {
+        const enabled = selected.includes(input.dataset.group);
+        input.disabled = !enabled;
+        if (!enabled) input.checked = false;
+      });
+    }
+
+    directionCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const direction = card.dataset.direction;
+        const alreadySelected = card.classList.contains("selected");
+
+        card.classList.toggle("selected", !alreadySelected);
+        updateDirectionUI();
+      });
+    });
+
+    function getSelectedProjectType() {
+      return projectForm.querySelector('input[name="projectType"]:checked')?.value || "";
+    }
+
+    function getSelectedServices() {
+      return [...document.querySelectorAll('input[name="service"]:checked')]
+        .map(input => input.value);
+    }
+
+    function selectedRadio(name) {
+      return projectForm.querySelector(`input[name="${name}"]:checked`)?.value || "";
+    }
+
+    function fieldValue(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function safeReference(value) {
+      if (!value) return "";
+      try {
+        const url = new URL(value);
+        if (url.protocol === "https:" || url.protocol === "http:") return url.href;
+      } catch (_) {}
+      return "";
+    }
+
+    function makeBrief() {
+      const name = fieldValue("clientName");
+      const email = fieldValue("clientEmail");
+      const projectType = getSelectedProjectType();
+      const services = getSelectedServices();
+      const brand = fieldValue("brandName");
+      const goal = fieldValue("projectGoal");
+      const style = selectedRadio("style");
+      const budget = fieldValue("budget");
+      const timeline = fieldValue("timeline");
+      const details = fieldValue("details");
+      const reference = safeReference(fieldValue("reference"));
+
+      const lines = [
+        t("briefHeading"),
+        "",
+        `${t("briefName")}: ${name || t("none")}`,
+        `${t("briefEmail")}: ${email || t("none")}`,
+        `${t("briefDirection")}: ${projectType || t("none")}`,
+        `${t("briefServices")}: ${services.length ? services.join(", ") : t("none")}`,
+        `${t("briefBrand")}: ${brand || t("none")}`,
+        `${t("briefGoal")}: ${goal || t("none")}`,
+        `${t("briefStyle")}: ${style || t("none")}`,
+        `${t("briefBudget")}: ${budget || t("none")}`,
+        `${t("briefTimeline")}: ${timeline || t("none")}`,
+        "",
+        `${t("briefDetails")}:`,
+        details || t("none"),
+        "",
+        `${t("briefReference")}: ${reference || t("none")}`,
+        "",
+        "DESIGNER 197 — Harsh Chawla",
+        "WhatsApp: https://wa.me/919810851024",
+        "Email: dgraphic197@gmail.com"
+      ];
+
+      return lines.join("\n");
+    }
+
+    function renderBrief() {
+      summaryContent.textContent = latestBrief;
+    }
+
+    projectForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!projectForm.reportValidity()) {
+        showToast(t("validationError"));
+        return;
+      }
+
+      const projectType = getSelectedProjectType();
+      const selected = selectedDirections();
+      const services = getSelectedServices();
+
+      if (!projectType) {
+        showToast(t("chooseDirection"));
+        document.getElementById("directions").scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      if (!selected.length) {
+        showToast(t("chooseDirection"));
+        document.getElementById("directions").scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      const typeMatches =
+        (projectType === "Graphic Design" && selected.includes("graphic")) ||
+        (projectType === "Web Design" && selected.includes("web")) ||
+        (projectType === "Graphic Design + Web Design" &&
+          selected.includes("graphic") && selected.includes("web"));
+
+      if (!typeMatches) {
+        showToast(t("chooseDirection"));
+        document.getElementById("directions").scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      if (!services.length) {
+        showToast(t("selectService"));
+        document.getElementById("directions").scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      latestBrief = makeBrief();
+      renderBrief();
+      summary.classList.add("visible");
+      summary.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      showToast(t("formSuccess"));
+    });
+
+    projectForm.addEventListener("reset", () => {
+      setTimeout(() => {
+        directionCards.forEach(card => card.classList.remove("selected"));
+        updateDirectionUI();
+        summary.classList.remove("visible");
+        latestBrief = "";
+        summaryContent.textContent = "";
+        showToast(t("resetSuccess"));
+      }, 0);
+    });
+
+    document.getElementById("whatsappBtn").addEventListener("click", () => {
+      if (!latestBrief) {
+        showToast(t("validationError"));
+        return;
+      }
+
+      const phone = "919810851024";
+      const message = latestBrief;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      if (!latestBrief) return;
+
+      try {
+        await navigator.clipboard.writeText(latestBrief);
+        showToast(t("copySuccess"));
+      } catch (_) {
+        const textArea = document.createElement("textarea");
+        textArea.value = latestBrief;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        let copied = false;
+        try {
+          copied = document.execCommand("copy");
+        } catch (_) {}
+
+        textArea.remove();
+        showToast(copied ? t("copySuccess") : t("copyFallback"));
+      }
+    });
+
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      if (!latestBrief) return;
+
+      const blob = new Blob(["\uFEFF", latestBrief], {
+        type: "text/plain;charset=utf-8"
+      });
+
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = t("downloadName");
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      document.getElementById("progress").style.width = `${progress}%`;
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    applyLanguage("en");
+    updateDirectionUI();
+  </script>
 </body>
 </html>
