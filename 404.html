@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f4f4fc">
+<meta name="description" content="Oops! This page missed the brief. Return to DESIGNER197 by Harsh Chawla, Graphic Designer.">
+<title>404 — Page Not Found | DESIGNER197</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f8fc;--bg2:#eceefa;--text:#171b35;--muted:#737b98;--blue:#6475f5;--purple:#ad91ff;--line:rgba(100,117,245,.13)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-height:100vh;overflow-x:hidden;font-family:"DM Sans",sans-serif;color:var(--text);background:radial-gradient(ellipse at 15% 15%,rgba(173,145,255,.18),transparent 38%),radial-gradient(ellipse at 85% 75%,rgba(100,117,245,.12),transparent 35%),linear-gradient(135deg,var(--bg),var(--bg2))}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:10px}
+.background-glow{position:fixed;width:340px;height:340px;border-radius:50%;filter:blur(85px);opacity:.35;pointer-events:none;z-index:-1}
+.glow-one{top:10%;left:-170px;background:var(--purple)}.glow-two{right:-180px;bottom:0;background:var(--blue)}
+
+/* Logo: same as home page */
+.logo{display:flex;align-items:center;gap:10px;font:800 18px Manrope,sans-serif;letter-spacing:-1px;white-space:nowrap}
+.logo b{color:var(--blue)}
+.logo-mark{height:35px;width:35px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#dfe2ff);color:var(--blue);border:1px solid #fff;box-shadow:0 7px 18px #7c8bf52b;transform:rotate(-7deg);animation:logoBreathe 4s ease-in-out infinite;font:800 18px Manrope,sans-serif;letter-spacing:0}
+.logo-mark.sm{height:26px;width:26px;border-radius:9px;font-size:13px;animation:none}
+@keyframes logoBreathe{50%{transform:rotate(7deg) translateY(-2px);box-shadow:0 9px 26px #7c8bf55a}}
+
+header{position:relative;z-index:5;width:min(1160px,calc(100% - 40px));margin:0 auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.header-link{padding:11px 18px;border:1px solid var(--line);border-radius:50px;background:rgba(255,255,255,.65);backdrop-filter:blur(15px);font-size:13px;font-weight:700;transition:.3s ease}
+.header-link:hover{transform:translateY(-2px);border-color:var(--blue);color:var(--blue)}
+
+main{width:min(1160px,calc(100% - 40px));min-height:calc(100vh - 145px);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:45px;padding:45px 0 70px}
+.content{position:relative;z-index:2;animation:fade-up .8s ease both}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;margin-bottom:25px;border:1px solid rgba(100,117,245,.16);border-radius:50px;background:rgba(255,255,255,.65);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:2px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px rgba(100,117,245,.7)}
+h1{font-family:Manrope,sans-serif;font-size:clamp(38px,5vw,65px);line-height:1.12;letter-spacing:-3px;font-weight:800;max-width:580px}
+h1 span{display:block;background:linear-gradient(110deg,#6475f5,#ad91ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.description{max-width:440px;margin-top:22px;color:var(--muted);font-size:15px;line-height:1.9}
+.small-note{margin-top:12px;font-size:12px;color:#9298ae}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:31px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:49px;padding:0 21px;border-radius:14px;font-size:13px;font-weight:800;transition:transform .3s ease,box-shadow .3s ease}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{color:#fff;background:linear-gradient(120deg,#6475f5,#9277f8);box-shadow:0 12px 28px rgba(100,117,245,.25)}
+.btn-primary:hover{box-shadow:0 17px 35px rgba(100,117,245,.34)}
+.btn-secondary{color:var(--text);border:1px solid rgba(100,117,245,.16);background:rgba(255,255,255,.72)}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+
+.visual{position:relative;min-height:440px;display:grid;place-items:center;perspective:1000px;animation:fade-up 1s .15s ease both}
+.visual-halo{position:absolute;width:min(390px,85%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(173,145,255,.30),rgba(100,117,245,.08) 52%,transparent 72%);filter:blur(8px)}
+.orbit{position:absolute;width:360px;max-width:95%;aspect-ratio:1;border:1px solid rgba(100,117,245,.19);border-radius:50%;transform:rotateX(62deg) rotateZ(-25deg);animation:orbit 15s linear infinite}
+.orbit::before,.orbit::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));box-shadow:0 0 22px rgba(100,117,245,.55)}
+.orbit::before{top:14%;left:13%}.orbit::after{right:5%;bottom:22%;width:9px;height:9px}
+.error-card{position:relative;width:min(360px,90%);padding:27px 20px 30px;text-align:center;border:1px solid rgba(255,255,255,.9);border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(255,255,255,.48));backdrop-filter:blur(22px);box-shadow:0 35px 90px rgba(76,82,153,.15),inset 0 1px 0 #fff;transform:rotateY(-8deg) rotateX(5deg);animation:float-card 5s ease-in-out infinite}
+.card-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid rgba(100,117,245,.12)}
+.card-brand{display:flex;align-items:center;gap:9px;font:800 12px Manrope,sans-serif;letter-spacing:-.4px}
+.card-brand b{color:var(--blue)}
+.card-status{font-size:9px;font-weight:800;color:var(--blue);letter-spacing:1px}
+.error-number{margin:24px 0 12px;font-family:Manrope,sans-serif;font-size:clamp(82px,11vw,118px);line-height:.95;letter-spacing:-10px;font-weight:800;color:transparent;background:linear-gradient(145deg,#6475f5 15%,#ad91ff 65%,#d7c9ff);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 12px 12px rgba(100,117,245,.17))}
+.card-message{font:800 16px Manrope,sans-serif}
+.card-subtitle{margin-top:7px;color:var(--muted);font-size:11px}
+.card-line{width:65%;height:6px;margin:25px auto 0;border-radius:20px;background:linear-gradient(90deg,rgba(100,117,245,.08),rgba(100,117,245,.30),rgba(173,145,255,.1))}
+.floating-shape{position:absolute;z-index:2;display:grid;place-items:center;border:1px solid rgba(255,255,255,.9);background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(224,224,255,.58));box-shadow:0 18px 35px rgba(76,82,153,.13),inset 0 1px 0 #fff;backdrop-filter:blur(12px)}
+.shape-star{top:48px;right:6%;width:69px;height:69px;border-radius:22px;color:var(--blue);font-size:34px;transform:rotate(12deg);animation:float-shape 4s ease-in-out infinite}
+.shape-cube{bottom:42px;left:4%;width:65px;height:65px;border-radius:20px;color:#9277f8;font-size:28px;transform:rotate(-12deg);animation:float-shape 5s .4s ease-in-out infinite}
+.shape-pill{top:40%;right:0;padding:12px 15px;border-radius:50px;font-size:10px;font-weight:800;color:var(--blue);animation:float-shape 4.5s .6s ease-in-out infinite}
+
+footer{width:min(1160px,calc(100% - 40px));margin:0 auto;padding:20px 0 26px;border-top:1px solid rgba(100,117,245,.12);display:flex;align-items:center;justify-content:space-between;gap:15px;color:var(--muted);font-size:11px}
+footer strong{color:var(--text)}
+.footer-links{display:flex;flex-wrap:wrap;gap:17px}.footer-links a:hover{color:var(--blue)}
+
+@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes float-card{0%,100%{transform:translateY(0) rotateY(-8deg) rotateX(5deg)}50%{transform:translateY(-12px) rotateY(-5deg) rotateX(3deg)}}
+@keyframes float-shape{0%,100%{translate:0 0}50%{translate:0 -13px}}
+@keyframes orbit{to{rotate:360deg}}
+
+@media(max-width:800px){
+  main{grid-template-columns:1fr;gap:5px;padding-top:45px}
+  .content{text-align:center}.eyebrow{margin-bottom:20px}
+  h1{margin:auto;font-size:clamp(39px,9vw,58px);letter-spacing:-2px}
+  .description{margin:18px auto 0}.actions{justify-content:center}
+  .visual{min-height:390px;margin-top:5px}.error-card{width:min(340px,88%)}.shape-pill{right:1%}
+  footer{flex-direction:column;text-align:center}.footer-links{justify-content:center}
+}
+@media(max-width:420px){
+  header,main{width:calc(100% - 28px)}
+  .logo{font-size:15px}.logo-mark{height:31px;width:31px}
+  .header-link{padding:10px 12px;font-size:11px}
+  main{padding-top:35px}.description{font-size:14px}.btn{padding:0 15px;font-size:12px}
+  .visual{min-height:340px}.orbit{width:300px}
+  .error-card{padding:22px 15px 25px;border-radius:26px}.error-number{font-size:94px}
+  .shape-star{width:53px;height:53px;border-radius:17px;font-size:27px}
+  .shape-cube{width:52px;height:52px;border-radius:16px}
+  .shape-pill{font-size:9px;padding:10px 12px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<header>
+  <a class="logo" href="index.html" aria-label="DESIGNER197 home"><span class="logo-mark">D</span><span>designer<b>197</b></span></a>
+  <a class="header-link" href="index.html#contact">Let's talk ↗</a>
+</header>
+
+<main>
+  <section class="content">
+    <div class="eyebrow"><span class="status-dot"></span>ERROR 404 · PAGE NOT FOUND</div>
+    <h1>Oops! This page <span>missed the brief.</span></h1>
+    <p class="description">The page you're looking for doesn't exist or may have moved.</p>
+    <p class="small-note">No worries. Let's get you back to something inspiring.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="index.html">Back to Home <span>↗</span></a>
+      <a class="btn btn-secondary" href="Social%20Media%20Design.html">Explore My Work ↗</a>
+    </div>
+  </section>
+
+  <section class="visual" aria-label="404 page illustration">
+    <div class="visual-halo"></div>
+    <div class="orbit"></div>
+    <div class="floating-shape shape-star" aria-hidden="true">✳</div>
+    <div class="floating-shape shape-cube" aria-hidden="true">◇</div>
+    <div class="floating-shape shape-pill" aria-hidden="true">LOST IN SPACE?</div>
+    <div class="error-card">
+      <div class="card-top">
+        <div class="card-brand"><span class="logo-mark sm">D</span><span>designer<b>197</b></span></div>
+        <span class="card-status">PAGE ERROR</span>
+      </div>
+      <div class="error-number">404</div>
+      <div class="card-message">Page not found.</div>
+      <div class="card-subtitle">Looks like this design went off-grid.</div>
+      <div class="card-line"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>© 2026 <strong>DESIGNER197</strong> · Harsh Chawla</div>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="index.html">Home</a>
+    <a href="logo-branding.html">Logo &amp; Branding</a>
+    <a href="Social%20Media%20Design.html">Social Media</a>
+    <a href="mailto:dgraphic197@gmail.com">Contact</a>
+  </nav>
+</footer>
+</body>
+</html>
