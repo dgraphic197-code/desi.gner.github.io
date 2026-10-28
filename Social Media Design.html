@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f2f3fc">
+<meta name="description" content="Social media design by Harsh Chawla — Instagram posts, stories, festival creatives, sale graphics and campaign posters.">
+<title>Social Media Design — DESIGNER197</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#171b35;--muted:#737b98;--blue:#6475f5;--purple:#ad91ff;--glass:rgba(255,255,255,.58);--border:rgba(255,255,255,.92);--shadow:0 18px 55px rgba(85,96,165,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:radial-gradient(ellipse at 8% 4%,#fff 0,transparent 35%),radial-gradient(ellipse at 90% 18%,#dfe2ff 0,transparent 36%),linear-gradient(135deg,#f8f8fc,#eceefa 60%,#f9f9ff);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+h1,h2,h3{font-family:Manrope,sans-serif}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:10px}
+.glass{background:var(--glass);border:1px solid var(--border);box-shadow:var(--shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.progress{height:3px;width:0;position:fixed;top:0;left:0;z-index:1000;background:linear-gradient(90deg,var(--blue),var(--purple))}
+.ambient{position:fixed;z-index:-1;width:320px;height:320px;border-radius:50%;filter:blur(55px);opacity:.25;pointer-events:none;animation:ambient 13s ease-in-out infinite alternate}
+.ambient.one{background:#b3a4ff;top:12%;left:-150px}.ambient.two{background:#a6d8ff;right:-160px;top:55%;animation-delay:-5s}
+@keyframes ambient{to{transform:translate(100px,-50px) scale(1.2)}}
+.mono{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);font-weight:700}
+.gradient{background:linear-gradient(95deg,#a58bff,#5875f7);background-clip:text;-webkit-background-clip:text;color:transparent}
+ 
+/* header (same as home) */
+header{position:sticky;top:10px;z-index:100;width:min(1160px,calc(100% - 24px));margin:10px auto 0;border-radius:19px}
+.nav{min-height:65px;padding:10px 17px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px Manrope,sans-serif;letter-spacing:-1px;white-space:nowrap}
+.logo b{color:var(--blue)}
+.logo-mark{height:35px;width:35px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#dfe2ff);color:var(--blue);border:1px solid white;box-shadow:0 7px 18px #7c8bf52b;transform:rotate(-7deg);animation:logoBreathe 4s ease-in-out infinite}
+@keyframes logoBreathe{50%{transform:rotate(7deg) translateY(-2px);box-shadow:0 9px 26px #7c8bf55a}}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:12px;color:#59617d;transition:.25s}
+.nav-links a:hover,.nav-links a.on{color:var(--blue)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 17px;border:1px solid white;border-radius:30px;background:#ffffffa8;font-size:11px;font-weight:700;transition:.3s;cursor:pointer;color:var(--ink)}
+.pill:hover{transform:translateY(-3px);box-shadow:0 12px 25px #7180ed26}
+.pill.primary{background:#151a32;color:white;border-color:#151a32}.pill.primary:hover{background:var(--blue)}
+.menu-toggle{display:none;padding:9px 12px;background:#ffffffa8;border:1px solid white;border-radius:10px;cursor:pointer}
+ 
+/* hero */
+.hero{padding:45px 0 10px}
+.hero-panel{border-radius:28px;padding:48px 40px;overflow:hidden;position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:end}
+.hero-panel:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#b8bfff35;filter:blur(30px);top:-140px;left:38%}
+.hero-panel>*{position:relative}
+h1{font-size:clamp(42px,7vw,84px);line-height:.98;letter-spacing:-4px;font-weight:800;margin:12px 0 0}
+.hero-copy{color:var(--muted);font-size:14px;line-height:1.9;max-width:400px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+ 
+/* filters */
+.bar{position:sticky;top:84px;z-index:20;padding:14px 0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{cursor:pointer;color:var(--ink);font-size:12px;font-weight:700;background:#ffffffa8;border:1px solid white;padding:11px 17px;border-radius:30px;transition:.3s}
+.chip:hover{transform:translateY(-2px);box-shadow:0 10px 22px #7180ed26}
+.chip[aria-pressed="true"]{background:#151a32;color:#fff;border-color:#151a32}
+.chip i{font-style:normal;opacity:.6;margin-left:6px;font-size:11px}
+ 
+/* poster wall */
+.wall{columns:4 240px;column-gap:14px;padding:12px 0 50px}
+.work{break-inside:avoid;margin:0 0 14px;display:block;width:100%;text-align:left;cursor:pointer;color:inherit;border-radius:17px;padding:8px;transition:transform .35s,box-shadow .35s;background:var(--glass);border:1px solid var(--border);box-shadow:var(--shadow)}
+.work:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 20px 45px #6573ce20}
+.shot{border-radius:12px;overflow:hidden;background:linear-gradient(145deg,#fff,#e1e5ff)}
+.shot img{display:block;width:100%;height:100%;object-fit:cover}
+.ph{width:100%;height:100%;display:flex;align-items:flex-end;padding:14px;font:800 20px/1.1 Manrope,sans-serif;letter-spacing:-.5px;color:#fff;text-shadow:0 4px 16px #0003}
+.meta{display:flex;justify-content:space-between;gap:10px;padding:11px 6px 4px}
+.meta strong{font:700 13px Manrope,sans-serif;letter-spacing:-.3px}
+.meta span{color:var(--muted);font-size:11px;white-space:nowrap}
+.empty{padding:50px 0;color:var(--muted);font-size:13px}
+ 
+/* formats (same card look as home services) */
+.section-head{margin:20px 0 20px}
+.section-head h2{font-size:clamp(27px,3vw,37px);letter-spacing:-1.7px;margin-top:7px}
+.formats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;padding-bottom:40px}
+.fmt{padding:19px;border-radius:17px;min-height:160px;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden}
+.fmt:after{content:"";position:absolute;inset:auto -35px -65px auto;width:110px;height:110px;border-radius:50%;background:#c6cbff40;filter:blur(10px)}
+.fmt:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 20px 45px #6573ce20}
+.fmt-icon{width:39px;height:39px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#e1e5ff);border:1px solid white;color:var(--blue);font-size:19px;margin-bottom:16px}
+.fmt h3{font-size:14px;margin-bottom:6px;letter-spacing:-.4px}
+.fmt p{font-size:11px;color:var(--muted);line-height:1.8}
+.fmt small{display:block;margin-top:10px;font-size:10px;font-weight:700;color:var(--blue)}
+ 
+/* contact */
+.contact{padding:30px;border-radius:24px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+.contact h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-2px;line-height:1.08;margin:10px 0 10px}
+.contact p{font-size:13px;color:var(--muted);line-height:1.8;max-width:420px}
+footer{padding:25px 0 30px}
+.footer-inner{border-top:1px solid white;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:13px;flex-wrap:wrap}.footer-links a{font-size:11px;color:var(--muted)}.footer-links a:hover{color:var(--blue)}
+.copyright{font-size:10px;color:#8c93ac}
+ 
+/* lightbox */
+dialog{border:none;background:transparent;max-width:100vw;max-height:100vh;width:100%;height:100%;margin:0;padding:20px;color:#fff}
+dialog::backdrop{background:rgba(23,27,53,.78);backdrop-filter:blur(8px)}
+.lb{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding-bottom:50px}
+.stage{max-width:min(92vw,700px);max-height:74vh;border-radius:20px;overflow:hidden;display:flex;border:1px solid #ffffff80;box-shadow:0 30px 80px #0006}
+.stage img{max-width:100%;max-height:74vh;object-fit:contain;display:block}
+.stage .ph{min-width:300px;min-height:380px;font-size:30px}
+.cap{text-align:center}.cap strong{display:block;font:800 18px Manrope,sans-serif;letter-spacing:-.5px}.cap span{color:#d3d5f0;font-size:12px}
+.ctl{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:10px}
+.ctl button,.x{cursor:pointer;color:#fff;font-size:12px;font-weight:700;background:#ffffff24;border:1px solid #ffffff55;border-radius:30px;padding:11px 20px;transition:.3s}
+.ctl button:hover,.x:hover{background:var(--blue);border-color:var(--blue)}
+.x{position:absolute;top:20px;right:20px}
+ 
+@media(max-width:900px){.hero-panel{grid-template-columns:1fr;padding:34px 26px}.formats{grid-template-columns:repeat(2,1fr)}.wall{columns:3 200px}}
+@media(max-width:700px){
+  .wrap{width:calc(100% - 26px)}header{width:calc(100% - 18px)}.nav{min-height:59px}.logo{font-size:15px}.logo-mark{width:31px;height:31px}
+  .menu-toggle{display:block}.nav-cta{display:none}
+  .nav-links{display:none;position:absolute;top:65px;left:0;right:0;padding:12px 20px;flex-direction:column;align-items:stretch;gap:0;background:#f5f5ffef;border:1px solid white;border-radius:16px;box-shadow:var(--shadow)}
+  .nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid #fff}
+  .hero{padding-top:30px}.hero-panel{padding:28px 20px}.bar{top:76px}
+  .wall{columns:2 140px;column-gap:10px}.work{padding:6px;margin-bottom:10px;border-radius:14px}.meta{flex-direction:column;gap:0}
+  .contact{padding:22px}.footer-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:420px){.formats{grid-template-columns:1fr}h1{letter-spacing:-2px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="ambient one"></div><div class="ambient two"></div><div class="progress" id="progress"></div>
+ 
+<header class="glass"><div class="nav">
+  <a class="logo" href="index.html" aria-label="DESIGNER197 Home"><span class="logo-mark">D</span><span>designer<b>197</b></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="logo-branding.html">Logo &amp; Branding</a><a class="on" href="#work">Social Media</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="pill primary nav-cta" href="#contact">Let's talk ↗</a>
+</div></header>
+ 
+<main>
+  <section class="hero"><div class="wrap hero-panel glass">
+    <div>
+      <div class="mono">Social Media Design</div>
+      <h1>Social <span class="gradient">Campaigns.</span></h1>
+    </div>
+    <div>
+      <p class="hero-copy">Campaign creatives, promotional posts, launches and sale graphics, made to stop the scroll and help your brand stand out.</p>
+      <div class="actions"><a class="pill primary" href="#work">View the work ↗</a><a class="pill" href="https://www.behance.net/harshchawla4" target="_blank" rel="noopener noreferrer">Explore Portfolio ↗</a></div>
+    </div>
+  </div></section>
+ 
+  <div class="wrap">
+    <div class="bar" id="work"><div class="chips" id="chips" role="group" aria-label="Filter work by type"></div></div>
+    <div class="wall" id="wall" aria-live="polite"></div>
+ 
+    <div class="section-head"><div class="mono">What I design</div><h2>Formats I Cover</h2></div>
+    <section class="formats">
+      <div class="fmt glass"><div class="fmt-icon">▧</div><h3>Instagram posts</h3><p>Feed posts and carousels that hold attention on the first swipe.</p><small>1080 × 1350</small></div>
+      <div class="fmt glass"><div class="fmt-icon">▤</div><h3>Stories and reels covers</h3><p>Full-screen vertical creatives with safe areas for text.</p><small>1080 × 1920</small></div>
+      <div class="fmt glass"><div class="fmt-icon">◇</div><h3>Festival and sale graphics</h3><p>Diwali, Holi, Eid, year-end offers and seasonal campaigns.</p><small>1080 × 1080</small></div>
+      <div class="fmt glass"><div class="fmt-icon">⬡</div><h3>Posters and banners</h3><p>Print and digital posters, hoardings and web banners.</p><small>A4 · A3 · custom</small></div>
+    </section>
+ 
+    <section class="contact glass" id="contact">
+      <div><div class="mono">Let's connect</div><h2>Need a campaign that gets noticed?</h2><p>Send your brand name, offer and deadline. I will reply with a plan and a quote.</p></div>
+      <div class="actions">
+        <a class="pill primary" href="https://wa.me/919810851024?text=Hello%20Harsh%2C%20I%20need%20social%20media%20designs" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+        <a class="pill" href="mailto:dgraphic197@gmail.com">dgraphic197@gmail.com ↗</a>
+      </div>
+    </section>
+  </div>
+</main>
+ 
+<footer><div class="wrap footer-inner">
+  <a class="logo" href="index.html"><span class="logo-mark">D</span><span>designer<b>197</b></span></a>
+  <nav class="footer-links"><a href="index.html">Home</a><a href="logo-branding.html">Logo &amp; Branding</a><a href="index.html#estimate">Project Estimate</a><a href="project-preview.html">Web Projects</a></nav>
+  <div class="copyright">© <span id="year"></span> designer197 · Harsh Chawla</div>
+</div></footer>
+ 
+<dialog id="lb" aria-label="Poster viewer">
+  <button class="x" id="close">Close ✕</button>
+  <div class="lb"><div class="stage" id="stage"></div><div class="cap"><strong id="capT"></strong><span id="capM"></span></div></div>
+  <div class="ctl"><button id="prev">← Previous</button><button id="next">Next →</button></div>
+</dialog>
+ 
+<script>
+/* ============================================================
+   APNA KAAM YAHAN ADD KARO
+   1. Images folder mein daalo:  images/social/
+   2. Har design ke liye ek line:
+      src    = image ka path (jpg, png, webp)
+      title  = design ka naam
+      cat    = Posts | Stories | Posters | Festival | Sale (apni bhi likh sakte ho)
+      client = brand ka naam
+      ratio  = "4/5" post, "9/16" story, "1/1" square, "3/4" poster
+   ============================================================ */
+const WORKS = [
+  {src: "images/social/posts-01.jpg", title: "Ideas that move.", cat: "Posts", client: "NOVA Creative", ratio: "4/5"},
+  {src: "images/social/posts-02.jpg", title: "3 logo mistakes to avoid", cat: "Posts", client: "NOVA Creative", ratio: "4/5"},
+  {src: "images/social/posts-03.jpg", title: "Glow naturally.", cat: "Posts", client: "FLORA Botanical", ratio: "4/5"},
+  {src: "images/social/posts-04.jpg", title: "Built for speed.", cat: "Posts", client: "VERTEX", ratio: "1/1"},
+  {src: "images/social/posts-05.jpg", title: "Crafted to last.", cat: "Posts", client: "AUREX Luxury", ratio: "4/5"},
+  {src: "images/social/posts-06.jpg", title: "Morning ritual.", cat: "Posts", client: "FLORA Botanical", ratio: "1/1"},
+  {src: "images/social/posts-07.jpg", title: "HIRING", cat: "Posts", client: "NOVA Creative", ratio: "1/1"},
+  {src: "images/social/posts-08.jpg", title: "4 signs you need an upgrade", cat: "Posts", client: "VERTEX", ratio: "4/5"},
+  {src: "images/social/posts-09.jpg", title: "Quiet luxury.", cat: "Posts", client: "AUREX Luxury", ratio: "4/5"},
+  {src: "images/social/posts-10.jpg", title: "Plants for a calmer home", cat: "Posts", client: "FLORA Botanical", ratio: "4/5"},
+  {src: "images/social/stories-01.jpg", title: "New arrivals", cat: "Stories", client: "FLORA Botanical", ratio: "9/16"},
+  {src: "images/social/stories-02.jpg", title: "Flash sale", cat: "Stories", client: "VERTEX", ratio: "9/16"},
+  {src: "images/social/stories-03.jpg", title: "Got an idea?", cat: "Stories", client: "NOVA Creative", ratio: "9/16"},
+  {src: "images/social/stories-04.jpg", title: "The autumn edit", cat: "Stories", client: "AUREX Luxury", ratio: "9/16"},
+  {src: "images/social/stories-05.jpg", title: "Today's brand checklist", cat: "Stories", client: "NOVA Creative", ratio: "9/16"},
+  {src: "images/social/stories-06.jpg", title: "Up to Mega deal", cat: "Stories", client: "VERTEX", ratio: "9/16"},
+  {src: "images/social/stories-07.jpg", title: "Skin week.", cat: "Stories", client: "FLORA Botanical", ratio: "9/16"},
+  {src: "images/social/stories-08.jpg", title: "LIVE", cat: "Stories", client: "VERTEX", ratio: "9/16"},
+  {src: "images/social/stories-09.jpg", title: "Wedding season.", cat: "Stories", client: "AUREX Luxury", ratio: "9/16"},
+  {src: "images/social/stories-10.jpg", title: "Ask me anything", cat: "Stories", client: "NOVA Creative", ratio: "9/16"},
+  {src: "images/social/posters-01.jpg", title: "Design Meetup 2026", cat: "Posters", client: "NOVA Creative", ratio: "3/4"},
+  {src: "images/social/posters-02.jpg", title: "Timeless elegance.", cat: "Posters", client: "AUREX Luxury", ratio: "3/4"},
+  {src: "images/social/posters-03.jpg", title: "Tech Summit", cat: "Posters", client: "VERTEX", ratio: "3/4"},
+  {src: "images/social/posters-04.jpg", title: "Botanical market", cat: "Posters", client: "FLORA Botanical", ratio: "3/4"},
+  {src: "images/social/posters-05.jpg", title: "Open call", cat: "Posters", client: "NOVA Creative", ratio: "3/4"},
+  {src: "images/social/posters-06.jpg", title: "Gala night", cat: "Posters", client: "AUREX Luxury", ratio: "3/4"},
+  {src: "images/social/posters-07.jpg", title: "BEATS", cat: "Posters", client: "VERTEX", ratio: "3/4"},
+  {src: "images/social/posters-08.jpg", title: "Yoga in the park", cat: "Posters", client: "FLORA Botanical", ratio: "3/4"},
+  {src: "images/social/posters-09.jpg", title: "Brand workshop.", cat: "Posters", client: "NOVA Creative", ratio: "3/4"},
+  {src: "images/social/posters-10.jpg", title: "Run the city.", cat: "Posters", client: "VERTEX", ratio: "3/4"},
+  {src: "images/social/festival-01.jpg", title: "Shubh Diwali", cat: "Festival", client: "AUREX Luxury", ratio: "4/5"},
+  {src: "images/social/festival-02.jpg", title: "Happy Holi!", cat: "Festival", client: "FLORA Botanical", ratio: "4/5"},
+  {src: "images/social/festival-03.jpg", title: "Eid Mubarak", cat: "Festival", client: "AUREX Luxury", ratio: "4/5"},
+  {src: "images/social/festival-04.jpg", title: "Merry Christmas", cat: "Festival", client: "NOVA Creative", ratio: "4/5"},
+  {src: "images/social/festival-05.jpg", title: "Happy Navratri", cat: "Festival", client: "NOVA Creative", ratio: "4/5"},
+  {src: "images/social/festival-06.jpg", title: "Happy Raksha Bandhan", cat: "Festival", client: "FLORA Botanical", ratio: "4/5"},
+  {src: "images/social/festival-07.jpg", title: "Happy Lohri", cat: "Festival", client: "VERTEX", ratio: "4/5"},
+  {src: "images/social/festival-08.jpg", title: "Happy Republic Day", cat: "Festival", client: "NOVA Creative", ratio: "4/5"},
+  {src: "images/social/festival-09.jpg", title: "2027", cat: "Festival", client: "VERTEX", ratio: "4/5"},
+  {src: "images/social/festival-10.jpg", title: "Happy Dhanteras", cat: "Festival", client: "AUREX Luxury", ratio: "4/5"},
+  {src: "images/social/sale-01.jpg", title: "Up to Mega sale", cat: "Sale", client: "VERTEX", ratio: "1/1"},
+  {src: "images/social/sale-02.jpg", title: "Flat design offer", cat: "Sale", client: "NOVA Creative", ratio: "1/1"},
+  {src: "images/social/sale-03.jpg", title: "Buy one get one free", cat: "Sale", client: "FLORA Botanical", ratio: "1/1"},
+  {src: "images/social/sale-04.jpg", title: "End of season sale", cat: "Sale", client: "AUREX Luxury", ratio: "1/1"},
+  {src: "images/social/sale-05.jpg", title: "SALE", cat: "Sale", client: "VERTEX", ratio: "1/1"},
+  {src: "images/social/sale-06.jpg", title: "Weekend deal", cat: "Sale", client: "NOVA Creative", ratio: "1/1"},
+  {src: "images/social/sale-07.jpg", title: "Spring clearance", cat: "Sale", client: "FLORA Botanical", ratio: "1/1"},
+  {src: "images/social/sale-08.jpg", title: "Festive offers", cat: "Sale", client: "AUREX Luxury", ratio: "1/1"},
+  {src: "images/social/sale-09.jpg", title: "On orders above Rs. 499", cat: "Sale", client: "VERTEX", ratio: "1/1"},
+  {src: "images/social/sale-10.jpg", title: "Midnight sale", cat: "Sale", client: "NOVA Creative", ratio: "1/1"}
+];
+/* ============================================================ */
+ 
+const GRADS=[["#6475f5","#ad91ff"],["#171b35","#4b4eb5"],["#47177a","#dd79f2"],["#5875f7","#a6d8ff"],["#252839","#858ba8"]];
+const wall=document.getElementById("wall"),chips=document.getElementById("chips"),lb=document.getElementById("lb"),stage=document.getElementById("stage");
+let current="All",visible=[],idx=0;
+ 
+function ph(w,i){const d=document.createElement("div"),g=GRADS[i%GRADS.length];d.className="ph";d.style.background=`linear-gradient(145deg,${g[0]},${g[1]})`;d.textContent=w.title;return d}
+function pic(w,i,big){
+  if(!w.src)return ph(w,i);
+  const img=new Image();img.alt=w.title+" — "+w.client+", DESIGNER197 portfolio";img.decoding="async";if(!big)img.loading="lazy";img.src=w.src;
+  img.onerror=()=>img.replaceWith(ph(w,i));return img;
+}
+function drawChips(){
+  chips.innerHTML="";
+  ["All",...new Set(WORKS.map(w=>w.cat))].forEach(c=>{
+    const n=c==="All"?WORKS.length:WORKS.filter(w=>w.cat===c).length;
+    const b=document.createElement("button");b.className="chip";b.type="button";
+    b.setAttribute("aria-pressed",c===current);b.innerHTML=`${c}<i>${n}</i>`;
+    b.onclick=()=>{current=c;drawChips();render()};chips.appendChild(b);
+  });
+}
+function render(){
+  wall.innerHTML="";
+  visible=WORKS.filter(w=>current==="All"||w.cat===current);
+  if(!visible.length){wall.innerHTML='<p class="empty">Nothing here yet. Add a design in the WORKS list.</p>';return}
+  visible.forEach((w,i)=>{
+    const b=document.createElement("button");b.className="work";b.type="button";b.setAttribute("aria-label","Open "+w.title);
+    const s=document.createElement("div");s.className="shot";s.style.aspectRatio=w.ratio||"4/5";s.appendChild(pic(w,WORKS.indexOf(w)));
+    const m=document.createElement("div");m.className="meta";m.innerHTML="<strong></strong><span></span>";
+    m.firstChild.textContent=w.title;m.lastChild.textContent=w.cat;
+    b.append(s,m);b.onclick=()=>openLb(i);wall.appendChild(b);
+  });
+}
+function show(){const w=visible[idx];stage.innerHTML="";stage.appendChild(pic(w,WORKS.indexOf(w),true));
+  document.getElementById("capT").textContent=w.title;document.getElementById("capM").textContent=w.client+" · "+w.cat}
+function openLb(i){idx=i;show();lb.showModal()}
+function step(d){idx=(idx+d+visible.length)%visible.length;show()}
+document.getElementById("close").onclick=()=>lb.close();
+document.getElementById("prev").onclick=()=>step(-1);
+document.getElementById("next").onclick=()=>step(1);
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+lb.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1)});
+drawChips();render();
+ 
+/* same behaviour as home page */
+const menuToggle=document.getElementById("menuToggle"),navLinks=document.getElementById("navLinks");
+menuToggle.addEventListener("click",()=>{
+  const o=navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(o));
+  menuToggle.setAttribute("aria-label", o ? "Close navigation" : "Open navigation");
+  menuToggle.textContent = o ? "✕" : "☰";
+});
+navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  navLinks.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation");
+  menuToggle.textContent="☰";
+}));
+const progress=document.getElementById("progress");
+function updateProgress(){const m=document.documentElement.scrollHeight-innerHeight;const percent=m>0?Math.min(100,Math.max(0,scrollY/m*100)):0;progress.style.width=percent+"%"}
+addEventListener("scroll",updateProgress,{passive:true});updateProgress();
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
+ 
