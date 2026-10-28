@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f2f3fc">
+<meta name="description" content="Packaging design concepts by Harsh Chawla — product boxes, cosmetic packaging, beverage labels, food packaging and premium mockups.">
+<title>Packaging Concepts — DESIGNER197</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#171b35;
+  --muted:#737b98;
+  --blue:#6475f5;
+  --purple:#ad91ff;
+  --glass:rgba(255,255,255,.58);
+  --border:rgba(255,255,255,.92);
+  --shadow:0 18px 55px rgba(85,96,165,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+  font-family:"DM Sans",sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 8% 4%,#fff 0,transparent 35%),
+    radial-gradient(ellipse at 90% 18%,#dfe2ff 0,transparent 36%),
+    linear-gradient(135deg,#f8f8fc,#eceefa 60%,#f9f9ff);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;
+  z-index:10;opacity:.1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+h1,h2,h3{font-family:Manrope,sans-serif}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:10px}
+.glass{
+  background:var(--glass);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+}
+.progress{
+  height:3px;width:0;position:fixed;top:0;left:0;
+  z-index:1000;background:linear-gradient(90deg,var(--blue),var(--purple));
+}
+.ambient{
+  position:fixed;z-index:-1;width:320px;height:320px;
+  border-radius:50%;filter:blur(55px);opacity:.25;
+  pointer-events:none;animation:ambient 13s ease-in-out infinite alternate;
+}
+.ambient.one{background:#b3a4ff;top:12%;left:-150px}
+.ambient.two{background:#a6d8ff;right:-160px;top:55%;animation-delay:-5s}
+@keyframes ambient{to{transform:translate(100px,-50px) scale(1.2)}}
+.mono{
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--blue);font-weight:700;
+}
+.gradient{
+  background:linear-gradient(95deg,#a58bff,#5875f7);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+
+/* NAVIGATION */
+header{
+  position:sticky;top:10px;z-index:100;
+  width:min(1160px,calc(100% - 24px));
+  margin:10px auto 0;border-radius:19px;
+}
+.nav{
+  min-height:65px;padding:10px 17px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font:800 18px Manrope,sans-serif;letter-spacing:-1px;white-space:nowrap;
+}
+.logo b{color:var(--blue)}
+.logo-mark{
+  height:35px;width:35px;border-radius:12px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#fff,#dfe2ff);
+  color:var(--blue);border:1px solid white;
+  box-shadow:0 7px 18px #7c8bf52b;
+  transform:rotate(-7deg);
+  animation:logoBreathe 4s ease-in-out infinite;
+}
+@keyframes logoBreathe{
+  50%{transform:rotate(7deg) translateY(-2px);box-shadow:0 9px 26px #7c8bf55a}
+}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:12px;color:#59617d;transition:.25s}
+.nav-links a:hover,.nav-links a.on{color:var(--blue)}
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:12px 17px;border:1px solid white;border-radius:30px;
+  background:#ffffffa8;font-size:11px;font-weight:700;
+  transition:.3s;cursor:pointer;color:var(--ink);
+}
+.pill:hover{transform:translateY(-3px);box-shadow:0 12px 25px #7180ed26}
+.pill.primary{background:#151a32;color:white;border-color:#151a32}
+.pill.primary:hover{background:var(--blue)}
+.menu-toggle{
+  display:none;padding:9px 12px;background:#ffffffa8;
+  border:1px solid white;border-radius:10px;cursor:pointer;
+}
+
+/* HERO */
+.hero{padding:45px 0 10px}
+.hero-panel{
+  border-radius:28px;padding:48px 40px;overflow:hidden;
+  position:relative;display:grid;grid-template-columns:1.3fr 1fr;
+  gap:30px;align-items:end;
+}
+.hero-panel:before{
+  content:"";position:absolute;width:260px;height:260px;
+  border-radius:50%;background:#b8bfff35;
+  filter:blur(30px);top:-140px;left:38%;
+}
+.hero-panel>*{position:relative}
+h1{
+  font-size:clamp(42px,7vw,84px);line-height:.98;
+  letter-spacing:-4px;font-weight:800;margin:12px 0 0;
+}
+.hero-copy{color:var(--muted);font-size:14px;line-height:1.9;max-width:420px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+
+/* GALLERY HEADING */
+.intro-row{
+  display:flex;align-items:end;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;padding:30px 0 14px;
+}
+.intro-row h2{
+  font-size:clamp(25px,3vw,36px);
+  letter-spacing:-1.5px;margin-top:7px;
+}
+.intro-row p{
+  font-size:12px;color:var(--muted);line-height:1.8;max-width:400px;
+}
+
+/* CATEGORY FILTERS */
+.bar{position:sticky;top:84px;z-index:20;padding:14px 0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  cursor:pointer;color:var(--ink);font-size:12px;font-weight:700;
+  background:#ffffffa8;border:1px solid white;
+  padding:11px 17px;border-radius:30px;transition:.3s;
+}
+.chip:hover{transform:translateY(-2px);box-shadow:0 10px 22px #7180ed26}
+.chip[aria-pressed="true"]{
+  background:#151a32;color:#fff;border-color:#151a32;
+}
+.chip i{font-style:normal;opacity:.6;margin-left:6px;font-size:11px}
+
+/* EQUAL-SIZE PACKAGING CARDS */
+.wall{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+  align-items:stretch;
+  padding:16px 0 48px;
+}
+.work{
+  display:flex;flex-direction:column;min-width:0;width:100%;
+  padding:8px;margin:0;text-align:left;cursor:pointer;color:inherit;
+  border-radius:17px;background:var(--glass);
+  border:1px solid var(--border);box-shadow:var(--shadow);
+  transition:transform .3s,box-shadow .3s;
+}
+.work:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 45px #6573ce25;
+}
+.shot{
+  position:relative;width:100%;aspect-ratio:4/5;height:auto;
+  flex-shrink:0;overflow:hidden;border-radius:12px;
+  background:linear-gradient(145deg,#fff,#e1e5ff);
+}
+.shot img{
+  display:block;width:100%;height:100%;object-fit:cover;
+}
+.ph{
+  width:100%;height:100%;min-height:0;
+  display:flex;align-items:flex-end;padding:16px;
+  font:800 20px/1.1 Manrope,sans-serif;
+  color:#fff;text-shadow:0 4px 16px #0003;
+  overflow-wrap:anywhere;
+}
+.meta{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  min-height:65px;padding:11px 6px 5px;
+}
+.meta strong{font:700 13px Manrope,sans-serif;letter-spacing:-.3px}
+.meta span{color:var(--muted);font-size:11px}
+.empty{padding:50px 0;color:var(--muted);font-size:13px}
+
+/* PROCESS CARDS */
+.section-head{margin:18px 0 20px}
+.section-head h2{
+  font-size:clamp(27px,3vw,37px);letter-spacing:-1.7px;margin-top:7px;
+}
+.formats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:13px;padding-bottom:40px;
+}
+.fmt{
+  padding:19px;border-radius:17px;min-height:175px;
+  transition:transform .35s,box-shadow .35s;
+  position:relative;overflow:hidden;
+}
+.fmt:after{
+  content:"";position:absolute;inset:auto -35px -65px auto;
+  width:110px;height:110px;border-radius:50%;
+  background:#c6cbff40;filter:blur(10px);
+}
+.fmt:hover{transform:translateY(-6px);box-shadow:0 20px 45px #6573ce20}
+.fmt-icon{
+  width:39px;height:39px;border-radius:13px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#fff,#e1e5ff);
+  border:1px solid white;color:var(--blue);
+  font-size:19px;margin-bottom:16px;
+}
+.fmt h3{font-size:14px;margin-bottom:6px;letter-spacing:-.4px}
+.fmt p{font-size:11px;color:var(--muted);line-height:1.8}
+.fmt small{
+  display:block;margin-top:10px;font-size:10px;
+  font-weight:700;color:var(--blue);
+}
+
+/* CONTACT */
+.contact{
+  padding:30px;border-radius:24px;display:flex;
+  justify-content:space-between;align-items:center;gap:24px;
+  flex-wrap:wrap;margin-bottom:20px;
+}
+.contact h2{
+  font-size:clamp(28px,3.6vw,40px);letter-spacing:-2px;
+  line-height:1.08;margin:10px 0;
+}
+.contact p{font-size:13px;color:var(--muted);line-height:1.8;max-width:420px}
+footer{padding:25px 0 30px}
+.footer-inner{
+  border-top:1px solid white;padding-top:20px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.footer-links{display:flex;gap:13px;flex-wrap:wrap}
+.footer-links a{font-size:11px;color:var(--muted)}
+.footer-links a:hover{color:var(--blue)}
+.copyright{font-size:10px;color:#8c93ac}
+
+/* FULLSCREEN ZOOM VIEWER */
+dialog{
+  border:none;background:transparent;
+  width:100%;height:100%;max-width:100vw;max-height:100vh;
+  margin:0;padding:20px;color:#fff;overflow:hidden;
+}
+dialog::backdrop{
+  background:rgba(23,27,53,.86);
+  backdrop-filter:blur(10px);
+}
+.lb{
+  height:100%;width:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:14px;padding:40px 0 76px;
+}
+.stage{
+  width:min(850px,90vw);height:min(65vh,720px);
+  flex-shrink:1;min-height:120px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:auto;overscroll-behavior:contain;
+  border-radius:18px;border:1px solid #ffffff55;
+  background:#ffffff0b;box-shadow:0 30px 80px #0006;
+}
+.stage img{
+  display:block;flex-shrink:0;
+  width:auto;height:auto;
+  max-width:100%;max-height:100%;
+  object-fit:contain;transform-origin:center center;
+  transition:transform .16s ease;
+  user-select:none;-webkit-user-drag:none;
+}
+.stage .ph{
+  width:min(75vw,500px);height:100%;min-height:250px;
+  flex-shrink:0;font-size:30px;
+}
+.cap{text-align:center;max-width:90vw}
+.cap strong{
+  display:block;font:800 18px Manrope,sans-serif;letter-spacing:-.5px;
+}
+.cap span{color:#d3d5f0;font-size:12px}
+.zoom-controls{
+  display:flex;justify-content:center;align-items:center;
+  gap:9px;flex-wrap:wrap;
+}
+.zoom-controls button,.ctl button,.x{
+  cursor:pointer;color:#fff;font-size:12px;font-weight:700;
+  background:#ffffff24;border:1px solid #ffffff55;
+  border-radius:30px;padding:11px 18px;transition:.25s;
+}
+.zoom-controls button:hover,.ctl button:hover,.x:hover{
+  background:var(--blue);border-color:var(--blue);
+}
+#zoomLevel{
+  font-size:11px;color:#e3e4fa;min-width:48px;text-align:center;
+}
+.ctl{
+  position:absolute;left:0;right:0;bottom:18px;
+  display:flex;justify-content:center;gap:10px;
+}
+.x{position:absolute;top:18px;right:18px;z-index:3}
+
+@media(max-width:1000px){
+  .wall{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-panel{padding:38px 28px}
+}
+@media(max-width:700px){
+  .wrap{width:calc(100% - 26px)}
+  header{width:calc(100% - 18px)}
+  .nav{min-height:59px}
+  .logo{font-size:15px}
+  .logo-mark{width:31px;height:31px}
+  .menu-toggle{display:block}
+  .nav-cta{display:none}
+  .nav-links{
+    display:none;position:absolute;top:65px;left:0;right:0;
+    padding:12px 20px;flex-direction:column;
+    align-items:stretch;gap:0;background:#f5f5ffef;
+    border:1px solid white;border-radius:16px;box-shadow:var(--shadow);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid #fff}
+  .hero{padding-top:30px}
+  .hero-panel{grid-template-columns:1fr;padding:28px 20px;gap:22px}
+  h1{letter-spacing:-2px}
+  .bar{top:76px}
+  .wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .work{padding:6px;border-radius:13px}
+  .meta{min-height:60px;padding:9px 5px 4px}
+  .meta strong{font-size:12px}
+  .formats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{padding:22px}
+  .footer-inner{align-items:flex-start;flex-direction:column}
+  dialog{padding:12px}
+  .stage{width:94vw;height:58vh}
+  .lb{padding-top:50px;padding-bottom:100px}
+  .zoom-controls{gap:6px}
+  .zoom-controls button,.ctl button{padding:10px 14px}
+  .x{top:10px;right:10px}
+}
+@media(max-width:380px){
+  .formats{grid-template-columns:1fr}
+  .chip{padding:9px 12px;font-size:11px}
+  .wall{gap:8px}
+  .meta strong{font-size:11px}
+  .zoom-controls button,.ctl button{padding:9px 11px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="ambient one"></div>
+<div class="ambient two"></div>
+<div class="progress" id="progress"></div>
+
+<header class="glass">
+  <div class="nav">
+    <a class="logo" href="index.html" aria-label="DESIGNER197 Home">
+      <span class="logo-mark">D</span>
+      <span>designer<b>197</b></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="logo-branding.html">Logo &amp; Branding</a>
+      <a class="on" href="#work">Packaging</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="pill primary nav-cta" href="#contact">Let's talk ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-panel glass">
+      <div>
+        <div class="mono">DESIGNER197 / Packaging Studio</div>
+        <h1>Packaging<br><span class="gradient">Concepts.</span></h1>
+      </div>
+      <div>
+        <p class="hero-copy">
+          Packaging that makes products stand out. Explore product boxes,
+          premium labels, cosmetic packaging, beverage concepts and
+          creative mockups designed to give brands a distinctive identity.
+        </p>
+        <div class="actions">
+          <a class="pill primary" href="#work">Explore concepts ↗</a>
+          <a class="pill" href="#contact">Start a project ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="intro-row">
+      <div>
+        <div class="mono">Selected concepts / Packaging studio</div>
+        <h2>Packaging Design Gallery</h2>
+      </div>
+      <p>
+        Explore the collection, filter by packaging type, and open
+        any concept to inspect the artwork in the zoom viewer.
+      </p>
+    </section>
+
+    <div class="bar" id="work">
+      <div class="chips" id="chips" role="group" aria-label="Filter packaging designs"></div>
+    </div>
+
+    <div class="wall" id="wall" aria-live="polite"></div>
+
+    <section id="process">
+      <div class="section-head">
+        <div class="mono">From idea to shelf</div>
+        <h2>Packaging Design Process</h2>
+      </div>
+
+      <div class="formats">
+        <article class="fmt glass">
+          <div class="fmt-icon">⌕</div>
+          <h3>01. Discover</h3>
+          <p>Understand the product, target audience, market and packaging requirements.</p>
+          <small>BRAND RESEARCH</small>
+        </article>
+        <article class="fmt glass">
+          <div class="fmt-icon">◇</div>
+          <h3>02. Direction</h3>
+          <p>Explore the visual style, colors, typography and packaging structure.</p>
+          <small>CREATIVE CONCEPT</small>
+        </article>
+        <article class="fmt glass">
+          <div class="fmt-icon">▧</div>
+          <h3>03. Design</h3>
+          <p>Develop artwork, labels, layouts and product presentation mockups.</p>
+          <small>VISUAL DESIGN</small>
+        </article>
+        <article class="fmt glass">
+          <div class="fmt-icon">↗</div>
+          <h3>04. Deliver</h3>
+          <p>Prepare approved artwork and production-ready files to printer specifications.</p>
+          <small>FINAL ARTWORK</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact glass" id="contact">
+      <div>
+        <div class="mono">Let's connect</div>
+        <h2>Have a product to package?</h2>
+        <p>
+          Share your product name, packaging size, preferred style
+          and deadline. Let's discuss a creative direction for your project.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="pill primary"
+          href="https://wa.me/919810851024?text=Hello%20Harsh%2C%20I%20need%20packaging%20design"
+          target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+        <a class="pill" href="mailto:dgraphic197@gmail.com">Send an email ↗</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">D</span>
+      <span>designer<b>197</b></span>
+    </a>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="logo-branding.html">Logo &amp; Branding</a>
+      <a href="index.html#estimate">Project Estimate</a>
+      <a href="project-preview.html">Web Projects</a>
+    </nav>
+    <div class="copyright">© <span id="year"></span> designer197 · Harsh Chawla</div>
+  </div>
+</footer>
+
+<!-- IMAGE ZOOM VIEWER -->
+<dialog id="lb" aria-label="Packaging design viewer">
+  <button class="x" id="close" type="button">Close ✕</button>
+
+  <div class="lb">
+    <div class="stage" id="stage"></div>
+
+    <div class="cap">
+      <strong id="capT"></strong>
+      <span id="capM"></span>
+    </div>
+
+    <div class="zoom-controls" aria-label="Image zoom controls">
+      <button type="button" id="zoomOut" aria-label="Zoom out">−</button>
+      <span id="zoomLevel">100%</span>
+      <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+      <button type="button" id="zoomReset">Reset</button>
+    </div>
+  </div>
+
+  <div class="ctl">
+    <button type="button" id="prev">← Previous</button>
+    <button type="button" id="next">Next →</button>
+  </div>
+</dialog>
+
+<script>
+/*
+  IMAGE FOLDER:
+  images/packaging/
+
+  Replace these example filenames with your actual image files.
+  Every gallery card uses the same 4:5 aspect ratio.
+*/
+
+const WORKS = [
+  {src:"images/packaging/box-01.jpg",title:"NOVA — Product Box",cat:"Boxes",client:"NOVA Creative"},
+  {src:"images/packaging/box-02.jpg",title:"Minimal Box Concept",cat:"Boxes",client:"DESIGNER197"},
+  {src:"images/packaging/box-03.jpg",title:"Premium Gift Box",cat:"Boxes",client:"AUREX"},
+  {src:"images/packaging/box-04.jpg",title:"Modern Retail Pack",cat:"Boxes",client:"VERTEX"},
+
+  {src:"images/packaging/cosmetic-01.jpg",title:"Luxe Beauty Collection",cat:"Cosmetics",client:"AUREX Beauty"},
+  {src:"images/packaging/cosmetic-02.jpg",title:"Perfume Packaging",cat:"Cosmetics",client:"AUREX"},
+  {src:"images/packaging/cosmetic-03.jpg",title:"Beauty Essentials",cat:"Cosmetics",client:"FLORA"},
+  {src:"images/packaging/cosmetic-04.jpg",title:"Signature Cosmetic Box",cat:"Cosmetics",client:"DESIGNER197"},
+
+  {src:"images/packaging/beverage-01.jpg",title:"Cola Vibe",cat:"Beverage",client:"Cola Vibe"},
+  {src:"images/packaging/beverage-02.jpg",title:"Energy Drink Concept",cat:"Beverage",client:"VERTEX"},
+  {src:"images/packaging/beverage-03.jpg",title:"Cold Brew Label",cat:"Beverage",client:"MORROW COFFEE"},
+  {src:"images/packaging/beverage-04.jpg",title:"Botanical Drink",cat:"Beverage",client:"FLORA"},
+
+  {src:"images/packaging/food-01.jpg",title:"Artisan Food Packaging",cat:"Food",client:"MORROW"},
+  {src:"images/packaging/food-02.jpg",title:"Snack Pack Concept",cat:"Food",client:"DESIGNER197"},
+  {src:"images/packaging/food-03.jpg",title:"Coffee Bag Design",cat:"Food",client:"MORROW COFFEE"},
+  {src:"images/packaging/food-04.jpg",title:"Organic Food Label",cat:"Food",client:"FLORA"},
+
+  {src:"images/packaging/skincare-01.jpg",title:"Botanical Skin Ritual",cat:"Skincare",client:"FLORA BOTANICAL"},
+  {src:"images/packaging/skincare-02.jpg",title:"Daily Care Collection",cat:"Skincare",client:"FLORA"},
+  {src:"images/packaging/skincare-03.jpg",title:"Natural Formula",cat:"Skincare",client:"FLORA BOTANICAL"},
+  {src:"images/packaging/skincare-04.jpg",title:"Clean Beauty",cat:"Skincare",client:"DESIGNER197"},
+
+  {src:"images/packaging/premium-01.jpg",title:"The Signature Collection",cat:"Premium",client:"AUREX LUXURY"},
+  {src:"images/packaging/premium-02.jpg",title:"Luxury Watch Box",cat:"Premium",client:"AUREX"},
+  {src:"images/packaging/premium-03.jpg",title:"Black Edition",cat:"Premium",client:"DESIGNER197"},
+  {src:"images/packaging/premium-04.jpg",title:"Exclusive Unboxing",cat:"Premium",client:"AUREX LUXURY"}
+];
+
+const GRADS = [
+  ["#6475f5","#ad91ff"],
+  ["#171b35","#4b4eb5"],
+  ["#47177a","#dd79f2"],
+  ["#5875f7","#a6d8ff"],
+  ["#252839","#858ba8"],
+  ["#bb8b6b","#e8cbb3"]
+];
+
+const wall = document.getElementById("wall");
+const chips = document.getElementById("chips");
+const lb = document.getElementById("lb");
+const stage = document.getElementById("stage");
+
+let current = "All";
+let visible = [];
+let idx = 0;
+let zoom = 1;
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+const ZOOM_STEP = 0.25;
+
+function ph(w,i){
+  const d = document.createElement("div");
+  const g = GRADS[i % GRADS.length];
+  d.className = "ph";
+  d.style.background = `linear-gradient(145deg,${g[0]},${g[1]})`;
+  d.textContent = w.title;
+  return d;
+}
+
+function pic(w,i){
+  const img = new Image();
+  img.alt = w.title + " — " + w.client + ", packaging design portfolio";
+  img.decoding = "async";
+  img.loading = "lazy";
+  img.src = w.src;
+
+  img.onerror = () => {
+    if(img.isConnected) img.replaceWith(ph(w,i));
+  };
+
+  return img;
+}
+
+function drawChips(){
+  chips.innerHTML = "";
+
+  ["All",...new Set(WORKS.map(w=>w.cat))].forEach(c=>{
+    const n = c === "All"
+      ? WORKS.length
+      : WORKS.filter(w=>w.cat===c).length;
+
+    const b = document.createElement("button");
+    b.className = "chip";
+    b.type = "button";
+    b.setAttribute("aria-pressed",String(c===current));
+
+    const label = document.createElement("span");
+    label.textContent = c;
+
+    const count = document.createElement("i");
+    count.textContent = n;
+
+    b.append(label,count);
+
+    b.onclick = ()=>{
+      current = c;
+      drawChips();
+      render();
+    };
+
+    chips.appendChild(b);
+  });
+}
+
+function render(){
+  wall.innerHTML = "";
+
+  visible = WORKS.filter(
+    w => current === "All" || w.cat === current
+  );
+
+  if(!visible.length){
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "No designs in this category yet.";
+    wall.appendChild(p);
+    return;
+  }
+
+  visible.forEach(w=>{
+    const originalIndex = WORKS.indexOf(w);
+    const b = document.createElement("button");
+    b.className = "work";
+    b.type = "button";
+    b.setAttribute("aria-label","View "+w.title);
+
+    const s = document.createElement("div");
+    s.className = "shot";
+    s.appendChild(pic(w,originalIndex));
+
+    const m = document.createElement("div");
+    m.className = "meta";
+
+    const title = document.createElement("strong");
+    title.textContent = w.title;
+
+    const category = document.createElement("span");
+    category.textContent = w.cat;
+
+    m.append(title,category);
+    b.append(s,m);
+
+    b.onclick = ()=>openLb(visible.indexOf(w));
+    wall.appendChild(b);
+  });
+}
+
+/* ZOOM VIEWER */
+function updateZoom(){
+  const img = stage.querySelector("img");
+
+  if(img){
+    img.style.transform = `scale(${zoom})`;
+  }
+
+  document.getElementById("zoomLevel").textContent =
+    Math.round(zoom*100)+"%";
+
+  document.getElementById("zoomOut").disabled = zoom <= MIN_ZOOM;
+  document.getElementById("zoomIn").disabled = zoom >= MAX_ZOOM;
+
+  document.getElementById("zoomOut").style.opacity =
+    zoom <= MIN_ZOOM ? ".45" : "1";
+
+  document.getElementById("zoomIn").style.opacity =
+    zoom >= MAX_ZOOM ? ".45" : "1";
+}
+
+function setZoom(value){
+  zoom = Math.min(MAX_ZOOM,Math.max(MIN_ZOOM,value));
+  updateZoom();
+}
+
+function show(){
+  const w = visible[idx];
+  if(!w) return;
+
+  stage.innerHTML = "";
+
+  const img = new Image();
+  img.alt = w.title;
+  img.src = w.src;
+
+  img.onerror = ()=>{
+    if(img.isConnected){
+      stage.replaceChildren(ph(w,WORKS.indexOf(w)));
+    }
+  };
+
+  stage.appendChild(img);
+
+  document.getElementById("capT").textContent = w.title;
+  document.getElementById("capM").textContent =
+    w.client+" · "+w.cat;
+
+  stage.scrollTop = 0;
+  stage.scrollLeft = 0;
+  setZoom(1);
+}
+
+function openLb(i){
+  idx = i;
+  show();
+
+  if(typeof lb.showModal === "function"){
+    lb.showModal();
+  }
+}
+
+function step(d){
+  if(!visible.length) return;
+
+  idx = (idx+d+visible.length)%visible.length;
+  show();
+}
+
+document.getElementById("zoomIn").addEventListener("click",()=>{
+  setZoom(zoom+ZOOM_STEP);
+});
+
+document.getElementById("zoomOut").addEventListener("click",()=>{
+  setZoom(zoom-ZOOM_STEP);
+});
+
+document.getElementById("zoomReset").addEventListener("click",()=>{
+  setZoom(1);
+  stage.scrollTop = 0;
+  stage.scrollLeft = 0;
+});
+
+document.getElementById("close").addEventListener("click",()=>{
+  lb.close();
+});
+
+document.getElementById("prev").addEventListener("click",()=>step(-1));
+document.getElementById("next").addEventListener("click",()=>step(1));
+
+/* Mouse wheel zoom while viewer is open */
+stage.addEventListener("wheel",e=>{
+  if(!lb.open) return;
+  e.preventDefault();
+  setZoom(zoom+(e.deltaY<0?ZOOM_STEP:-ZOOM_STEP));
+},{passive:false});
+
+/* Keyboard controls */
+lb.addEventListener("keydown",e=>{
+  if(e.key==="ArrowLeft"){
+    e.preventDefault();
+    step(-1);
+  }
+  if(e.key==="ArrowRight"){
+    e.preventDefault();
+    step(1);
+  }
+  if(e.key==="+" || e.key==="="){
+    e.preventDefault();
+    setZoom(zoom+ZOOM_STEP);
+  }
+  if(e.key==="-"){
+    e.preventDefault();
+    setZoom(zoom-ZOOM_STEP);
+  }
+  if(e.key==="0"){
+    e.preventDefault();
+    setZoom(1);
+  }
+});
+
+drawChips();
+render();
+
+/* MOBILE NAVIGATION */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click",()=>{
+  const open = navLinks.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded",String(open));
+  menuToggle.setAttribute(
+    "aria-label",open?"Close navigation":"Open navigation"
+  );
+  menuToggle.textContent = open ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(a=>{
+  a.addEventListener("click",()=>{
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded","false");
+    menuToggle.setAttribute("aria-label","Open navigation");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* SCROLL PROGRESS */
+const progress = document.getElementById("progress");
+
+function updateProgress(){
+  const max = document.documentElement.scrollHeight-innerHeight;
+  const percent = max>0
+    ? Math.min(100,Math.max(0,scrollY/max*100))
+    : 0;
+
+  progress.style.width = percent+"%";
+}
+
+addEventListener("scroll",updateProgress,{passive:true});
+updateProgress();
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+</body>
+</html>
