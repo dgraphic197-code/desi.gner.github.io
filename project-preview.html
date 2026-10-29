@@ -1,980 +1,432 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f2f3fc">
-<meta name="description" content="DESIGNER197 Website Showcase by Harsh Chawla. Explore website designs, PDF presentations and live website projects.">
-<title>Website Showcase — DESIGNER197</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<meta name="description" content="DESIGNER197 by Harsh Chawla — web design, graphic design and coding projects.">
+<title>DESIGNER197 — Project Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#171b35;
-  --muted:#737b98;
-  --blue:#6475f5;
-  --purple:#ad91ff;
-  --glass:rgba(255,255,255,.65);
-  --border:rgba(255,255,255,.95);
-  --shadow:0 18px 55px rgba(85,96,165,.12);
-}
+:root{--ink:#171b35;--muted:#737b98;--blue:#6475f5;--purple:#ad91ff;--glass:rgba(255,255,255,.65);--shadow:0 18px 55px rgba(85,96,165,.12)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{
-  font-family:"DM Sans",sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(ellipse at 8% 4%,#fff 0,transparent 35%),
-    radial-gradient(ellipse at 90% 18%,#dfe2ff 0,transparent 36%),
-    linear-gradient(135deg,#f8f8fc,#eceefa 60%,#f9f9ff);
-  overflow-x:hidden;
-}
-body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:10;
-  opacity:.08;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
-}
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-button{color:inherit}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
-  outline:3px solid var(--blue);outline-offset:3px;
-}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 8% 4%,#fff 0,transparent 35%),radial-gradient(ellipse at 90% 18%,#dfe2ff 0,transparent 36%),linear-gradient(135deg,#f8f8fc,#eceefa 60%,#f9f9ff)}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+[hidden]{display:none!important}
 .wrap{width:min(1160px,calc(100% - 36px));margin:auto}
 h1,h2,h3{font-family:Manrope,sans-serif}
-.glass{
-  background:var(--glass);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
-}
-.progress{
-  position:fixed;top:0;left:0;height:3px;width:0;z-index:1000;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-}
-.ambient{
-  position:fixed;z-index:-1;width:320px;height:320px;border-radius:50%;
-  filter:blur(55px);opacity:.23;pointer-events:none;
-  animation:ambient 13s ease-in-out infinite alternate;
-}
-.ambient.one{background:#b3a4ff;top:12%;left:-150px}
-.ambient.two{background:#a6d8ff;right:-160px;top:55%;animation-delay:-5s}
-@keyframes ambient{to{transform:translate(100px,-50px) scale(1.2)}}
-.mono{
-  font-size:10px;letter-spacing:1.6px;text-transform:uppercase;
-  color:var(--blue);font-weight:700;
-}
-.gradient{
-  background:linear-gradient(95deg,#a58bff,#5875f7);
-  background-clip:text;-webkit-background-clip:text;color:transparent;
-}
-
-/* NAVIGATION */
-header{
-  position:sticky;top:10px;z-index:100;
-  width:min(1160px,calc(100% - 24px));margin:10px auto 0;
-  border-radius:19px;
-}
-.nav{
-  min-height:65px;padding:10px 17px;
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
-}
-.logo{
-  display:flex;align-items:center;gap:10px;
-  font:800 18px Manrope,sans-serif;letter-spacing:-1px;white-space:nowrap;
-}
-.logo b{color:var(--blue)}
-.logo-mark{
-  height:35px;width:35px;border-radius:12px;
-  display:grid;place-items:center;
-  background:linear-gradient(145deg,#fff,#dfe2ff);
-  color:var(--blue);border:1px solid white;
-  box-shadow:0 7px 18px #7c8bf52b;
-  transform:rotate(-7deg);
-  animation:logoBreathe 4s ease-in-out infinite;
-}
-@keyframes logoBreathe{
-  50%{transform:rotate(7deg) translateY(-2px);box-shadow:0 9px 26px #7c8bf55a}
-}
-.nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{font-size:12px;color:#59617d;transition:.25s}
-.nav-links a:hover,.nav-links a.on{color:var(--blue)}
-.pill{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:12px 17px;border:1px solid white;border-radius:30px;
-  background:#ffffffb8;font-size:11px;font-weight:700;
-  transition:.3s;cursor:pointer;color:var(--ink);
-}
+.glass{background:var(--glass);border:1px solid #fff;box-shadow:var(--shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.mono{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue);font-weight:700}
+.gradient{background:linear-gradient(95deg,#a58bff,#5875f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+header{position:sticky;top:10px;z-index:100;width:min(1160px,calc(100% - 24px));margin:10px auto 0;border-radius:19px}
+.nav{min-height:65px;padding:10px 17px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px Manrope,sans-serif;letter-spacing:-1px}.logo b{color:var(--blue)}
+.logo-mark{height:35px;width:35px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#dfe2ff);color:var(--blue);border:1px solid #fff;transform:rotate(-7deg);animation:br 4s ease-in-out infinite}
+@keyframes br{50%{transform:rotate(7deg) translateY(-2px)}}
+.nav-links{display:flex;gap:20px}.nav-links a{font-size:12px;color:#59617d;transition:.25s}.nav-links a:hover{color:var(--blue)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border:1px solid #fff;border-radius:30px;background:#ffffffb8;font-size:11px;font-weight:700;transition:.3s;cursor:pointer}
 .pill:hover{transform:translateY(-3px);box-shadow:0 12px 25px #7180ed26}
-.pill.primary{background:#151a32;color:white;border-color:#151a32}
-.pill.primary:hover{background:var(--blue);border-color:var(--blue)}
-.menu-toggle{
-  display:none;padding:9px 12px;background:#ffffffa8;
-  border:1px solid white;border-radius:10px;cursor:pointer;
-}
-
-/* HERO */
-.hero{padding:45px 0 25px}
-.hero-panel{
-  border-radius:28px;padding:48px 40px;overflow:hidden;
-  position:relative;display:grid;grid-template-columns:1.25fr 1fr;
-  gap:30px;align-items:end;
-}
-.hero-panel:before{
-  content:"";position:absolute;width:270px;height:270px;border-radius:50%;
-  background:#b8bfff40;filter:blur(30px);top:-150px;left:36%;
-}
-.hero-panel>*{position:relative}
-h1{
-  font-size:clamp(42px,7vw,82px);line-height:.98;
-  letter-spacing:-4px;font-weight:800;margin:12px 0 18px;
-}
-.hero-copy{color:var(--muted);font-size:14px;line-height:1.9;max-width:430px}
+.pill.primary{background:#151a32;color:#fff;border-color:#151a32}.pill.primary:hover{background:var(--blue)}
+.pill.danger{color:#c0364f}.pill:disabled{opacity:.5;cursor:not-allowed}
+.menu-toggle{display:none;padding:9px 12px;background:#ffffffa8;border:1px solid #fff;border-radius:10px;cursor:pointer}
+.hero{margin-top:40px;border-radius:28px;padding:48px 40px}
+h1{font-size:clamp(40px,7vw,78px);line-height:.98;letter-spacing:-3.5px;font-weight:800;margin:12px 0 18px}
+.hero p{color:var(--muted);font-size:14px;line-height:1.9;max-width:480px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.hero-stats{
-  display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;
-  padding-top:20px;border-top:1px solid #dfe2f4;
-}
-.stat strong{display:block;font:800 22px Manrope,sans-serif}
-.stat span{font-size:10px;color:var(--muted)}
-
-/* BROWSER PREVIEW ILLUSTRATION */
-.browser-art{
-  position:relative;min-height:235px;display:grid;place-items:center;
-  perspective:900px;
-}
-.browser-window{
-  width:min(100%,350px);padding:10px;border-radius:17px;
-  background:#ffffffc9;border:1px solid white;
-  box-shadow:0 25px 55px #6573ce26;
-  transform:rotateY(-10deg) rotateX(4deg);
-  animation:floatBrowser 5s ease-in-out infinite;
-}
-@keyframes floatBrowser{
-  50%{transform:rotateY(-5deg) rotateX(1deg) translateY(-9px)}
-}
-.browser-top{display:flex;align-items:center;gap:5px;padding:5px 4px 12px}
-.dot{width:7px;height:7px;border-radius:50%;background:#c6cbed}
-.address{
-  flex:1;margin-left:8px;border-radius:8px;background:#f0f1fc;
-  padding:6px 10px;font-size:8px;color:#8990b0;
-}
-.browser-screen{
-  min-height:175px;border-radius:10px;overflow:hidden;
-  padding:17px;background:linear-gradient(140deg,#171b35,#4855ac);
-  color:#fff;position:relative;
-}
-.browser-screen:after{
-  content:"";position:absolute;width:130px;height:130px;border-radius:50%;
-  background:#ad91ff;right:-40px;bottom:-55px;filter:blur(3px);opacity:.8;
-}
-.screen-label{font-size:8px;letter-spacing:2px;color:#d7d9ff}
-.screen-title{font:800 28px/1.05 Manrope,sans-serif;margin:13px 0}
-.screen-line{height:5px;border-radius:8px;background:#ffffff45;margin-top:8px;width:70%}
-.screen-line.short{width:45%}
-.screen-button{
-  display:inline-block;margin-top:17px;background:#fff;color:#343d86;
-  border-radius:20px;padding:8px 12px;font-size:8px;font-weight:800;
-}
-.float-tag{
-  position:absolute;padding:12px 15px;border-radius:14px;
-  background:#ffffffdf;border:1px solid white;box-shadow:var(--shadow);
-  font-size:10px;font-weight:800;
-}
-.float-tag.one{top:10px;right:0;transform:rotate(5deg)}
-.float-tag.two{bottom:5px;left:0;transform:rotate(-5deg)}
-.float-tag span{color:var(--blue)}
-
-/* TOOLBAR */
-.toolbar{padding:12px 0 18px}
-.toolbar-inner{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}
-.search{
-  display:flex;align-items:center;gap:9px;padding:0 14px;
-  min-width:min(100%,260px);height:44px;border-radius:14px;
-}
-.search input{border:0;background:transparent;outline:0;width:100%;color:var(--ink);font-size:12px}
-.search input::placeholder{color:#9298b0}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.chip{
-  cursor:pointer;color:var(--ink);font-size:11px;font-weight:700;
-  background:#ffffffb8;border:1px solid white;padding:11px 15px;
-  border-radius:30px;transition:.3s;
-}
-.chip:hover{transform:translateY(-2px);box-shadow:0 10px 22px #7180ed26}
-.chip[aria-pressed="true"]{background:#151a32;color:#fff;border-color:#151a32}
-
-/* PROJECT GRID */
-.section-head{margin:20px 0 20px}
-.section-head h2{font-size:clamp(27px,3vw,37px);letter-spacing:-1.7px;margin-top:7px}
-.section-head p{color:var(--muted);font-size:12px;line-height:1.8;margin-top:8px}
-.project-grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:17px;padding-bottom:45px;
-}
-.project{
-  min-width:0;border-radius:20px;padding:9px;overflow:hidden;
-  transition:transform .3s,box-shadow .3s;
-}
-.project:hover{transform:translateY(-6px);box-shadow:0 22px 48px #6573ce25}
-.preview{
-  position:relative;display:block;width:100%;aspect-ratio:4/3;
-  border-radius:13px;overflow:hidden;
-  background:linear-gradient(145deg,#e4e7ff,#fff);
-}
-.preview img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
-.project:hover .preview img{transform:scale(1.045)}
-.preview-fallback{
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  justify-content:space-between;padding:18px;color:#fff;
-  background:linear-gradient(145deg,#6475f5,#ad91ff);
-}
-.preview-fallback.dark{background:linear-gradient(145deg,#171b35,#555fc1)}
-.preview-fallback.pink{background:linear-gradient(145deg,#a14b8e,#ed9ecb)}
-.preview-fallback.blue{background:linear-gradient(145deg,#315b9e,#8bd2ed)}
-.preview-fallback.green{background:linear-gradient(145deg,#296c63,#b2d7a1)}
-.preview-fallback.orange{background:linear-gradient(145deg,#8f482f,#f0ba76)}
-.fallback-top{font-size:9px;letter-spacing:1.8px;font-weight:700}
-.fallback-title{font:800 clamp(22px,2.6vw,36px)/1 Manrope,sans-serif;letter-spacing:-1.5px}
-.fallback-bottom{font-size:9px;opacity:.8}
-.project-info{padding:15px 8px 8px}
-.project-overline{display:flex;justify-content:space-between;gap:8px;align-items:center}
-.project-type{
-  color:var(--blue);font-size:9px;font-weight:800;
-  text-transform:uppercase;letter-spacing:1px;
-}
-.project-number{font-size:10px;color:#a0a5bd}
-.project-info h3{font-size:17px;letter-spacing:-.6px;margin:9px 0 7px}
-.project-info p{font-size:11px;color:var(--muted);line-height:1.8;min-height:40px}
-.project-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
-.project-actions .pill{padding:10px 12px;font-size:10px}
-.project-actions .disabled{opacity:.45;cursor:not-allowed}
-.empty{
-  grid-column:1/-1;text-align:center;padding:45px 20px;
-  border-radius:18px;color:var(--muted);font-size:13px;
-}
-
-/* HOW TO ADD PROJECTS */
-.guide{
-  padding:28px;border-radius:24px;margin:0 0 24px;
-  display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;
-}
-.guide h2{font-size:clamp(25px,3vw,34px);letter-spacing:-1.4px;margin:9px 0}
-.guide p{font-size:12px;color:var(--muted);line-height:1.9}
-.guide-list{display:grid;gap:12px}
-.guide-step{display:flex;gap:12px;align-items:flex-start}
-.step-num{
-  width:32px;height:32px;flex-shrink:0;border-radius:11px;
-  display:grid;place-items:center;background:#e5e7ff;color:var(--blue);
-  font:800 12px Manrope,sans-serif;
-}
-.guide-step strong{display:block;font-size:12px;margin:2px 0 4px}
-.guide-step span{display:block;font-size:11px;line-height:1.7;color:var(--muted)}
-.code-note{
-  margin-top:15px;padding:13px 15px;border-radius:12px;
-  background:#eef0ff;border:1px solid #fff;font-size:11px;
-  line-height:1.8;color:#535d9a;overflow-wrap:anywhere;
-}
-
-/* CONTACT */
-.contact{
-  padding:30px;border-radius:24px;display:flex;
-  justify-content:space-between;align-items:center;gap:24px;
-  flex-wrap:wrap;margin-bottom:20px;
-}
-.contact h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-2px;line-height:1.08;margin:10px 0}
-.contact p{font-size:13px;color:var(--muted);line-height:1.8;max-width:420px}
-footer{padding:25px 0 30px}
-.footer-inner{
-  border-top:1px solid white;padding-top:20px;display:flex;
-  align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
-}
-.footer-links{display:flex;gap:13px;flex-wrap:wrap}
-.footer-links a{font-size:11px;color:var(--muted)}
-.footer-links a:hover{color:var(--blue)}
-.copyright{font-size:10px;color:#8c93ac}
-
-/* PDF / PROJECT VIEWER */
-dialog{
-  border:none;background:transparent;max-width:100vw;max-height:100vh;
-  width:100%;height:100%;margin:0;padding:18px;color:var(--ink);
-}
+.head{margin:34px 0 16px}.head h2{font-size:clamp(26px,3vw,36px);letter-spacing:-1.6px;margin-top:7px}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.search{flex:1;min-width:220px;display:flex;align-items:center;gap:9px;padding:0 14px;height:44px;border-radius:14px}
+.search input{border:0;background:transparent;outline:0;width:100%;font-size:12px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.chip{cursor:pointer;font-size:10px;font-weight:700;background:#ffffffb8;border:1px solid #fff;padding:8px 12px;border-radius:30px;transition:.3s}
+.chip:hover{transform:translateY(-2px)}.chip[aria-pressed="true"]{background:#151a32;color:#fff;border-color:#151a32}
+.label{font-size:10px;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase;font-weight:700;margin:10px 0 7px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;padding:14px 0 45px}
+.card{border-radius:20px;padding:9px;transition:transform .3s,box-shadow .3s;animation:up .5s both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 48px #6573ce25}
+.thumb{aspect-ratio:4/3;border-radius:13px;overflow:hidden;position:relative;background:linear-gradient(145deg,#6475f5,#ad91ff)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}.card:hover .thumb img{transform:scale(1.045)}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:18px;color:#fff}
+.ph small{font-size:9px;letter-spacing:1.8px;font-weight:700}.ph strong{font:800 clamp(20px,2.4vw,30px)/1 Manrope;letter-spacing:-1.2px}
+.info{padding:15px 8px 8px}.type{color:var(--blue);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.info h3{font-size:17px;letter-spacing:-.6px;margin:8px 0 6px}.info p{font-size:11px;color:var(--muted);line-height:1.8;min-height:40px}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}.tag{font-size:9px;font-weight:700;padding:4px 8px;border-radius:20px;background:#e5e7ff;color:#535d9a}
+.card .actions{margin-top:14px;gap:7px}.card .pill{padding:9px 11px;font-size:10px}
+.empty{grid-column:1/-1;text-align:center;padding:45px 20px;border-radius:18px;color:var(--muted);font-size:13px}
+.box{padding:28px;border-radius:24px;margin:0 0 24px}.box h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:-1.8px;margin:9px 0}.box p{font-size:13px;color:var(--muted);line-height:1.8}
+.row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer{padding:20px 0 30px}.foot{border-top:1px solid #fff;padding-top:20px;font-size:11px;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9999;padding:12px 18px;border-radius:14px;font-size:12px;font-weight:700;background:#151a32;color:#fff;box-shadow:var(--shadow)}
+.toast.err{background:#c0364f}.toast.ok{background:#2d8a63}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid #c6cbed;border-top-color:var(--blue);border-radius:50%;animation:s .7s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes s{to{transform:rotate(360deg)}}
+.field{display:grid;gap:6px;margin-bottom:14px}.field label{font-size:11px;font-weight:700}
+.field input,.field select,.field textarea{padding:12px 14px;border-radius:12px;border:1px solid #fff;background:#ffffffcc;font-size:13px;width:100%}
+.field textarea{min-height:100px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ai{display:flex;gap:12px;align-items:center;padding:10px;border-radius:16px;margin-bottom:10px;flex-wrap:wrap}
+.ai img,.ai .mini{width:64px;height:48px;border-radius:9px;object-fit:cover;background:linear-gradient(145deg,#6475f5,#ad91ff)}
+.ai .meta{flex:1;min-width:140px;font-size:12px}.ai .meta span{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.badge{font-size:9px;font-weight:800;padding:4px 8px;border-radius:20px}.badge.on{background:#d5f3e5;color:#1f7a53}.badge.off{background:#eee;color:#777}
+pre{background:#151a32;color:#dfe2ff;padding:16px;border-radius:14px;overflow:auto;max-height:320px;font-size:11px;line-height:1.6;margin:12px 0}
+dialog{border:0;background:transparent;width:100%;max-width:100vw;max-height:100vh;height:100%;padding:16px}
 dialog::backdrop{background:rgba(23,27,53,.72);backdrop-filter:blur(9px)}
-.viewer{
-  width:min(100%,1050px);height:min(90vh,850px);margin:auto;
-  border-radius:22px;background:#f8f8ff;border:1px solid white;
-  box-shadow:0 30px 100px #0003;display:flex;flex-direction:column;overflow:hidden;
-}
-.viewer-head{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:15px;padding:14px 18px;border-bottom:1px solid #e3e5f5;
-}
-.viewer-head h3{font-size:14px}
-.viewer-head p{font-size:10px;color:var(--muted);margin-top:4px}
-.viewer-close{
-  flex-shrink:0;border:1px solid white;background:#e9ebff;
-  border-radius:12px;padding:10px 13px;cursor:pointer;font-size:11px;
-}
-.viewer-body{flex:1;min-height:0;background:#e8eafa;position:relative}
-.viewer-body iframe{width:100%;height:100%;border:0;display:block}
-.viewer-empty{
-  height:100%;display:flex;align-items:center;justify-content:center;
-  padding:30px;text-align:center;color:var(--muted);font-size:13px;line-height:1.9;
-}
-.viewer-foot{
-  padding:12px 18px;display:flex;justify-content:space-between;
-  gap:10px;align-items:center;flex-wrap:wrap;border-top:1px solid #e3e5f5;
-}
-.viewer-foot span{font-size:10px;color:var(--muted)}
-.viewer-foot .actions{margin:0}
-
-@media(max-width:900px){
-  .hero-panel{grid-template-columns:1fr;padding:34px 26px}
-  .browser-art{min-height:260px}
-  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .guide{grid-template-columns:1fr}
-}
-@media(max-width:700px){
-  .wrap{width:calc(100% - 26px)}
-  header{width:calc(100% - 18px)}
-  .nav{min-height:59px}
-  .logo{font-size:15px}
-  .logo-mark{width:31px;height:31px}
-  .menu-toggle{display:block}
-  .nav-cta{display:none}
-  .nav-links{
-    display:none;position:absolute;top:65px;left:0;right:0;
-    padding:12px 20px;flex-direction:column;align-items:stretch;gap:0;
-    background:#f5f5ffef;border:1px solid white;border-radius:16px;
-    box-shadow:var(--shadow);
-  }
-  .nav-links.open{display:flex}
-  .nav-links a{padding:12px 0;border-bottom:1px solid #fff}
-  .hero{padding-top:30px}
-  .hero-panel{padding:28px 20px}
-  .toolbar-inner{align-items:stretch}
-  .search{width:100%}
-  .filters{gap:6px}
-  .chip{padding:10px 12px}
-  .project-grid{gap:11px}
-  .project{padding:6px;border-radius:15px}
-  .project-info{padding:12px 5px 6px}
-  .project-info h3{font-size:14px}
-  .project-info p{font-size:10px}
-  .project-actions{gap:6px}
-  .project-actions .pill{padding:9px 10px;font-size:9px}
-  .guide{padding:22px}
-  .contact{padding:22px}
-  .footer-inner{align-items:flex-start;flex-direction:column}
-  .viewer{height:92vh}
-  .viewer-head{padding:12px}
-  .viewer-foot{padding:12px}
-}
-@media(max-width:420px){
-  h1{letter-spacing:-2px}
-  .project-grid{grid-template-columns:1fr}
-  .preview{aspect-ratio:16/9}
-  .browser-art{min-height:230px}
-  .float-tag.one{right:-3px}
-  .float-tag.two{left:-3px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{
-    animation-duration:.01ms!important;
-    transition-duration:.01ms!important;
-    scroll-behavior:auto!important;
-  }
-}
+.viewer{width:min(100%,1050px);height:min(92vh,860px);margin:auto;border-radius:22px;background:#f8f8ff;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 100px #0003}
+.vh{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid #e3e5f5;align-items:flex-start}
+.vh h3{font-size:16px}.vh p{font-size:11px;color:var(--muted);margin-top:4px;max-width:640px}
+.vb{flex:1;min-height:0;background:#e8eafa;position:relative;overflow:auto}
+.vb iframe{width:100%;height:100%;border:0;display:block}.vb img{width:100%;display:block}
+.vf{padding:12px 18px;display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid #e3e5f5;align-items:center}
+.vtabs{display:flex;gap:6px;padding:10px 18px 0;flex-wrap:wrap}
+.note{padding:30px;text-align:center;color:var(--muted);font-size:13px;line-height:1.9}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}}
+@media(max-width:700px){.menu-toggle{display:block}.nav-cta{display:none}
+.nav-links{display:none;position:absolute;top:65px;left:0;right:0;padding:12px 20px;flex-direction:column;gap:0;background:#f5f5ffef;border:1px solid #fff;border-radius:16px}
+.nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid #fff}.hero{padding:28px 20px}h1{letter-spacing:-2px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
-
 <body>
-<div class="ambient one"></div>
-<div class="ambient two"></div>
-<div class="progress" id="progress"></div>
+<header class="glass"><div class="nav">
+  <a class="logo" href="#" data-home><span class="logo-mark">D</span><span>designer<b>197</b></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav class="nav-links" id="navLinks"><a href="#" data-home>Home</a><a href="#projects" data-home>Projects</a><a href="#contact" data-home>Contact</a></nav>
+  <a class="pill primary nav-cta" href="#contact" data-home>Let's talk ↗</a>
+</div></header>
 
-<header class="glass">
-  <div class="nav">
-    <a class="logo" href="index.html" aria-label="DESIGNER197 Home">
-      <span class="logo-mark">D</span>
-      <span>designer<b>197</b></span>
-    </a>
+<!-- ============ PUBLIC SITE ============ -->
+<main id="site">
+<section class="wrap"><div class="hero glass">
+  <div class="mono">DESIGNER197 / DIGITAL SHOWCASE</div>
+  <h1>Design. Code.<br><span class="gradient">Made to Stand Out.</span></h1>
+  <p>Graphic design, web design, coding and creative projects by Harsh Chawla — preview, PDF and live links in one place.</p>
+  <div class="actions"><a class="pill primary" href="#projects">Explore Projects ↗</a></div>
+</div></section>
 
-    <button class="menu-toggle" id="menuToggle"
-      aria-label="Open navigation" aria-expanded="false">☰</button>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="logo-branding.html">Logo &amp; Branding</a>
-      <a class="on" href="#projects">Web Projects</a>
-      <a href="#how-to-add">How It Works</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <a class="pill primary nav-cta" href="#contact">Let's talk ↗</a>
+<section class="wrap" id="projects">
+  <div class="head"><div class="mono">SELECTED WORK</div><h2>My Projects</h2></div>
+  <div class="toolbar">
+    <label class="search glass"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Search projects..." aria-label="Search projects"></label>
+    <button class="pill" id="clear" type="button">Reset filters</button>
   </div>
-</header>
+  <div class="label">Category</div><div class="filters" id="cats" role="group" aria-label="Category filter"></div>
+  <div class="label">Technologies (multiple select)</div><div class="filters" id="techs" role="group" aria-label="Technology filter"></div>
+  <div class="grid" id="grid" aria-live="polite"></div>
+</section>
 
-<main>
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-panel glass">
-      <div>
-        <div class="mono">DESIGNER197 / DIGITAL SHOWCASE</div>
-        <h1>Websites.<br><span class="gradient">Made to Stand Out.</span></h1>
-        <p class="hero-copy">
-          Explore my website design projects, visual previews, PDF presentations
-          and live website links — all in one place. Designed by Harsh Chawla.
-        </p>
+<section class="wrap" id="contact"><div class="box glass row">
+  <div><div class="mono">LET'S CONNECT</div><h2>Have a project in mind?</h2><p>Website, landing page, branding or creative design — let's discuss it.</p></div>
+  <div class="actions">
+    <a class="pill primary" href="https://wa.me/919810851024?text=Hello%20Harsh%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+    <a class="pill" href="mailto:dgraphic197@gmail.com">Email Me ↗</a>
+  </div>
+</div></section>
+</main>
 
-        <div class="actions">
-          <a class="pill primary" href="#projects">Explore Projects ↗</a>
-          <a class="pill" href="#how-to-add">View Guide ↓</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <strong id="projectCount">00</strong>
-            <span>PROJECTS</span>
-          </div>
-          <div class="stat">
-            <strong>PDF</strong>
-            <span>DESIGN PRESENTATIONS</span>
-          </div>
-          <div class="stat">
-            <strong>LIVE</strong>
-            <span>WEBSITE LINKS</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="browser-art" aria-label="Website preview illustration">
-        <div class="float-tag one">✦ <span>WEB DESIGN</span></div>
-
-        <div class="browser-window">
-          <div class="browser-top">
-            <i class="dot"></i><i class="dot"></i><i class="dot"></i>
-            <div class="address">your-website-preview.com</div>
-          </div>
-          <div class="browser-screen">
-            <div class="screen-label">DESIGNER197 / CREATIVE STUDIO</div>
-            <div class="screen-title">Design.<br>Create.<br>Launch.</div>
-            <div class="screen-line"></div>
-            <div class="screen-line short"></div>
-            <span class="screen-button">EXPLORE PROJECTS ↗</span>
-          </div>
-        </div>
-
-        <div class="float-tag two">▧ &nbsp; Website <span>Showcase</span></div>
-      </div>
-    </div>
+<!-- ============ ADMIN (sirf #admin URL par) ============ -->
+<main class="wrap" id="admin" hidden style="padding-top:30px">
+  <section id="login" class="box glass" style="max-width:420px;margin:40px auto">
+    <div class="mono">OWNER ACCESS</div><h2>Admin Login</h2>
+    <form id="loginForm" style="margin-top:16px">
+      <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="pass">Password</label><input id="pass" type="password" autocomplete="current-password" required></div>
+      <button class="pill primary" type="submit" id="loginBtn">Login</button>
+    </form>
   </section>
-
-  <!-- PROJECTS -->
-  <section class="wrap" id="projects">
-    <div class="section-head">
-      <div class="mono">SELECTED WORK / 001—∞</div>
-      <h2>My Website Projects</h2>
-      <p>View a design presentation, open a PDF or visit a live website.</p>
+  <section id="dash" hidden>
+    <div class="box glass">
+      <div class="row"><div><div class="mono">DASHBOARD</div><h2 id="formTitle">Add New Project</h2></div>
+      <div class="actions" style="margin:0"><button class="pill" id="newBtn" type="button">+ New</button><button class="pill" id="logout" type="button">Logout</button></div></div>
+      <form id="form" style="margin-top:14px">
+        <div class="two">
+          <div class="field"><label for="title">Title *</label><input id="title" maxlength="150" required></div>
+          <div class="field"><label for="category">Category</label><select id="category"></select></div>
+        </div>
+        <div class="field"><label for="description">Description</label><textarea id="description"></textarea></div>
+        <div class="label">Technologies / Tools</div><div class="filters" id="techBox"></div>
+        <div class="two">
+          <div class="field"><label for="live">Live website URL</label><input id="live" type="url" placeholder="https://"></div>
+          <div class="field"><label for="source">Source code URL</label><input id="source" type="url" placeholder="https://github.com/..."></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="thumb">Thumbnail (JPG/PNG/WebP, max 5MB)</label><input id="thumb" type="file" accept="image/jpeg,image/png,image/webp"><small id="thumbCur"></small></div>
+          <div class="field"><label for="pdf">PDF (max 10MB)</label><input id="pdf" type="file" accept="application/pdf"><small id="pdfCur"></small></div>
+        </div>
+        <label style="font-size:12px;font-weight:700;display:flex;gap:8px;align-items:center;margin-bottom:16px"><input type="checkbox" id="published"> Published (public ko dikhega)</label>
+        <button class="pill primary" id="saveBtn" type="submit">Save Project</button>
+      </form>
     </div>
-
-    <div class="toolbar">
-      <div class="toolbar-inner">
-        <label class="search glass">
-          <span aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search"
-            placeholder="Search website projects..." aria-label="Search projects">
-        </label>
-        <div class="filters" id="filters" role="group" aria-label="Filter projects">
-          <button class="chip" data-filter="All" aria-pressed="true">All Projects</button>
-          <button class="chip" data-filter="Business" aria-pressed="false">Business</button>
-          <button class="chip" data-filter="E-commerce" aria-pressed="false">E-commerce</button>
-          <button class="chip" data-filter="Portfolio" aria-pressed="false">Portfolio</button>
-          <button class="chip" data-filter="Other" aria-pressed="false">Other</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-grid" id="projectGrid" aria-live="polite"></div>
-  </section>
-
-  <!-- INSTRUCTIONS -->
-  <section class="wrap" id="how-to-add">
-    <div class="guide glass">
-      <div>
-        <div class="mono">YOUR PROJECTS / YOUR CONTROL</div>
-        <h2>How to add your website designs</h2>
-        <p>
-          Add your website screenshot, PDF presentation and live link to the
-          project list inside this HTML file. Upload the website files to your
-          GitHub repository to publish your updated showcase.
-        </p>
-        <div class="code-note">
-          Recommended folders:<br>
-          <strong>images/web/</strong> — website preview images<br>
-          <strong>pdf/web/</strong> — PDF design presentations
-        </div>
-      </div>
-
-      <div class="guide-list">
-        <div class="guide-step">
-          <div class="step-num">01</div>
-          <div>
-            <strong>Upload your website files</strong>
-            <span>Keep your screenshots and PDF files inside your repository.</span>
-          </div>
-        </div>
-        <div class="guide-step">
-          <div class="step-num">02</div>
-          <div>
-            <strong>Add project details</strong>
-            <span>Enter your project title, category, description and file paths in the PROJECTS list.</span>
-          </div>
-        </div>
-        <div class="guide-step">
-          <div class="step-num">03</div>
-          <div>
-            <strong>Add your own website link</strong>
-            <span>Paste your published website URL into the project's live field.</span>
-          </div>
-        </div>
-        <div class="guide-step">
-          <div class="step-num">04</div>
-          <div>
-            <strong>Commit and publish</strong>
-            <span>Commit the updated HTML and files to GitHub Pages.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="wrap">
-    <div class="contact glass" id="contact">
-      <div>
-        <div class="mono">LET'S CONNECT</div>
-        <h2>Have a website in mind?</h2>
-        <p>
-          Need a website design, landing page or creative digital experience?
-          Get in touch to discuss your project.
-        </p>
-      </div>
-      <div class="actions">
-        <a class="pill primary"
-          href="https://wa.me/919810851024?text=Hello%20Harsh%2C%20I%20want%20to%20discuss%20a%20website%20project"
-          target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-        <a class="pill" href="mailto:dgraphic197@gmail.com">Email Me ↗</a>
-      </div>
-    </div>
+    <div class="head"><div class="mono">ALL PROJECTS</div><h2>Manage</h2></div>
+    <div id="list"></div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap footer-inner">
-    <a class="logo" href="index.html">
-      <span class="logo-mark">D</span>
-      <span>designer<b>197</b></span>
-    </a>
-
-    <nav class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="logo-branding.html">Logo &amp; Branding</a>
-      <a href="index.html#estimate">Project Estimate</a>
-      <a href="#projects">Web Projects</a>
-    </nav>
-
-    <div class="copyright">
-      © <span id="year"></span> DESIGNER197 · Harsh Chawla
-    </div>
+<!-- ============ SETUP (sirf #setup URL par) ============ -->
+<main class="wrap" id="setup" hidden style="padding-top:30px">
+  <div class="box glass">
+    <div class="mono">ONE-TIME SETUP</div><h2>Supabase SQL</h2>
+    <p>1) supabase.com par project banao → SQL Editor me yeh SQL run karo.<br>2) Auth → Users me apna user banao, aur Sign-ups OFF karo.<br>3) Last line me apna User UUID daal ke run karo.<br>4) Is file ke upar CONFIG me URL aur anon key paste karo.</p>
+    <pre id="sqlOut"></pre>
+    <button class="pill primary" id="copySql" type="button">Copy SQL</button>
   </div>
-</footer>
+</main>
 
-<!-- PROJECT / PDF VIEWER -->
-<dialog id="viewer" aria-label="Website project viewer">
+<footer><div class="wrap foot">© <span id="yr"></span> DESIGNER197 · Harsh Chawla</div></footer>
+
+<dialog id="viewer" aria-label="Project preview">
   <div class="viewer">
-    <div class="viewer-head">
-      <div>
-        <h3 id="viewerTitle">Project Preview</h3>
-        <p id="viewerDescription">Website design presentation</p>
-      </div>
-      <button class="viewer-close" id="viewerClose" type="button">Close ✕</button>
-    </div>
-
-    <div class="viewer-body" id="viewerBody">
-      <div class="viewer-empty">Select a project to preview.</div>
-    </div>
-
-    <div class="viewer-foot">
-      <span>DESIGNER197 · Website Showcase</span>
-      <div class="actions">
-        <a class="pill" id="pdfOpen" href="#" target="_blank"
-          rel="noopener noreferrer" hidden>Open PDF ↗</a>
-        <a class="pill primary" id="liveOpen" href="#" target="_blank"
-          rel="noopener noreferrer" hidden>Visit Website ↗</a>
-      </div>
-    </div>
+    <div class="vh"><div><h3 id="vTitle"></h3><p id="vDesc"></p><div class="tags" id="vTags"></div></div><button class="pill" id="vClose" type="button">Close ✕</button></div>
+    <div class="vtabs" id="vTabs" role="tablist"></div>
+    <div class="vb" id="vBody"></div>
+    <div class="vf" id="vFoot"></div>
   </div>
 </dialog>
 
+<script type="text/plain" id="sqlSrc">
+create table if not exists public.owners (user_id uuid primary key references auth.users(id) on delete cascade);
+create table if not exists public.projects (
+  id uuid primary key default gen_random_uuid(),
+  title text not null check (char_length(title) between 1 and 150),
+  category text not null default 'Other' check (category in ('Business','E-commerce','Portfolio','Other')),
+  description text default '',
+  technologies text[] not null default '{}',
+  thumbnail_url text, pdf_url text, live_url text, source_url text,
+  published boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+create or replace function public.is_owner() returns boolean
+language sql security definer set search_path = public stable
+as $$ select exists(select 1 from public.owners where user_id = auth.uid()) $$;
+alter table public.owners enable row level security;
+alter table public.projects enable row level security;
+drop policy if exists "owner reads self" on public.owners;
+create policy "owner reads self" on public.owners for select using (user_id = auth.uid());
+drop policy if exists "public read published" on public.projects;
+create policy "public read published" on public.projects for select using (published = true or public.is_owner());
+drop policy if exists "owner insert" on public.projects;
+create policy "owner insert" on public.projects for insert with check (public.is_owner());
+drop policy if exists "owner update" on public.projects;
+create policy "owner update" on public.projects for update using (public.is_owner()) with check (public.is_owner());
+drop policy if exists "owner delete" on public.projects;
+create policy "owner delete" on public.projects for delete using (public.is_owner());
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('project-files','project-files',true,10485760,array['image/jpeg','image/png','image/webp','application/pdf'])
+on conflict (id) do nothing;
+drop policy if exists "files public read" on storage.objects;
+create policy "files public read" on storage.objects for select using (bucket_id='project-files');
+drop policy if exists "files owner write" on storage.objects;
+create policy "files owner write" on storage.objects for insert with check (bucket_id='project-files' and public.is_owner());
+drop policy if exists "files owner update" on storage.objects;
+create policy "files owner update" on storage.objects for update using (bucket_id='project-files' and public.is_owner());
+drop policy if exists "files owner delete" on storage.objects;
+create policy "files owner delete" on storage.objects for delete using (bucket_id='project-files' and public.is_owner());
+-- Apna UUID daal ke run karo:
+-- insert into public.owners (user_id) values ('YOUR-USER-UUID');
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
-/*
-============================================================
-DESIGNER197 WEBSITE PROJECTS
+/* ================= CONFIG — YAHAN APNI PUBLIC KEYS DAALO ================= */
+const CFG = {
+  SUPABASE_URL: "https://YOUR-PROJECT.supabase.co",
+  SUPABASE_ANON_KEY: "YOUR-PUBLIC-ANON-KEY",   // sirf anon/publishable. service_role KABHI nahi
+  BUCKET: "project-files"
+};
+/* ========================================================================= */
 
-APNE PROJECTS YAHAN ADD KARO.
+const $ = id => document.getElementById(id);
+const TECHS = ["HTML","CSS","JavaScript","Python","SQL","Java","PHP","C","C++","C#","AWS","W3.CSS","How To","Bootstrap","React","MySQL","jQuery","Excel","XML","Django"];
+const CATS = ["Business","E-commerce","Portfolio","Other"];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl = v => { try { const u = new URL(v); return /^https?:$/.test(u.protocol) ? u.href : ""; } catch { return ""; } };
+const configured = !CFG.SUPABASE_URL.includes("YOUR-PROJECT");
+const sb = configured ? window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY) : null;
 
-preview: website screenshot ka path
-pdf:     PDF presentation ka path
-live:    published website ka URL
-
-Agar koi file/link abhi nahi hai to uski value "" rakho.
-
-Example:
-{
-  title: "My Business Website",
-  category: "Business",
-  description: "A clean, modern business website design.",
-  preview: "images/web/my-business.jpg",
-  pdf: "pdf/web/my-business.pdf",
-  live: "https://your-published-website-url.com",
-  theme: "blue"
+function toast(msg, type = "") {
+  document.querySelector(".toast")?.remove();
+  const t = document.createElement("div"); t.className = "toast " + type; t.setAttribute("role", "status"); t.textContent = msg;
+  document.body.appendChild(t); setTimeout(() => t.remove(), 3500);
 }
 
-GitHub par uploaded files ke exact names aur paths use karo.
-============================================================
-*/
+/* ---------- NAV + ROUTER ---------- */
+$("yr").textContent = new Date().getFullYear();
+$("sqlOut").textContent = $("sqlSrc").textContent.trim();
+$("copySql").onclick = () => navigator.clipboard.writeText($("sqlOut").textContent).then(() => toast("SQL copied", "ok"), () => toast("Copy failed", "err"));
+$("menuToggle").onclick = () => { const o = $("navLinks").classList.toggle("open"); $("menuToggle").setAttribute("aria-expanded", o); $("menuToggle").textContent = o ? "✕" : "☰"; };
+document.querySelectorAll("#navLinks a").forEach(a => a.addEventListener("click", () => { $("navLinks").classList.remove("open"); $("menuToggle").textContent = "☰"; }));
+function route() {
+  const h = location.hash;
+  $("site").hidden = h === "#admin" || h === "#setup";
+  $("admin").hidden = h !== "#admin";
+  $("setup").hidden = h !== "#setup";
+  if (h === "#admin") initAdmin();
+}
+addEventListener("hashchange", route);
+document.querySelectorAll("[data-home]").forEach(a => a.addEventListener("click", () => { if (location.hash === "#admin" || location.hash === "#setup") setTimeout(route) }));
 
-const PROJECTS = [
-  {
-    title: "Website Project 01",
-    category: "Business",
-    description: "Add a short description of your business website design.",
-    preview: "",
-    pdf: "",
-    live: "",
-    theme: "blue"
-  },
-  {
-    title: "Website Project 02",
-    category: "E-commerce",
-    description: "Add a description of your online store or shopping website.",
-    preview: "",
-    pdf: "",
-    live: "",
-    theme: "pink"
-  },
-  {
-    title: "Website Project 03",
-    category: "Portfolio",
-    description: "Showcase a portfolio, creative studio or personal website.",
-    preview: "",
-    pdf: "",
-    live: "",
-    theme: "dark"
+/* ---------- PUBLIC SITE ---------- */
+let all = [], cat = "All", techs = new Set();
+function chips(el, list, fn, on) {
+  el.innerHTML = list.map(v => `<button type="button" class="chip" data-v="${esc(v)}" aria-pressed="${on(v)}">${esc(v)}</button>`).join("");
+  el.querySelectorAll(".chip").forEach(b => b.onclick = () => { fn(b.dataset.v); render(); });
+}
+function cardHTML(p, i) {
+  const img = safeUrl(p.thumbnail_url), pdf = safeUrl(p.pdf_url), live = safeUrl(p.live_url), src = safeUrl(p.source_url);
+  return `<article class="card glass" style="animation-delay:${Math.min(i,8)*60}ms">
+  <div class="thumb">${img ? `<img src="${esc(img)}" alt="${esc(p.title)} preview" loading="lazy">` : `<div class="ph"><small>DESIGNER197 / PROJECT</small><strong>${esc(p.title)}</strong></div>`}</div>
+  <div class="info"><span class="type">${esc(p.category)}</span><h3>${esc(p.title)}</h3>
+  <p>${esc(p.description || "Description coming soon.")}</p>
+  <div class="tags">${(p.technologies || []).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+  <div class="actions"><button class="pill primary" type="button" data-prev="${esc(p.id)}">Preview ↗</button>
+  ${live ? `<a class="pill" href="${esc(live)}" target="_blank" rel="noopener noreferrer">Live ↗</a>` : ""}
+  ${pdf ? `<a class="pill" href="${esc(pdf)}" target="_blank" rel="noopener noreferrer">PDF ↗</a>` : ""}
+  ${src ? `<a class="pill" href="${esc(src)}" target="_blank" rel="noopener noreferrer">Source ↗</a>` : ""}</div></div></article>`;
+}
+function render() {
+  chips($("cats"), ["All", ...CATS], v => cat = v, v => v === cat);
+  chips($("techs"), TECHS, v => techs.has(v) ? techs.delete(v) : techs.add(v), v => techs.has(v));
+  const s = $("q").value.trim().toLowerCase();
+  const list = all.filter(p => (cat === "All" || p.category === cat) && (!techs.size || (p.technologies || []).some(t => techs.has(t)))
+    && [p.title, p.category, p.description, ...(p.technologies || [])].join(" ").toLowerCase().includes(s));
+  $("grid").innerHTML = list.length ? list.map(cardHTML).join("") : `<div class="empty glass">${all.length ? "No projects match your search or filters." : "Projects are coming soon. Please check back shortly."}</div>`;
+}
+$("grid").addEventListener("click", e => { const b = e.target.closest("[data-prev]"); if (b) openViewer(all.find(p => p.id === b.dataset.prev)); });
+$("q").oninput = render;
+$("clear").onclick = () => { $("q").value = ""; cat = "All"; techs.clear(); render(); };
+async function loadPublic() {
+  render();
+  if (!configured) { $("grid").innerHTML = `<div class="empty glass">Setup pending: CONFIG me Supabase URL aur key daalo (guide: #setup).</div>`; return; }
+  $("grid").innerHTML = `<div class="empty glass"><span class="spin"></span>Loading projects...</div>`;
+  const { data, error } = await sb.from("projects").select("*").eq("published", true).order("created_at", { ascending: false });
+  if (error) { $("grid").innerHTML = `<div class="empty glass">Could not load projects. Please try again later.</div>`; return; }
+  all = data; render();
+}
+
+/* ---------- PREVIEW MODAL ---------- */
+const viewer = $("viewer");
+function openViewer(p) {
+  if (!p) return;
+  const live = safeUrl(p.live_url), pdf = safeUrl(p.pdf_url), src = safeUrl(p.source_url), img = safeUrl(p.thumbnail_url);
+  $("vTitle").textContent = p.title; $("vDesc").textContent = p.category + " · " + (p.description || "");
+  $("vTags").innerHTML = (p.technologies || []).map(t => `<span class="tag">${esc(t)}</span>`).join("");
+  const tabs = []; if (img) tabs.push(["Image", "image"]); if (live) tabs.push(["Website", "live"]); if (pdf) tabs.push(["PDF", "pdf"]);
+  $("vTabs").innerHTML = tabs.map(([l, k], i) => `<button type="button" class="chip" role="tab" data-k="${k}" aria-pressed="${i === 0}">${l}</button>`).join("");
+  $("vTabs").querySelectorAll("[data-k]").forEach(b => b.onclick = () => { $("vTabs").querySelectorAll("[data-k]").forEach(x => x.setAttribute("aria-pressed", x === b)); show(b.dataset.k); });
+  const show = k => {
+    const body = $("vBody"); body.replaceChildren(); let el;
+    if (k === "image") { el = document.createElement("img"); el.src = img; el.alt = p.title; }
+    else { el = document.createElement("iframe"); el.title = p.title; el.src = k === "live" ? live : pdf + "#view=FitH";
+      if (k === "live") { el.sandbox = "allow-scripts allow-same-origin allow-forms allow-popups"; el.referrerPolicy = "no-referrer"; } }
+    body.appendChild(el);
+  };
+  if (tabs.length) show(tabs[0][1]); else $("vBody").innerHTML = `<div class="note">No preview available for this project yet.</div>`;
+  $("vFoot").innerHTML = (live ? `<a class="pill primary" href="${esc(live)}" target="_blank" rel="noopener noreferrer">Visit Website ↗</a>` : "")
+    + (pdf ? `<a class="pill" href="${esc(pdf)}" target="_blank" rel="noopener noreferrer">Download PDF ↓</a>` : "")
+    + (src ? `<a class="pill" href="${esc(src)}" target="_blank" rel="noopener noreferrer">Source Code ↗</a>` : "")
+    + `<small style="color:var(--muted);font-size:10px">Preview blank ho to site embedding block karti hai — "Visit Website" use karo.</small>`;
+  viewer.showModal();
+}
+$("vClose").onclick = () => viewer.close();
+viewer.addEventListener("click", e => { if (e.target === viewer) viewer.close(); });
+viewer.addEventListener("close", () => $("vBody").replaceChildren());
+
+/* ---------- ADMIN ---------- */
+let items = [], editing = null, techSel = new Set(), uid = null, adminInit = false;
+$("category").innerHTML = CATS.map(c => `<option>${c}</option>`).join("");
+function drawTechs() {
+  $("techBox").innerHTML = TECHS.map(t => `<button type="button" class="chip" data-v="${esc(t)}" aria-pressed="${techSel.has(t)}">${esc(t)}</button>`).join("");
+  $("techBox").querySelectorAll(".chip").forEach(b => b.onclick = () => { techSel.has(b.dataset.v) ? techSel.delete(b.dataset.v) : techSel.add(b.dataset.v); drawTechs(); });
+}
+async function checkOwner(session) {
+  if (!session) { $("login").hidden = false; $("dash").hidden = true; return; }
+  const { data } = await sb.from("owners").select("user_id").eq("user_id", session.user.id).maybeSingle(); // RLS: sirf apni row
+  if (!data) { await sb.auth.signOut(); toast("This account is not authorised.", "err"); return checkOwner(null); }
+  uid = session.user.id; $("login").hidden = true; $("dash").hidden = false; loadList();
+}
+function initAdmin() {
+  if (adminInit) return; adminInit = true; drawTechs();
+  if (!configured) return toast("CONFIG me Supabase keys daalo.", "err");
+  sb.auth.getSession().then(({ data }) => checkOwner(data.session));
+}
+$("loginForm").onsubmit = async e => {
+  e.preventDefault(); if (!configured) return toast("CONFIG me Supabase keys daalo.", "err");
+  $("loginBtn").disabled = true;
+  const { data, error } = await sb.auth.signInWithPassword({ email: $("email").value.trim(), password: $("pass").value });
+  $("loginBtn").disabled = false; $("pass").value = "";
+  if (error) return toast("Login failed. Email/password check karo.", "err");
+  checkOwner(data.session);
+};
+$("logout").onclick = async () => { await sb.auth.signOut(); items = []; checkOwner(null); toast("Logged out.", "ok"); };
+async function loadList() {
+  $("list").innerHTML = `<p><span class="spin"></span>Loading...</p>`;
+  const { data, error } = await sb.from("projects").select("*").order("created_at", { ascending: false });
+  if (error) { $("list").innerHTML = ""; return toast("Could not load projects.", "err"); }
+  items = data;
+  $("list").innerHTML = items.length ? items.map(p => `<div class="ai glass">
+  ${safeUrl(p.thumbnail_url) ? `<img src="${esc(safeUrl(p.thumbnail_url))}" alt="">` : `<div class="mini"></div>`}
+  <div class="meta"><strong>${esc(p.title)}</strong><span>${esc(p.category)} · ${(p.technologies || []).map(esc).join(", ")}</span></div>
+  <span class="badge ${p.published ? "on" : "off"}">${p.published ? "Published" : "Draft"}</span>
+  <button class="pill" data-a="edit" data-id="${esc(p.id)}">Edit</button>
+  <button class="pill" data-a="pub" data-id="${esc(p.id)}">${p.published ? "Unpublish" : "Publish"}</button>
+  <button class="pill danger" data-a="del" data-id="${esc(p.id)}">Delete</button></div>`).join("") : `<div class="empty glass">Abhi koi project nahi. Upar se pehla add karo.</div>`;
+}
+$("list").onclick = async e => {
+  const b = e.target.closest("[data-a]"); if (!b) return;
+  const p = items.find(x => x.id === b.dataset.id); if (!p) return;
+  if (b.dataset.a === "edit") return fillForm(p);
+  if (b.dataset.a === "pub") {
+    const { error } = await sb.from("projects").update({ published: !p.published, updated_at: new Date().toISOString() }).eq("id", p.id);
+    toast(error ? "Update failed." : "Updated.", error ? "err" : "ok"); return loadList();
   }
-];
-
-/* Do not edit below unless you want to change the page behaviour. */
-
-const grid = document.getElementById("projectGrid");
-const searchInput = document.getElementById("searchInput");
-const filterButtons = [...document.querySelectorAll("[data-filter]")];
-const viewer = document.getElementById("viewer");
-const viewerBody = document.getElementById("viewerBody");
-
-let activeFilter = "All";
-
-function safeExternalURL(value) {
+  if (!confirm(`Delete "${p.title}" permanently?`)) return;
+  const { error } = await sb.from("projects").delete().eq("id", p.id);
+  toast(error ? "Delete failed." : "Deleted.", error ? "err" : "ok"); if (!error && editing === p.id) resetForm(); loadList();
+};
+function resetForm() { editing = null; $("form").reset(); techSel = new Set(); drawTechs(); $("formTitle").textContent = "Add New Project"; $("thumbCur").textContent = $("pdfCur").textContent = ""; }
+function fillForm(p) {
+  editing = p.id; $("formTitle").textContent = "Edit Project";
+  $("title").value = p.title; $("category").value = p.category; $("description").value = p.description || "";
+  $("live").value = p.live_url || ""; $("source").value = p.source_url || ""; $("published").checked = p.published;
+  techSel = new Set(p.technologies || []); drawTechs();
+  $("thumbCur").textContent = p.thumbnail_url ? "Naya upload na karo to purani image rahegi." : "";
+  $("pdfCur").textContent = p.pdf_url ? "Naya upload na karo to purana PDF rahega." : "";
+  scrollTo({ top: 0, behavior: "smooth" });
+}
+$("newBtn").onclick = resetForm;
+async function upload(file, maxMB, types) {
+  if (!file) return null;
+  if (!types.includes(file.type)) throw new Error("Invalid file type: " + file.name);
+  if (file.size > maxMB * 1048576) throw new Error(`${file.name} is larger than ${maxMB}MB`);
+  const ext = file.name.split(".").pop().toLowerCase().replace(/[^a-z0-9]/g, "");
+  const path = `${uid}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+  const { error } = await sb.storage.from(CFG.BUCKET).upload(path, file, { contentType: file.type });
+  if (error) throw error;
+  return sb.storage.from(CFG.BUCKET).getPublicUrl(path).data.publicUrl;
+}
+$("form").onsubmit = async e => {
+  e.preventDefault();
+  const live = $("live").value.trim(), source = $("source").value.trim();
+  if ((live && !safeUrl(live)) || (source && !safeUrl(source))) return toast("URL http(s):// se start hona chahiye", "err");
+  $("saveBtn").disabled = true; $("saveBtn").innerHTML = `<span class="spin"></span>Saving...`;
   try {
-    const url = new URL(value, window.location.href);
-    if (url.protocol === "https:" || url.protocol === "http:") {
-      return url.href;
-    }
-  } catch (error) {}
-  return "";
-}
+    const row = { title: $("title").value.trim(), category: $("category").value, description: $("description").value.trim(),
+      technologies: [...techSel], live_url: live || null, source_url: source || null, published: $("published").checked, updated_at: new Date().toISOString() };
+    const t = await upload($("thumb").files[0], 5, ["image/jpeg", "image/png", "image/webp"]);
+    const f = await upload($("pdf").files[0], 10, ["application/pdf"]);
+    if (t) row.thumbnail_url = t; if (f) row.pdf_url = f;
+    const { error } = editing ? await sb.from("projects").update(row).eq("id", editing) : await sb.from("projects").insert(row);
+    if (error) throw error;
+    toast("Project saved successfully.", "ok"); resetForm(); loadList(); loadPublic();
+  } catch (err) { toast("Error: " + (err.message || "save nahi hua"), "err"); }
+  $("saveBtn").disabled = false; $("saveBtn").textContent = "Save Project";
+};
 
-function safeLocalFile(value) {
-  if (!value || typeof value !== "string") return "";
-  if (
-    value.startsWith("/") ||
-    value.includes("\\") ||
-    value.split("/").includes("..") ||
-    /^[a-z]+:/i.test(value) ||
-    value.startsWith("//")
-  ) return "";
-  return value;
-}
-
-function makeFallback(project) {
-  const box = document.createElement("div");
-  box.className = "preview-fallback " +
-    (["dark","pink","blue","green","orange"].includes(project.theme)
-      ? project.theme : "");
-
-  const top = document.createElement("span");
-  top.className = "fallback-top";
-  top.textContent = "DESIGNER197 / WEBSITE DESIGN";
-
-  const title = document.createElement("span");
-  title.className = "fallback-title";
-  title.textContent = project.title;
-
-  const bottom = document.createElement("span");
-  bottom.className = "fallback-bottom";
-  bottom.textContent = project.category + " · WEBSITE PROJECT";
-
-  box.append(top, title, bottom);
-  return box;
-}
-
-function makePreview(project) {
-  const frame = document.createElement("div");
-  frame.className = "preview";
-
-  const src = safeLocalFile(project.preview);
-
-  if (src) {
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = project.title + " website design preview";
-    img.loading = "lazy";
-    img.onerror = () => {
-      img.remove();
-      if (!frame.querySelector(".preview-fallback")) {
-        frame.appendChild(makeFallback(project));
-      }
-    };
-    frame.appendChild(img);
-  } else {
-    frame.appendChild(makeFallback(project));
-  }
-
-  return frame;
-}
-
-function makeButton(label, callback, primary = false) {
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "pill" + (primary ? " primary" : "");
-  button.textContent = label;
-  button.addEventListener("click", callback);
-  return button;
-}
-
-function makeLink(label, url, primary = false) {
-  const link = document.createElement("a");
-  link.className = "pill" + (primary ? " primary" : "");
-  link.textContent = label;
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  return link;
-}
-
-function openViewer(project) {
-  document.getElementById("viewerTitle").textContent = project.title;
-  document.getElementById("viewerDescription").textContent =
-    project.category + " · " + project.description;
-
-  viewerBody.replaceChildren();
-
-  const pdf = safeLocalFile(project.pdf);
-  const live = safeExternalURL(project.live);
-
-  const pdfOpen = document.getElementById("pdfOpen");
-  const liveOpen = document.getElementById("liveOpen");
-
-  pdfOpen.hidden = !pdf;
-  liveOpen.hidden = !live;
-
-  if (pdf) {
-    const iframe = document.createElement("iframe");
-    iframe.title = project.title + " PDF presentation";
-    iframe.src = pdf + "#view=FitH";
-    iframe.loading = "lazy";
-    viewerBody.appendChild(iframe);
-  } else {
-    const message = document.createElement("div");
-    message.className = "viewer-empty";
-    message.textContent = live
-      ? "This project has a live website. Use “Visit Website” below to explore it."
-      : "No PDF has been added for this project yet. Upload your PDF to GitHub and add its path to the PROJECTS list.";
-    viewerBody.appendChild(message);
-  }
-
-  if (pdf) {
-    pdfOpen.href = pdf;
-  } else {
-    pdfOpen.removeAttribute("href");
-  }
-
-  if (live) {
-    liveOpen.href = live;
-  } else {
-    liveOpen.removeAttribute("href");
-  }
-
-  if (!viewer.open) viewer.showModal();
-}
-
-function renderProjects() {
-  const query = searchInput.value.trim().toLowerCase();
-
-  const filtered = PROJECTS.filter(project => {
-    const matchesCategory =
-      activeFilter === "All" || project.category === activeFilter;
-
-    const text = [
-      project.title,
-      project.category,
-      project.description
-    ].join(" ").toLowerCase();
-
-    return matchesCategory && text.includes(query);
-  });
-
-  grid.replaceChildren();
-  document.getElementById("projectCount").textContent =
-    String(PROJECTS.length).padStart(2, "0");
-
-  if (!filtered.length) {
-    const empty = document.createElement("div");
-    empty.className = "empty glass";
-    empty.textContent = "No projects found. Try another search or category.";
-    grid.appendChild(empty);
-    return;
-  }
-
-  filtered.forEach((project, index) => {
-    const card = document.createElement("article");
-    card.className = "project glass";
-
-    card.appendChild(makePreview(project));
-
-    const info = document.createElement("div");
-    info.className = "project-info";
-
-    const overline = document.createElement("div");
-    overline.className = "project-overline";
-
-    const category = document.createElement("span");
-    category.className = "project-type";
-    category.textContent = project.category;
-
-    const number = document.createElement("span");
-    number.className = "project-number";
-    number.textContent = "PROJECT / " + String(index + 1).padStart(3, "0");
-
-    overline.append(category, number);
-
-    const title = document.createElement("h3");
-    title.textContent = project.title;
-
-    const description = document.createElement("p");
-    description.textContent = project.description;
-
-    const actions = document.createElement("div");
-    actions.className = "project-actions";
-
-    actions.appendChild(
-      makeButton("View Details ↗", () => openViewer(project), true)
-    );
-
-    const pdf = safeLocalFile(project.pdf);
-    const live = safeExternalURL(project.live);
-
-    if (pdf) {
-      actions.appendChild(makeLink("View PDF ↗", pdf));
-    }
-
-    if (live) {
-      actions.appendChild(makeLink("Live Website ↗", live));
-    }
-
-    info.append(overline, title, description, actions);
-    card.appendChild(info);
-    grid.appendChild(card);
-  });
-}
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    activeFilter = button.dataset.filter;
-
-    filterButtons.forEach(item => {
-      item.setAttribute(
-        "aria-pressed",
-        String(item === button)
-      );
-    });
-
-    renderProjects();
-  });
-});
-
-searchInput.addEventListener("input", renderProjects);
-
-document.getElementById("viewerClose").addEventListener("click", () => {
-  viewer.close();
-});
-
-viewer.addEventListener("click", event => {
-  if (event.target === viewer) viewer.close();
-});
-
-viewer.addEventListener("close", () => {
-  viewerBody.replaceChildren();
-});
-
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-menuToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation" : "Open navigation"
-  );
-  menuToggle.textContent = isOpen ? "✕" : "☰";
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
-    menuToggle.textContent = "☰";
-  });
-});
-
-const progress = document.getElementById("progress");
-
-function updateProgress() {
-  const maxScroll =
-    document.documentElement.scrollHeight - window.innerHeight;
-
-  const percentage = maxScroll > 0
-    ? Math.min(100, Math.max(0, window.scrollY / maxScroll * 100))
-    : 0;
-
-  progress.style.width = percentage + "%";
-}
-
-window.addEventListener("scroll", updateProgress, {passive:true});
-updateProgress();
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-renderProjects();
+loadPublic(); route();
 </script>
 </body>
 </html>
-```
